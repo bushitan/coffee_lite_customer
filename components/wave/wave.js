@@ -8,6 +8,10 @@ Component({
             type: Number,
             value: 0,
         },
+        logo: {
+            type: String,
+            value: "",
+        },
         color: {
             type: String,
             value: "#000",

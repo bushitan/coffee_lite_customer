@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/list/list",
         "pages/route/route",
+        "pages/list/list",
         "pages/store/store",
         "pages/qrcode/qrcode",
         "pages/exchange/exchange",

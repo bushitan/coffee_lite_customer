@@ -22,6 +22,7 @@
 <!-- <view style='height:10px;'></view> -->
 <wave
     score="{{detail.score_num>MAX? MAX :detail.score_num}}"
+    logo="{{store.logo}}"
 ></wave>
 
 <view wx:if="{{detail.score_num < MAX}}">    

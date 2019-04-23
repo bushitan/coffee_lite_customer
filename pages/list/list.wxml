@@ -4,7 +4,12 @@
 <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
         <block wx:for="{{list}}">
-            <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap= data-store_uuid='{{item.store_uuid}}'>
+            <view
+                class="weui-media-box weui-media-box_appmsg "
+                hover-class="weui-cell_active" 
+                catchtap='toStore' 
+                data-store_uuid='{{item.store_uuid}}'
+            >
                 <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                     <view class="weui-media-box__title">{{item.title}}</view>
                     <view class="weui-media-box__desc">已集7点</view>

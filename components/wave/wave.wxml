@@ -2,7 +2,9 @@
 <view class="zr">
     <view class='user_box' hidden="{{isShowInfo}}">
         <view class='userInfo'>
-            <open-data type="userAvatarUrl"></open-data>
+            <!-- <open-data type="userAvatarUrl"></open-data> -->
+            
+            <image class='logo' src='{{logo}}'></image>
         </view>
         <view class='userInfo_name'>
             <open-data type="userNickName"></open-data>，欢迎您
