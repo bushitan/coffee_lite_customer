@@ -1,0 +1,73 @@
+<!--pages/user/user.wxml-->
+<!-- <text>pages/user/user.wxml</text> -->
+
+<!-- 用户 openid -->
+        <!-- style="background-image: url({{avatarUrl}})" -->
+<!-- <view class="userinfo">
+    <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        class="userinfo-avatar"
+        style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+        <view class='title' catchlongtap='copyID'>买10送1集点卡</view>
+        <view class='date'>有效期：2020-1-1</view>
+    </view>
+    <view class='weui-cell__bd'></view>
+    <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
+</view> -->
+
+
+<!-- <view style='height:10px;'></view> -->
+<wave
+    score="{{detail.score_num>MAX? MAX :detail.score_num}}"
+></wave>
+
+<view wx:if="{{detail.score_num < MAX}}">    
+    <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
+</view>
+<view wx:else style='text-align:center'>
+    <button catchtap='exchangePrize' type='primary' size="mini" style='background-color:#efaf30;'>兑换</button>
+</view>
+
+
+
+<view style='height:10px;'></view>
+<view class="weui-panel weui-panel_access" >
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toExchange'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">兑换记录</view>
+                <view class="weui-media-box__desc">已兑换{{detail.prize_num}}杯</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
+            </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">分享福利</view>
+                <view class="weui-media-box__desc">您有{{detail.share_num}}张福利券</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/menu_share.png" />
+            </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toAddress'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">店铺地址</view>
+                <view class="weui-media-box__desc">常来店里坐坐</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/menu_address.png" />
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- <view class="weui-loadmore weui-loadmore_line" >
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
+        索骏科技提供服务
+    </view>
+</view> -->

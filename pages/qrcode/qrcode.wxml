@@ -1,0 +1,4 @@
+<!--pages/qrcode/qrcode.wxml-->
+
+<view class='title'>{{title}}</view>
+<qrcode placeholder="{{userQR}}"></qrcode>
