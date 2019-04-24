@@ -1,5 +1,6 @@
 
 var API = require('api.js')
+var IS_CUSTOMER = true
 class db {
     constructor() {
     }
@@ -36,15 +37,27 @@ class db {
 
     /****业务详情****/
     //用户登录认证
-    async login(){
+    async login() {
         var code = await this.getWXCode()
         var res = await this.base({
-            url:API.ROUTE_USER_LOGIN,
-            data: { 
-                code:code,
-                is_customer:true,
+            url: API.ROUTE_USER_LOGIN,
+            data: {
+                code: code,
+                is_customer: IS_CUSTOMER,
                 uuid: wx.getStorageSync(API.UUID),
             }
+        })
+        return res.data.data
+    }
+
+    //用户更新信息
+    async userUpdate(userInfo) {
+        var data = userInfo
+        data['is_customer'] = IS_CUSTOMER
+        data['uuid'] = wx.getStorageSync(API.UUID)       
+        var res = await this.base({
+            url: API.ROUTE_USER_UPDATE,
+            data: data
         })
         return res.data.data
     }
@@ -68,16 +81,30 @@ class db {
         return res.data.data
     }
 
-    // 店铺数据
-    async storeDetail(store_uuid) {
+    // 店铺单项详细数据
+    async storeData(store_uuid) {
         var res = await this.base({
             url: API.STORE_DATA_CUSTOMER,
             data: {
+                // model:model,
                 store_uuid: store_uuid,
             }
         })
         return res.data.data
     }
+    // 店铺单项详细数据
+    async storeDetail(model,store_uuid) {
+        var res = await this.base({
+            url: API.STORE_DETAIL_CUSTOMER,
+            data: {
+                model:model,
+                store_uuid: store_uuid,
+            }
+        })
+        return res.data.data
+    }
+
+
 
     // 获取更新数据
     async refresh(model,store_uuid) {

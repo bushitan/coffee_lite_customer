@@ -11,6 +11,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isShowLogin:false,
     },
 
     /**
@@ -18,16 +19,10 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        // wx.showLoading({
-        //     title: '加载中...',
-        // }) 
-        // console.log("route:",options)
-
-        // GP.checkShare(options)
-            
-        // GP.loginCheck()
+        wx.showLoading({
+            title: '加载中...',
+        }) 
         GP.login(options)
-        // console.log(db.login())
     },    
 
     // 登陆获取用户信息
@@ -36,7 +31,21 @@ Page({
         console.log(userInfo)
         wx.setStorageSync(API.UUID, userInfo.uuid)
         wx.setStorageSync(API.OPEN_ID, userInfo.wx_openid)
-        
+        GP.setData({
+            options:options
+        })
+
+        wx.hideLoading()
+        var isHasAuth = await GP.checkHasAuth()
+        if (isHasAuth)
+            GP.nav()
+        else
+            GP.setData({ isShowLogin:true})
+
+    },
+
+    nav(){
+        var options = GP.data.options
         if (options.hasOwnProperty('store_uuid'))
             wx.redirectTo({
                 url: `/pages/store/store?store_uuid=${options.store_uuid}`,
@@ -45,9 +54,31 @@ Page({
             wx.redirectTo({
                 url: `/pages/list/list`,
             })
-
     },
 
+
+
+    // 检测是否用户授权
+    checkHasAuth() {
+        return new Promise((resolve, reject) => {
+            wx.getSetting({
+                success(res) {
+                    console.log(res.authSetting)
+                    resolve(res.authSetting.hasOwnProperty("scope.userInfo"))
+                }
+            })
+        })
+    },
+
+
+    //获取\更新用户头像信息
+    onGetUserInfo: function (e) {
+        if (!this.logged && e.detail.userInfo) {
+            db.userUpdate(e.detail.userInfo).then( res => {
+                GP.nav()
+            })
+        }
+    },
 
 
 

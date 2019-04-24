@@ -8,7 +8,7 @@
         </view>
         <view class='userInfo_name'>
             <open-data type="userNickName"></open-data>，欢迎您
-            <view class='discount'>集点活动：买10送1</view>
+            <view class='discount'>{{summary}}</view>
         </view>
     </view>
     <view class="water">

@@ -12,6 +12,10 @@ Component({
             type: String,
             value: "",
         },
+        summary: {
+            type: String,
+            value: "",
+        },
         color: {
             type: String,
             value: "#000",

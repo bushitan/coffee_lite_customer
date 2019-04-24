@@ -15,7 +15,7 @@
                     <view class="weui-media-box__desc">已集7点</view>
                 </view>
                 <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                    <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
+                    <image class="weui-media-box__thumb" src="{{item.logo}}" />
                 </view>
             </view>
         </block>

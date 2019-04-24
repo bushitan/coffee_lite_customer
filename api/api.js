@@ -20,6 +20,8 @@ module.exports = {
     APP_ID: "app_id",
     UNION_ID: "union_id",
     ROUTE_USER_LOGIN: `${URL}route/user/login/`,
+    ROUTE_USER_UPDATE: `${URL}route/user/update/`,
+
     STORE_INFO: `${URL}store/info/`,
 
     STORE_LIST_CUSTOMER: `${URL}store/list/customer/`,

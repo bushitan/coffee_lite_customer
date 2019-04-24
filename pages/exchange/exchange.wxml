@@ -2,11 +2,11 @@
 
 <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
-        <block wx:for="{{prizeList}}">
+        <block wx:for="{{detailList}}">
             <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
                 <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                     <view class="weui-media-box__title">兑换1杯</view>
-                    <view class="weui-media-box__desc">{{item.checkTime}}</view>
+                    <view class="weui-media-box__desc">{{item.create_time}}</view>
                 </view>
                 <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                     <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />

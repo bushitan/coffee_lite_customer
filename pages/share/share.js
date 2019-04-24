@@ -1,8 +1,8 @@
-// pages/share/share.js
+// pages/exchange/exchange.js
+var GP
 var API = require('../../api/api.js')
-var ActionScore// = require('../../action/action_score.js')
-// var action_score = new ActionScore()
-var GP 
+var DB = require('../../api/db.js')
+var db = new DB()
 Page({
 
     /**
@@ -10,7 +10,7 @@ Page({
      */
     data: {
         isLoading: true,
-        shareList:[],
+        prizeList: [],
     },
 
     /**
@@ -18,16 +18,43 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
-            console.log(res)
-            GP.setData({
-                isLoading: false,
-                scoreList: res.score.data,
-                prizeList: res.prize.data,
-                shareList: res.share.data
-            })
-        })
+
+        GP.getStoreDetail(options)
+        // action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
+        //     console.log(res)
+        //     GP.setData({
+        //         isLoading:false,
+        //         scoreList: res.score.data,
+        //         prizeList: res.prize.data,
+        //         shareList: res.share.data
+        //     })
+        // })
     },
+    async getStoreDetail(options) {
+        var store_uuid = options.store_uuid
+        detailList = await db.storeDetail(
+            "share",
+            store_uuid
+        )
+
+        var pages = getCurrentPages()
+        var prevPage = pages[pages.length - 2]
+        var store = prevPage.data.store
+        GP.setData({
+            isLoading: false,
+            detailList: detailList,
+            store: store,
+        })
+
+        // // console.log(list)
+        // detail = await db.storeDetail(store_uuid)
+
+        // GP.setData({
+        //     store: store,
+        //     detail: detail
+        // })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -74,12 +101,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function (e) {
-        var scoreID = e.target.dataset.score_id
-        var path = e.target.dataset.path
-        console.log(path)
-        return {
-            path: path
-        }
+    onShareAppMessage: function () {
+
     }
 })

@@ -1,8 +1,8 @@
 // pages/exchange/exchange.js
+var GP
 var API = require('../../api/api.js')
-var ActionScore// = require('../../action/action_score.js')
-// var action_score = new ActionScore()
-var GP 
+var DB = require('../../api/db.js')
+var db = new DB()
 Page({
 
     /**
@@ -18,16 +18,38 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
-            console.log(res)
-            GP.setData({
-                isLoading:false,
-                scoreList: res.score.data,
-                prizeList: res.prize.data,
-                shareList: res.share.data
-            })
-        })
+
+        GP.getStoreDetail(options)
+        // action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
+        //     console.log(res)
+        //     GP.setData({
+        //         isLoading:false,
+        //         scoreList: res.score.data,
+        //         prizeList: res.prize.data,
+        //         shareList: res.share.data
+        //     })
+        // })
     },
+    async getStoreDetail(options) {
+        var store_uuid = options.store_uuid
+        detailList = await db.storeDetail(
+            "prize",
+            store_uuid
+        )
+        GP.setData({
+            isLoading: false,
+            detailList: detailList,
+        })
+
+        // // console.log(list)
+        // detail = await db.storeDetail(store_uuid)
+
+        // GP.setData({
+        //     store: store,
+        //     detail: detail
+        // })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

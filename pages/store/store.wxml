@@ -21,11 +21,11 @@
 
 <!-- <view style='height:10px;'></view> -->
 <wave
-    score="{{detail.score_num>MAX? MAX :detail.score_num}}"
+    score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
     logo="{{store.logo}}"
+    summary="{{store.summary}}"
 ></wave>
-
-<view wx:if="{{detail.score_num < MAX}}">    
+<view wx:if="{{data.score_num < store.exchange_value}}">    
     <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
 </view>
 <view wx:else style='text-align:center'>
@@ -40,7 +40,7 @@
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toExchange'>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                 <view class="weui-media-box__title">兑换记录</view>
-                <view class="weui-media-box__desc">已兑换{{detail.prize_num}}杯</view>
+                <view class="weui-media-box__desc">已兑换{{data.prize_num}}杯</view>
             </view>
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
@@ -49,7 +49,7 @@
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                 <view class="weui-media-box__title">分享福利</view>
-                <view class="weui-media-box__desc">您有{{detail.share_num}}张福利券</view>
+                <view class="weui-media-box__desc">您有{{data.share_num}}张福利券</view>
             </view>
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="../../images/menu_share.png" />

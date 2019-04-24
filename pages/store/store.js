@@ -1,8 +1,10 @@
+
 // pages/list/list.js
 var GP
 var API = require('../../api/api.js')
 var DB = require('../../api/db.js')
 var db = new DB()
+var interval
 Page({
 
     /**
@@ -18,28 +20,45 @@ Page({
     onLoad: function (options) {
         GP = this
         GP.getStoreData(options)
+        GP.interval()
+    },
+    interval(){
+        interval = setInterval(function () {
+            db.refresh().then( res =>{
+                console.log(res)
+            })
+        }, 4000)
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+        console.log("onUnload")
+        clearInterval(interval)
+        console.log(interval)
     },
 
     async getStoreData(options){
         var store_uuid = options.store_uuid
         store = await db.storeInfo(store_uuid)
         // console.log(list)
-        detail = await db.storeDetail(store_uuid)
+        data = await db.storeData(store_uuid)
 
         GP.setData({
             store: store,
-            detail: detail
+            data: data
         })
     },
 
     toExchange(){
         wx.navigateTo({
-            url: `/pages/exchange/exchange?store_uuid=${GP.data.store.store_uuid}`
+            url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`
         })
     },
     toShare() {
         wx.navigateTo({
-            url: `/pages/share/share?store_uuid=${GP.data.store.store_uuid}`
+            url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
         })
     },
     // 去到定位页面
@@ -53,6 +72,16 @@ Page({
         })
 
     },
+
+
+    // 到集点二维码
+    toQR() {
+        wx.navigateTo({
+            url: '/pages/qrcode/qrcode?mode=score',
+        })
+    },
+
+    
     // toExchange() {
     //     wx.navigateTo({
     //         url: `/pages/exchange/exchang?store_uuid=${GP.data.store.store_uuid}`
@@ -89,13 +118,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
+   
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
