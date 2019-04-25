@@ -1,6 +1,14 @@
 <!--pages/list/list.wxml-->
 
-
+<view class="page" wx:if='{{list.length == 0}}'>
+    <view class="page__hd">
+        <view class="page__title">您还未到店集点哦！</view>
+        <view class="page__desc">赶紧联系管理员，到店喝咖啡享福利吧！</view>
+    </view>
+    <view style='padding:10px 40px;'>        
+        <button catchtap='toPhone' type='primary' style='background-color:#1d2a6d;'>联系管理员</button>
+    </view>
+</view>    
 <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
         <block wx:for="{{list}}">

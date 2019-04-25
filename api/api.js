@@ -9,7 +9,7 @@ var APP_ID = "wxeb9623bdc85a64f4"
 // var XCX_308_URL = 'https://www.12xiong.top/live/';
 // request.init(XCX_308_URL + 'lite/login/', APP_ID)
 
-var HOST = "http://www.51zfgx.com:8080/"
+var HOST = "https://www.51zfgx.com/"
 var URL = HOST + "lite/"
 
 module.exports = {
