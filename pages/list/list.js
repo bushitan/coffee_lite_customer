@@ -17,7 +17,7 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        // GP.getStoreList()
+        GP.getStoreList()
     },
 
     async getStoreList(){
