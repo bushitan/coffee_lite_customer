@@ -1,4 +1,5 @@
 // pages/qrcode/qrcode.js
+var API = require('../../api/api.js')
 Page({
 
     /**
@@ -22,11 +23,11 @@ Page({
         var title, userQR
         if (mode == "score") {
             title = "向商家集点"
-            userQR = "score," + wx.getStorageSync("user_id")
+            userQR = "score," + wx.getStorageSync(API.UUID)
         }
         else{
             title = "兑换咖啡"
-            userQR = "prize," + wx.getStorageSync("user_id")
+            userQR = "prize," + wx.getStorageSync(API.UUID)
         }
         this.setData({
             title:title,

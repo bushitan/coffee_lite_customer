@@ -8,6 +8,10 @@ Component({
             type: Number,
             value: 0,
         },
+        exchange: {
+            type: Number,
+            value: 10,
+        },
         logo: {
             type: String,
             value: "",

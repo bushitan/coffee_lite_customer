@@ -79,8 +79,12 @@ Page({
         wx.navigateTo({
             url: '/pages/qrcode/qrcode?mode=score',
         })
+    },   // 到集点二维码
+    toExchangeQR() {
+        wx.navigateTo({
+            url: '/pages/qrcode/qrcode?mode=prize',
+        })
     },
-
     
     // toExchange() {
     //     wx.navigateTo({

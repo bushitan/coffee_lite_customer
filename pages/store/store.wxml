@@ -22,6 +22,7 @@
 <!-- <view style='height:10px;'></view> -->
 <wave
     score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
+    exchange="{{store.exchange_value}}"
     logo="{{store.logo}}"
     summary="{{store.summary}}"
 ></wave>
@@ -29,7 +30,7 @@
     <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
 </view>
 <view wx:else style='text-align:center'>
-    <button catchtap='exchangePrize' type='primary' size="mini" style='background-color:#efaf30;'>兑换</button>
+    <button catchtap='toExchangeQR' type='primary' size="mini" style='background-color:#efaf30;'>兑换</button>
 </view>
 
 
