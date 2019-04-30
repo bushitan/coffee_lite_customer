@@ -102,12 +102,31 @@ border: 2px solid #fff;
     margin:40px 0 0;
 }
 .score{
+    position: relative;
     display: flex;
     justify-content: center;
 }
 .score .icon{
-    width: 40%;
+    /* width: 40%; */
+    width: 150px;
+    height: 64px;
+    z-index: 999;
 }
+.score .water{
+    position: absolute;
+    bottom: 0;
+    height: 64px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    /* left: 30%; */
+}
+.score .water .bg{
+    width: 150px;
+    background-color: #efaf30;
+}
+
 .rate{
     color:#1d2a6d;
     text-align: center;
