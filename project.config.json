@@ -39,13 +39,27 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
 					"name": "store",
 					"pathName": "pages/store/store",
 					"query": "store_uuid=ff1f7ada-63d8-11e9-a3f6-b83312f00bac",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "route",
+					"pathName": "pages/route/route",
+					"query": "mode=share&store_uuid=ff1f7ada-63d8-11e9-a3f6-b83312f00bac&share_uuid=92364776-6bf8-11e9-b2b0-b83312f00bac",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "share",
+					"pathName": "pages/share/share",
+					"query": "",
 					"scene": null
 				}
 			]

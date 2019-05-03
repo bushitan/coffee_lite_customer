@@ -39,16 +39,20 @@ Page({
         console.log(interval)
     },
 
-    async getStoreData(options){
+    // 获取门店数据 
+    // 绑定客户与门店的关系
+    getStoreData(options){
         var store_uuid = options.store_uuid
-        store = await db.storeInfo(store_uuid)
-        // console.log(list)
-        data = await db.storeData(store_uuid)
-
-        GP.setData({
-            store: store,
-            data: data
-        })
+        // API
+        db.storeInfo(store_uuid).then(store => {
+        // API
+            db.storeData(store_uuid).then(data=>{
+                GP.setData({
+                    store: store,
+                    data: data
+                })
+            })
+        })       
     },
 
     toExchange(){
@@ -72,8 +76,6 @@ Page({
         })
 
     },
-
-
     // 到集点二维码
     toQR() {
         wx.navigateTo({
@@ -84,57 +86,6 @@ Page({
         wx.navigateTo({
             url: '/pages/qrcode/qrcode?mode=prize',
         })
-    },
-    
-    // toExchange() {
-    //     wx.navigateTo({
-    //         url: `/pages/exchange/exchang?store_uuid=${GP.data.store.store_uuid}`
-    //     })
-    // },
-
-    // toStore(e) {
-    //     var store_uuid = e.currentTarget.dataset.store_uuid
-    //     wx.navigateTo({
-    //         url: `/pages/store/store?store_uuid=${store_uuid}`,
-    //     })
-    // },
-
-
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-   
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
     },
 
     /**

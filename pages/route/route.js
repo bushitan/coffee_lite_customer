@@ -26,35 +26,59 @@ Page({
     },    
 
     // 登陆获取用户信息
-    async login(options){
-        var userInfo = await db.login()
-        console.log(userInfo)
-        wx.setStorageSync(API.UUID, userInfo.uuid)
-        wx.setStorageSync(API.OPEN_ID, userInfo.wx_openid)
-        GP.setData({
-            options:options
+    login(options){
+        // API
+        db.login().then(userInfo =>{
+            console.log(userInfo)
+            wx.setStorageSync(API.UUID, userInfo.uuid)
+            wx.setStorageSync(API.OPEN_ID, userInfo.wx_openid)
+            GP.setData({
+                options: options
+            })
+            wx.hideLoading()
+            // API
+            GP.checkHasAuth().then(isHasAuth => {
+                if (isHasAuth)
+                    GP.nav()
+                else
+                    GP.setData({ isShowLogin: true })
+            })
         })
-
-        wx.hideLoading()
-        var isHasAuth = await GP.checkHasAuth()
-        if (isHasAuth)
-            GP.nav()
-        else
-            GP.setData({ isShowLogin:true})
 
     },
 
     nav(){
         var options = GP.data.options
-        if (options.hasOwnProperty('store_uuid'))
-            wx.redirectTo({
-                url: `/pages/store/store?store_uuid=${options.store_uuid}`,
-            })
+        
+        if (options.hasOwnProperty('mode')){
+            var store_uuid = options.store_uuid
+            if (options.mode == "share") { // share 模式
+                // TODO 查询分享结果
+                db.storeShare(options.share_uuid).then(message => {
+                    
+                    wx.showModal({
+                        title: message.title || "",
+                        content: message.content || "",
+                    })
+                    GP.toStore(store_uuid)
+                })
+            } else {
+                GP.toStore(store_uuid)
+            }       
+        }
         else
             wx.redirectTo({
                 url: `/pages/list/list`,
             })
     },
+
+    toStore(store_uuid) {
+        wx.redirectTo({
+            url: `/pages/store/store?store_uuid=${store_uuid}`,
+        })  
+    },
+
+
 
 
 

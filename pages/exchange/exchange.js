@@ -30,24 +30,17 @@ Page({
         //     })
         // })
     },
-    async getStoreDetail(options) {
+    getStoreDetail(options) {
         var store_uuid = options.store_uuid
-        detailList = await db.storeDetail(
+        db.storeDetail(
             "prize",
             store_uuid
-        )
-        GP.setData({
-            isLoading: false,
-            detailList: detailList,
+        ).then(detailList=>{
+            GP.setData({
+                isLoading: false,
+                detailList: detailList,
+            })
         })
-
-        // // console.log(list)
-        // detail = await db.storeDetail(store_uuid)
-
-        // GP.setData({
-        //     store: store,
-        //     detail: detail
-        // })
     },
 
 

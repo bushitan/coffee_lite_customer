@@ -19,8 +19,9 @@
                     class='share'  
                     open-type='share'
                     data-share_uuid="{{item.uuid}}"
-                    data-path="/pages/route/route?is_share=1&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
+                    data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
                 ></button>
+                <!-- mode=share&store_uuid=ff1f7ada-63d8-11e9-a3f6-b83312f00bac&share_uuid=92364776-6bf8-11e9-b2b0-b83312f00bac -->
             </view>
         </block>
     </view>

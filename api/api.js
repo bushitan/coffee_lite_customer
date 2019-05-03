@@ -27,6 +27,7 @@ module.exports = {
     STORE_LIST_CUSTOMER: `${URL}store/list/customer/`,
     STORE_DATA_CUSTOMER: `${URL}store/data/customer/`,
     STORE_DETAIL_CUSTOMER: `${URL}store/detail/customer/`,
+    STORE_SHARE_CUSTOMER: `${URL}store/share/customer/`,
     REFRESH_CUSTOMER: `${URL}refresh/customer/`,
     
 }
