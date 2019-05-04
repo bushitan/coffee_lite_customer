@@ -89,7 +89,7 @@ class db {
         })
     }
 
-    // 店铺单项详细数据
+    // 店铺总共详细数据
     storeData(store_uuid) {
         return new Promise((resolve, reject) => {
             this.base({
@@ -98,7 +98,7 @@ class db {
                     // model:model,
                     store_uuid: store_uuid,
                 }
-            }).then(res => resolve(res.data.data))
+            }).then(res => resolve(res.data))
         })
     }
     // 店铺单项详细数据
@@ -123,7 +123,7 @@ class db {
                 data: {
                     share_uuid: share_uuid
                 }
-            }).then(res => resolve(res.data.data))
+            }).then(res => resolve(res.data))
         })
     }
 
@@ -138,7 +138,7 @@ class db {
                     model: model,
                     store_uuid: store_uuid,
                 }
-            }).then(res => resolve(res.data.data))
+            }).then(res => resolve(res.data))
         })
     }
 }

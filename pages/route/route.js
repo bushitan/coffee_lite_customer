@@ -54,8 +54,9 @@ Page({
             var store_uuid = options.store_uuid
             if (options.mode == "share") { // share 模式
                 // TODO 查询分享结果
-                db.storeShare(options.share_uuid).then(message => {
-                    
+                db.storeShare(options.share_uuid).then(res => {
+                    var message = res.message
+                    var data = res.data
                     wx.showModal({
                         title: message.title || "",
                         content: message.content || "",

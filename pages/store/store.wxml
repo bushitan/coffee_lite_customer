@@ -17,7 +17,9 @@
     <view class='weui-cell__bd'></view>
     <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
 </view> -->
-
+<view  class='back' wx:if="{{showBack}}" catchtap='back'>
+    <image src='../../images/back.png'></image>
+</view>
 
 <!-- <view style='height:10px;'></view> -->
 <wave

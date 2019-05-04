@@ -101,6 +101,11 @@ border: 2px solid #fff;
 .dian{
     margin:40px 0 0;
 }
+.score_title{
+    color: #efaf30;
+    text-align: center;
+    font-size: 25pt;
+}
 .score{
     position: relative;
     display: flex;
@@ -110,7 +115,7 @@ border: 2px solid #fff;
     /* width: 40%; */
     width: 150px;
     height: 64px;
-    z-index: 999;
+    z-index: 999999;
 }
 .score .water{
     position: absolute;
@@ -120,17 +125,19 @@ border: 2px solid #fff;
     display: flex;
     justify-content: center;
     align-items:flex-end;
+    z-index: -99999;
     /* left: 30%; */
 }
 .score .water .bg{
-    width: 150px;
+    width: 140px;
     background-color: #efaf30;
+    margin-bottom: 2px;
 }
 
 .rate{
     color:#1d2a6d;
     text-align: center;
-    font-size: 15pt;
+    font-size: 20pt;
     font-weight: bolder;
 }
 .rate label{

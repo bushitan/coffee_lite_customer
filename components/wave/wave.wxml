@@ -24,7 +24,7 @@
 <wxs module="MATH">
   var height =  function(score,max){
     var r = parseFloat(score/max)
-    return r*50 + 7
+    return r*50 + 5
   }; 
   module.exports.height = height;
 </wxs>
@@ -33,6 +33,7 @@
     <!-- <view class='score'>
         <image class='icon' src='../../images/icon_score.png' mode='widthFix'></image>
     </view> -->
+    <!-- <view class='score_title'>{{score}}</view> -->
     <view class='score'>
         <view class='water'>  
             <view class='bg' style='height: {{MATH.height(score,exchange)}}px;'></view>  

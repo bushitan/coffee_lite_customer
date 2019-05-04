@@ -14,20 +14,21 @@ Page({
      */
     onLoad: function (options) {
         var mode = options.mode
+        var store_uuid = options.store_uuid
 
-        this.setMode(mode)
+        this.setMode(mode, store_uuid)
  
     },
 
-    setMode(mode){
+    setMode(mode, store_uuid){
         var title, userQR
         if (mode == "score") {
             title = "向商家集点"
-            userQR = "score," + wx.getStorageSync(API.UUID)
+            userQR = `score,${wx.getStorageSync(API.UUID)},${store_uuid}`
         }
         else{
             title = "兑换咖啡"
-            userQR = "prize," + wx.getStorageSync(API.UUID)
+            userQR = `prize,${wx.getStorageSync(API.UUID)},${store_uuid}`
         }
         this.setData({
             title:title,
