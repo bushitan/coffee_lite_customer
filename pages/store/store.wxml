@@ -40,6 +40,15 @@
 <view style='height:10px;'></view>
 <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">赠饮福利</view>
+                <view class="weui-media-box__desc">您有{{data.share_num}}张福利券</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/menu_share.png" />
+            </view>
+        </view>
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toExchange'>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                 <view class="weui-media-box__title">兑换记录</view>
@@ -47,15 +56,6 @@
             </view>
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
-            </view>
-        </view>
-        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
-            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                <view class="weui-media-box__title">分享福利</view>
-                <view class="weui-media-box__desc">您有{{data.share_num}}张福利券</view>
-            </view>
-            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                <image class="weui-media-box__thumb" src="../../images/menu_share.png" />
             </view>
         </view>
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toAddress'>

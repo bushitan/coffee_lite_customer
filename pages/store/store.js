@@ -28,6 +28,7 @@ Page({
         GP.getStoreData(options)
         GP.interval()
         GP.isShowBack()
+        
     },
     isShowBack(){
         var pages = getCurrentPages()
@@ -66,7 +67,10 @@ Page({
                                 }                                    
                             }
                             if ( msg.code == CODE_SHARE_SUCCESS){
-                                GP.toShare()
+                                // GP.toShare()
+                                wx.redirectTo({
+                                    url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
+                                })
                                 // wx.navigateTo({
                                 //     url: '/pages/share/share',
                                 // })

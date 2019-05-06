@@ -43,11 +43,12 @@ Page({
      */
     onShareAppMessage: function (e) {
         console.log(e)
+        console.log(GP.data)
         if (e.from == 'button')
             return {
-                title: GP.data.store.title + '的分享券',
+                title: GP.data.store.share_title,
                 path: e.target.dataset.path,
-                imageUrl: GP.data.store.logo,
+                imageUrl: GP.data.store.share_logo,
             }
     }
 })
