@@ -10,8 +10,12 @@
                     <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
                 </view>
                 <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                    <view class="weui-media-box__title">分享券</view>
-                    <view class="weui-media-box__desc">点击此券分享好友，您获得{{store.share_check_value}}点，他也获得{{store.share_gift_value}}点</view>
+                    <view class="weui-media-box__title">福利券</view>
+                    <view class="weui-media-box__desc">
+                        <view>点击此券分享{{item.alive}}个好友</view>
+                        <view>您获得{{store.share_check_value}}点</view>
+                        <view>每个好友获得{{store.share_gift_value}}点</view>
+                    </view>
                     <view class="weui-media-box__desc">有效时间：{{item.create_time}}</view>
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
