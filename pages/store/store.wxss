@@ -85,6 +85,20 @@
     width: 80px;
     height: 80px;
 }
+/***********二维码。兑换按钮*********/
+ .score_qr {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #888;  
+     font-size: 11;
+}
+ .score_qr image{
+    width:32px;
+    height:32px;
+    margin-right: 2px;    
+}
+
 
 
 /*******分享******/

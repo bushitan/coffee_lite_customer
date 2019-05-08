@@ -29,10 +29,13 @@
     summary="{{store.summary}}"
 ></wave>
 <view wx:if="{{data.score_num < store.exchange_value}}">    
-    <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
+    <view class='score_qr' catchtap='toQR'>
+        <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
+        <label>集点码</label>
+    </view>
 </view>
 <view wx:else style='text-align:center'>
-    <button catchtap='toExchangeQR' type='primary' size="mini" style='background-color:#efaf30;'>兑换</button>
+    <button catchtap='toExchangeQR' type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button>
 </view>
 
 
@@ -43,7 +46,7 @@
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                 <view class="weui-media-box__title">赠饮福利</view>
-                <view class="weui-media-box__desc">您有{{data.share_num}}张福利券</view>
+                <view class="weui-media-box__desc">您有{{data.share_num}}张福利分享券</view>
             </view>
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="../../images/menu_share.png" />

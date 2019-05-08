@@ -9,8 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isLoading: true,
-        prizeList: [],
+        isLoading: !true,
+        detailList: [],
     },
 
     /**
@@ -19,6 +19,7 @@ Page({
     onLoad: function (options) {
         GP = this
 
+       
         GP.getStoreDetail(options)
     },
     getStoreDetail(options) {
@@ -50,5 +51,6 @@ Page({
                 path: e.target.dataset.path,
                 imageUrl: GP.data.store.share_logo,
             }
+            
     }
 })

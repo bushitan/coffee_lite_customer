@@ -1,31 +1,53 @@
 <!--pages/share/share.wxml-->
 
 
-<!-- <view class="weui-cells__title">我的集点分享券</view> -->
+<!-- <view class="weui-cells__title">我的集点分享券</view>  hover-class="weui-cell_active"-->
 <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd">
         <block wx:for="{{detailList}}">
-            <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
+            <view class="weui-media-box weui-media-box_appmsg ">
                 <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                     <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
                 </view>
                 <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                    <view class="weui-media-box__title">福利券</view>
+                    <view class="weui-media-box__title">福利分享券</view>
                     <view class="weui-media-box__desc">
-                        <view>点击此券分享{{item.alive}}个好友</view>
-                        <view>您获得{{store.share_check_value}}点</view>
-                        <view>每个好友获得{{store.share_gift_value}}点</view>
+                        <view class='content'>
+                            <label class='mark'>分享规则</label> 
+                            按钮分享<label class='num'>{{item.alive}}</label>个好友
+                        </view>
+                        <view class='content'>
+                            <label class='mark'>您的福利</label> 
+                            您获得<label class='num'>{{store.share_check_value}}</label>点
+                        </view>
+                        <view class='content'>
+                            <label class='mark'>好友福利</label> 
+                            每个好友获得<label class='num'>{{store.share_gift_value}}</label>点
+                        </view>
+                        <view class='content'>
+                            <label class='mark'>有效时间</label>
+                             {{item.create_time}}
+                        </view>
                     </view>
-                    <view class="weui-media-box__desc">有效时间：{{item.create_time}}</view>
+                    <!-- <view class="weui-media-box__desc">有效时间：{{item.create_time}}</view> -->
                 </view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+                
                 <button 
+                    class='share_1'  
+                    size='mini'
+                    style='background-color:#1d2a6d;color:#ffffff;'
+                    open-type='share'
+                    data-share_uuid="{{item.uuid}}"
+                    data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
+                >分享</button>
+
+                <!-- <button 
                     class='share'  
                     open-type='share'
                     data-share_uuid="{{item.uuid}}"
                     data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
-                ></button>
-                <!-- mode=share&store_uuid=ff1f7ada-63d8-11e9-a3f6-b83312f00bac&share_uuid=92364776-6bf8-11e9-b2b0-b83312f00bac -->
+                ></button> -->
             </view>
         </block>
     </view>

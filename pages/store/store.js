@@ -55,15 +55,16 @@ Page({
                         title: msg.title,
                         content: msg.content,
                         success() {
+                            GP.updateStoreData() //直接刷新
                             if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) {
                                 var pages = getCurrentPages()
                                 var currentPage = pages[pages.length - 1]                                
                                 if (currentPage.__route__ == "pages/qrcode/qrcode"){
-                                    var prePage = pages[pages.length - 2]
-                                    prePage.updateStoreData()
+                                    // var prePage = pages[pages.length - 2]
+                                    // prePage.updateStoreData()
                                     wx.navigateBack({})
                                 } else if (currentPage.__route__ == "pages/store/store") {
-                                    currentPage.updateStoreData()
+                                    // currentPage.updateStoreData()
                                 }                                    
                             }
                             if ( msg.code == CODE_SHARE_SUCCESS){

@@ -7,4 +7,22 @@
   z-index: 99;
 }
 
+
+.content{
+    margin: 3px 0; 
+    line-height: 14pt;
+}
+.mark{
+    color: #ffffff;
+    background-color:#efaf30;
+    padding: 2px 4px;
+    margin-right: 2px;
+}
+.num{
+    color: #efaf30;
+    font-size: 13pt !important;
+    /* background-color:#efaf30; */
+}
+
+
 .weui-panel:after{display:none !important;}

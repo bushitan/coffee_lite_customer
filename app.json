@@ -12,6 +12,7 @@
         "backgroundColor": "#ffffff",
         "navigationBarBackgroundColor": "#efaf30",
         "navigationBarTitleText": "分享集点卡",
+        "enablePullDownRefresh":true,
         "navigationBarTextStyle": "white"
     },
     "permission": {

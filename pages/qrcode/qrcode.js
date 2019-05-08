@@ -23,12 +23,20 @@ Page({
     setMode(mode, store_uuid){
         var title, userQR
         if (mode == "score") {
-            title = "向商家集点"
+            title = "我的集点码"
             userQR = `score,${wx.getStorageSync(API.UUID)},${store_uuid}`
         }
         else{
-            title = "兑换咖啡"
+            title = "福利兑换码"
             userQR = `prize,${wx.getStorageSync(API.UUID)},${store_uuid}`
+            wx.setNavigationBarColor({
+                frontColor: '#ffffff',
+                backgroundColor: '#1d2a6d',
+                animation: {
+                    duration: 400,
+                    timingFunc: 'easeIn'
+                }
+            })
         }
         this.setData({
             title:title,
