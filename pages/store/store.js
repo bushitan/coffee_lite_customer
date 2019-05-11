@@ -69,7 +69,7 @@ Page({
                             }
                             if ( msg.code == CODE_SHARE_SUCCESS){
                                 // GP.toShare()
-                                wx.redirectTo({
+                                wx.navigateTo({
                                     url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
                                 })
                                 // wx.navigateTo({

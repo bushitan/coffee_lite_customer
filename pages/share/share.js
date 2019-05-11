@@ -24,19 +24,25 @@ Page({
     },
     getStoreDetail(options) {
         var store_uuid = options.store_uuid
-        db.storeDetail(
-            "share",
-            store_uuid
-        ).then(detailList=>{
-            var pages = getCurrentPages()
-            var prevPage = pages[pages.length - 2]
-            var store = prevPage.data.store
+        db.storeInfo(store_uuid).then(store => {
             GP.setData({
-                isLoading: false,
-                detailList: detailList,
                 store: store,
             })
-        })
+            db.storeDetail(
+                "share",
+                store_uuid
+            ).then(detailList => {
+                // var pages = getCurrentPages()
+                // var prevPage = pages[pages.length - 2]
+                // var store = prevPage.data.store
+                GP.setData({
+                    isLoading: false,
+                    detailList: detailList,
+                    // store: store,
+                })
+            })
+        })     
+       
     },
     
     /**
