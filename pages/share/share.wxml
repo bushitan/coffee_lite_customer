@@ -25,8 +25,8 @@
                             每个好友获得<label class='num'>{{store.share_gift_value}}</label>点
                         </view>
                         <view class='content'>
-                            <label class='mark'>有效时间</label>
-                             {{item.create_time}}
+                            <label class='mark'>截止日期</label>
+                             {{item.valid_time}}<label class='num'> </label>
                         </view>
                     </view>
                     <!-- <view class="weui-media-box__desc">有效时间：{{item.create_time}}</view> -->
