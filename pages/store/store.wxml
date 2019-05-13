@@ -22,21 +22,28 @@
 </view>
 
 <!-- <view style='height:10px;'></view> -->
-<wave
-    score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
-    exchange="{{store.exchange_value}}"
-    logo="{{store.logo}}"
-    summary="{{store.summary}}"
-></wave>
-<view wx:if="{{data.score_num < store.exchange_value}}">    
-    <view class='score_qr' catchtap='toQR'>
+<view wx:if="{{data.score_num < store.exchange_value}}" catchtap='toQR'>  
+    <wave
+        score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
+        exchange="{{store.exchange_value}}"
+        logo="{{store.logo}}"
+        summary="{{store.summary}}"
+    ></wave>  
+    <view class='score_qr' >
         <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
         <label>集点码</label>
-    </view>
+    </view>        
 </view>
-<view wx:else style='text-align:center'>
-    <button catchtap='toExchangeQR' type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button>
+<view wx:else style='text-align:center' catchtap='toExchangeQR'>
+    <wave
+        score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
+        exchange="{{store.exchange_value}}"
+        logo="{{store.logo}}"
+        summary="{{store.summary}}"
+    ></wave>
+    <button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button>
 </view>
+
 
 
 
