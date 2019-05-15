@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -52,7 +52,7 @@
 					"id": 1,
 					"name": "route",
 					"pathName": "pages/route/route",
-					"query": "mode=share&store_uuid=ff1f7ada-63d8-11e9-a3f6-b83312f00bac&share_uuid=42397792-6e23-11e9-8b80-b83312f00bac",
+					"query": "mode=share&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&share_uuid=c024b862-72c4-11e9-be1f-e95aa2c51b5d",
 					"scene": null
 				},
 				{

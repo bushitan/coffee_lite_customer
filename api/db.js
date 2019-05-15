@@ -20,7 +20,8 @@ class db {
                     resolve(res)
                 },
                 fail(res) {
-                    reject(err)
+                    console.log(res)
+                    reject(res)
                 },
             })
         })
