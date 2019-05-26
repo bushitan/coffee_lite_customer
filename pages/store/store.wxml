@@ -28,6 +28,8 @@
         exchange="{{store.exchange_value}}"
         logo="{{store.logo}}"
         summary="{{store.summary}}"
+        start_time="{{store.start_time}}"
+        end_time="{{store.end_time}}"
     ></wave>  
     <view class='score_qr' >
         <image  class=' icon_qr' src='../../images/icon_qr.png'></image>

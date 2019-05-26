@@ -20,6 +20,14 @@ Component({
             type: String,
             value: "",
         },
+        start_time: {
+            type: String,
+            value: "",
+        },
+        end_time: {
+            type: String,
+            value: "",
+        },
         color: {
             type: String,
             value: "#000",
