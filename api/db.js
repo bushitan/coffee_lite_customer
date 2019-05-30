@@ -142,6 +142,19 @@ class db {
             }).then(res => resolve(res.data))
         })
     }
+
+
+    // 获取更新数据
+    scanAutoShareCustomer(qrBase64) {
+        return new Promise((resolve, reject) => {
+            this.base({
+                url: API.SCAN_AUTO_SHARE_CUSTOMER,
+                data: {
+                    qr_base64: qrBase64,
+                }
+            }).then(res => resolve(res.data))
+        })
+    }
 }
 
 module.exports = db

@@ -34,7 +34,16 @@
     <view class='score_qr' >
         <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
         <label>集点码</label>
-    </view>        
+    </view> 
+    <view catchtap='' style='height:10px'></view>  
+    <view class='score_qr' >     
+        <button  
+            type='primary' 
+            size="mini" 
+            style='background-color:#efaf30;'
+            catchtap='scanAutoShare'
+        >扫码领福利分享券</button>
+    </view>     
 </view>
 <view wx:else style='text-align:center' catchtap='toExchangeQR'>
     <wave

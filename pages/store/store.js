@@ -28,8 +28,44 @@ Page({
         GP.getStoreData(options)
         GP.interval()
         GP.isShowBack()
-        
     },
+
+    // 用户扫描二维码，领取福利券
+    scanAutoShare(){
+        wx.scanCode({
+            success(res) {
+                console.log(res)
+                db.scanAutoShareCustomer(res.result).then( res=>{
+
+                    console.log(res)
+                    var duration = 2000
+                    if (res.message.code == CODE_SHARE_SUCCESS) {
+                        wx.showToast({
+                            title: res.message.title,
+                            duration: duration,
+                            success(){
+                                setTimeout( function(){
+                                    wx.navigateTo({
+                                        url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
+                                    })
+                                }, duration)                                
+                            },
+                        })
+                    } else {
+                        wx.showModal({
+                            title: '领取失败',
+                            content: '请跟店员确认',
+                        })
+                    }
+                })
+            }
+        })
+    },
+
+
+
+
+    /*****左上角返回按钮**** */
     isShowBack(){
         var pages = getCurrentPages()
         if(pages.length == 1)
@@ -41,6 +77,7 @@ Page({
         })
     },
 
+    /*****定时器** */
     interval(){
         interval = setInterval(function () {
             db.refresh().then(res => {
@@ -125,6 +162,9 @@ Page({
         })       
     },
 
+
+
+    /***********路由********** */
     toExchange(){
         wx.navigateTo({
             url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`

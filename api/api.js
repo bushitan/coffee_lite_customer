@@ -30,6 +30,8 @@ module.exports = {
     STORE_DETAIL_CUSTOMER: `${URL}store/detail/customer/`,
     STORE_SHARE_CUSTOMER: `${URL}store/share/customer/`,
     REFRESH_CUSTOMER: `${URL}refresh/customer/`,
+    SCAN_AUTO_SHARE_CUSTOMER: `${URL}scan/auto_share/customer/`,
+    
     
 }
 
