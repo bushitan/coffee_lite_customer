@@ -4,6 +4,9 @@ var GP
 var API = require('../../api/api.js')
 var DB = require('../../api/db.js')
 var db = new DB()
+var StoreUtils = require('store_utils.js')
+var storeUtils = new StoreUtils()
+
 var interval
 
 var CODE_SYS_SUCCESS   = 100001
@@ -16,7 +19,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        showBack:false,
+        showBack:false,   //
         store:[],
     },
 
@@ -26,93 +29,63 @@ Page({
     onLoad: function (options) {
         GP = this
         GP.getStoreData(options)
-        GP.interval()
+        GP.startInterval()
         GP.isShowBack()
+    },
+
+    // 获取门店数据 
+    // 绑定客户与门店的关系
+    getStoreData(options) {
+        var store_uuid = options.store_uuid
+        // API
+        db.storeInfo(store_uuid).then(store => {
+            // API
+            wx.setNavigationBarTitle({
+                title: store.title
+            })
+            db.storeData(store_uuid).then(res => {
+                GP.setData({
+                    store: store,
+                    data: res.data
+                })
+            })
+        })
     },
 
     // 用户扫描二维码，领取福利券
     scanAutoShare(){
         wx.scanCode({
             success(res) {
-                console.log(res)
                 db.scanAutoShareCustomer(res.result).then( res=>{
-
-                    console.log(res)
-                    var duration = 2000
-                    if (res.message.code == CODE_SHARE_SUCCESS) {
-                        wx.showToast({
-                            title: res.message.title,
-                            duration: duration,
-                            success(){
-                                setTimeout( function(){
-                                    wx.navigateTo({
-                                        url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
-                                    })
-                                }, duration)                                
-                            },
-                        })
-                    } else {
-                        wx.showModal({
-                            title: '领取失败',
-                            content: '请跟店员确认',
-                        })
-                    }
+                    if (res.message.code == CODE_SHARE_SUCCESS) 
+                        storeUtils.scanSuccess(res.message.title,GP.data.store.uuid)
+                    else 
+                        storeUtils.scanFail()
                 })
             }
         })
     },
 
-
-
-
-    /*****左上角返回按钮**** */
-    isShowBack(){
-        var pages = getCurrentPages()
-        if(pages.length == 1)
-            GP.setData({showBack:true})
-    },
-    back(){
-        wx.redirectTo({
-            url: '/pages/list/list',
-        })
-    },
-
     /*****定时器** */
-    interval(){
+    startInterval(){
         interval = setInterval(function () {
             db.refresh().then(res => {
-                // var message = res.message
                 var data = res.data
-
                 var infoList = data.info_list
-                if (infoList == null) return
-                for (var i=0;i<infoList.length;i++){
+                if (infoList == null) 
+                    return
+
+                GP.updateStoreData() //直接刷新
+                for (var i=0;i<infoList.length;i++){ //提示分享结果
                     var msg = infoList[i]
                     wx.showModal({
                         title: msg.title,
                         content: msg.content,
                         success() {
-                            GP.updateStoreData() //直接刷新
-                            if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) {
-                                var pages = getCurrentPages()
-                                var currentPage = pages[pages.length - 1]                                
-                                if (currentPage.__route__ == "pages/qrcode/qrcode"){
-                                    // var prePage = pages[pages.length - 2]
-                                    // prePage.updateStoreData()
-                                    wx.navigateBack({})
-                                } else if (currentPage.__route__ == "pages/store/store") {
-                                    // currentPage.updateStoreData()
-                                }                                    
-                            }
-                            if ( msg.code == CODE_SHARE_SUCCESS){
-                                // GP.toShare()
-                                wx.navigateTo({
-                                    url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
-                                })
-                                // wx.navigateTo({
-                                //     url: '/pages/share/share',
-                                // })
-                            }
+                            if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) 
+                                storeUtils.getScorePrizeSucess()        
+                            if ( msg.code == CODE_SHARE_SUCCESS)
+                                storeUtils.shareSucess()
                         },
                     })
                 }
@@ -131,48 +104,41 @@ Page({
         })
     },
 
-
-
-
     /**
      * 生命周期函数--监听页面卸载
+     * 注销interval
      */
     onUnload: function () {
-        console.log("onUnload")
         clearInterval(interval)
         console.log(interval)
     },
 
-    // 获取门店数据 
-    // 绑定客户与门店的关系
-    getStoreData(options){
-        var store_uuid = options.store_uuid
-        // API
-        db.storeInfo(store_uuid).then(store => {
-        // API
-            wx.setNavigationBarTitle({
-                title: store.title
-            })
-            db.storeData(store_uuid).then(res=>{
-                GP.setData({
-                    store: store,
-                    data: res.data
-                })
-            })
-        })       
-    },
-
-
-
     /***********路由********** */
     toExchange(){
-        wx.navigateTo({
-            url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`
-        })
+        wx.navigateTo({url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`})
     },
     toShare() {
-        wx.navigateTo({
-            url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
+        wx.navigateTo({url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`})
+    },
+    // 到集点二维码
+    toQR() {
+        wx.navigateTo({url: `/pages/qrcode/qrcode?mode=score&store_uuid=${GP.data.store.uuid}`,})
+    },   // 到集点二维码
+    toExchangeQR() {
+        wx.navigateTo({url: `/pages/qrcode/qrcode?mode=prize&store_uuid=${GP.data.store.uuid}`,})
+    },
+
+    /***********辅助功能********** */
+    // 是否显示左上角返回按钮
+    isShowBack() {
+        var pages = getCurrentPages()
+        if (pages.length == 1)
+            GP.setData({ showBack: true })
+    },
+    // 定向返回list页面
+    back() {
+        wx.redirectTo({
+            url: '/pages/list/list',
         })
     },
     // 去到定位页面
@@ -184,20 +150,7 @@ Page({
             longitude: GP.data.store.longitude,
             scale: 18
         })
-
     },
-    // 到集点二维码
-    toQR() {
-        wx.navigateTo({
-            url: `/pages/qrcode/qrcode?mode=score&store_uuid=${GP.data.store.uuid}`,
-        })
-    },   // 到集点二维码
-    toExchangeQR() {
-        wx.navigateTo({
-            url: `/pages/qrcode/qrcode?mode=prize&store_uuid=${GP.data.store.uuid}`,
-        })
-    },
-
     /**
      * 用户点击右上角分享
      */

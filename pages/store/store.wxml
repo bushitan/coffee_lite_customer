@@ -1,27 +1,9 @@
 <!--pages/user/user.wxml-->
-<!-- <text>pages/user/user.wxml</text> -->
 
-<!-- 用户 openid -->
-        <!-- style="background-image: url({{avatarUrl}})" -->
-<!-- <view class="userinfo">
-    <button 
-        open-type="getUserInfo" 
-        bindgetuserinfo="onGetUserInfo"
-        class="userinfo-avatar"
-        style="background-image: url({{avatarUrl}})"
-    ></button>
-    <view>
-        <view class='title' catchlongtap='copyID'>买10送1集点卡</view>
-        <view class='date'>有效期：2020-1-1</view>
-    </view>
-    <view class='weui-cell__bd'></view>
-    <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
-</view> -->
 <view  class='back' wx:if="{{showBack}}" catchtap='back'>
     <image src='../../images/back.png'></image>
 </view>
 
-<!-- <view style='height:10px;'></view> -->
 <view wx:if="{{data.score_num < store.exchange_value}}" catchtap='toQR'>  
     <wave
         score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
@@ -57,7 +39,6 @@
 
 
 
-
 <view style='height:10px;'></view>
 <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
@@ -90,6 +71,9 @@
         </view>
     </view>
 </view>
+
+
+
 
 <!-- <view class="weui-loadmore weui-loadmore_line" >
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
