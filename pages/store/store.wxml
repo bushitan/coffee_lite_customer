@@ -4,7 +4,55 @@
     <image src='../../images/back.png'></image>
 </view>
 
-<view wx:if="{{data.score_num < store.exchange_value}}" catchtap='toQR'>  
+<wave
+    logo="{{store.logo}}"
+    summary="{{store.summary}}"
+    start_time="{{store.start_time}}"
+    end_time="{{store.end_time}}"
+></wave>  
+
+
+        <!-- score="{{data.score_num}}"
+        exchange="{{store.exchange_value}}" -->
+<!-- 印章 -->
+<block wx:if="{{store.icon_mode == STORE_ICON_MODE_STAMP}}">
+    <icon-stamp
+        num="{{[data.score_num,store.exchange_value]}}"
+        check="{{store.icon_check_image_url}}"
+        uncheck="{{store.icon_un_check_image_url}}"
+        full="{{store.icon_full_image_url}}"
+    ></icon-stamp>
+</block>
+<!-- 咖啡杯 -->
+<block  wx:else>
+    <icon-cup
+        score="{{data.score_num}}"
+        exchange="{{store.exchange_value}}"
+    ></icon-cup>
+</block>
+
+<view style='height:10px'></view>
+
+<!-- 按钮 -->
+<icon-btn
+    score="{{data.score_num}}"
+    exchange="{{store.exchange_value}}"
+    isFull="{{isFullScore}}"
+    isAuto="{{store.is_auto}}"
+    catch:exchange="toExchangeQR"
+    catch:qr="toQR"
+    catch:scan="scanAutoShare"
+></icon-btn>
+
+<!-- <view class='score_qr' >
+    <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
+    <label>集点码</label>
+</view>
+
+<button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button> -->
+
+
+<!-- <view wx:if="{{data.score_num < store.exchange_value}}" catchtap='toQR'>  
     <wave
         score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
         exchange="{{store.exchange_value}}"
@@ -35,7 +83,7 @@
         summary="{{store.summary}}"
     ></wave>
     <button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button>
-</view>
+</view> -->
 
 
 

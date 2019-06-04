@@ -19,8 +19,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+        STORE_ICON_MODE_CUP :1 ,//杯子图案
+        STORE_ICON_MODE_STAMP : 2,//印章图案
         showBack:false,   //
         store:[],
+        isFullScore: false,//满杯
     },
 
     /**
@@ -43,12 +46,14 @@ Page({
             wx.setNavigationBarTitle({
                 title: store.title
             })
-            db.storeData(store_uuid).then(res => {
-                GP.setData({
-                    store: store,
-                    data: res.data
-                })
-            })
+            GP.setData({ store: store})
+            GP.updateStoreData(store_uuid)  // 更新店铺数据
+            // db.storeData(store_uuid).then(res => {
+            //     GP.setData({
+            //         store: store,
+            //         data: res.data
+            //     })
+            // })
         })
     },
 
@@ -75,7 +80,7 @@ Page({
                 if (infoList == null) 
                     return
 
-                GP.updateStoreData() //直接刷新
+                GP.updateStoreData(GP.data.store.uuid) //直接刷新
                 for (var i=0;i<infoList.length;i++){ //提示分享结果
                     var msg = infoList[i]
                     wx.showModal({
@@ -95,14 +100,33 @@ Page({
     },
 
     // 刷新店铺数据
-    updateStoreData(){
-        var store_uuid = GP.data.store.uuid
+    updateStoreData(store_uuid){
         db.storeData(store_uuid).then(res => {
+            // TODO 店铺状态
+            var exchanveValue = GP.data.store.exchange_value
+            var scoreNum = res.data.score_num
+            var data = res.data
+            // 判断是否满点
+            var isFullScore = false
+            if (scoreNum > exchanveValue) {
+                isFullScore = true 
+                data.score_num = exchanveValue
+            }
+
             GP.setData({
-                data: res.data
+                isFullScore: isFullScore,
+                data: data,                
             })
+
+            // console.log(GP.data.store.exchange_value)
+            // console.log(res.data.score_num)
+            // console.log(GP.data.store.exchange_value)
+            // console.log(GP.data.store.exchange_value)
+
         })
     },
+
+    
 
     /**
      * 生命周期函数--监听页面卸载

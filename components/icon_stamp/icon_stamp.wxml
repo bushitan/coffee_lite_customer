@@ -1,0 +1,55 @@
+<!-- <wxs module="MATH">
+  var height =  function(score,max){
+    var r = parseFloat(score/max)
+    return r*50 + 5
+  }; 
+  module.exports.height = height;
+</wxs>
+<view class='dian'>
+    <view class='score'>
+        <view class='water'>  
+            <view class='bg' style='height: {{MATH.height(score,exchange)}}px;'></view>  
+        </view>
+        <image class='icon' src='../../images/icon_score_1.png' ></image>
+    </view>
+    <view class='rate'> <label>{{score}}</label>/{{exchange}}</view>
+dsadsaodsajdop
+</view> -->
+
+<view class='dian'>
+    <view class='stamp_list'>
+        <block wx:for="{{stampList}}">
+            <view class='node'>
+                <image class='icon'  src='{{item.src}}'></image>
+            </view>
+        </block>
+        <!-- <view class='node' wx:if="{{score<full}}">
+            <image class='icon'  src='{{unFullImage}}'></image>
+        </view>
+        <view class='node' wx:else>
+            <image class='icon'  src='{{fullImage}}'></image>
+        </view> -->
+
+        <!-- <view class='node'>
+            <image class='icon'  src='{{checkImage}}'></image>
+        </view>
+        <view class='node'>
+            <image class='icon'  src='{{unCheckImage}}'></image>
+        </view>
+        <view class='node'>
+            <image class='icon'  src='{{unCheckImage}}'></image>
+        </view>
+        <view class='node'>
+            <image class='icon'  src='{{unCheckImage}}'></image>
+        </view>
+        <view class='node'>
+            <image class='icon'  src='{{unCheckImage}}'></image>
+        </view>
+        <view class='node'>
+            <image class='icon'  src='{{fullImage}}'></image>
+        </view>
+        <view class='node'>
+            <image class='icon'  src='{{unFullImage}}'></image>
+        </view> -->
+    </view>
+</view>

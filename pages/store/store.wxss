@@ -86,7 +86,7 @@
     height: 80px;
 }
 /***********二维码。兑换按钮*********/
- .score_qr {
+ /* .score_qr {
      display: flex;
      justify-content: center;
      align-items: center;
@@ -97,7 +97,7 @@
     width:32px;
     height:32px;
     margin-right: 2px;    
-}
+} */
 
 
 

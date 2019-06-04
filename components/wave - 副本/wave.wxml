@@ -30,7 +30,11 @@
   module.exports.height = height;
 </wxs>
 
-<!-- <view class='dian'>
+<view class='dian'>
+    <!-- <view class='score'>
+        <image class='icon' src='../../images/icon_score.png' mode='widthFix'></image>
+    </view> -->
+    <!-- <view class='score_title'>{{score}}</view> -->
     <view class='score'>
         <view class='water'>  
             <view class='bg' style='height: {{MATH.height(score,exchange)}}px;'></view>  
@@ -39,4 +43,4 @@
             ></image>
     </view>
     <view class='rate'> <label>{{score}}</label>/{{exchange}}</view>
-</view> -->
+</view>

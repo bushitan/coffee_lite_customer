@@ -1,0 +1,31 @@
+
+
+
+<!-- <view class='score_qr' >
+    <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
+    <label>集点码</label>
+</view> -->
+
+<view class='score_qr' >
+
+    <!-- 福利兑换码 -->
+    <button wx:if="{{isFull}}"
+        type='primary' size="mini" style='background-color:#1d2a6d;'
+        catchtap='exchange'
+    >打开福利兑换码</button>
+
+    <!-- 集点码 -->
+    <view wx:else>
+        <button 
+            class='btn' type='primary' 
+            size="mini" style='background-color:#efaf30;'
+            catchtap='qr'
+        >打开集点码</button>
+        <button wx:if="{{isAuto}}"
+            class='btn' type='primary' 
+            size="mini" style='background-color:#efaf30;'
+            catchtap='scan'
+        >扫码领券</button>
+    </view>
+</view> 
+
