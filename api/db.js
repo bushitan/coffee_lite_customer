@@ -145,16 +145,30 @@ class db {
 
 
     // 获取更新数据
-    scanAutoShareCustomer(qrBase64) {
+    scanAutoShareCustomer(store_id, seller_id, unix) {
         return new Promise((resolve, reject) => {
             this.base({
                 url: API.SCAN_AUTO_SHARE_CUSTOMER,
                 data: {
-                    qr_base64: qrBase64,
+                    store_id: store_id,
+                    seller_id: seller_id,
+                    unix: unix,
                 }
             }).then(res => resolve(res.data))
         })
     }
+    
+     // 获取更新数据 （已废弃）
+    // scanAutoShareCustomer11111(qrBase64) {
+    //     return new Promise((resolve, reject) => {
+    //         this.base({
+    //             url: API.SCAN_AUTO_SHARE_CUSTOMER,
+    //             data: {
+    //                 qr_base64: qrBase64,
+    //             }
+    //         }).then(res => resolve(res.data))
+    //     })
+    // }
 }
 
 module.exports = db

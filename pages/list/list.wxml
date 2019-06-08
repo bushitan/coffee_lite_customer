@@ -1,5 +1,5 @@
 <!--pages/list/list.wxml-->
-
+<official-account></official-account>
 <view class="page" wx:if='{{list.length == 0}}'>
     <view class="page__hd">
         <view class="page__title">您还未到店集点哦！</view>
@@ -11,7 +11,7 @@
 </view>    
 <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
-        <block wx:for="{{list}}">
+        <block wx:for="{{list}}"  wx:key="index">
             <view
                 class="weui-media-box weui-media-box_appmsg "
                 hover-class="weui-cell_active" 

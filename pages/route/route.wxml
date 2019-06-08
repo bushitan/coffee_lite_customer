@@ -9,3 +9,5 @@
         <button size='mini' type='primary'  open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">登录</button>
     </view>
 </view>
+<!-- TODO  增加首页播放画面 -->
+<!-- <view></view> -->

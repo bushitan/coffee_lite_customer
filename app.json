@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/route/route",
+        "pages/alert/alert",
         "pages/list/list",
         "pages/store/store",
         "pages/qrcode/qrcode",

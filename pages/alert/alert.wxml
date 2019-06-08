@@ -1,0 +1,139 @@
+<!--pages/list/list.wxml-->
+<!-- {{status}}
+{{mode}}
+{{store_uuid}}
+{{title}}
+{{content}}
+{{nav_type}}
+
+<view wx:if="{{status == STATUS_SUCCESS}}">成功</view>
+<view wx:else>失败</view>
+
+<view wx:if="{{status == MODE_SCORE}}">积分</view>
+<view wx:elif="{{status == MODE_SHARE}}">分享</view>
+<view wx:else>奖品</view>
+
+
+<view wx:if="{{nav == NAV_BACK}}">返回</view>
+<view wx:else>重定向</view> -->
+
+<!-- <navigator url="" class="weui-msg__link">文字链接</navigator> -->
+
+ <view class="page">
+    
+    <official-account></official-account>
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+                <icon type="success" size="93" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
+                <icon type="warn" size="93"wx:else></icon>   
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">{{title}}</view>
+            <view class="weui-msg__desc">{{content}}</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" type="primary" style='background-color:#efaf30;' catchtap='more'>查看更多美食资讯</button>
+                <button class="weui-btn" type="default" catchtap='back'>返回店铺</button>
+            </view>
+        </view>
+    </view>
+    <view>
+        <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+            indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#efaf30"	>
+            <block wx:for="{{imgUrls}}" wx:key="index">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image"  mode='widthFix' catchtap='clickSwiper' data-index='{{index}}'/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+    <view class="weui-loadmore weui-loadmore_line" >
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
+        Copyright © 2016-2019 索骏科技提供服务
+        </view>
+    </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+<view wx:if="{{status == STATUS_SUCCESS}}">
+    <template is="success"></template>
+</view>
+
+
+<view wx:else>
+    <template is="fail"></template>
+</view>
+
+
+<template name="success">
+    <view class="page">
+        <view class="weui-msg">
+            <view class="weui-msg__icon-area">
+                <icon type="success" size="93" color='#efaf30'></icon>
+            </view>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">操作成功</view>
+                <view class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<navigator url="" class="weui-msg__link">文字链接</navigator></view>
+            </view>
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button class="weui-btn" type="primary" style='background-color:#efaf30;'>查看更多资讯</button>
+                    <button class="weui-btn" type="default">返回</button>
+                </view>
+            </view>
+            <view class="weui-msg__extra-area">
+                <view class="weui-footer">
+                    <view class="weui-footer__links">
+                        <navigator url="" class="weui-footer__link">更多美食--点击关注公众号</navigator>
+                    </view>
+                    <view class="weui-footer__text">Copyright © 2016-2019 索骏科技</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+
+<template name="fail">
+    <view class="page">
+        <view class="weui-msg">
+            <view class="weui-msg__icon-area">
+                <icon type="warn" size="93"></icon>
+            </view>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">操作成功</view>
+                <view class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<navigator url="" class="weui-msg__link">文字链接</navigator></view>
+            </view>
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button class="weui-btn" type="primary" style='background-color:#efaf30;'>查看更多资讯</button>
+                    <button class="weui-btn" type="default">返回</button>
+                </view>
+            </view>
+            <view class="weui-msg__extra-area">
+                <view class="weui-footer">
+                    <view class="weui-footer__links">
+                        <navigator url="" class="weui-footer__link">更多美食--点击关注公众号</navigator>
+                    </view>
+                    <view class="weui-footer__text">Copyright © 2016-2019 索骏科技</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template> -->

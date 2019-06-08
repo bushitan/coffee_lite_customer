@@ -1,42 +1,61 @@
 //app.js
 App({
-    onLaunch: function () {
-        // 展示本地存储能力
-        var logs = wx.getStorageSync('logs') || []
-        logs.unshift(Date.now())
-        wx.setStorageSync('logs', logs)
-
-        // 登录
-        wx.login({
-        success: res => {
-            // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        }
-        })
-        // 获取用户信息
-        wx.getSetting({
-        success: res => {
-            if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-            wx.getUserInfo({
-                success: res => {
-                // 可以将 res 发送给后台解码出 unionId
-                this.globalData.userInfo = res.userInfo
-
-                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                // 所以此处加入 callback 以防止这种情况
-                if (this.userInfoReadyCallback) {
-                    this.userInfoReadyCallback(res)
-                }
-                }
-            })
-            }
-        }
-        })
+    onLaunch: function (options) {
+        console.log("[onLaunch] 本次场景值:", options.scene)
+        this.globalData.scene = options.scene
     },
     globalData: {
-        userInfo: null
+        userInfo: null,
+        scene:1001
     },
+
+    // 
+    code :{
+        CODE_SHARE_SUCCESS: 104000,
+        CODE_SHARE_AUTO_ERROR: 104008,
+        CODE_SHARE_AUTO_TIME_OUT: 104009,
+    },
+    // route页面
+    route: {
+        MODE_NORMAL: "normal", // 小程序首页进入
+        MODE_STORE: "store", // 店铺扫码
+        MODE_SHARE: "share", // 领取好友分享
+        MODE_AUTO_SHARE: "sh", //自助领券
+    },
+
+
     
+    // 提示框
+    alert: {
+        STATUS_SUCCESS: "status_success",
+        STATUS_FAIL: "status_fail",
+        MODE_SCORE: "mode_score",
+        MODE_SHARE: "mode_share",
+        MODE_PRIZE: "mode_prize",
+        NAV_BACK: "nav_back",
+        NAV_REDIRECT: "nav_redirect",
+
+        // 跳转初始化
+        baseUrl(obj) {
+            var status = obj.status || this.STATUS_SUCCESS
+            var mode = obj.mode || this.MODE_SCORE
+            var nav = obj.monavde || this.NAV_BACK
+            var store_uuid = obj.store_uuid || ""
+            var title = obj.title || ""
+            var content = obj.content || ""
+            var url = `/pages/alert/alert?`
+                + `status=${status}`
+                + `&mode=${mode}`
+                + `&nav=${nav}`
+                + `&store_uuid=${store_uuid}`
+                + `&title=${title}`
+                + `&content=${content}`
+            return url
+        },
+        redirect(obj) { wx.redirectTo({url: this.baseUrl(obj)}) },  //重定向
+        navigate(obj) { wx.navigateTo({ url: this.baseUrl(obj) }) }, //跳转
+    }
+
 
 
 })

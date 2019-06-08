@@ -61,6 +61,10 @@ Page({
     scanAutoShare(){
         wx.scanCode({
             success(res) {
+
+                console.log(res)
+                return 
+
                 db.scanAutoShareCustomer(res.result).then( res=>{
                     if (res.message.code == CODE_SHARE_SUCCESS) 
                         storeUtils.scanSuccess(res.message.title,GP.data.store.uuid)
