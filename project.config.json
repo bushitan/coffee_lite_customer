@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -50,7 +50,7 @@
 				},
 				{
 					"id": 1,
-					"name": "route",
+					"name": "接收好友share",
 					"pathName": "pages/route/route",
 					"query": "mode=share&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&share_uuid=c024b862-72c4-11e9-be1f-e95aa2c51b5d",
 					"scene": null
@@ -73,7 +73,7 @@
 					"id": 4,
 					"name": "share",
 					"pathName": "pages/share/share",
-					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&nav=nav_redirect",
 					"scene": null
 				},
 				{

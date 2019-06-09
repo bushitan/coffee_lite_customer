@@ -1,4 +1,19 @@
 /* pages/share/share.wxss */
+
+
+/* 返回按钮 */
+.back{
+    background-color: #efaf30;
+    color:#fff;
+    padding: 0 15px;
+}
+.back image{
+    width: 16px;
+    height: 16px;
+}
+
+
+
 .share{
   position: absolute;
   height: 100%;
@@ -25,4 +40,5 @@
 }
 
 
+.weui-panel {margin-top: 0px;}
 .weui-panel:after{display:none !important;}

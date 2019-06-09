@@ -44,46 +44,6 @@
     catch:scan="scanAutoShare"
 ></icon-btn>
 
-<!-- <view class='score_qr' >
-    <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
-    <label>集点码</label>
-</view>
-
-<button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button> -->
-
-
-<!-- <view wx:if="{{data.score_num < store.exchange_value}}" catchtap='toQR'>  
-    <wave
-        score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
-        exchange="{{store.exchange_value}}"
-        logo="{{store.logo}}"
-        summary="{{store.summary}}"
-        start_time="{{store.start_time}}"
-        end_time="{{store.end_time}}"
-    ></wave>  
-    <view class='score_qr' >
-        <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
-        <label>集点码</label>
-    </view> 
-    <view catchtap='' style='height:10px'></view>  
-    <view class='score_qr' >     
-        <button  
-            type='primary' 
-            size="mini" 
-            style='background-color:#efaf30;'
-            catchtap='scanAutoShare'
-        >扫码领福利分享券</button>
-    </view>     
-</view>
-<view wx:else style='text-align:center' catchtap='toExchangeQR'>
-    <wave
-        score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
-        exchange="{{store.exchange_value}}"
-        logo="{{store.logo}}"
-        summary="{{store.summary}}"
-    ></wave>
-    <button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button>
-</view> -->
 
 
 
@@ -128,3 +88,49 @@
         Copyright © 2016-2019 索骏科技提供服务
     </view>
 </view>
+
+
+
+
+
+
+<!-- <view class='score_qr' >
+    <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
+    <label>集点码</label>
+</view>
+
+<button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button> -->
+
+
+<!-- <view wx:if="{{data.score_num < store.exchange_value}}" catchtap='toQR'>  
+    <wave
+        score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
+        exchange="{{store.exchange_value}}"
+        logo="{{store.logo}}"
+        summary="{{store.summary}}"
+        start_time="{{store.start_time}}"
+        end_time="{{store.end_time}}"
+    ></wave>  
+    <view class='score_qr' >
+        <image  class=' icon_qr' src='../../images/icon_qr.png'></image>
+        <label>集点码</label>
+    </view> 
+    <view catchtap='' style='height:10px'></view>  
+    <view class='score_qr' >     
+        <button  
+            type='primary' 
+            size="mini" 
+            style='background-color:#efaf30;'
+            catchtap='scanAutoShare'
+        >扫码领福利分享券</button>
+    </view>     
+</view>
+<view wx:else style='text-align:center' catchtap='toExchangeQR'>
+    <wave
+        score="{{data.score_num>store.exchange_value? store.exchange_value :data.score_num}}"
+        exchange="{{store.exchange_value}}"
+        logo="{{store.logo}}"
+        summary="{{store.summary}}"
+    ></wave>
+    <button  type='primary' size="mini" style='background-color:#1d2a6d;'>福利兑换</button>
+</view> -->

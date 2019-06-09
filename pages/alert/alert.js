@@ -43,12 +43,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.redirect
+        // wx.redirect
         GP = this
         GP.setData({
             status: options.status || GP.data.status, 
             mode: options.mode || GP.data.mode,
-            nav: options.nav_type || GP.data.nav,
+            nav: options.nav || GP.data.nav,
             store_uuid: options.store_uuid || GP.data.store_uuid,
             title: options.title || GP.data.title,
             content: options.content || GP.data.content,
@@ -57,21 +57,30 @@ Page({
 
     // 点击关注更多按钮
     more() {
-        // TODO 关注公众号
+        // TODO 打开探店小地图
     },
 
     // 点击返回按钮
     back() {
         // TODO 根据nav， store_uuid ，返回页面
-     },
+        if (GP.data.nav == app.alert.NAV_BACK) GP.navToStore()
+        else GP.redirectToStore()
+    },
 
 
-    toStore(e) {
-        var store_uuid = e.currentTarget.dataset.store_uuid
+    navToStore(e) {
+        // var store_uuid = e.currentTarget.dataset.store_uuid
         wx.navigateTo({
-            url: `/pages/store/store?store_uuid=${store_uuid}`,
+            url: `/pages/store/store?store_uuid=${GP.data.store_uuid}`,
         })
     },
+
+    redirectToStore(){
+        wx.redirectTo({
+            url: `/pages/store/store?store_uuid=${GP.data.store_uuid}`,
+        })  
+    },
+
 
     clickSwiper(e){
         var index = e.currentTarget.dataset.index
@@ -79,10 +88,4 @@ Page({
     },
 
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

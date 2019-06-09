@@ -3,12 +3,19 @@ var GP
 var API = require('../../api/api.js')
 var DB = require('../../api/db.js')
 var db = new DB()
+var app =getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+
+        NAV_BACK: app.share.NAV_BACK,
+        NAV_REDIRECT: app.share.NAV_REDIRECT,        
+        nav: app.alert.NAV_BACK,
+        store_uuid: "",
+
         isLoading: !true,
         detailList: [],
     },
@@ -19,6 +26,11 @@ Page({
     onLoad: function (options) {
         GP = this
 
+        // 初始化导航，店铺数据
+        GP.setData({
+            nav: options.nav || GP.data.nav,
+            store_uuid: options.store_uuid || GP.data.store_uuid,
+        })
        
         GP.getStoreDetail(options)
     },
@@ -45,6 +57,13 @@ Page({
        
     },
     
+    // 重定向返回店铺列表
+    back(){
+        wx.redirectTo({
+            url: `/pages/store/store?store_uuid=${GP.data.store_uuid}`,
+        }) 
+    },
+
     /**
      * 用户点击右上角分享
      */

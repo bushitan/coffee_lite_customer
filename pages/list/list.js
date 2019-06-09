@@ -3,6 +3,7 @@ var GP
 var API = require('../../api/api.js')
 var DB = require('../../api/db.js')
 var db = new DB()
+var app =getApp()
 Page({
 
     /**
@@ -42,7 +43,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (res) {
+        return app.onShareAppMessage(res)
     }
 })

@@ -7,28 +7,7 @@ var RouteUtils = require('routeUtils.js')
 var routeUtils = new RouteUtils()
 var app = getApp()
 
-// 进入店铺
-// pages/route/route?mode=store&&store_uuid=ff1f7ada-63d8-11e9-a3f6-b83312f00bac
-
-// 点击分享券，进入店铺集点
-// pages/route/route?mode=share&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&share_uuid=c024b862-72c4-11e9-be1f-e95aa2c51b5d
-
-// 扫码直接领分享券,短链接，
-//  scene= sh自助积分_店铺id_sellerid_unix结束时间  ( sh分享， sc积分 )
-// pages/route/route?scene=sh_1_1_1559939515
-
-    // scan 函数扫描结果
-    // res = {
-    //     charSet:"utf-8",
-    //     errMsg:"scanCode:ok",
-    //     path:"pages/route/route?scene=sh_1_1_1559939515",
-    //     rawData:"bGIxbCtOcmk6b35qI2JkczlEeUJrWC5fMTU1OTkyNTgyMw==",
-    //     result:"",
-    //     scanType:"WX_CODE",
-    // }
-
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -61,7 +40,7 @@ Page({
             })
             wx.hideLoading()
             // API
-            GP.checkHasAuth().then(isHasAuth => {
+            routeUtils.checkHasAuth().then(isHasAuth => {
                 if (isHasAuth)
                     GP.nav()
                 else
@@ -73,62 +52,27 @@ Page({
 
     nav(){
         var options = GP.data.options
-        
         if (options.hasOwnProperty('mode')){
             var store_uuid = options.store_uuid
-            if (options.mode == "share") { // share 模式
-                // TODO 查询分享结果
-                db.storeShare(options.share_uuid).then(res => {
-                    var message = res.message
-                    var data = res.data
-                    wx.showModal({
-                        title: message.title || "",
-                        content: message.content || "",
-                    })
-                    GP.toStore(store_uuid)
-                })
+            if (options.mode == app.route.MODE_SHARE) { 
+                routeUtils.modeShare(store_uuid,options.share_uuid)  // share 模式
+                return
             } else {
-                GP.toStore(store_uuid)
+                routeUtils.modeStore(store_uuid)    // store 模式
+                return
             }       
-        } if (options.hasOwnProperty('scene') ){  //auto_share 模式
+        } if (options.hasOwnProperty('scene') ){  
             // 扫码自动领优惠券操作
             const scene = decodeURIComponent(options.scene) 
             var sceneList = scene.split('_')
-            routeUtils.modeAuto(sceneList[0], sceneList[1], sceneList[2], sceneList[3])
+            routeUtils.modeAuto(sceneList[0], sceneList[1], sceneList[2], sceneList[3])//auto_share 模式
+            return
         }
-        else
-            routeUtils.modeNormal()
+        else {
+            routeUtils.modeNormal() //normal 模式return
+            return            
+        }
     },
-
-
-
-
-
-
-    /*******导航**********/
-
-    toStore(store_uuid) {
-        wx.redirectTo({
-            url: `/pages/store/store?store_uuid=${store_uuid}`,
-        })  
-    },
-
-
-
-
-
-    // 检测是否用户授权
-    checkHasAuth() {
-        return new Promise((resolve, reject) => {
-            wx.getSetting({
-                success(res) {
-                    console.log(res.authSetting)
-                    resolve(res.authSetting.hasOwnProperty("scope.userInfo"))
-                }
-            })
-        })
-    },
-
 
     //获取\更新用户头像信息
     onGetUserInfo: function (e) {
@@ -139,75 +83,69 @@ Page({
         }
     },
 
-
-
-
-
-    checkShare(options){
-        if (options.hasOwnProperty("is_share"))
-            wx.setStorageSync(API.SHARE_SCORE_ID, options.score_id)
-    },
-
-    // 检测是否用户授权
-    checkUserInfo(){
-        return new Promise( (resolve,reject)=>{
-            wx.getSetting({
-                success(res) {
-                    console.log(res.authSetting)
-                    resolve(res.authSetting.hasOwnProperty("scope.userInfo"))
-                }
-            })
-        })
-        
-    },
-
-
-
-    // 检查是否登录
-    loginCheck(){
-        action_user.login().then( userInfo => {
-            wx.setStorageSync(API.USER_ID, userInfo._id)
-            wx.setStorageSync(API.OPEN_ID, userInfo._openid)
-            wx.setStorageSync(API.USER_INFO, userInfo)
-            GP.toScore()  //集点卡
-            // GP.toMy()  //群相册
-        })
-    },
-
-
-    // 跳到我的页面
-    toScore() {
-        GP.checkUserInfo().then(res => {
-            if (res)
-                wx.redirectTo({ url: '/pages/menu/menu', })
-            else
-                wx.redirectTo({ url: '/pages/g_info/g_info', })
-        })
-        // return
-    },
-
-    // 跳到我的页面
-    toMy(){
-        GP.checkUserInfo().then( res=>{
-            if (res) 
-                wx.redirectTo({url: '/pages/g_my/g_my',})
-            else
-                wx.redirectTo({ url: '/pages/g_info/g_info', })
-        })
-        // return
-       
-    },
-
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (res) {
+        return app.onShareAppMessage(res)
     }
 })
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// nav(){
+//     var options = GP.data.options
+
+//     if (options.hasOwnProperty('mode')) {
+//         var store_uuid = options.store_uuid
+//         if (options.mode == app.route.MODE_SHARE) { // share 模式
+//             routeUtils.modeStore(store_uuid)
+//             // TODO 查询分享结果
+//             // db.storeShare(options.share_uuid).then(res => {
+//             //     var message = res.message
+//             //     var data = res.data
+//             //     wx.showModal({
+//             //         title: message.title || "",
+//             //         content: message.content || "",
+//             //     })
+//             //     GP.toStore(store_uuid)
+//             // })
+//         } else {
+//             routeUtils.modeStore(store_uuid)
+//         }
+//     } if (options.hasOwnProperty('scene')) {  //auto_share 模式
+//         // 扫码自动领优惠券操作
+//         const scene = decodeURIComponent(options.scene)
+//         var sceneList = scene.split('_')
+//         routeUtils.modeAuto(sceneList[0], sceneList[1], sceneList[2], sceneList[3])
+//     }
+//     else
+//         routeUtils.modeNormal()
+// },
+/*******导航**********/
+
+// toStore(store_uuid) {
+//     wx.redirectTo({
+//         url: `/pages/store/store?store_uuid=${store_uuid}`,
+//     })
+// },
 
 
 /*******自助领券**********/

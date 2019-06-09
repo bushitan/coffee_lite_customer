@@ -6,6 +6,7 @@ var DB = require('../../api/db.js')
 var db = new DB()
 var StoreUtils = require('store_utils.js')
 var storeUtils = new StoreUtils()
+var app = getApp()
 
 var interval
 
@@ -179,10 +180,16 @@ Page({
             scale: 18
         })
     },
+
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (res) {
+        return app.onShareAppMessage({
+            title: GP.data.store.share_title,
+            // path: `/pages/store/store?store_uuid=${GP.data.store.uuid}`,
+            path: `/pages/route/route?mode=store&store_uuid=${GP.data.store.uuid}`,
+            imageUrl: GP.data.store.share_logo,
+        })
     }
 })

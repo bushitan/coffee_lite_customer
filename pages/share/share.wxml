@@ -1,5 +1,8 @@
 <!--pages/share/share.wxml-->
 
+<view  class='back' wx:if="{{nav==NAV_REDIRECT}}" catchtap='back'>
+    <image src='../../images/back.png'></image>
+</view>
 
 <!-- <view class="weui-cells__title">我的集点分享券</view>  hover-class="weui-cell_active"-->
 <view class="weui-panel weui-panel_access">
@@ -53,6 +56,12 @@
     </view>
 </view>
 
+<!-- <view class="weui-msg__opr-area">
+    <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
+        <button class="weui-btn" type="default"  catchtap='more'>查看更多美食资讯</button>
+    </view>
+</view> -->
 
 <view class="weui-loadmore " wx:if="{{isLoading}}" >
     <view class="weui-loadmore">
