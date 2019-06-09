@@ -21,11 +21,11 @@
             size="mini" style='background-color:#efaf30;'
             catchtap='qr'
         >打开集点码</button>
-        <button wx:if="{{isAuto}}"
+        <!-- <button wx:if="{{isAuto}}"
             class='btn' type='primary' 
             size="mini" style='background-color:#efaf30;'
             catchtap='scan'
-        >扫码领券</button>
+        >扫码领券</button> -->
     </view>
 </view> 
 
