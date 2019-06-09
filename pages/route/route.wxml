@@ -1,6 +1,6 @@
 
 
-<view hidden='{{!isShowLogin}}'>
+<view wx:if='{{isShowLogin}}'>
     <view style='height:30px;'></view>
     <view class='box'>
         <image class='userinfo-avatar' src='../../images/user-unlogin.png'></image>
@@ -9,5 +9,8 @@
         <button size='mini' type='primary'  open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">登录</button>
     </view>
 </view>
-<!-- TODO  增加首页播放画面 -->
-<!-- <view></view> -->
+<view wx:else class='loading'>
+    <image src='../../images/icon_share_base_cup.png' mode='widthFix'></image>
+    <view>分享集点卡，福利集共享</view>
+    <!-- <view></view> -->
+</view>

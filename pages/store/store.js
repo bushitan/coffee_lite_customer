@@ -35,6 +35,7 @@ Page({
         GP.getStoreData(options)
         GP.startInterval()
         GP.isShowBack()
+          
     },
 
     // 获取门店数据 

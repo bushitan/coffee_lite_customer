@@ -21,3 +21,18 @@
   background-size: cover;
   background-color: white;
 }
+
+
+.loading{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    text-align: center;
+    padding-top: 60px;
+    font-size: 11pt;
+    line-height: 30px;
+}
+.loading image{
+    width: 150px;
+
+}
