@@ -18,6 +18,9 @@
 <view wx:else>重定向</view> -->
 
 <!-- <navigator url="" class="weui-msg__link">文字链接</navigator> -->
+<view  class='back' wx:if="{{nav==NAV_REDIRECT}}" catchtap='back'>
+    <image src='../../images/back.png'></image>
+</view>
 
  <view class="page">
     

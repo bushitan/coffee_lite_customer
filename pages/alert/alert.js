@@ -63,11 +63,14 @@ Page({
     // 点击返回按钮
     back() {
         // TODO 根据nav， store_uuid ，返回页面
-        if (GP.data.nav == app.alert.NAV_BACK) GP.navToStore()
+        if (GP.data.nav == app.alert.NAV_BACK) GP.navBack()
         else GP.redirectToStore()
     },
 
-
+    navBack(){
+        wx.navigateBack({           
+        })
+    },
     navToStore(e) {
         // var store_uuid = e.currentTarget.dataset.store_uuid
         wx.navigateTo({

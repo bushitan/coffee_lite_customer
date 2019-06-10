@@ -2,7 +2,6 @@
    
     "usingComponents": {
         "wave": "../../components/wave/wave",
-        
         "icon-stamp": "../../components/icon_stamp/icon_stamp",
         "icon-btn": "../../components/icon_btn/icon_btn",
         "icon-cup": "../../components/icon_cup/icon_cup"

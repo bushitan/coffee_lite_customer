@@ -71,14 +71,17 @@ App({
         NAV_REDIRECT: "nav_redirect",
         // 跳转初始化
         baseUrl(obj) {
-            var nav = obj.monavde || this.NAV_BACK
+            var nav = obj.nav || this.NAV_BACK
             var store_uuid = obj.store_uuid || ""
             var url = `/pages/share/share?`
                 + `&nav=${nav}`
                 + `&store_uuid=${store_uuid}`
             return url
         },
-        redirect(obj) { wx.redirectTo({ url: this.baseUrl(obj) }) },  //重定向
+        redirect(obj) { 
+
+            wx.redirectTo({ url: this.baseUrl(obj) }) 
+        },  //重定向
         navigate(obj) { wx.navigateTo({ url: this.baseUrl(obj) }) }, //跳转
     },
 

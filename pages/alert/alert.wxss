@@ -1,5 +1,16 @@
 /* pages/list/list.wxss */
 
+/* 返回按钮 */
+.back{
+    background-color: #efaf30;
+    color:#fff;
+    padding: 0 15px;
+}
+.back image{
+    width: 16px;
+    height: 16px;
+}
+
 .slide-image{
     width: 100%;
 }

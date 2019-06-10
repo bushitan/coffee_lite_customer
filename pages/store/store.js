@@ -32,10 +32,13 @@ Page({
      */
     onLoad: function (options) {
         GP = this
+
+
         GP.getStoreData(options)
         GP.startInterval()
         GP.isShowBack()
-          
+
+        // GP.test()  // 测试页面
     },
 
     // 获取门店数据 
@@ -77,6 +80,13 @@ Page({
         })
     },
 
+    /**测试接口 */
+    test(){
+        var store_uuid = "68e54718-7156-11e9-b456-e95aa2c51b5d"
+        // storeUtils.getScorePrizeSucess(GP.data.store.uuid)   //集点、积分成功
+        storeUtils.shareSucess(store_uuid) // 跳转分享页面
+    },
+
     /*****定时器** */
     startInterval(){
         interval = setInterval(function () {
@@ -96,7 +106,7 @@ Page({
                             if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) 
                                 storeUtils.getScorePrizeSucess()        
                             if ( msg.code == CODE_SHARE_SUCCESS)
-                                storeUtils.shareSucess()
+                                storeUtils.shareSucess(GP.data.store.uuid)
                         },
                     })
                 }

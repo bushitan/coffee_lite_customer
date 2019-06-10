@@ -1,4 +1,4 @@
-
+var app = getApp()
 class StoreUtils {
     constructor() {
     }
@@ -36,25 +36,52 @@ class StoreUtils {
     /**
      *  获取积分、兑换奖品成功
      */
-    getScorePrizeSucess(){
+    getScorePrizeSucess(store_uuid,title,content){
         var pages = getCurrentPages()
         var currentPage = pages[pages.length - 1]
-        if (currentPage.__route__ == "pages/qrcode/qrcode") {
-            // var prePage = pages[pages.length - 2]
-            // prePage.updateStoreData()
-            wx.navigateBack({})
-        } else if (currentPage.__route__ == "pages/store/store") {
+        if (currentPage.__route__ == "pages/qrcode/qrcode") { // 注销掉二维码页面
+            // wx.navigateBack({})
 
+            app.alert.redirect({
+                status: app.alert.STATUS_SUCCESS,
+                mode: app.alert.MODE_PRIZE,
+                nav: app.alert.NAV_REDIRECT,
+                store_uuid: store_uuid,
+                title: title,
+                content: content,
+            })
+        } else if (currentPage.__route__ == "pages/store/store") {  //店铺页面，跳转
+            app.alert.navigate({
+                status: app.alert.STATUS_SUCCESS,
+                mode: app.alert.MODE_PRIZE,
+                nav: app.alert.NAV_BACK,
+                store_uuid: store_uuid,
+                title: title,
+                content: content,
+            })
         }    
     }
     
     /**
      *  分享成功
      */
-    shareSucess(){
-        wx.navigateTo({
-            url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
+    shareSucess(store_uuid){
+        // wx.navigateTo({
+        //     url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
+        // })
+        app.share.navigate({
+            nav: app.share.NAV_BACK,
+            store_uuid: store_uuid,
         })
     }
 }
 module.exports = StoreUtils
+
+// app.alert.redirect({
+//     status: status,
+//     mode: app.alert.MODE_SHARE,
+//     nav: app.alert.NAV_REDIRECT,
+//     store_uuid: store_uuid,
+//     title: res.message.title,
+//     content: res.message.content,
+// })
