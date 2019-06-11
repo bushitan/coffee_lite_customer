@@ -158,7 +158,7 @@ Page({
         wx.navigateTo({url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`})
     },
     toShare() {
-        wx.navigateTo({url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`})
+        wx.navigateTo({ url: `/pages/share/share?nav=nav_back&store_uuid=${GP.data.store.uuid}`})
     },
     // 到集点二维码
     toQR() {
