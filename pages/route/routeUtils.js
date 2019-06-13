@@ -10,6 +10,7 @@ var db = new DB()
  * 2、扫店铺码登录，进入店铺详情页store
  * 3、点击好友分享到对话中的分享券，进入提示页alert(success or fail)
  * 4、扫自动领券码，进入分享券页面share
+ * 5、外卖扫自动领券码，进入分享券页面share或者积分成功
  */
 
 // 进入店铺
@@ -91,40 +92,96 @@ class routeUtils {
      * @method 4、扫自动领券码 , 去alert页面
      */
     modeAuto(mode, store_id, seller_id, unix) {
-        if (mode == app.route.MODE_AUTO_SHARE) { //分享模式
-            db.scanAutoShareCustomer(store_id, seller_id, unix).then(res => {
-                console.log(res)
-                var store = res.data
-                if (res.message.code == app.code.CODE_SHARE_SUCCESS) {
-                    app.share.redirect({
-                        nav: app.alert.NAV_REDIRECT,
-                        store_uuid: store.uuid,
-                    })
-                }
-                else if (res.message.code == app.code.CODE_SHARE_AUTO_TIME_OUT) { //已超时
-                    app.alert.redirect({
-                        status: app.alert.STATUS_FAIL,
-                        mode: app.alert.MODE_SHARE,
-                        nav: app.alert.NAV_REDIRECT,
-                        store_uuid: store.uuid,
-                        title: res.message.title,
-                        content: res.message.content,
-                    })
-                }
-                else {  // 系统出错失败
-                    app.alert.redirect({
-                        status: app.alert.STATUS_FAIL,
-                        mode: app.alert.MODE_SHARE,
-                        nav: app.alert.NAV_REDIRECT,
-                        store_uuid: store.uuid,
-                        title: res.message.title,
-                        content: res.message.content,
-                    })
-                }
-            })
-        }
+        // if (mode == app.route.MODE_AUTO_SHARE) { //分享模式
+        db.scanAutoShareCustomer(store_id, seller_id, unix).then(res => {
+            console.log(res)
+            var store = res.data
+            if (res.message.code == app.code.CODE_SHARE_SUCCESS) {
+                app.share.redirect({
+                    nav: app.alert.NAV_REDIRECT,
+                    store_uuid: store.uuid,
+                })
+            }
+            else if (res.message.code == app.code.CODE_SHARE_AUTO_TIME_OUT) { //已超时
+                app.alert.redirect({
+                    status: app.alert.STATUS_FAIL,
+                    mode: app.alert.MODE_SHARE,
+                    nav: app.alert.NAV_REDIRECT,
+                    store_uuid: store.uuid,
+                    title: res.message.title,
+                    content: res.message.content,
+                })
+            }
+            else {  // 系统出错失败
+                app.alert.redirect({
+                    status: app.alert.STATUS_FAIL,
+                    mode: app.alert.MODE_SHARE,
+                    nav: app.alert.NAV_REDIRECT,
+                    store_uuid: store.uuid,
+                    title: res.message.title,
+                    content: res.message.content,
+                })
+            }
+        })
+        // }
     }
 
+    /**
+     * @method 5、外卖扫码自动领取集点和券
+     */
+    modeWm(wm_short_uuid){
+        db.scanWMCustomer(wm_short_uuid).then(res=>{
+            console.log(res)
+            var store_uuid = res.data.store_uuid
+            var code = res.message.code
+            var title = res.message.title
+            var content = res.message.content
+            
+            switch (code) {
+                case app.code.CODE_WM_SCORE: //集点模式
+                    app.alert.redirect({
+                        status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                        store_uuid: store_uuid, title: title, content: content,
+                    })
+                    break;
+                case app.code.CODE_WM_SHARE: //分享模式
+                    wx.showModal({
+                        title: title,
+                        content: content,
+                    })
+                    app.share.redirect({
+                        nav: app.alert.NAV_REDIRECT,
+                        store_uuid: store_uuid,
+                    })
+                    break;
+                case app.code.CODE_WM_ALL: //全模式
+                    wx.showModal({title: title,content: content,})
+                    app.share.redirect({
+                        nav: app.alert.NAV_REDIRECT,
+                        store_uuid: store_uuid,
+                    })
+                    break;
+                case app.code.CODE_WM_CLOSE: //店铺已关闭
+                    this.modeNormal()
+                    break;
+                case app.code.CODE_WM_TIME_OUT: //二维码不存在
+                    this.modeNormal()
+                    break;
+                case app.code.CODE_WM_USED: //已使用
+                    app.alert.redirect({
+                        status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                        store_uuid: store_uuid, title: title, content: content,
+                    })
+                    break;
+                case app.code.CODE_WM_DELETE: //已删除
+                    app.alert.redirect({
+                        status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                        store_uuid: store_uuid, title: title, content: content,
+                    })
+                    break;
+            }
+        })
+    }
 
     // 检测是否用户授权
     checkHasAuth() {

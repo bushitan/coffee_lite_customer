@@ -23,6 +23,15 @@ App({
         CODE_SHARE_VALID: 104007, //券已过期
         CODE_SHARE_AUTO_ERROR: 104008, //自助领券信息错误
         CODE_SHARE_AUTO_TIME_OUT: 104009, //自助领券超时
+
+        CODE_WM_SCORE: "106001",
+        CODE_WM_SHARE: "106002",
+        CODE_WM_ALL: "106003",
+        CODE_WM_CLOSE: "106004",
+        CODE_WM_TIME_OUT: "106005",
+        CODE_WM_USED: "106006",
+        CODE_WM_DELETE: "106007",
+
     },
     // route页面
     route: {
@@ -30,6 +39,7 @@ App({
         MODE_STORE: "store", // 店铺扫码
         MODE_SHARE: "share", // 领取好友分享
         MODE_AUTO_SHARE: "sh", //自助领券
+        MODE_WM: "wm", //外卖自助领券or点
     },
 
 

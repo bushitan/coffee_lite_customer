@@ -31,6 +31,7 @@ module.exports = {
     STORE_SHARE_CUSTOMER: `${URL}store/share/customer/`,
     REFRESH_CUSTOMER: `${URL}refresh/customer/`,
     SCAN_AUTO_SHARE_CUSTOMER: `${URL}scan/auto_share/customer/`,
+    SCAN_WM_CUSTOMER: `${URL}scan/wm/customer/`,
     
     
 }

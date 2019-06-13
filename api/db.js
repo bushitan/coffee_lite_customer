@@ -157,6 +157,17 @@ class db {
             }).then(res => resolve(res.data))
         })
     }
+    // 获取更新数据
+    scanWMCustomer(wm_short_uuid) {
+        return new Promise((resolve, reject) => {
+            this.base({
+                url: API.SCAN_WM_CUSTOMER,
+                data: {
+                    wm_short_uuid: wm_short_uuid,
+                }
+            }).then(res => resolve(res.data))
+        })
+    }
     
      // 获取更新数据 （已废弃）
     // scanAutoShareCustomer11111(qrBase64) {
