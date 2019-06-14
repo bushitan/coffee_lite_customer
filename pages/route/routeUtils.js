@@ -66,7 +66,7 @@ class routeUtils {
             var data = res.data
 
             //接受分享成功，其余都是失败
-            var status = message.code == app.share.CODE_SHARE_RECEIVE ? app.alert.STATUS_SUCCESS : app.alert.STATUS_FAIL            
+            var status = message.code == app.code.CODE_SHARE_RECEIVE ? app.alert.STATUS_SUCCESS : app.alert.STATUS_FAIL            
 
             console.log(status)
             app.alert.redirect({

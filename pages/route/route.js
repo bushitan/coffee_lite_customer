@@ -67,7 +67,8 @@ Page({
             var sceneList = scene.split('_')
             var mode = sceneList[0]
             if (mode == app.route.MODE_AUTO_SHARE)
-                routeUtils.modeAuto(sceneList[0], sceneList[1], sceneList[2], sceneList[3])//auto_share 模式
+                routeUtils.modeAuto(sceneList[0], sceneList[1], 
+                    sceneList[2], sceneList[3])//auto_share 模式
             else if (mode == app.route.MODE_WM)
                 routeUtils.modeWm( sceneList[1])//外卖 模式
             return

@@ -62,23 +62,6 @@ Page({
         })
     },
 
-    // 用户扫描二维码，领取福利券
-    scanAutoShare(){
-        wx.scanCode({
-            success(res) {
-
-                console.log(res)
-                return 
-
-                db.scanAutoShareCustomer(res.result).then( res=>{
-                    if (res.message.code == CODE_SHARE_SUCCESS) 
-                        storeUtils.scanSuccess(res.message.title,GP.data.store.uuid)
-                    else 
-                        storeUtils.scanFail()
-                })
-            }
-        })
-    },
 
     /**测试接口 */
     test(){
@@ -87,7 +70,7 @@ Page({
         storeUtils.shareSucess(store_uuid) // 跳转分享页面
     },
 
-    /*****定时器** */
+  /*****定时器** */
     startInterval(){
         interval = setInterval(function () {
             db.refresh().then(res => {
@@ -96,21 +79,52 @@ Page({
                 if (infoList == null) 
                     return
 
-                GP.updateStoreData(GP.data.store.uuid) //直接刷新
-                for (var i=0;i<infoList.length;i++){ //提示分享结果
-                    var msg = infoList[i]
-                    wx.showModal({
-                        title: msg.title,
-                        content: msg.content,
-                        success() {
-                            if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) 
-                                storeUtils.getScorePrizeSucess()        
-                            if ( msg.code == CODE_SHARE_SUCCESS)
-                                storeUtils.shareSucess(GP.data.store.uuid)
-                        },
-                    })
+                debugger
+                // 提示
+                // for (var i = 0; i < infoList.length; i++){
+                //     var msg = infoList[i]
+                //     wx.showToast({ title: msg.title })  
+                // }              
+                var store_uuid = GP.data.store.uuid
+                var msg_last = infoList[0]
+                var code_last = infoList[0].code
+                var title_last = infoList[0].title
+                var content_last = infoList[0].content
+
+                //直接刷新数据
+                GP.updateStoreData(store_uuid)
+                // 跳转到相应页面
+                // 去提示页，成功
+                if (code_last == app.code.CODE_SCORE_SUCCESS 
+                    || code_last == app.code.CODE_PRIZE_SUCCESS 
+                    || code_last == app.code.CODE_SHARE_SEND 
+                    || code_last == app.code.CODE_SHARE_RECEIVE )
+                    storeUtils.getScorePrizeSucess(store_uuid, title_last, content_last)
+                // 获得分享券
+                else if (code_last == app.code.CODE_SHARE_SUCCESS){
+                    wx.showModal({ title: title_last, content: content_last })
+                    storeUtils.getShare(GP.data.store.uuid)
                 }
-                console.log(res)
+                // 去提示页，失败
+                else{
+                    storeUtils.getScorePrizeFail(store_uuid, title_last, content_last)
+                }
+
+
+                // for (var i=0;i<infoList.length;i++){ //提示分享结果
+                //     var msg = infoList[i]
+                //     wx.showModal({
+                //         title: msg.title,
+                //         content: msg.content,
+                //         success() {
+                //             if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) 
+                //                 storeUtils.getScorePrizeSucess()        
+                //             if ( msg.code == CODE_SHARE_SUCCESS)
+                //                 storeUtils.shareSucess(GP.data.store.uuid)
+                //         },
+                //     })
+                // }
+                // console.log(res)
             })
         }, 4000)
     },
@@ -204,3 +218,52 @@ Page({
         })
     }
 })
+
+
+// // 用户扫描二维码，领取福利券
+// scanAutoShare(){
+//     wx.scanCode({
+//         success(res) {
+
+//             console.log(res)
+//             return
+
+//             db.scanAutoShareCustomer(res.result).then(res => {
+//                 if (res.message.code == CODE_SHARE_SUCCESS)
+//                     storeUtils.scanSuccess(res.message.title, GP.data.store.uuid)
+//                 else
+//                     storeUtils.scanFail()
+//             })
+//         }
+//     })
+// },
+
+
+
+    // /*****定时器** */
+    // startInterval(){
+    //     interval = setInterval(function () {
+    //         db.refresh().then(res => {
+    //             var data = res.data
+    //             var infoList = data.info_list
+    //             if (infoList == null) 
+    //                 return
+
+    //             GP.updateStoreData(GP.data.store.uuid) //直接刷新
+    //             for (var i=0;i<infoList.length;i++){ //提示分享结果
+    //                 var msg = infoList[i]
+    //                 wx.showModal({
+    //                     title: msg.title,
+    //                     content: msg.content,
+    //                     success() {
+    //                         if (msg.code == CODE_SCORE_SUCCESS || msg.code == CODE_PRIZE_SUCCESS ) 
+    //                             storeUtils.getScorePrizeSucess()        
+    //                         if ( msg.code == CODE_SHARE_SUCCESS)
+    //                             storeUtils.shareSucess(GP.data.store.uuid)
+    //                     },
+    //                 })
+    //             }
+    //             console.log(res)
+    //         })
+    //     }, 4000)
+    // },

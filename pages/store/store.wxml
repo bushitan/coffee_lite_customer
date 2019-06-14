@@ -37,7 +37,7 @@
 <icon-btn
     score="{{data.score_num}}"
     exchange="{{store.exchange_value}}"
-    isFull="{{isFullScore}}"
+    isFull="{{ data.score_num >= store.exchange_value}}"
     isAuto="{{store.is_auto}}"
     catch:exchange="toExchangeQR"
     catch:qr="toQR"

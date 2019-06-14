@@ -41,11 +41,10 @@ class StoreUtils {
         var currentPage = pages[pages.length - 1]
         if (currentPage.__route__ == "pages/qrcode/qrcode") { // 注销掉二维码页面
             // wx.navigateBack({})
-
             app.alert.redirect({
                 status: app.alert.STATUS_SUCCESS,
-                mode: app.alert.MODE_PRIZE,
-                nav: app.alert.NAV_REDIRECT,
+                // mode: app.alert.MODE_PRIZE,
+                nav: app.alert.NAV_BACK,
                 store_uuid: store_uuid,
                 title: title,
                 content: content,
@@ -53,7 +52,16 @@ class StoreUtils {
         } else if (currentPage.__route__ == "pages/store/store") {  //店铺页面，跳转
             app.alert.navigate({
                 status: app.alert.STATUS_SUCCESS,
-                mode: app.alert.MODE_PRIZE,
+                // mode: app.alert.MODE_PRIZE,
+                nav: app.alert.NAV_BACK,
+                store_uuid: store_uuid,
+                title: title,
+                content: content,
+            })
+        } else if (currentPage.__route__ == "pages/share/share") {  //店铺页面，跳转
+            app.alert.redirect({
+                status: app.alert.STATUS_SUCCESS,
+                // mode: app.alert.MODE_PRIZE,
                 nav: app.alert.NAV_BACK,
                 store_uuid: store_uuid,
                 title: title,
@@ -63,15 +71,25 @@ class StoreUtils {
     }
     
     /**
-     *  分享成功
+     *  获得分享券
      */
-    shareSucess(store_uuid){
+    getShare(store_uuid){
         // wx.navigateTo({
         //     url: `/pages/share/share?store_uuid=${GP.data.store.uuid}`
         // })
         app.share.navigate({
             nav: app.share.NAV_BACK,
             store_uuid: store_uuid,
+        })
+    }
+
+    getScorePrizeFail(store_uuid, title, content) {
+        app.alert.navigate({
+            status: app.alert.STATUS_FAIL,
+            nav: app.alert.NAV_BACK,
+            store_uuid: store_uuid,
+            title: title,
+            content: content,
         })
     }
 }

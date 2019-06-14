@@ -12,6 +12,9 @@ App({
     // 
     code :{
 
+        CODE_SYS_SUCCESS : 100001,
+        CODE_SCORE_SUCCESS : 102001,
+        CODE_PRIZE_SUCCESS : 103001,
         /*****分享****/
         CODE_SHARE_SUCCESS: 104000,
         CODE_SHARE_SEND: 104001, //赠送成功

@@ -25,8 +25,8 @@ Page({
         mode: app.alert.MODE_SCORE, //
         nav: app.alert.NAV_BACK,
         store_uuid: "",
-        title: "标题",
-        content: "内容",
+        title: "",
+        content: "",
 
         imgUrls: [
             'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
@@ -45,6 +45,7 @@ Page({
     onLoad: function (options) {
         // wx.redirect
         GP = this
+        // debugger
         GP.setData({
             status: options.status || GP.data.status, 
             mode: options.mode || GP.data.mode,
