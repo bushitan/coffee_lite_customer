@@ -79,7 +79,7 @@ Page({
                 if (infoList == null) 
                     return
 
-                debugger
+                // debugger
                 // 提示
                 // for (var i = 0; i < infoList.length; i++){
                 //     var msg = infoList[i]
