@@ -6,7 +6,7 @@ var db = new DB()
 var RouteUtils = require('routeUtils.js')
 var routeUtils = new RouteUtils()
 var app = getApp()
-
+var options
 Page({
     /**
      * 页面的初始数据
@@ -18,26 +18,26 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function (_options) {
         GP = this
         wx.showLoading({
             title: '加载中...',
         }) 
-        GP.login(options)
-
+        GP.login()
+        options = _options
 
     },    
 
     // 登陆获取用户信息
-    login(options){
+    login(){
         // API
         db.login().then(userInfo =>{
             console.log(userInfo)
             wx.setStorageSync(API.UUID, userInfo.uuid)
             wx.setStorageSync(API.OPEN_ID, userInfo.wx_openid)
-            GP.setData({
-                options: options
-            })
+            // GP.setData({
+            //     options: options
+            // })
             wx.hideLoading()
             // API
             routeUtils.checkHasAuth().then(isHasAuth => {
@@ -51,7 +51,8 @@ Page({
     },
 
     nav(){
-        var options = GP.data.options
+        // var options = GP.data.options
+        // var options = options
         if (options.hasOwnProperty('mode')){
             var store_uuid = options.store_uuid
             if (options.mode == app.route.MODE_SHARE) { 
