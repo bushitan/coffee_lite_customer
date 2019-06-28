@@ -5,7 +5,7 @@ var DB = require('../../api/db.js')
 var db = new DB()
 
 /**
- * 进入route有4种情况：
+ * 进入route有5种情况：
  * 1、普通登录，进入店铺列表list
  * 2、扫店铺码登录，进入店铺详情页store
  * 3、点击好友分享到对话中的分享券，进入提示页alert(success or fail)

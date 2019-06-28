@@ -169,6 +169,19 @@ class db {
         })
     }
     
+
+
+    scanCheckWmTicketCustomer(wm_short_uuid){
+        return new Promise((resolve, reject) => {
+            this.base({
+                url: API.SCAN_WM_CHECK_CUSTOMER,
+                data: {
+                    wm_short_uuid: wm_short_uuid,
+                }
+            }).then(res => resolve(res.data))
+        })
+        
+    }
      // 获取更新数据 （已废弃）
     // scanAutoShareCustomer11111(qrBase64) {
     //     return new Promise((resolve, reject) => {

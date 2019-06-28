@@ -1,3 +1,4 @@
+
 // pages/list/list.js
 var GP
 var API = require('../../api/api.js')
@@ -39,6 +40,23 @@ Page({
         })
     },
 
+
+    scan() {
+        wx.scanCode({
+            success(res) {
+                var path = res.hasOwnProperty("path")? res.path : ""
+                console.log(path)
+                console.log(path.split("_"))
+                var wm_ticket_short_uuid = path.split("_")[1]
+                wm_ticket_short_uuid = "mMIXF6fZ"
+                db.scanCheckWmTicketCustomer(wm_ticket_short_uuid).then(res =>{
+                    console.log(res)
+                    GP.setData({res:res.data})
+                })
+                
+            },
+        })
+    },
 
     /**
      * 用户点击右上角分享
