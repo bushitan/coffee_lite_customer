@@ -140,7 +140,7 @@ class routeUtils {
             switch (code) {
                 case app.code.CODE_WM_SCORE: //集点模式
                     app.alert.redirect({
-                        status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                        status: app.alert.STATUS_SUCCESS, nav: app.alert.NAV_REDIRECT,
                         store_uuid: store_uuid, title: title, content: content,
                     })
                     break;

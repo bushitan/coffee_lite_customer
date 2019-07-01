@@ -10,8 +10,8 @@ var APP_ID = "wxeb9623bdc85a64f4"
 // request.init(XCX_308_URL + 'lite/login/', APP_ID)
  
 // var HOST = "https://www.51zfgx.com/"  // 第2正式版本
-// var HOST = "https://www.51zfgx.com/coffee_server_2019_6_15_v1_3_10/" //第2正式版本
-var HOST = "https://www.51zfgx.com/dev/"
+var HOST = "https://www.51zfgx.com/coffee_server_2019_6_15_v1_3_10/" //第2正式版本
+// var HOST = "https://www.51zfgx.com/dev/"
 
 
 var URL = HOST + "lite/"
