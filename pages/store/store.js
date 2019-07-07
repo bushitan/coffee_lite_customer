@@ -20,11 +20,19 @@ Page({
      * 页面的初始数据
      */
     data: {
-        STORE_ICON_MODE_CUP :1 ,//杯子图案
-        STORE_ICON_MODE_STAMP : 2,//印章图案
+        STORE_ICON_MODE_CUP: 1,//杯子图案
+        STORE_ICON_MODE_STAMP: 2,//印章图案
+        STORE_ICON_MODE_LADDER: 3,//天梯图案
         showBack:false,   //
         store:[],
         isFullScore: false,//满杯
+
+        data:{
+            score_num: 0, //集点数量
+            share_num: 0, //分享券数量
+            prize_num: 0, //礼物数量
+        }, //
+        ladderScore:0, //天梯集点的点数
     },
 
     /**
@@ -136,6 +144,7 @@ Page({
             var exchanveValue = GP.data.store.exchange_value
             var scoreNum = res.data.score_num
             var data = res.data
+            var ladderScore = res.data.score_num
             // 判断是否满点
             var isFullScore = false
             if (scoreNum > exchanveValue) {
@@ -145,7 +154,8 @@ Page({
 
             GP.setData({
                 isFullScore: isFullScore,
-                data: data,                
+                data: data,              
+                ladderScore: ladderScore 
             })
 
             // console.log(GP.data.store.exchange_value)

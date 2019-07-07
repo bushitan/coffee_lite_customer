@@ -1,0 +1,45 @@
+
+/******集点数*******/
+.dian{
+    margin:45px 0 0;
+}
+
+
+.current{
+    display: flex;
+
+    /* justify-content: flex-start; */
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap:wrap; */
+}
+
+.gift{
+    
+}
+
+/* .node{
+    margin-bottom:8px; 
+    width: 25%;
+    flex-basis:25%;
+    display: flex;
+    justify-content: center;
+} */
+.icon{
+    width: 64px;
+    height: 64px;
+}
+.title{
+    font-size: 11pt;
+    font-weight: bolder;
+}
+.score{
+    color: #efaf30;
+    font-size: 25pt;
+    font-weight: bolder;
+}
+.x{
+    margin:  0 3px;
+    font-size: 11pt;
+    
+}

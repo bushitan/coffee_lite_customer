@@ -24,25 +24,47 @@
     ></icon-stamp>
 </block>
 <!-- 咖啡杯 -->
-<block  wx:else>
+<block  wx:elif="{{ store.icon_mode == STORE_ICON_MODE_CUP}}">
     <icon-cup
         score="{{data.score_num}}"
         exchange="{{store.exchange_value}}"
     ></icon-cup>
 </block>
+<block  wx:else>
+    <icon-ladder
+        score="{{ladderScore}}"
+        score_image="{{store.icon_check_image_url}}"
+    ></icon-ladder>
+</block>
 
+        
 <view style='height:10px'></view>
 
-<!-- 按钮 -->
-<icon-btn
-    score="{{data.score_num}}"
-    exchange="{{store.exchange_value}}"
-    isFull="{{ data.score_num >= store.exchange_value}}"
-    isAuto="{{store.is_auto}}"
-    catch:exchange="toExchangeQR"
-    catch:qr="toQR"
-    catch:scan="scanAutoShare"
-></icon-btn>
+<!-- 天梯按钮 -->
+<block   wx:if="{{store.icon_mode == STORE_ICON_MODE_LADDER}}">
+    <view style='display:flex;justify-content:space-around'>
+        <icon-btn
+            isFull="{{ false }}"
+            isAuto="{{store.is_auto}}"
+            catch:qr="toQR"
+        ></icon-btn>
+        <block wx:if="{{ ladderScore >= store.exchange_value}}">
+            <icon-btn 
+                isFull="{{ true }}"
+                isAuto="{{store.is_auto}}"
+                catch:exchange="toExchangeQR"
+            ></icon-btn>
+        </block>
+    </view>
+</block>
+<!-- 普通按钮 -->
+<block  wx:else>
+    <icon-btn
+        isFull="{{ data.score_num >= store.exchange_value}}"
+        catch:exchange="toExchangeQR"
+        catch:qr="toQR"
+    ></icon-btn>
+</block>
 
 
 
@@ -52,7 +74,7 @@
     <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                <view class="weui-media-box__title">赠饮福利</view>
+                <view class="weui-media-box__title">赠品福利</view>
                 <view class="weui-media-box__desc">您有{{data.share_num}}张福利分享券</view>
             </view>
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">

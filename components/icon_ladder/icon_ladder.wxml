@@ -1,0 +1,28 @@
+
+<!-- 
+<view class='dian'>
+    <view class='stamp_list'>
+        <block wx:for="{{stampList}}">
+            <view class='node'>
+                <image class='icon'  src='{{item.src}}'></image>
+            </view>
+        </block>
+        
+    </view>
+</view> -->
+
+
+
+<view class='dian'>
+    <view class='current'>
+    
+           <label class='title'>已收集：</label> 
+            <image class='icon'  src='{{checkImage}}'></image>
+            <label class='x'>x</label>
+             <label class='score'>{{score}}</label>
+    </view>
+        
+    <view class='current'>
+        <image src='../../images/ladder/result.jpg' mode='widthFix' ></image>
+    </view>
+</view>
