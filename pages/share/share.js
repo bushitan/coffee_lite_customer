@@ -72,7 +72,7 @@ Page({
         console.log(GP.data)
         if (e.from == 'button')
             return {
-                title: GP.data.store.share_title,
+                title: GP.data.store.share_title + `（分享券有效期至：${e.target.dataset.valid_time}）`,
                 path: e.target.dataset.path,
                 imageUrl: GP.data.store.share_logo,
             }

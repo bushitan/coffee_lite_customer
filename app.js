@@ -34,6 +34,7 @@ App({
         CODE_WM_TIME_OUT: "106005",
         CODE_WM_USED: "106006",
         CODE_WM_DELETE: "106007",
+        CODE_WM_FULL: "106008",
 
     },
     // route页面

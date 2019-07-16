@@ -48,7 +48,7 @@ Page({
                 console.log(path)
                 console.log(path.split("_"))
                 var wm_ticket_short_uuid = path.split("_")[1]
-                wm_ticket_short_uuid = "mMIXF6fZ"
+                // wm_ticket_short_uuid = "mMIXF6fZ"
                 db.scanCheckWmTicketCustomer(wm_ticket_short_uuid).then(res =>{
                     console.log(res)
                     GP.setData({res:res.data})

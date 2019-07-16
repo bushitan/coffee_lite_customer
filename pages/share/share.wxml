@@ -42,6 +42,7 @@
                     style='background-color:#1d2a6d;color:#ffffff;'
                     open-type='share'
                     data-share_uuid="{{item.uuid}}"
+                    data-valid_time="{{item.valid_time}}"
                     data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
                 >分享</button>
 

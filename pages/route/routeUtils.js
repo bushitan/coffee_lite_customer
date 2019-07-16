@@ -167,18 +167,39 @@ class routeUtils {
                 case app.code.CODE_WM_TIME_OUT: //二维码不存在
                     this.modeNormal()
                     break;
-                case app.code.CODE_WM_USED: //已使用
+
+                /**
+                 * 出错
+                 * 已使用、已删除、已集满
+                 */
+                default:
                     app.alert.redirect({
-                        status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
-                        store_uuid: store_uuid, title: title, content: content,
+                        status: app.alert.STATUS_FAIL, 
+                        nav: app.alert.NAV_REDIRECT,
+                        store_uuid: store_uuid, 
+                        title: title || "网络错误", 
+                        content: content || "请重新尝试",
                     })
-                    break;
-                case app.code.CODE_WM_DELETE: //已删除
-                    app.alert.redirect({
-                        status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
-                        store_uuid: store_uuid, title: title, content: content,
-                    })
-                    break;
+
+
+                // case app.code.CODE_WM_USED: //已使用
+                //     app.alert.redirect({
+                //         status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                //         store_uuid: store_uuid, title: title, content: content,
+                //     })
+                //     break;
+                // case app.code.CODE_WM_DELETE: //已删除
+                //     app.alert.redirect({
+                //         status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                //         store_uuid: store_uuid, title: title, content: content,
+                //     })
+                //     break;
+                // case app.code.CODE_WM_FULL: //已集满
+                //     app.alert.redirect({
+                //         status: app.alert.STATUS_FAIL, nav: app.alert.NAV_REDIRECT,
+                //         store_uuid: store_uuid, title: title, content: content,
+                //     })
+                //     break;
             }
         })
     }
