@@ -11,6 +11,13 @@
 </view>
 <view wx:else class='loading'>
     <image src='../../images/icon_share_base_cup.png' mode='widthFix'></image>
-    <view>分享集点卡，福利集共享</view>
-    <!-- <view></view> -->
+  
+    
+    <view  style="font-weight:bolder">LOADING...</view>
+    <button 
+        wx:if="{{isReload}}" 
+        size='mini' 
+        type='primary'         
+        catchtap='login'
+    >网络超时，重新加载</button>
 </view>

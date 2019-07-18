@@ -30,7 +30,27 @@
         </block>
     </view>
 </view>
-<button catchtap="scan">扫一扫</button>
-<view wx:for="{{res}}">
-    <view>{{index}}:{{item}}</view>
+<!-- <button catchtap="scan">扫一扫</button> -->
+
+
+
+<view class="weui-loadmore weui-loadmore_line" >
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line" 
+        style='font-size:8pt;top:-1.2em'
+        catchlongtap='scan'>
+        Copyright © 2016-2019 索骏科技提供服务
+    </view>
+</view>
+<view wx:for="{{res}}" wx:key="index">
+    <view wx:if="{{index == 'store_title'}}">
+        <view>店铺标题：{{item}}</view>
+    </view>
+    <view wx:if="{{index == 'short_id'}}">
+        <view>外卖码编号：{{item}}</view>
+    </view>
+    <view wx:if="{{index == 'is_used'}}">
+        使用情况：
+        <label hidden='{{!item}}'>已使用</label>
+        <label hidden='{{item}}'>未使用</label>
+    </view>
 </view>

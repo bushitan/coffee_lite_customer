@@ -13,6 +13,9 @@ App({
     code :{
 
         CODE_SYS_SUCCESS : 100001,
+        CODE_SYS_ERROR: 100002,
+        CODE_SYS_ERROR_NETWORK: 100003,
+
         CODE_SCORE_SUCCESS : 102001,
         CODE_PRIZE_SUCCESS : 103001,
         /*****分享****/

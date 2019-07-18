@@ -13,6 +13,7 @@ Page({
      */
     data: {
         isShowLogin:false,
+        isReload:false,
     },
 
     /**
@@ -20,9 +21,7 @@ Page({
      */
     onLoad: function (_options) {
         GP = this
-        wx.showLoading({
-            title: '加载中...',
-        }) 
+        
         GP.login()
         options = _options
 
@@ -30,6 +29,9 @@ Page({
 
     // 登陆获取用户信息
     login(){
+        wx.showLoading({
+            title: '加载中...',
+        }) 
         // API
         db.login().then(userInfo =>{
             console.log(userInfo)
@@ -46,6 +48,13 @@ Page({
                 else
                     GP.setData({ isShowLogin: true })
             })
+        }).catch( res => {
+            // wx.showModal({
+            //     title: '网络超时',
+            //     content: "",
+            // })
+            wx.hideLoading()
+            GP.setData({ isReload:true})
         })
 
     },
