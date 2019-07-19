@@ -11,7 +11,8 @@ var APP_ID = "wxeb9623bdc85a64f4"
  
 // var HOST = "https://www.51zfgx.com/"  // 第2正式版本
 // var HOST = "https://www.51zfgx.com/coffee_server_2019_6_15_v1_3_10/" //第2正式版本
-var HOST = "https://www.51zfgx.com/dev/"
+var HOST = "https://www.51zfgx.com/coffee_server_2019_7_12_v1_5_2/" //第3正式版本
+// var HOST = "https://www.51zfgx.com/dev/"
 
 
 var URL = HOST + "lite/"

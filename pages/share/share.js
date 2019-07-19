@@ -70,12 +70,44 @@ Page({
     onShareAppMessage: function (e) {
         console.log(e)
         console.log(GP.data)
-        if (e.from == 'button')
+        if (e.from == 'button'){
+            
+            var currentTime = Date.parse(new Date());
+            var deadTime = e.target.dataset.valid_time
+            var remainTime = GP.time(currentTime, deadTime)
+            console.log(    )
+
+
             return {
-                title: GP.data.store.share_title + `（分享券有效期至：${e.target.dataset.valid_time}）`,
+                title: GP.data.store.share_title + `（${remainTime}内点击有效）`,
                 path: e.target.dataset.path,
                 imageUrl: GP.data.store.share_logo,
             }
-            
-    }
+        }          
+    },
+
+    
+    time(faultDate, completeTime) {
+        var stime = Date.parse(new Date(faultDate));
+        var etime = Date.parse(new Date(completeTime));
+        var usedTime = etime - stime;  //两个时间戳相差的毫秒数
+        var days = Math.floor(usedTime / (24 * 3600 * 1000));
+        //计算出小时数
+        var leave1 = usedTime % (24 * 3600 * 1000);    //计算天数后剩余的毫秒数
+        var hours = Math.floor(leave1 / (3600 * 1000));
+        //计算相差分钟数
+        var leave2 = leave1 % (3600 * 1000);        //计算小时数后剩余的毫秒数
+        var minutes = Math.floor(leave2 / (60 * 1000));
+        // var time = days + "天" + hours + "时" + minutes + "分";
+
+        if (days == 0)
+            if (hours == 0) 
+                return minutes + "分钟" 
+            else 
+                return hours + "小时" 
+        else  
+            return days + "天"
+    },
+
+
 })

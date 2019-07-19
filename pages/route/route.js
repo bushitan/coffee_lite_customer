@@ -49,10 +49,6 @@ Page({
                     GP.setData({ isShowLogin: true })
             })
         }).catch( res => {
-            // wx.showModal({
-            //     title: '网络超时',
-            //     content: "",
-            // })
             wx.hideLoading()
             GP.setData({ isReload:true})
         })

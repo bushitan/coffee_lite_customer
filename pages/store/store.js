@@ -24,7 +24,9 @@ Page({
         STORE_ICON_MODE_STAMP: 2,//印章图案
         STORE_ICON_MODE_LADDER: 3,//天梯图案
         showBack:false,   //
-        store:[],
+        store:{
+            icon_mode:1,
+        },
         isFullScore: false,//满杯
 
         data:{

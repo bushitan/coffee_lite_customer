@@ -31,7 +31,8 @@ class db {
     getWXCode(){
         return new Promise((resolve, reject) => {
             wx.login({
-                success(res) { resolve(res.code)},
+                success(res) {    resolve(res.code)},
+                fail(res) { return reject(res)}
             })
         })
     }
@@ -51,6 +52,8 @@ class db {
                         uuid: wx.getStorageSync(API.UUID),
                     }
                 }).then(res => resolve(res.data.data))
+            }).catch(res=> {
+                return reject(res)
             })
         })
     }

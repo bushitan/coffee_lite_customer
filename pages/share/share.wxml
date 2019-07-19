@@ -36,7 +36,7 @@
                 </view>
                 <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
                 
-                <button 
+                <!-- <button 
                     class='share_1'  
                     size='mini'
                     style='background-color:#1d2a6d;color:#ffffff;'
@@ -44,7 +44,7 @@
                     data-share_uuid="{{item.uuid}}"
                     data-valid_time="{{item.valid_time}}"
                     data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
-                >分享</button>
+                >分享</button> -->
 
                 <!-- <button 
                     class='share'  
@@ -52,6 +52,16 @@
                     data-share_uuid="{{item.uuid}}"
                     data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
                 ></button> -->
+            </view>
+            <view style='padding: 0 15px 15px;'>
+                <button 
+                    class='share_1' 
+                    style='background-color:#1d2a6d;color:#ffffff;'
+                    open-type='share'
+                    data-share_uuid="{{item.uuid}}"
+                    data-valid_time="{{item.valid_time}}"
+                    data-path="/pages/route/route?mode=share&store_uuid={{store.uuid}}&share_uuid={{item.uuid}}"
+                >分享</button>
             </view>
         </block>
     </view>
