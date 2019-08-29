@@ -1,0 +1,26 @@
+<!--pages/article/article.wxml-->
+
+<web-view src="{{url}}"></web-view>
+
+<!-- <swiper 
+    indicator-dots="{{indicatorDots}}"
+    indicator-color="rgba(255,255,255,0.3)"
+    indicator-active-color="rgba(255,255,255,0.7)"
+    autoplay="{{autoplay}}" 
+    interval="{{interval}}" duration="{{duration}}"
+    >
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="widthFix"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="page">
+    <user_info 
+        avatar="{{userInfo.avatar}}"
+        name="{{userInfo.name}}"
+        > 
+    </user_info>
+    <rich-text nodes="{{content}}" space="true"></rich-text>
+</view> -->

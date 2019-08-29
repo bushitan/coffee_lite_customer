@@ -1,0 +1,12 @@
+/* pages/article/article.wxss */
+
+.page{
+    padding: 15px;
+}
+
+swiper{
+    height: 250px;
+}
+.slide-image{
+    width:750rpx;
+}

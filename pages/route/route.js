@@ -41,13 +41,17 @@ Page({
             //     options: options
             // })
             wx.hideLoading()
-            // API
-            routeUtils.checkHasAuth().then(isHasAuth => {
-                if (isHasAuth)
-                    GP.nav()
-                else
-                    GP.setData({ isShowLogin: true })
-            })
+
+            // 新版本，不需要登陆了
+            GP.nav()
+
+            // // API 旧版本，需要点击登陆才有下一步
+            // routeUtils.checkHasAuth().then(isHasAuth => {
+            //     if (isHasAuth)
+            //         GP.nav()
+            //     else
+            //         GP.setData({ isShowLogin: true })
+            // })
         }).catch( res => {
             wx.hideLoading()
             GP.setData({ isReload:true})

@@ -110,6 +110,16 @@
   z-index: 99;
 }
 
+/*********广告ad*********/
+.ad{    
+    /* padding: 15px; */
+    width: 100%;
+}
+.ad_image{
+    width: 100%;
+    height: auto;
+}
+
 
 
 /**菜单栏***/
