@@ -12,7 +12,8 @@ var APP_ID = "wxeb9623bdc85a64f4"
 // var HOST = "https://www.51zfgx.com/"  // 第2正式版本
 // var HOST = "https://www.51zfgx.com/coffee_server_2019_6_15_v1_3_10/" //第2正式版本
 // var HOST = "https://www.51zfgx.com/coffee_server_2019_7_12_v1_5_2/" //第3正式版本
-var HOST = "https://www.51zfgx.com/dev/"  // 测试版本
+var HOST = "https://www.51zfgx.com/coffee_server_2019_8_29_v1_6_1/" //第4正式版本
+// var HOST = "https://www.51zfgx.com/dev/"  // 测试版本
 
 
 var URL = HOST + "lite/"
@@ -37,6 +38,7 @@ module.exports = {
     SCAN_AUTO_SHARE_CUSTOMER: `${URL}scan/auto_share/customer/`,
     SCAN_WM_CUSTOMER: `${URL}scan/wm/customer/`,
     SCAN_WM_CHECK_CUSTOMER: `${URL}scan/wm/check/customer/`,
+    STORE_GET_AD: `${URL}store/get_ad/customer/`, //获取广告
     
     
 }

@@ -1,12 +1,33 @@
 //app.js
+
+var DB = require('api/db.js')
+var db = new DB()
+
 App({
     onLaunch: function (options) {
         console.log("[onLaunch] 本次场景值:", options.scene)
         this.globalData.scene = options.scene
+
+        //加载广告
+        this.adInit()
     },
     globalData: {
         userInfo: null,
         scene:1001
+    },
+
+    // 广告模块
+    adInit(){
+        db.storeGetAd().then(res => {
+            this.ad = res.data
+            // API
+        })
+    },
+    adType:{
+        AD_TYPE_IMAGE: 1,
+        AD_TYPE_WEB_VIEW: 2,
+    },
+    ad:{
     },
 
     // 

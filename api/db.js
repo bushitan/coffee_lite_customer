@@ -185,6 +185,24 @@ class db {
         })
         
     }
+
+
+    /**
+     * @method 获取广告
+     */
+    storeGetAd() {
+        return new Promise((resolve, reject) => {
+            this.base({
+                url: API.STORE_GET_AD,
+            }).then(res => resolve(res.data))
+        })
+    }
+
+
+
+
+
+
      // 获取更新数据 （已废弃）
     // scanAutoShareCustomer11111(qrBase64) {
     //     return new Promise((resolve, reject) => {

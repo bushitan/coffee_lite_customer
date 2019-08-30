@@ -1,4 +1,5 @@
 // components/xx_cover_news/xx_cover_news.js
+var API = require('../../api/api.js')
 Component({
   /**
    * 组件的属性列表
@@ -34,20 +35,26 @@ Component({
         }
   },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-      // 改变
-    _change(newVal, oldVal) {
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        sn:"",
     },
 
-  }
+    ready(){
+        this.setData({
+            sn: "SN10" + wx.getStorageSync(API.USER_INFO).id + "："
+        })
+    },
+        
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        // 改变
+        _change(newVal, oldVal) {
+        },
+
+    }
 })

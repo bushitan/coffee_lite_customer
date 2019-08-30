@@ -103,10 +103,22 @@
 </view>
 
 
-<view class="ad" catchtap="toAd">
-    <image class="ad_image" src="../../images/ad/ad.jpg" mode="widthFix"></image>
+<view wx:if="{{store.is_ad}}">
+    <swiper  class='swiper' autoplay="true" interval="4000"
+        indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
+        <block wx:for="{{adList}}" wx:key="index">
+            <swiper-item>
+                <view class="ad" catchtap="toAd" 
+                data-type="{{item.type}}" data-web_url='{{item.web_url}}'>
+                    <image class="ad_image" 
+                        src="{{item.cover}}" 
+                        mode="widthFix"
+                    ></image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
 </view>
-
 
 
 <view class="weui-loadmore weui-loadmore_line" >

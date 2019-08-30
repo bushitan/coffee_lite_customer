@@ -35,6 +35,8 @@ Page({
             prize_num: 0, //礼物数量
         }, //
         ladderScore:0, //天梯集点的点数
+
+        adList:[],
     },
 
     /**
@@ -48,7 +50,17 @@ Page({
         GP.startInterval()
         GP.isShowBack()
 
+        
         // GP.test()  // 测试页面
+    },
+
+    /**
+     * @method  每次展示，初始化广告组件
+     */
+    onShow(){
+        GP.setData({
+            adList: app.ad || []
+        })       
     },
 
     // 获取门店数据 
@@ -195,12 +207,16 @@ Page({
     },
 
     // 跳转到广告
-    toAd(){
-        wx.previewImage({
-            urls: ['https://mmbiz.qpic.cn/mmbiz_jpg/5IoRWl64Ed0iaXV0BQbzicZ1ibrYmV9W9e6iaDMiaAiaLAPGLWvnmtpEiabtdlYjicnRl4o4vZv9jgRJ49XUWReiaZvsMSA/0?wx_fmt=jpeg'],
-        })
-        // var ad_url = "https://mp.weixin.qq.com/s/BjTI-Dh9cf7LF97udQ8WHQ"
-        // wx.navigateTo({ url: `/pages/article/article?url=${ad_url}`, }) 
+    toAd(e) {
+        var type = e.currentTarget.dataset.type
+        var web_url = e.currentTarget.dataset.web_url
+        debugger
+        if (type == app.adType.AD_TYPE_IMAGE)
+            wx.previewImage({
+                urls: [web_url],
+            })
+        else
+            wx.navigateTo({ url: `/pages/article/article?url=${web_url}`, }) 
     },
 
     /***********辅助功能********** */

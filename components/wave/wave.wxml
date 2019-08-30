@@ -7,7 +7,7 @@
             <image class='logo' src='{{logo}}'></image>
         </view>
         <view class='userInfo_name'>
-            <open-data type="userNickName"></open-data>，欢迎您
+           {{sn}}<open-data type="userNickName"></open-data>，欢迎您
             <view class='discount'>{{summary}}</view>
             <view class='time'>[ 活动时间：{{start_time}}至{{end_time}} ]</view>
         </view>

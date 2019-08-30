@@ -111,6 +111,11 @@
 }
 
 /*********广告ad*********/
+.swiper{
+    
+    width: 750rpx;
+    height: 600rpx;
+}
 .ad{    
     /* padding: 15px; */
     width: 100%;
