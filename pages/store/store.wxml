@@ -109,9 +109,16 @@
         <block wx:for="{{adList}}" wx:key="index">
             <swiper-item>
                 <view class="ad" catchtap="toAd" 
-                data-type="{{item.type}}" data-web_url='{{item.web_url}}'>
+                    data-type="{{item.type}}" 
+                    data-content_image_url='{{item.content_image_url}}'
+                    data-content_url='{{item.content_url}}'
+                    data-content_lite_app_id='{{item.content_lite_app_id}}'
+                    data-content_lite_path='{{item.content_lite_path}}'
+                    data-content_lite_extra_data='{{item.content_lite_extra_data}}'
+                    data-content_lite_env_version='{{item.content_lite_env_version}}'
+                >
                     <image class="ad_image" 
-                        src="{{item.cover}}" 
+                        src="{{item.cover_image_url}}" 
                         mode="widthFix"
                     ></image>
                 </view>

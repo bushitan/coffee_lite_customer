@@ -58,9 +58,24 @@ Page({
      * @method  每次展示，初始化广告组件
      */
     onShow(){
-        GP.setData({
-            adList: app.ad || []
-        })       
+        // GP.setData({
+        //     adList: app.ad || []
+        // })   
+        // GP.getLastAd()
+    },
+
+    /**
+     * @method 获取最新的广告
+     */
+    getLastAd(store_uuid) {
+        db.storeGetAd(store_uuid).then(res => {
+            console.log(res.data.ad)
+            GP.setData({
+                adList:res.data.ad
+            })
+            // this.ad = res.data
+            // API
+        })
     },
 
     // 获取门店数据 
@@ -75,12 +90,8 @@ Page({
             })
             GP.setData({ store: store})
             GP.updateStoreData(store_uuid)  // 更新店铺数据
-            // db.storeData(store_uuid).then(res => {
-            //     GP.setData({
-            //         store: store,
-            //         data: res.data
-            //     })
-            // })
+            
+            GP.getLastAd(store_uuid) //更新店铺的广告
         })
     },
 
@@ -209,14 +220,21 @@ Page({
     // 跳转到广告
     toAd(e) {
         var type = e.currentTarget.dataset.type
-        var web_url = e.currentTarget.dataset.web_url
-        debugger
+
+        var content_image_url = e.currentTarget.dataset.content_image_url
+        var content_url = e.currentTarget.dataset.content_url
+        var content_lite_app_id = e.currentTarget.dataset.content_lite_app_id
+        var content_lite_path = e.currentTarget.dataset.content_lite_path
+        var content_lite_extra_data = e.currentTarget.dataset.content_lite_extra_data
+        var content_lite_env_version = e.currentTarget.dataset.content_lite_env_version
+
+        // debugger
         if (type == app.adType.AD_TYPE_IMAGE)
             wx.previewImage({
-                urls: [web_url],
+                urls: [content_image_url],
             })
         else
-            wx.navigateTo({ url: `/pages/article/article?url=${web_url}`, }) 
+            wx.navigateTo({ url: `/pages/article/article?url=${content_url}`, }) 
     },
 
     /***********辅助功能********** */

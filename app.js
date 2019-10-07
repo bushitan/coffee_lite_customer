@@ -9,23 +9,24 @@ App({
         this.globalData.scene = options.scene
 
         //加载广告
-        this.adInit()
+        // this.adInit()
     },
     globalData: {
         userInfo: null,
         scene:1001
     },
 
-    // 广告模块
-    adInit(){
-        db.storeGetAd().then(res => {
-            this.ad = res.data
-            // API
-        })
-    },
+    // // 广告模块
+    // adInit(){
+    //     db.storeGetAd().then(res => {
+    //         this.ad = res.data
+    //         // API
+    //     })
+    // },
     adType:{
-        AD_TYPE_IMAGE: 1,
-        AD_TYPE_WEB_VIEW: 2,
+        AD_TYPE_IMAGE: 1,//打开图片
+        AD_TYPE_WEB_VIEW: 2,//打开webview
+        AD_TYPE_LITE: 3, //打开小程序
     },
     ad:{
     },

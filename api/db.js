@@ -190,10 +190,13 @@ class db {
     /**
      * @method 获取广告
      */
-    storeGetAd() {
+    storeGetAd(store_uuid) {
         return new Promise((resolve, reject) => {
             this.base({
                 url: API.STORE_GET_AD,
+                data:{
+                    store_uuid: store_uuid,
+                }
             }).then(res => resolve(res.data))
         })
     }
