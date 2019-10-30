@@ -40,6 +40,12 @@
                 <!-- <button class="weui-btn" type="default"  catchtap='more'>查看更多美食资讯</button> -->
             </view>
         </view>
+        
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button  open-type="contact">有疑问？联系客服</button>
+            </view>
+        </view>
     </view>
     <!-- <view>
         <swiper indicator-dots="{{indicatorDots}}"

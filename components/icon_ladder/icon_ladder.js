@@ -69,6 +69,14 @@ Component({
                 this.setData({ unFullImage: newVal || IMAGE_UN_FULL })
             }
         },
+
+        ladder: {
+            type: String,
+            value: "../../images/ladder/result.jpg",
+            // observer: function (newVal, oldVal) {
+            //     this.setData({ unFullImage: newVal || IMAGE_UN_FULL })
+            // }
+        },
   },
 
   /**

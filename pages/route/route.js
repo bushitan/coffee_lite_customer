@@ -75,6 +75,8 @@ Page({
         } if (options.hasOwnProperty('scene') ){  
             // 扫码自动领优惠券操作
             const scene = decodeURIComponent(options.scene) 
+            console.log(scene)
+            debugger
             var sceneList = scene.split('_')
             var mode = sceneList[0]
             if (mode == app.route.MODE_AUTO_SHARE)

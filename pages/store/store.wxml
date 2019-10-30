@@ -135,6 +135,7 @@
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
         Copyright © 2016-2019索骏科技提供技术支持
     </view>
+    <button size="mini" open-type="contact">联系客服</button>
 </view>
 
 

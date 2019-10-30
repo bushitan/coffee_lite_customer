@@ -23,6 +23,6 @@
     </view>
         
     <view class='current'>
-        <image src='../../images/ladder/result.jpg' mode='widthFix' ></image>
+        <image src='{{ladder}}' class="ladder_cover" mode='widthFix' ></image>
     </view>
 </view>

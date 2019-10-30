@@ -61,7 +61,6 @@ Page({
         // GP.setData({
         //     adList: app.ad || []
         // })   
-        // GP.getLastAd()
     },
 
     /**
