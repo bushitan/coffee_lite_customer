@@ -104,6 +104,8 @@
 </view>
 
 <!-- 旧版本广告 -->
+<view style="height:10px ;background-color:#ededed"></view>
+<official-account></official-account>
 <view wx:if="{{store.is_ad}}">
     <swiper  class='swiper' autoplay="true" interval="4000"
         indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
