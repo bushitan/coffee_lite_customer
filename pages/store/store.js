@@ -50,7 +50,7 @@ Page({
         GP.startInterval()
         GP.isShowBack()
 
-        
+        GP.getLastAd() // 获取广告
         // GP.test()  // 测试页面
     },
 
@@ -61,6 +61,7 @@ Page({
         // GP.setData({
         //     adList: app.ad || []
         // })   
+        
     },
 
     /**
@@ -70,10 +71,9 @@ Page({
         db.storeGetAd(store_uuid).then(res => {
             console.log(res.data.ad)
             GP.setData({
-                adList:res.data.ad
+                // adList: res.data.ad
+                adList: res.data
             })
-            // this.ad = res.data
-            // API
         })
     },
 
@@ -90,6 +90,12 @@ Page({
             GP.setData({ store: store})
             GP.updateStoreData(store_uuid)  // 更新店铺数据
             
+            // db.storeData(store_uuid).then(res => {
+            //     GP.setData({
+            //         store: store,
+            //         data: res.data
+            //     })
+            // })
             GP.getLastAd(store_uuid) //更新店铺的广告
         })
     },
@@ -216,8 +222,20 @@ Page({
         wx.navigateTo({url: `/pages/qrcode/qrcode?mode=prize&store_uuid=${GP.data.store.uuid}`,})
     },
 
-    // 跳转到广告
-    toAd(e) {
+    // 旧版本 跳转到广告
+    toAd(e){
+        var type = e.currentTarget.dataset.type
+        var web_url = e.currentTarget.dataset.web_url
+        debugger
+        if (type == app.adType.AD_TYPE_IMAGE)
+            wx.previewImage({
+                urls: [web_url],
+            })
+        else
+            wx.navigateTo({ url: `/pages/article/article?url=${web_url}`, })
+    },
+    // 新版本  跳转到广告
+    toAdNew(e) {
         var type = e.currentTarget.dataset.type
 
         var content_image_url = e.currentTarget.dataset.content_image_url
