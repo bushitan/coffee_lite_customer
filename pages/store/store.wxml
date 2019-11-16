@@ -21,6 +21,7 @@
         check="{{store.icon_check_image_url}}"
         uncheck="{{store.icon_un_check_image_url}}"
         full="{{store.icon_full_image_url}}"
+        unfull="{{store.icon_un_full_image_url}}"
     ></icon-stamp>
 </block>
 <!-- 咖啡杯 -->
