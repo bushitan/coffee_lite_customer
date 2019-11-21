@@ -13,7 +13,7 @@
     <image src='../../images/icon_share_base_cup.png' mode='widthFix'></image>
   
     
-    <view  style="font-weight:bolder">LOADING...</view>
+    <view  style="font-weight:bolder">小杯子集点卡，加载中...</view>
     <button 
         wx:if="{{isReload}}" 
         size='mini' 

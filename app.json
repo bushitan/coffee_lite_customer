@@ -13,7 +13,7 @@
         "backgroundTextStyle": "light",
         "backgroundColor": "#ffffff",
         "navigationBarBackgroundColor": "#efaf30",
-        "navigationBarTitleText": "分享集点卡",
+        "navigationBarTitleText": "小杯子集点卡",
         "navigationBarTextStyle": "white"
     },
     "permission": {
