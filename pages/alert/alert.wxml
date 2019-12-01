@@ -43,7 +43,7 @@
         
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button  open-type="contact">有疑问？联系客服</button>
+                <button  open-type="contact">小杯子客服</button>
             </view>
         </view>
     </view>

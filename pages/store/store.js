@@ -226,7 +226,6 @@ Page({
     toAd(e){
         var type = e.currentTarget.dataset.type
         var web_url = e.currentTarget.dataset.web_url
-        debugger
         if (type == app.adType.AD_TYPE_IMAGE)
             wx.previewImage({
                 urls: [web_url],
