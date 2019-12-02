@@ -150,3 +150,32 @@
     display: flex;
     justify-content: center
 }
+
+.contact_item{
+    margin-left: 0;
+    margin-right: 0;
+    padding: 15px 15px;
+    box-sizing: border-box;
+    font-size: 11pt;
+    text-align: left;
+    text-decoration: none;
+    line-height: 2.55555556;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: #000;
+    background-color: #fff;
+
+}
+.contact_item::after {
+    display:none;
+}
+
+.UGC{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.9);
+    /* display: flex; */
+    /* justify-content: center */
+}

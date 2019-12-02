@@ -101,6 +101,15 @@
                 <image class="weui-media-box__thumb" src="../../images/menu_address.png" />
             </view>
         </view>
+        <!-- <button open-type="contact" class=" weui-media-box weui-media-box_appmsg contact_item">
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">小杯子客服</view>
+                    <view class="weui-media-box__desc">集点有问题？问问小杯子客服吧</view>
+                </view>
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb" src="../../images/menu_contact.png" />
+                </view>
+        </button> -->
     </view>
 </view>
 
@@ -155,14 +164,26 @@
         活动详情请与"{{store.title}}"沟通
     </view> -->
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
-        Copyright © 2016-2019索骏科技提供技术支持
+        Copyright © 2019 索骏科技提供技术支持
     </view>
+    <button  size="mini" type="" open-type="contact">小杯子客服</button>
 </view>
-<view style="height:30px"></view>
+<view style="height:60px"></view>
 
-<view class="contact">
-    <button  size="mini" type="primary" open-type="contact">图文投稿</button>
- </view>
+
+
+
+<view class="weui-panel weui-panel_access UGC" >
+    <view  class=" weui-media-box weui-media-box_appmsg ">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <!-- <view class="weui-media-box__title">图文投稿</view> -->
+            <view class="weui-media-box__desc">晒一晒今日份小开心，图文投稿</view>
+        </view>        
+        <button  size="mini" type="primary" open-type="contact">随手拍咖啡</button>
+    </view>    
+</view>
+
+
 
 
 
