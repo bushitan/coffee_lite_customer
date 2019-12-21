@@ -15,9 +15,25 @@
     width: 100%;
 }
 
-/* .weui-msg{    padding-top:30px;}
-.weui-msg__icon-area {    margin-bottom:10px;} */
-.ad{
+/* .weui-msg{    padding-top:15px;} */
+.weui-msg__icon-area ,.weui-msg__text-area {    margin-bottom:10px;}
+.weui-msg__opr-area{    margin-bottom:15px;}
+/* .ad{
     position: absolute;
     bottom: 0;
+} */
+
+/*********广告ad*********/
+.swiper{
+    
+    width: 750rpx;
+    height: 600rpx;
+}
+.ad{    
+    /* padding: 15px; */
+    width: 100%;
+}
+.ad_image{
+    width: 100%;
+    height: auto;
 }

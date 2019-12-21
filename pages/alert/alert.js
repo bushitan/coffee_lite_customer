@@ -36,7 +36,9 @@ Page({
         indicatorDots: true,
         autoplay: true,
         interval: 3000,
-        duration: 1000
+        duration: 1000,
+
+        adList: [],
     },
 
     /**
@@ -54,6 +56,9 @@ Page({
             title: options.title || GP.data.title,
             content: options.content || GP.data.content,
         })
+
+        var store_uuid = options.store_uuid || GP.data.store_uuid
+        GP.getLastAd(store_uuid) // 获取广告
     },
 
     // 点击关注更多按钮
@@ -89,6 +94,19 @@ Page({
     clickSwiper(e){
         var index = e.currentTarget.dataset.index
         console.log(index)
+    },
+
+    /**
+     * @method 获取最新的广告
+     */
+    getLastAd(store_uuid) {
+        db.storeGetAd(store_uuid).then(res => {
+            console.log(res.data.ad)
+            GP.setData({
+                // adList: res.data.ad
+                adList: res.data
+            })
+        })
     },
 
 

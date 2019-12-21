@@ -27,8 +27,8 @@
     <!-- <official-account></official-account> -->
     <view class="weui-msg">
         <view class="weui-msg__icon-area">
-                <icon type="success" size="93" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
-                <icon type="warn" size="93"wx:else></icon>   
+                <icon type="success" size="80" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
+                <icon type="warn" size="80"wx:else></icon>   
         </view>
         <view class="weui-msg__text-area">
             <view class="weui-msg__title">{{title}}</view>
@@ -46,6 +46,7 @@
                 <button  open-type="contact">小杯子客服</button>
             </view>
         </view>
+        <view style="height:10px"></view>
     </view>
     <!-- <view>
         <swiper indicator-dots="{{indicatorDots}}"
@@ -58,8 +59,27 @@
             </block>
         </swiper>
     </view> -->
-    <view style="height:70px"></view>
+
+    <!-- <view style="height:70px"></view>
+    <official-account></official-account> -->
+        
+    <!-- 旧版本广告 -->
+    <view style="height:10px ;background-color:#ededed"></view>
     <official-account></official-account>
+    <swiper  class='swiper' autoplay="true" interval="4000"
+        indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
+        <block wx:for="{{adList}}" wx:key="index">
+            <swiper-item>
+                <view class="ad" catchtap="toAd" 
+                data-type="{{item.type}}" data-web_url='{{item.web_url}}'>
+                <image class="ad_image" 
+                    src="{{item.cover}}" 
+                    mode="widthFix"
+                ></image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
 
     <view class="weui-loadmore weui-loadmore_line" >
         <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
