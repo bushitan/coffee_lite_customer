@@ -109,5 +109,17 @@ Page({
         })
     },
 
+    
+    // 旧版本 跳转到广告
+    toAd(e) {
+        var type = e.currentTarget.dataset.type
+        var web_url = e.currentTarget.dataset.web_url
+        if (type == app.adType.AD_TYPE_IMAGE)
+            wx.previewImage({
+                urls: [web_url],
+            })
+        else
+            wx.navigateTo({ url: `/pages/article/article?url=${web_url}`, })
+    },
 
 })
