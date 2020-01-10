@@ -7,6 +7,8 @@
         "pages/store/store",
         "pages/qrcode/qrcode",
         "pages/exchange/exchange",
+        "pages/webview/webview",
+        "pages/wePay/wePay",
         "pages/share/share"
     ],
     "window": {

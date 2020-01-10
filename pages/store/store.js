@@ -254,6 +254,11 @@ Page({
     },
 
     /***********辅助功能********** */
+    toMall(){
+      wx.navigateTo({ url: '/pages/article/article?url=https://sj.qskjad.top/Home/Index', }) 
+    },
+
+
     // 是否显示左上角返回按钮
     isShowBack() {
         var pages = getCurrentPages()

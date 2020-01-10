@@ -177,9 +177,10 @@
     <view  class=" weui-media-box weui-media-box_appmsg ">
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <!-- <view class="weui-media-box__title">图文投稿</view> -->
-            <view class="weui-media-box__desc">晒一晒今日份小开心，图文投稿</view>
+            <view class="weui-media-box__desc">多多美物，精选于此</view>
         </view>        
-        <button  size="mini" type="primary" open-type="contact">随手拍咖啡</button>
+        <button  size="mini" type="primary" catchtap="toMall" style="background:#1d2a6d">小杯子精选商城</button>
+        <!-- <button  size="mini" type="primary" open-type="contact">小杯子精选商城</button> -->
     </view>    
 </view>
 
