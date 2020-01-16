@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "ladder": "../../components/1_ladder/ladder"
+  }
+}

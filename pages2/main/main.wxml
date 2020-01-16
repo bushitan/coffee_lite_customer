@@ -1,0 +1,31 @@
+<!--pages2/main/main.wxml-->
+
+<view>
+    <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
+        <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+            <view class="swiper-item">
+                <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+                <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+
+
+<view class="cu-list menu-avatar bg-white">
+    <view class="cu-item"  wx:for="[2,2,2,2,2]">
+      <view class="cu-avatar round lg" style="background-image:url(http://img.12xiong.top/coffee_image/upload/IGyXK6fZ.jpg);"></view>
+      <view class="content">
+        <view class="text-grey">StrongCoffee</view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">
+							<text class="cuIcon-infofill text-red  margin-right-xs"></text>满6杯赠30元内饮品一杯
+          </text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">已点数</view>
+        <view class="cu-tag round bg-grey sm">5</view>
+      </view>
+    </view>
+</view>

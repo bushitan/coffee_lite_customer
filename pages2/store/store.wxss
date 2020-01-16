@@ -1,0 +1,10 @@
+/* pages2/store/store.wxss */
+
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
+}
+
+.banner{
+    width: 750rpx；
+}
