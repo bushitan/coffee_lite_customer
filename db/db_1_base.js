@@ -1,8 +1,8 @@
 class dbBase {
     
-    KEY_USER_INFO = "user_info"
-    KEY_UUID = "uuid"
-    KEY_TOKEN = "token"
+    // KEY_USER_INFO = "user_info"
+    // KEY_UUID = "uuid"
+    // KEY_TOKEN = "token"
 
     constructor() { }
 

@@ -6,6 +6,29 @@
 /* @import 'main.wxss';
 @import 'icon.wxss'; */
 
+
+.page-flex-center{ display: flex;justify-content: center;align-items: center }
+.page-pd15{ padding: 15px; }
+.page-space-5{ height: 5px; }
+.page-space-10{ height: 10px; }
+.page-space-60{ height: 60px; }
+.page-icon-lite{ width: 32px;height: 32px; }
+.page-icon-normal{ width: 42px;height:32px; }
+
+.page-font-white{  color: #ffffff; }
+.page-font-yellow{ color: #efaf30; }
+.page-font-blue{ color: #1d2a6d }
+
+.page-gb-yellow{ background-color: #efaf30; }
+.page-gb-blue{ background-color: #1d2a6d }
+
+
+
+
+
+
+
+
 .container {
   height: 100%;
   display: flex;
@@ -95,6 +118,7 @@ input {
     width: 750rpx;
 
 }
+
 
 
 

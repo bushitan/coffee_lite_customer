@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages2/main/main",
         "pages/route/route",
         "pages/alert/alert",
         "pages/article/article",
@@ -11,7 +12,6 @@
         "pages/wePay/wePay",
         "pages/share/share",
         "pages2/loading/loading",
-        "pages2/main/main",
         "pages2/store/store",
         "pages2/alert/alert",
         "pages2/test_unit/test_unit"

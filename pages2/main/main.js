@@ -6,6 +6,46 @@ Page({
      */
     data: {
 
+        userInfo: {
+            id: '202232',
+            name: 'fengef',
+            allScoreNum: 1,
+            allPrizeNum: 1,
+            allStoreNum: 1,
+        },
+        storeList: [
+            {
+                storeUUID: "2",  //广告所在店铺
+                storeName: "StrongCoffee", //店铺名称
+                storeLogo: "http://img.12xiong.top/coffee_image/upload/IGyXK6fZ.jpg", //店铺logo
+                storeDes: "满6杯赠30元内饮品一杯",  //店铺活动描述
+                storeMinScore: 6,  //店铺起始兑换点数
+                storeMaxScore: 10,  //店铺最高兑换点数
+                myScore: 1,    //此店铺已经集的点数
+            },
+            {
+                storeUUID: "3",  //广告所在店铺
+                storeName: "StrongCoffee", //店铺名称
+                storeLogo: "http://img.12xiong.top/coffee_image/upload/IGyXK6fZ.jpg", //店铺logo
+                storeDes: "满6杯赠30元内饮品一杯",  //店铺活动描述
+                storeMinScore: 6,  //店铺起始兑换点数
+                storeMaxScore: 10,  //店铺最高兑换点数
+                myScore: 1,    //此店铺已经集的点数
+            },
+            {
+                storeUUID: "4",  //广告所在店铺
+                storeName: "StrongCoffee", //店铺名称
+                storeLogo: "http://img.12xiong.top/coffee_image/upload/IGyXK6fZ.jpg", //店铺logo
+                storeDes: "满6杯赠30元内饮品一杯",  //店铺活动描述
+                storeMinScore: 6,  //店铺起始兑换点数
+                storeMaxScore: 10,  //店铺最高兑换点数
+                myScore: 1,    //此店铺已经集的点数
+            },
+        ],
+
+
+
+
         cardCur: 0,
         swiperList: [{
             id: 0,
@@ -19,23 +59,7 @@ Page({
             id: 2,
             type: 'image',
             url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-        }, {
-            id: 3,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-        }, {
-            id: 4,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-        }, {
-            id: 5,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-        }, {
-            id: 6,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-        }],
+        },],
     },
 
     // cardSwiper
@@ -46,10 +70,22 @@ Page({
     },
 
     /**
+     * @method 去商铺
+     */
+    toStore(e){
+        var storeUUID = e.currentTarget.dataset.store_uuid
+        console.log(storeUUID)
+    },
+
+    /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        wx.login({
+            success(e){
+                console.log(e)
+            },
+        })
     },
 
     /**

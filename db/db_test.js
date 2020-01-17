@@ -97,41 +97,7 @@ class dbTest {
 
 
     /*****************我的2****************/
-    /** 2.1 获取我的数据
-    @mehtod MyGetInfo  
-    @param
-    @return {
-        name:"",
-        logo:"",
-        bgImage:"",
-        allScoreNum:1,
-        allPrizeNum:1,
-        allStoreNum:1,
-    }
-    */
-
-    /** 2.2 更新我的数据
-    @mehtod MyUpdateInfo  
-    @param
-        name:"",
-        logo:"",
-        city:"",
-    @return 
-    */
-
-    /** 2.3 获取我浏览过的店铺
-    @mehtod MyGetInfo  
-    @param
-    @return [{
-        storeUUID:"",  //广告所在店铺
-        storeName:"", //店铺名称
-        storeLogo:"", //店铺logo
-        storeDes:"",  //店铺活动描述
-        storeMinScore:6,  //店铺起始兑换点数
-        storeMaxScore:10,  //店铺最高兑换点数
-        myScore:1,    //此店铺已经集的点数
-    }]
-    */
+    
     
     /*****************店铺 3****************/
     /** 3.1 获取店铺信息
@@ -172,6 +138,7 @@ class dbTest {
     */
 
     /*****************Customer 顾客 4****************/
+    
     /** 4.1 获取店铺的积分表
     @mehtod CustomerGetStoreScore
     @param
@@ -226,6 +193,41 @@ class dbTest {
     }
     */
 
+    /** 4.5 获取我的数据
+    @mehtod CustomerGetInfo
+    @param
+    @return {
+        name:"",
+        logo:"",
+        bgImage:"",
+        allScoreNum:1,
+        allPrizeNum:1,
+        allStoreNum:1,
+    }
+    */
+
+    /** 4.6 更新我的数据
+    @mehtod CustomerUpdateInfo
+    @param
+        name:"",
+        logo:"",
+        city:"",
+    @return 
+    */
+
+    /** 4.7 获取我浏览过的店铺
+    @mehtod CustomerGetInfo
+    @param
+    @return [{
+        storeUUID:"",  //广告所在店铺
+        storeName:"", //店铺名称
+        storeLogo:"", //店铺logo
+        storeDes:"",  //店铺活动描述
+        storeMinScore:6,  //店铺起始兑换点数
+        storeMaxScore:10,  //店铺最高兑换点数
+        myScore:1,    //此店铺已经集的点数
+    }]
+    */
 
 
     /*****************Seller 商户端 5****************/
@@ -293,6 +295,14 @@ class dbTest {
     @return 
     */
 
+    /** 5.7 更新我的数据
+    @mehtod SellerUpdateInfo
+    @param
+        name:"",
+        logo:"",
+        city:"",
+    @return 
+    */
 
 }
 

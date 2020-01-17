@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "ladder": "../../components/1_ladder/ladder"
+    "ladder": "../../components/1_ladder/ladder",
+    "wave": "../../components/wave/wave"
   }
 }

@@ -1,10 +1,14 @@
 <!--pages2/store/store.wxml-->
 
-<view class="banner">
-    <image class="banner" 
-        mode="widthFix"
-        src="https://image.weilanwl.com/color2.0/index.jpg"></image>
-</view>
+
+
+<wave
+    logo="{{store.logo}}"
+    summary="{{store.summary}}"
+    start_time="{{store.start_time}}"
+    end_time="{{store.end_time}}"
+></wave>  
+
 
     <!-- <ladder></ladder> -->
 

@@ -6,6 +6,18 @@ Page({
      */
     data: {
 
+        store:{
+
+            logo:"https://image.weilanwl.com/color2.0/index.jpg",
+            summary:"213",
+            start_time:"是否",
+            end_time:"撒旦",
+        },
+
+
+
+
+
         cardCur: 0,
         swiperList: [{
             id: 0,
