@@ -7,13 +7,17 @@ Page({
     data: {
 
         store:{
-
-            logo:"https://image.weilanwl.com/color2.0/index.jpg",
-            summary:"213",
-            start_time:"是否",
-            end_time:"撒旦",
+            uuid:"68e54718-7156-11e9-b456-e95aa2c51b5d",
+            name:"丰丰的咖啡店",
+            logo:"http://img.12xiong.top/coffee_image/upload/JhLYr6fZ.jpg",
+            summary:"外卖到店兑换，[买6送1]",
+            start_time:"2019-6-6",
+            end_time: "2020-6-5",
+            prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
         },
 
+        myScore:5,
+        max:10,
 
 
 
@@ -22,11 +26,11 @@ Page({
         swiperList: [{
             id: 0,
             type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+            url: 'https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydzb8eRMXLDW2dubxnRYVEy8hkaV67hboiaNtqgK862ecCtAXRQZuWRibQlYmtHnbx5r30O8cvibBuZNA/0?wx_fmt=jpeg'
         }, {
             id: 1,
             type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+                url: 'https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydyxfDRsLoEkXugwZ0SoSwVdRzDIwBmYA23eNLyA6YaFBvwcicTzDmkFqbhm0DsA6Asb553ThaPyU5A/0?wx_fmt=jpeg',
         }, {
             id: 2,
             type: 'image',
@@ -67,14 +71,21 @@ Page({
     },
 
 
-
-    // 天梯
-    scrollSteps() {
-        this.setData({
-            scroll: this.data.scroll == 9 ? 0 : this.data.scroll + 1
+    /**********路由**********/
+    // 打开集点码
+    toScoreQR() {
+        wx.navigateTo({ url: `/pages/qrcode/qrcode?mode=score&store_uuid=${this.data.store.uuid}`, })
+    },   
+    // 到兑换二维码
+    toExchangeQR() {
+        wx.navigateTo({ url: `/pages/qrcode/qrcode?mode=prize&store_uuid=${this.data.store.uuid}`, })
+    },
+    // 返回我的
+    toMy(){
+        wx.redirectTo({
+            url: '/pages2/main/main',
         })
     },
-
 
 
 
@@ -85,13 +96,14 @@ Page({
         })
     },
 
+    
 
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        // this.scrollSteps()
     },
 
     /**

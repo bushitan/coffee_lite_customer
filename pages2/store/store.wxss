@@ -8,3 +8,38 @@
 .banner{
     width: 750rpx；
 }
+
+
+/********天梯信息**********/
+.ladder_score{
+    display: block;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    line-height:40px;
+    margin:5rpx auto;
+    /* font-size:24rpx; */
+    /* border:1px solid currentColor; */
+    position:relative;
+    overflow:hidden;
+
+}
+.ladder_btn{
+    display: flex;
+    justify-content: space-around;
+    padding:10px 30px ;
+}
+
+
+
+/********商城**********/
+.UGC{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.8);
+    padding: 10px 15px;
+    /* display: flex; */
+    /* justify-content: center */
+}

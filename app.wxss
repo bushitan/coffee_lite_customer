@@ -15,12 +15,12 @@
 .page-icon-lite{ width: 32px;height: 32px; }
 .page-icon-normal{ width: 42px;height:32px; }
 
-.page-font-white{  color: #ffffff; }
-.page-font-yellow{ color: #efaf30; }
-.page-font-blue{ color: #1d2a6d }
+.page-font-white{  color: #ffffff!important;  }
+.page-font-yellow{ color: #efaf30!important;  }
+.page-font-blue{ color: #1d2a6d !important; }
 
-.page-gb-yellow{ background-color: #efaf30; }
-.page-gb-blue{ background-color: #1d2a6d }
+.page-gb-yellow{ background-color: #efaf30 !important; }
+.page-gb-blue{ background-color: #1d2a6d !important; }
 
 
 

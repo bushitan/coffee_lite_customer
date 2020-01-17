@@ -1,6 +1,6 @@
 /* pages/qrcode/qrcode.wxss */
 page{
-    background-color: #ffffff;
+    background-color: #ffffff !important;
 }
 .title{
     text-align: center;

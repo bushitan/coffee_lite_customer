@@ -1,7 +1,11 @@
 <!--pages2/store/store.wxml-->
 
-
-
+<cu-custom bgColor="yellow" isBack="{{true}}" bind:back="toMy">
+  <!-- <view slot="backText">返回</view> -->
+  <image slot="backText" class='page-icon-lite' src='../../images/icon/my.png'></image>
+  <view slot="content">{{store.name}}</view>
+</cu-custom>
+<!-- banner -->
 <wave
     logo="{{store.logo}}"
     summary="{{store.summary}}"
@@ -10,14 +14,43 @@
 ></wave>  
 
 
-    <!-- <ladder></ladder> -->
-
-<view>
-    <scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}" scroll-with-animation>
-    <view class="cu-item {{index>scroll?'':'text-blue'}} padding-lr-xl" wx:for="{{10}}" wx:key id="scroll-{{index}}">
-    Level {{index + 1}} <text class="num" data-index="{{index + 1}}"></text>
-    </view>
+<!-- 天梯 -->
+<view class='page-space-10'></view>
+<view class='page-space-10'></view>
+<view class='page-space-10'></view>
+<view class="text-center text-grey bg-white shadow-warp">
+    <scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{myScore-1}}" scroll-with-animation>
+        <!-- 集点超出最大数值 -->
+        <view wx:if="{{myScore>max}}">
+            <view class="cu-item padding-lr-xl" wx:for="{{myScore}}" wx:key="index" >
+                <view class='page-font-yellow'  id="scroll-{{index + 1}}">
+                    已集{{index + 1}}点
+                    <image src='../../images/icon/score.png' class='ladder_score '></image>
+                </view>
+            </view>   
+        </view>
+        <!-- 正常集点 -->
+        <view wx:else>
+            <view class="cu-item padding-lr-xl" wx:for="{{max}}" wx:key="index">
+                <view wx:if="{{index < myScore}}"  class='page-font-yellow'  id="scroll-{{index+1}}">
+                    已集{{index + 1}}点
+                    <image src='../../images/icon/score.png' class='ladder_score '></image>
+                </view>
+                <view wx:else  id="scroll-{{index+1}}">
+                    Level {{index + 1}}
+                    <image src='../../images/icon/score_un.png' class='ladder_score '></image>
+                </view>
+            </view>  
+        </view>  
     </scroll-view>
+    <view hidden="{{store.prizeCoverImage==''}}">
+        <image src='{{store.prizeCoverImage}}' mode='widthFix'></image>
+    </view>
+    <view class='ladder_btn'>        
+        <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' >打开集点码</button>
+        <button class="cu-btn round page-gb-blue page-font-white" catchtap='toExchangeQR' >打开兑换码</button>
+    </view>
+    <view class='page-space-10'></view>
 </view>
 
 
@@ -30,27 +63,15 @@
  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
       <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">GitHub</text>
+        <image src="../../images/icon/prize.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">兑换记录</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about/about" hover-class="none">
-        <image src="/images/logo.png" class="png" mode="aspectFit"></image>
-        <text class="text-grey">关于ColorUI组件库</text>
+        <image src="../../images/icon/address.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">店铺导航</text>
       </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">日志</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
-        <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">赞赏支持</text>
-      </view>
     </view>
   </view>
 
@@ -66,4 +87,18 @@
     </swiper>
 </view>
 
-<view>跑马灯：叮咚@小杯子精选商城新品上架啦~   <button size="mini">小杯子精选商城</button></view>
+<!-- <view>跑马灯：叮咚@小杯子精选商城新品上架啦~   <button size="mini">小杯子精选商城</button></view> -->
+
+
+
+<view class="weui-panel weui-panel_access UGC" >
+    <view  class="  weui-media-box_appmsg ">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__desc page-font-blue">咖啡周边，人气随行杯</view>
+        </view>        
+        <button class="cu-btn round page-gb-yellow page-font-white"  catchtap="toMall">小杯子精选商城</button>
+        <!-- <button  size="mini" type="primary" catchtap="toMall" style="background:#efaf30">小杯子精选商城</button> -->
+    </view>    
+</view>
+
+<view class='page-space-60'></view>

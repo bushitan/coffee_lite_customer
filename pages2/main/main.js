@@ -75,6 +75,9 @@ Page({
     toStore(e){
         var storeUUID = e.currentTarget.dataset.store_uuid
         console.log(storeUUID)
+        wx.redirectTo({
+            url: '/pages2/store/store',
+        })
     },
 
     /**

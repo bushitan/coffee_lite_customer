@@ -1,6 +1,8 @@
 {
     "pages": [
+        "pages2/store/store",
         "pages2/main/main",
+        
         "pages/route/route",
         "pages/alert/alert",
         "pages/article/article",
@@ -12,7 +14,6 @@
         "pages/wePay/wePay",
         "pages/share/share",
         "pages2/loading/loading",
-        "pages2/store/store",
         "pages2/alert/alert",
         "pages2/test_unit/test_unit"
     ],
@@ -27,6 +28,9 @@
         "scope.userLocation": {
             "desc": "你的位置信息将用于小程序位置接口的效果展示"
         }
+    },
+    "usingComponents": {
+        "cu-custom": "/components/cu-custom/cu-custom"
     },
     "sitemapLocation": "sitemap.json"
 }
