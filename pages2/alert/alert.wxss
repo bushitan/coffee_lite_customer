@@ -1,1 +1,7 @@
 /* pages2/alert/alert.wxss */
+page{
+     background-color:#ffffff;
+}
+.page-bg-white{
+    height: 100vh;
+}

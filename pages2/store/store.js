@@ -13,7 +13,8 @@ Page({
             summary:"外卖到店兑换，[买6送1]",
             start_time:"2019-6-6",
             end_time: "2020-6-5",
-            prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
+            // prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
+            prizeCoverImage: "",
         },
 
         myScore:5,
@@ -74,16 +75,25 @@ Page({
     /**********路由**********/
     // 打开集点码
     toScoreQR() {
-        wx.navigateTo({ url: `/pages/qrcode/qrcode?mode=score&store_uuid=${this.data.store.uuid}`, })
+        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=score&store_uuid=${this.data.store.uuid}`, })
     },   
     // 到兑换二维码
     toExchangeQR() {
-        wx.navigateTo({ url: `/pages/qrcode/qrcode?mode=prize&store_uuid=${this.data.store.uuid}`, })
+        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=prize&store_uuid=${this.data.store.uuid}`, })
     },
     // 返回我的
     toMy(){
         wx.redirectTo({
             url: '/pages2/main/main',
+        })
+    },
+    toAddress(){
+        wx.openLocation({
+            name: GP.data.store.title,
+            address: GP.data.store.address,
+            latitude: GP.data.store.latitude,
+            longitude: GP.data.store.longitude,
+            scale: 18
         })
     },
 

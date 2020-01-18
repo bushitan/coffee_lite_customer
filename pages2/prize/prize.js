@@ -1,38 +1,33 @@
-// pages2/alert/alert.js
+// pages2/prize/prize.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        cardCur: 0,
-        swiperList: [{
-            id: 0,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-        }, {
-            id: 1,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-        }, {
-            id: 2,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-        }, {
-            id: 3,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-        },],
+        prizeList: [
+            {
+                storeUUID: "prizeUUID",  //广告所在店铺
+                createTime:"2020-2-3"
+            },
+            {
+                storeUUID: "2",  //广告所在店铺
+                storeName: "StrongCoffee", //店铺名称
+                storeLogo: "", //店铺logo
+                storeDes: "满6杯赠30元内饮品一杯",  //店铺活动描述
+                storeMinScore: 6,  //店铺起始兑换点数
+                storeMaxScore: 10,  //店铺最高兑换点数
+                myScore: 1,    //此店铺已经集的点数
+            },
+        ]
     },
 
-    /**
-     * @method 返回店铺
-     */
-    toStore(){
-        wx.redirectTo({
-            url: '/pages2/store/store',
+    toPrizeDetail(){
+        wx.navigateTo({
+            url: '/pages2/prize_detail/prize_detail?prizeUUID',
         })
     },
+
 
     /**
      * 生命周期函数--监听页面加载

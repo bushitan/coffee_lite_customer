@@ -24,6 +24,7 @@ Page({
         
         GP.login()
         options = _options
+        debugger
 
     },    
 

@@ -1,2 +1,3 @@
 <!--pages2/test_unit/test_unit.wxml-->
 <text>pages2/test_unit/test_unit.wxml</text>
+<button open-type="getUserInfo" bindgetuserinfo="getuserinfo">232</button>

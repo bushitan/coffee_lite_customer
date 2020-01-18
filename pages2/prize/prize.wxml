@@ -1,0 +1,25 @@
+<!--pages2/prize/prize.wxml-->
+
+
+ <view class="cu-bar bg-white solid-bottom ">
+    <view class="action">
+        <text class="cuIcon-title page-font-blue "></text>我的店铺兑换记录
+    </view>
+</view>
+    <view class="cu-list menu-avatar">
+        <navigator url="/pages2/prize_detail/prize_detail?prizeUUID={{item.prizeUUID}}" class="cu-item bg-white arrow "  wx:for="{{prizeList}}" >
+            <image class="cu-avatar round lg bg-white" src="../../images/icon/prize.png"></image>
+            <view class="content">
+                <view class="text-grey">兑换1杯</view>
+                <view class="text-gray text-sm flex">
+                <text class="text-cut">
+                <text class="cuIcon-infofill text-red  margin-right-xs"></text>{{item.createTime}}
+                </text>
+                </view>
+            </view>
+            <view class="action arrow">
+                <view class="text-grey text-xs">查看详情</view>
+                <!-- <view class="cu-tag round bg-yellow page-font-white sm">{{item.myScore}}</view> -->
+            </view>
+        </navigator>
+    </view>

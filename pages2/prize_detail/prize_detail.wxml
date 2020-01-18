@@ -1,0 +1,23 @@
+<view class="cu-bar bg-white solid-bottom ">
+    <view class="action">
+        <text class="cuIcon-title page-font-blue "></text>兑换点数详情
+    </view>
+</view>
+
+    <view class="cu-list menu-avatar padding">
+        <navigator url="" class="cu-item bg-white arrow "  wx:for="{{scoreList}}" catchtap="toPrizeDetail" data-prize_uuid="{{item.prizeUUID}}">
+            <image class="cu-avatar round lg bg-white" src="../../images/icon/score.png"></image>
+            <view class="content">
+                <view class="text-grey">集1点</view>
+                <view class="text-gray text-sm flex">
+                <text class="text-cut">
+                <text class="cuIcon-infofill text-red  margin-right-xs"></text>{{item.createTime}}
+                </text>
+                </view>
+            </view>
+            <view class="action arrow">
+                <view class="text-grey text-xs">外卖(店内、海报)</view>
+                <!-- <view class="cu-tag round bg-yellow page-font-white sm">{{item.myScore}}</view> -->
+            </view>
+        </navigator>
+    </view>

@@ -22,6 +22,15 @@ Page({
         // var t = new testTest()
 
         testObject.testSystem()
+        wx.login({
+            success(e) {
+                console.log("denglujieguo" + JSON.stringify(e) )
+            },
+        })
+    },
+
+    getuserinfo(res){
+        console.log(res)
     },
 
     /**

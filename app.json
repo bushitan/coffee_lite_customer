@@ -1,7 +1,14 @@
 {
     "pages": [
+        "pages2/prize_detail/prize_detail",
+        "pages2/prize/prize",
         "pages2/store/store",
         "pages2/main/main",
+        "pages2/qrcode/qrcode",
+        "pages2/loading/loading",
+        "pages2/alert/alert",
+
+
         
         "pages/route/route",
         "pages/alert/alert",
@@ -13,8 +20,6 @@
         "pages/webview/webview",
         "pages/wePay/wePay",
         "pages/share/share",
-        "pages2/loading/loading",
-        "pages2/alert/alert",
         "pages2/test_unit/test_unit"
     ],
     "window": {

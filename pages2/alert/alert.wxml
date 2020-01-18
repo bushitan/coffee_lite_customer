@@ -1,15 +1,46 @@
 <!--pages2/alert/alert.wxml-->
 
+<view class="page-bg-white ">
+    <cu-custom bgColor="yellow" isBack="{{true}}" bind:back="toStore">
+    <view slot="backText">店铺</view>
+    <!-- <image slot="backText" class='page-icon-lite' src='../../images/icon/my.png'></image> -->
+    <view slot="content">{{store.name}}</view>
+    </cu-custom>
 
-
-
-<view>
-    <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
-        <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
-            <view class="swiper-item">
-                <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-                <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    <view class="weui-msg">
+            <view class="weui-msg__icon-area">
+                    <icon type="success" size="80" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
+                    <icon type="warn" size="80"wx:else></icon>   
             </view>
-        </swiper-item>
-    </swiper>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">{{title}}</view>
+                <view class="weui-msg__desc">{{content}}</view>
+            </view>
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button class="weui-btn" type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
+                    <!-- <button class="weui-btn" type="default"  catchtap='more'>查看更多美食资讯</button> -->
+                </view>
+            </view>
+            
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button  open-type="contact">小杯子客服</button>
+                </view>
+            </view>
+            <view style="height:10px"></view>
+        </view>·
+
+    <view style="height:10px ;background-color:#ededed"></view>
+    <official-account></official-account>
+    <view>
+        <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
+            <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+                <view class="swiper-item">
+                    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+                    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
 </view>

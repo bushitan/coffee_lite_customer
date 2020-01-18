@@ -1,0 +1,4 @@
+/* pages2/prize/prize.wxss */
+pages{
+    background-color: #ffffff !important; 
+}

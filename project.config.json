@@ -49,7 +49,7 @@
 					"id": 0,
 					"name": "store",
 					"pathName": "pages/store/store",
-					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"query": "store_uuid= b29c4dee-b35e-11e9-869d-e95aa2c51b5d",
 					"scene": 1047
 				},
 				{
@@ -148,6 +148,27 @@
 					"name": "test_unit",
 					"pathName": "pages2/test_unit/test_unit",
 					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版-prize",
+					"pathName": "pages2/prize/prize",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版prize_详情",
+					"pathName": "pages2/prize_detail/prize_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增-alert",
+					"pathName": "pages2/alert/alert",
+					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&mode=prize",
 					"scene": null
 				}
 			]

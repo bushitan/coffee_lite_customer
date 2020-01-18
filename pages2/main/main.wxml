@@ -72,7 +72,7 @@
             </view>
         </navigator>
     </view>
-    <view class="solids-bottom padding-xs flex align-center">
+    <view class=" padding-xs flex align-center">
         <view class="flex-sub text-center">
             <view class=" text-df padding">
                 <text class="text-grey">Copyright © 2019 索骏科技提供技术支持</text>

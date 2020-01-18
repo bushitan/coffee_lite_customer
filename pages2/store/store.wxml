@@ -60,22 +60,24 @@
   </view> -->
 
 
- <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+      <navigator class="content" url="/pages2/prize/prize?storeUUID={{store.storeUUID}}" data-link="https://github.com/weilanwl/ColorUI">
         <image src="../../images/icon/prize.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">兑换记录</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
-        <image src="../../images/icon/address.png" class="png" mode="aspectFit"></image>
-        <text class="text-grey">店铺导航</text>
       </navigator>
     </view>
-  </view>
+    <view class="cu-item arrow">
+      <view class="content" catchtap="toAddress">
+        <image src="../../images/icon/address.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">店铺导航</text>
+      </view>
+    </view>
+</view>
 
   
+
+<official-account></official-account>
 <view>
     <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
         <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
@@ -90,7 +92,6 @@
 <!-- <view>跑马灯：叮咚@小杯子精选商城新品上架啦~   <button size="mini">小杯子精选商城</button></view> -->
 
 
-
 <view class="weui-panel weui-panel_access UGC" >
     <view  class="  weui-media-box_appmsg ">
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
@@ -100,5 +101,20 @@
         <!-- <button  size="mini" type="primary" catchtap="toMall" style="background:#efaf30">小杯子精选商城</button> -->
     </view>    
 </view>
+
+
+<view class="page-space-10"></view>
+<view class=" padding-xs flex align-center">
+    <view class="flex-sub text-center">
+        <view class=" text-df ">
+            <text class="text-grey">Copyright © 2019 索骏科技提供技术支持</text>
+        </view>           
+    </view>
+</view>
+<view class=" padding-xs flex align-center">
+    <button class="kefu"  size="mini" type="" open-type="contact">小杯子客服</button>
+    <navigator url="/pages2/alert/alert">到提示页面测试</navigator>
+</view>
+
 
 <view class='page-space-60'></view>
