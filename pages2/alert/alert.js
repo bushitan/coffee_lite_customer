@@ -5,6 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+
+        title:"集点成功",
         cardCur: 0,
         swiperList: [{
             id: 0,
@@ -31,6 +33,14 @@ Page({
     toStore(){
         wx.redirectTo({
             url: '/pages2/store/store',
+        })
+    },
+
+
+    // cardSwiper
+    cardSwiper(e) {
+        this.setData({
+            cardCur: e.detail.current
         })
     },
 

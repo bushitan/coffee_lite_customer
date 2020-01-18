@@ -2,36 +2,25 @@
 
 <view class="page-bg-white ">
     <cu-custom bgColor="yellow" isBack="{{true}}" bind:back="toStore">
-    <view slot="backText">店铺</view>
-    <!-- <image slot="backText" class='page-icon-lite' src='../../images/icon/my.png'></image> -->
-    <view slot="content">{{store.name}}</view>
+        <view slot="backText">店铺</view>
+        <view slot="content">{{store.name}}</view>
     </cu-custom>
+    <view>
+        <view class="page-space-10"></view>
+        <view class="page-space-10"></view>
+        <view class="page-flex-center page-pd15 ">
+            <icon type="success" size="80" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
+            <icon type="warn" size="80"wx:else></icon>  
+        </view>
+        <view class="text-black text-bold page-flex-center">{{title}}</view>
+        <view class="page-pd15">        
+            <button class="round lg" type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
+            <!-- <button  class="round lg  line-grey" open-type="contact">小杯子客服</button> -->
+        </view>
+    </view>
+    <view class="space"></view>
 
-    <view class="weui-msg">
-            <view class="weui-msg__icon-area">
-                    <icon type="success" size="80" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
-                    <icon type="warn" size="80"wx:else></icon>   
-            </view>
-            <view class="weui-msg__text-area">
-                <view class="weui-msg__title">{{title}}</view>
-                <view class="weui-msg__desc">{{content}}</view>
-            </view>
-            <view class="weui-msg__opr-area">
-                <view class="weui-btn-area">
-                    <button class="weui-btn" type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
-                    <!-- <button class="weui-btn" type="default"  catchtap='more'>查看更多美食资讯</button> -->
-                </view>
-            </view>
-            
-            <view class="weui-msg__opr-area">
-                <view class="weui-btn-area">
-                    <button  open-type="contact">小杯子客服</button>
-                </view>
-            </view>
-            <view style="height:10px"></view>
-        </view>·
-
-    <view style="height:10px ;background-color:#ededed"></view>
+<view>
     <official-account></official-account>
     <view>
         <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
@@ -43,4 +32,46 @@
             </swiper-item>
         </swiper>
     </view>
+
+    <view class=" padding-xs flex align-center">
+        <view class="flex-sub text-center">
+            <view class=" text-df ">
+                <text class="text-grey">Copyright © 2019 索骏科技提供技术支持</text>
+            </view>           
+        </view>
+    </view>
+    <view class=" page-flex-center page-pd15">
+        <button class=" cu-btn round bg-grey "  size="mini" type="" open-type="contact">小杯子客服</button>
+    </view>
 </view>
+</view>
+
+
+
+
+
+    <!-- <view class="weui-msg">
+            <view class="weui-msg__icon-area">
+                    <icon type="success" size="80" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
+                    <icon type="warn" size="80"wx:else></icon>   
+            </view>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">{{title}}</view>
+                <view class="weui-msg__desc">{{content}}</view>
+            </view>
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button class="weui-btn  round lg" type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
+                    
+                </view>
+            </view>
+            
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button  open-type="contact">小杯子客服</button>
+                </view>
+            </view>
+            <view style="height:10px"></view>
+        </view>·
+
+    <view style="height:10px ;background-color:#ededed"></view> -->

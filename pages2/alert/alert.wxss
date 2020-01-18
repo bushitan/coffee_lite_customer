@@ -1,7 +1,11 @@
 /* pages2/alert/alert.wxss */
 page{
-     background-color:#ffffff;
+     /* background-color:#ffffff; */
 }
 .page-bg-white{
-    height: 100vh;
+    min-height: 100vh;
+}
+
+.space{
+    height: calc(100vh - 64px - 228.8px - 408.4px)
 }

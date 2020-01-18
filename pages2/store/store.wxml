@@ -76,21 +76,34 @@
 </view>
 
   
+<view class="page-bg-white">
+    <official-account></official-account>
+    <view>
+        <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
+            <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+                <view class="swiper-item">
+                    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+                    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
 
-<official-account></official-account>
-<view>
-    <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
-        <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
-            <view class="swiper-item">
-                <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-                <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-            </view>
-        </swiper-item>
-    </swiper>
+    <view class="page-space-10"></view>
+    <view class=" padding-xs flex align-center">
+        <view class="flex-sub text-center">
+            <view class=" text-df ">
+                <text class="text-grey">Copyright © 2019 索骏科技提供技术支持</text>
+            </view>           
+        </view>
+    </view>
+    <view class=" page-flex-center page-pd15">
+        <button class=" cu-btn round bg-grey "  size="mini" type="" open-type="contact">小杯子客服</button>
+        <!-- <navigator url="/pages2/alert/alert" open-type="redirect" >到提示页面测试</navigator> -->
+    </view>
+
+    <view class='page-space-60'></view>
 </view>
-
-<!-- <view>跑马灯：叮咚@小杯子精选商城新品上架啦~   <button size="mini">小杯子精选商城</button></view> -->
-
 
 <view class="weui-panel weui-panel_access UGC" >
     <view  class="  weui-media-box_appmsg ">
@@ -98,23 +111,5 @@
             <view class="weui-media-box__desc page-font-blue">咖啡周边，人气随行杯</view>
         </view>        
         <button class="cu-btn round page-gb-yellow page-font-white"  catchtap="toMall">小杯子精选商城</button>
-        <!-- <button  size="mini" type="primary" catchtap="toMall" style="background:#efaf30">小杯子精选商城</button> -->
     </view>    
 </view>
-
-
-<view class="page-space-10"></view>
-<view class=" padding-xs flex align-center">
-    <view class="flex-sub text-center">
-        <view class=" text-df ">
-            <text class="text-grey">Copyright © 2019 索骏科技提供技术支持</text>
-        </view>           
-    </view>
-</view>
-<view class=" padding-xs flex align-center">
-    <button class="kefu"  size="mini" type="" open-type="contact">小杯子客服</button>
-    <navigator url="/pages2/alert/alert">到提示页面测试</navigator>
-</view>
-
-
-<view class='page-space-60'></view>

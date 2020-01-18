@@ -43,7 +43,3 @@
     /* display: flex; */
     /* justify-content: center */
 }
-
-.kefu{
-    z-index: -99
-}

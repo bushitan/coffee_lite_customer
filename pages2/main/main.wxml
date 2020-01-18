@@ -1,40 +1,42 @@
 <!--pages2/main/main.wxml-->
 
 <!-- 用户信息 -->
-<view class="UCenter-bg" 
-    style="background-image: url(https://image.weilanwl.com/color2.0/index.jpg);">
-    <view class="user_logo">
-        <open-data type="userAvatarUrl" mode="widthFix"></open-data>
-    </view>
-    <view class="text-xl margin-top-sm">    
-        <open-data type="userNickName"></open-data>
-    </view>
-    <view class="user_id">SN:{{userInfo.id}}</view>
-</view>
-<!-- 用户信息 -->
-<view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
-        <view class="text-xxl page-font-yellow">
-            {{userInfo.allScoreNum}}
+<view class="">
+    <view class="UCenter-bg">
+        <image class="UCenter-image"  src="../../images/bg/bg2.jpg" ></image>
+        <view class="user_logo">
+            <open-data class="open-data"  type="userAvatarUrl" mode="widthFix"></open-data>
         </view>
-        <view class="margin-top-sm page-flex-center">
-            <image class="page-icon-lite" src="../../images/icon/score.png"></image>集点
+        <view class="text-xl text-black margin-top-sm">    
+            <open-data class="open-data" type="userNickName"></open-data>
         </view>
+        <view class="user_id  text-black">SN:{{userInfo.id}}</view>
     </view>
-    <view class="flex flex-sub flex-direction solid-right">
-        <view class="text-xxl page-font-blue">{{userInfo.allPrizeNum}}</view>
-        <view class="margin-top-sm page-flex-center">            
-            <image class="page-icon-normal " src="../../images/icon/prize_shou.png"></image>兑换
-        </view>
-    </view>
-    <view class="flex flex-sub flex-direction">
-        <view class="text-xxl text-grey">{{userInfo.allStoreNum}}</view>
-        <view class="margin-top-sm page-flex-center">        
-        <image class="page-icon-lite " src="../../images/icon/visitor.png"></image>
-         店铺</view>
-    </view>
-</view>
 
+    <!-- 用户信息 -->
+    <view class="padding flex text-center text-grey shadow-warp  bg-white ">
+        <view class="flex flex-sub flex-direction solid-right">
+            <view class="text-xxl page-font-yellow">
+                {{userInfo.allScoreNum}}
+            </view>
+            <view class="margin-top-sm page-flex-center">
+                <image class="page-icon-lite" src="../../images/icon/score.png"></image>集点
+            </view>
+        </view>
+        <view class="flex flex-sub flex-direction solid-right">
+            <view class="text-xxl page-font-blue">{{userInfo.allPrizeNum}}</view>
+            <view class="margin-top-sm page-flex-center">            
+                <image class="page-icon-normal " src="../../images/icon/prize_shou.png"></image>兑换
+            </view>
+        </view>
+        <view class="flex flex-sub flex-direction">
+            <view class="text-xxl text-grey">{{userInfo.allStoreNum}}</view>
+            <view class="margin-top-sm page-flex-center">        
+            <image class="page-icon-lite " src="../../images/icon/visitor.png"></image>
+            店铺</view>
+        </view>
+    </view>
+</view>
 <view class="page-space-10"></view>
 
 <!-- 商家列表 -->

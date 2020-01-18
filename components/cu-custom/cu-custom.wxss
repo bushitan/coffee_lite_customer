@@ -1,7 +1,7 @@
 /* colorui/components/cu-custom.wxss */
-@import '../../static/css/main.wxss';
-@import '../../static/css/icon.wxss';
-@import '/app.wxss';
+/* @import '../../static/css/main.wxss';
+@import '../../static/css/icon.wxss'; */
+/* @import '/app.wxss'; */
 
 
 .yellow{
