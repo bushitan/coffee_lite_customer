@@ -99,9 +99,8 @@
     </view>
     <view class=" page-flex-center page-pd15">
         <button class=" cu-btn round bg-grey "  size="mini" type="" open-type="contact">小杯子客服</button>
-        <!-- <navigator url="/pages2/alert/alert" open-type="redirect" >到提示页面测试</navigator> -->
     </view>
-
+<navigator url="/pages2/alert/alert" open-type="redirect" >到提示页面测试</navigator>
     <view class='page-space-60'></view>
 </view>
 

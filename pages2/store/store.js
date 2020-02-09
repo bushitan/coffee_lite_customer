@@ -8,13 +8,13 @@ Page({
 
         store:{
             uuid:"68e54718-7156-11e9-b456-e95aa2c51b5d",
-            name:"丰丰的咖啡店",
-            logo:"http://img.12xiong.top/coffee_image/upload/JhLYr6fZ.jpg",
+            name:"Seeking",
+            logo: "http://img.12xiong.top/coffee_image/upload/bemXA6fZ.jpg",
             summary:"外卖到店兑换，[买6送1]",
             start_time:"2019-6-6",
             end_time: "2020-6-5",
-            // prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
-            prizeCoverImage: "",
+            prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
+            // prizeCoverImage: "",
         },
 
         myScore:5,

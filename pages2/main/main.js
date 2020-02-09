@@ -17,7 +17,7 @@ Page({
             {
                 storeUUID: "2",  //广告所在店铺
                 storeName: "StrongCoffee", //店铺名称
-                storeLogo: "http://img.12xiong.top/coffee_image/upload/IGyXK6fZ.jpg", //店铺logo
+                storeLogo: "http://img.12xiong.top/coffee_image/upload/bemXA6fZ.jpg", //店铺logo
                 storeDes: "满6杯赠30元内饮品一杯",  //店铺活动描述
                 storeMinScore: 6,  //店铺起始兑换点数
                 storeMaxScore: 10,  //店铺最高兑换点数
@@ -35,7 +35,7 @@ Page({
             {
                 storeUUID: "4",  //广告所在店铺
                 storeName: "StrongCoffee", //店铺名称
-                storeLogo: "http://img.12xiong.top/coffee_image/upload/IGyXK6fZ.jpg", //店铺logo
+                storeLogo: "http://img.12xiong.top/coffee_bairimengxianjia_logo.jpeg", //店铺logo
                 storeDes: "满6杯赠30元内饮品一杯",  //店铺活动描述
                 storeMinScore: 6,  //店铺起始兑换点数
                 storeMaxScore: 10,  //店铺最高兑换点数
