@@ -1,9 +1,10 @@
 //app.js
 
-var DB = require('api/db.js')
-var db = new DB()
+var db = require('db/db.js')
+// var db = new DB()
 
 App({
+    db:db,
     onLaunch: function (options) {
         console.log("[onLaunch] 本次场景值:", options.scene)
         this.globalData.scene = options.scene

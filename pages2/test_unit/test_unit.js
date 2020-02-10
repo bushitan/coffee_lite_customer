@@ -3,8 +3,8 @@
 // import dbTest from '../../db/db_test.js'
 // var db = require('../../db/db.js')
 // var testTest = require('../../db/db_test.js')
-var testObject = require('../../db/db_test.js')
-
+// var d = require('../../db/db_test.js')
+var app = getApp()
 Page({
 
     /**
@@ -18,16 +18,29 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.sys()
         // dbTest.testSystem()
         // var t = new testTest()
 
-        testObject.testSystem()
-        wx.login({
-            success(e) {
-                console.log("denglujieguo" + JSON.stringify(e) )
-            },
+        // testObject.testSystem()
+        // wx.login({
+        //     success(e) {
+        //         console.log("denglujieguo" + JSON.stringify(e) )
+        //     },
+        // })
+    },
+
+    async sys() {
+        app.db.sysLogin()
+        app.db.sysMyGetInfo()
+        app.db.sysMyUpdateInfo({
+            name: "name",
+            logo: "logo",
+            city: "city",
         })
     },
+
+
 
     getuserinfo(res){
         console.log(res)
