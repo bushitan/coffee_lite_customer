@@ -25,7 +25,7 @@ Page({
             type: 'image',
             url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
         },],
-    },
+    }, 
 
     /**
      * @method 返回店铺

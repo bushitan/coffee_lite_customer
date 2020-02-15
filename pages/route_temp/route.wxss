@@ -1,0 +1,38 @@
+
+.box{
+    display: flex;
+    justify-content: center;
+    
+}
+.login{
+    text-align: center;
+    font-size: 11pt;
+    color:#888;
+}
+
+
+
+
+.userinfo-avatar {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+
+
+.loading{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    text-align: center;
+    padding-top: 60px;
+    font-size: 11pt;
+    line-height: 30px;
+}
+.loading image{
+    width: 150px;
+
+}

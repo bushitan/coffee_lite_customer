@@ -1,4 +1,8 @@
 /* pages2/main/main.wxss */
+page{
+    background-color: var(--yellow)
+}
+
 .UCenter-bg {  
   background-size: cover;
   height: 550rpx;

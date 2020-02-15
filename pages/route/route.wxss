@@ -1,3 +1,5 @@
+/* pages2/route/route.wxss */
+
 
 .box{
     display: flex;

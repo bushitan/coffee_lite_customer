@@ -1,0 +1,16 @@
+<!--components2/notice/notice.wxml-->
+
+
+<view class="bg-white page-flex-center" wx:if="{{text.length>0}}">
+    <view class="action text-bold text-left   " style="font-size:11pt !important;">
+        <text class="cuIcon-notificationfill text-red margin-right-xs "></text>{{text}}
+    </view>
+</view>
+        
+
+    
+<view class="notic-image" wx:if="{{list.length>0}}" >
+    <view wx:for="{{list}}" wx:key="index" catchtap="preview" data-url="{{item}}">
+        <image src="{{item}}" mode="widthFix" style="width: 100%;display: block;"></image>
+    </view>
+</view>

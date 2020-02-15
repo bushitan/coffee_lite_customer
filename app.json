@@ -1,6 +1,5 @@
 {
     "pages": [
-
         
         "pages/route/route",
         "pages/alert/alert",
@@ -13,7 +12,7 @@
         "pages/wePay/wePay",
         "pages/share/share",
 
-        "pages2/main/main",
+        "pages2/self/self",
         "pages2/prize_detail/prize_detail",
         "pages2/prize/prize",
         "pages2/store/store",
@@ -36,7 +35,13 @@
         }
     },
     "usingComponents": {
-        "cu-custom": "/components/cu-custom/cu-custom"
+        "ad": "components2/ad/ad",
+        "header": "components2/header/header",
+        "notice": "components2/notice/notice",
+        "score": "components2/score/score",
+        "cu-custom": "/components2/cu-custom/cu-custom",
+        "wave": "/components2/wave/wave",
+        "wm": "components2/wm/wm"
     },
     "sitemapLocation": "sitemap.json"
 }

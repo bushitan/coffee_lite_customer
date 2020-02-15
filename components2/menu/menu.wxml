@@ -1,0 +1,18 @@
+<!--components2/menu/menu.wxml-->
+<text>components2/menu/menu.wxml</text>
+
+
+<view class="cu-list menu  card-menu shadow-lg shadow-warp radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages2/prize/prize?storeUUID={{store.storeUUID}}" data-link="https://github.com/weilanwl/ColorUI">
+        <image src="../../images/icon/prize.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">兑换记录</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" catchtap="toAddress">
+        <image src="../../images/icon/address.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">店铺导航</text>
+      </view>
+    </view>
+</view>

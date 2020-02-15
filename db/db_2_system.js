@@ -18,6 +18,7 @@ class dbSystem extends dbFather {
     sysLogin() {
         return new Promise((resolve, reject) => {
             var that = this 
+            wx.showLoading({title: '登陆中...',})
             wx.login({
                 success(e) {
                     that.base({
@@ -28,11 +29,16 @@ class dbSystem extends dbFather {
                         },
                         method: "POST",
                     }).then(res => {
-                        wx.setStorageSync(that.KEY_SESSION, res.data.data.session) //session
-                        wx.setStorageSync(that.KEY_SN, "10"+res.data.data.sn)  //序列号
-                        resolve(res)
+                        wx.hideLoading()
+                        if (res.code == 0) {
+                            wx.setStorageSync(that.KEY_SESSION, res.data.session) //session
+                            wx.setStorageSync(that.KEY_SN, "10" + res.data.sn)  //序列号
+                        }                        
+                        resolve(true)
+                    }).catch(res => {
+                        wx.hideLoading()
+                        resolve(false)
                     })
-                    .catch(res => reject(res))
                 },
             })
             
@@ -57,8 +63,13 @@ class dbSystem extends dbFather {
                 method: "POST",
             }).then(res => {
                 console.log(res)
-                resolve(res)
-            }).catch(res => reject(res))
+                if (res.code == 0)
+                    resolve(res.data)
+                else
+                    resolve({})
+            }).catch(res => {
+                reject({})
+            })
         })
     }
 
@@ -74,7 +85,7 @@ class dbSystem extends dbFather {
     sysMyUpdateInfo(data) {
         return new Promise((resolve, reject) => {
             this.base({
-                url: this.HOST_URL + " /",
+                url: this.HOST_URL + "MyUpdateInfo/",
                 data: data,
                 method: "POST",
             }).then(res => {
@@ -87,26 +98,6 @@ class dbSystem extends dbFather {
         })
     }
 
-
-
-
-    /**
-     * @method 商户端使用 验证所拥有的店铺
-     * @return
-     *      isSeller:true,  //是否这个点的人员
-            isHost:true,    //是否店主
-     */
-    sysMyUpdateInfo(data) {
-        return new Promise((resolve, reject) => {
-            this.base({
-                url: this.HOST_URL + "ajdm/SellerCheckStoreOwner/",
-                method: "POST",
-            }).then(res => {
-                console.log(res)
-                resolve(res)
-            }).catch(res => reject(res))
-        })
-    }
 }
 
 

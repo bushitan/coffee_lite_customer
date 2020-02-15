@@ -10,7 +10,10 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
+		"autoAudits": true,
+		"showShadowRootInWxmlPanel": false,
+		"scopeDataCheck": true,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -18,7 +21,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"bundle": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.5",
@@ -185,6 +189,34 @@
 					"name": "pages2/test_unit/test_unit",
 					"pathName": "pages2/test_unit/test_unit",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/route/route",
+					"pathName": "pages2/route/route",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/self/self",
+					"pathName": "pages2/self/self",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/store/store 店铺",
+					"pathName": "pages2/store/store",
+					"query": "storeUUID=6eab462e-0884-11ea-bda6-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/qrcode/qrcode",
+					"pathName": "pages2/qrcode/qrcode",
+					"query": "storeUUID=6eab462e-0884-11ea-bda6-e95aa2c51b5d",
 					"scene": null
 				}
 			]

@@ -115,7 +115,7 @@ class dbTest {
         longitude:108.23,
         latitude:23.25,
         coverLimitTime:1, //天，单家店内海报领取限制时间。
-        coverLiveTime:1, //天，单家店内海报有效时间。
+        coverLiveTime:1, //天，单家店内海报有效时间。          
     }
     */
 

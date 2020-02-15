@@ -1,0 +1,44 @@
+<!--components/notic/notic.wxml-->
+
+<!-- <view class="self_name margin-top">{{name}}{{name}}{{name}}{{name}}</view>-->
+<view class="page-space-10"></view>
+<view class="store_box ">      
+    <view class="cu-card ">
+        <view class="cu-item">
+            <view class="bg-white flex text-center text-grey shadow-warp " style="padding:144rpx 0 20rpx;">
+                <view class="flex flex-sub flex-direction solid-right">
+                    <view class="text-xxl page-font-yellow">
+                        {{userInfo.allScoreNum}}
+                    </view>
+                    <view class="margin-top-sm page-flex-center">
+                        <image class="page-icon-lite" src="../../images/icon/score.png"></image>集点
+                    </view>
+                </view>
+                <view class="flex flex-sub flex-direction solid-right">
+                    <view class="text-xxl page-font-blue">{{userInfo.allPrizeNum}}</view>
+                    <view class="margin-top-sm page-flex-center">            
+                        <image class="page-icon-normal " src="../../images/icon/prize_shou.png"></image>兑换
+                    </view>
+                </view>
+                <view class="flex flex-sub flex-direction">
+                    <view class="text-xxl text-grey">{{userInfo.allStoreNum}}</view>
+                    <view class="margin-top-sm page-flex-center">        
+                    <image class="page-icon-lite " src="../../images/icon/visitor.png"></image>
+                    店铺</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view></view>
+
+    <view class="user_box">
+        <view class="logo_box">
+            <!-- <image class="logo_image" src="{{logo}}"  mode="aspectFit"></image> -->
+            <open-data class="open-data logo_image"  type="userAvatarUrl" mode="aspectFit"></open-data>
+        </view> 
+        <view class=" user_name" style="height:74rpx" >
+            <view class="text-bold text-black text-xl">{{userInfo.name}}</view>
+            <view class="text-grey text-xs">(SN:{{sn}})</view>
+        </view>
+    </view>
+</view>

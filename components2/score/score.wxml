@@ -1,0 +1,28 @@
+
+
+<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{num}}" scroll-with-animation>
+    <!-- 集点超出最大数值 -->
+    <view wx:if="{{num>max}}">
+        <view class="cu-item padding-lr-xl" wx:for="{{num}}" wx:key="index" >
+            <view class='page-font-yellow'  id="scroll-{{index + 1}}">
+                已集{{index + 1}}点
+                <image src='{{iconScore || "../../images/icon/score.png" }}' class='ladder_score '></image>
+            </view>
+        </view>   
+    </view>
+    <!-- 正常集点 -->
+    <view wx:else>
+        <view class="cu-item padding-lr-xl" wx:for="{{max}}" wx:key="index">
+            <view wx:if="{{index < num}}"  class='page-font-yellow'  id="scroll-{{index+1}}">
+                已集{{index + 1}}点
+                <image src='{{iconScore || "../../images/icon/score.png" }}' class='ladder_score '></image>
+            </view>
+            <view wx:else  id="scroll-{{index+1}}">
+                Level {{index + 1}}
+                <image src='{{iconUnScore || "../../images/icon/score_un.png"}}' class='ladder_score '></image>
+            </view>
+        </view>  
+    </view>  
+</scroll-view>
+
+

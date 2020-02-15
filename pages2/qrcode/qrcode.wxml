@@ -1,5 +1,9 @@
 <!--pages/qrcode/qrcode.wxml-->
-<view class="box {{ mode=='score'? 'page-gb-yellow':'page-gb-blue'}} ">
+<view class="box {{ mode=='score'? 'page-gb-yellow':'page-gb-blue'}} "
+    bindtouchstart="touchstart"
+    bindtouchmove="touchmove"
+    bindtouchend="touchend"
+>
     <!-- <view class='title'>{{title}}</view> -->
     <view class="cu-bar solid-bottom ">
         <view class="action">

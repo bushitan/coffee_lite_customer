@@ -3,14 +3,14 @@
 <cu-custom bgColor="yellow" isBack="{{true}}" bind:back="toMy">
   <!-- <view slot="backText">返回</view> -->
   <image slot="backText" class='page-icon-lite' src='../../images/icon/my.png'></image>
-  <view slot="content">{{store.name}}</view>
+  <view slot="content">{{store.storeName}}</view>
 </cu-custom>
 <!-- banner -->
 <wave
-    logo="{{store.logo}}"
-    summary="{{store.summary}}"
-    start_time="{{store.start_time}}"
-    end_time="{{store.end_time}}"
+    logo="{{store.storeLogo}}"
+    summary="{{store.storeSummary}}"
+    start_time="{{store.startTime}}"
+    end_time="{{store.endTime}}"
 ></wave>  
 
 
@@ -18,76 +18,43 @@
 <view class='page-space-10'></view>
 <view class='page-space-10'></view>
 <view class='page-space-10'></view>
-<view class="text-center text-grey bg-white shadow-warp">
-    <scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{myScore-1}}" scroll-with-animation>
-        <!-- 集点超出最大数值 -->
-        <view wx:if="{{myScore>max}}">
-            <view class="cu-item padding-lr-xl" wx:for="{{myScore}}" wx:key="index" >
-                <view class='page-font-yellow'  id="scroll-{{index + 1}}">
-                    已集{{index + 1}}点
-                    <image src='../../images/icon/score.png' class='ladder_score '></image>
-                </view>
-            </view>   
-        </view>
-        <!-- 正常集点 -->
-        <view wx:else>
-            <view class="cu-item padding-lr-xl" wx:for="{{max}}" wx:key="index">
-                <view wx:if="{{index < myScore}}"  class='page-font-yellow'  id="scroll-{{index+1}}">
-                    已集{{index + 1}}点
-                    <image src='../../images/icon/score.png' class='ladder_score '></image>
-                </view>
-                <view wx:else  id="scroll-{{index+1}}">
-                    Level {{index + 1}}
-                    <image src='../../images/icon/score_un.png' class='ladder_score '></image>
-                </view>
-            </view>  
-        </view>  
-    </scroll-view>
-    <view hidden="{{store.prizeCoverImage==''}}">
-        <image src='{{store.prizeCoverImage}}' mode='widthFix'></image>
-    </view>
+
+
+
+<view class="text-center text-grey bg-white ">
+    <score num="{{customer.myScore }}" max="{{store.storeMaxScore}}"
+        iconScore="{{customer.iconChecImage}}"  iconUnScore="{{customer.iconUnChecImage}}"
+     ></score>
+    <notice 
+        text="{{store.noticeText || 'dhysaidhsioahsao'}}"
+        list="{{store.noticImageList}}">
+    </notice>
     <view class='ladder_btn'>        
-        <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' >打开集点码</button>
-        <button class="cu-btn round page-gb-blue page-font-white" catchtap='toExchangeQR' >打开兑换码</button>
+        <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' 
+         wx:if="{{ customer.myScore < store.storeMaxScore }}">打开集点码</button>
+
+        <button class="cu-btn round page-gb-blue page-font-white" catchtap='toExchangeQR' 
+        wx:if="{{customer}}"
+        disabled="{{ customer.myScore >= store.storeMinScore ? false : true  }}">
+            {{ customer.myScore >= store.storeMinScore ? "打开兑换码":"未达到兑换点数" }}
+        </button>
     </view>
     <view class='page-space-10'></view>
 </view>
 
-
-
-  <!-- <view class="action">
-    <button class="cu-btn bg-green shadow" bindtap="scrollSteps">下一步</button>
-  </view> -->
-
-
-<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages2/prize/prize?storeUUID={{store.storeUUID}}" data-link="https://github.com/weilanwl/ColorUI">
-        <image src="../../images/icon/prize.png" class="png" mode="aspectFit"></image>
-        <text class="text-grey">兑换记录</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content" catchtap="toAddress">
-        <image src="../../images/icon/address.png" class="png" mode="aspectFit"></image>
-        <text class="text-grey">店铺导航</text>
-      </view>
-    </view>
+<view class="">
+    <wm 
+        addressList="{{store.addressList}}" 
+        longitude="{{longitude}}" 
+        latitude="{{latitude}}"
+        bindclickLocation="clickSelfLocation"></wm>
 </view>
 
+
   
-<view class="page-bg-white">
-    <official-account></official-account>
-    <view>
-        <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1d2a6d" indicator-active-color="#efaf30">
-            <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
-                <view class="swiper-item">
-                    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-                    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-                </view>
-            </swiper-item>
-        </swiper>
-    </view>
+<view class="page-bg-white margin-top">
+    <ad list="{{swiperList}}"></ad>
+
 
     <view class="page-space-10"></view>
     <view class=" padding-xs flex align-center">
@@ -97,12 +64,12 @@
             </view>           
         </view>
     </view>
-    <view class=" page-flex-center page-pd15">
-        <button class=" cu-btn round bg-grey "  size="mini" type="" open-type="contact">小杯子客服</button>
+    <view class=" page-flex-center ">
+        <button class=" cu-btn round bg-grey "  type="" open-type="contact">小杯子客服</button>
     </view>
-<navigator url="/pages2/alert/alert" open-type="redirect" >到提示页面测试</navigator>
-    <view class='page-space-60'></view>
 </view>
+<view class='page-bg-white page-space-10'></view>
+<view class='page-bg-white page-space-60'></view>
 
 <view class="weui-panel weui-panel_access UGC" >
     <view  class="  weui-media-box_appmsg ">
@@ -112,3 +79,9 @@
         <button class="cu-btn round page-gb-yellow page-font-white"  catchtap="toMall">小杯子精选商城</button>
     </view>    
 </view>
+
+
+
+
+
+<!-- <navigator url="/pages2/alert/alert" open-type="redirect" >到提示页面测试</navigator> -->

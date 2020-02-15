@@ -36,9 +36,18 @@ class dbBase {
                 },
                 data: data,
                 success(res) {
-                    resolve(res)
+                    resolve(res.data)
                 },
                 fail(res) {
+                    /**
+                     * @method 错误日志上报
+                     * @param 
+                     *      session  用户
+                     *      url      请求地址
+                     *      data     请求数据
+                     *      res      返回的错误
+                     */
+                    console.log(res)
                     console.log("请求错误：" + options.url,res)
                     reject(res)
                 },
@@ -59,7 +68,7 @@ class dbBase {
     test(data){
         return new Promise((resolve, reject) => {
             this.base({
-                url: this.HOST_URL + "ajdm/MyGetInfo/",
+                url: this.HOST_URL + "/",
                 data:data,
                 method: "POST",
             }).then(res => {

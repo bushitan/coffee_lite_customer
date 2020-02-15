@@ -1,4 +1,5 @@
 // pages2/store/store.js
+var app = getApp()
 Page({
 
     /**
@@ -6,19 +7,22 @@ Page({
      */
     data: {
 
+        storeUUID:"",
         store:{
-            uuid:"68e54718-7156-11e9-b456-e95aa2c51b5d",
-            name:"Seeking",
-            logo: "http://img.12xiong.top/coffee_image/upload/bemXA6fZ.jpg",
-            summary:"外卖到店兑换，[买6送1]",
-            start_time:"2019-6-6",
-            end_time: "2020-6-5",
-            prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
-            // prizeCoverImage: "",
+            // uuid:"68e54718-7156-11e9-b456-e95aa2c51b5d",
+            // name:"Seeking",
+            // logo: "http://img.12xiong.top/coffee_image/upload/bemXA6fZ.jpg",
+            // summary:"外卖到店兑换，[买6送1]",
+            // start_time:"2019-6-6",
+            // end_time: "2020-6-5",
+            // prizeCoverImage: "http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg",
+            // // prizeCoverImageList: ["http://img.12xiong.top/coffee_image/upload/GAaYC6fZ.jpg"],
+            // prizeCoverImageList: [],
+            // // prizeCoverImage: "",
         },
 
-        myScore:5,
-        max:10,
+        // myScore:5,
+        // max:10,
 
 
 
@@ -40,7 +44,8 @@ Page({
             id: 3,
             type: 'image',
             url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-        }, ],
+        }, 
+        ],
 
 
         basicsList: [{
@@ -72,40 +77,24 @@ Page({
     },
 
 
+
+
+
     /**********路由**********/
     // 打开集点码
     toScoreQR() {
-        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=score&store_uuid=${this.data.store.uuid}`, })
+        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=score&storeUUID=${this.data.storeUUID}&storeName=${this.data.store.storeName}`, })
     },   
     // 到兑换二维码
     toExchangeQR() {
-        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=prize&store_uuid=${this.data.store.uuid}`, })
+        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=prize&storeUUID=${this.data.storeUUID}&storeName=${this.data.store.storeName}`, })
     },
     // 返回我的
     toMy(){
         wx.redirectTo({
-            url: '/pages2/main/main',
+            url: '/pages2/self/self',
         })
     },
-    toAddress(){
-        wx.openLocation({
-            name: GP.data.store.title,
-            address: GP.data.store.address,
-            latitude: GP.data.store.latitude,
-            longitude: GP.data.store.longitude,
-            scale: 18
-        })
-    },
-
-
-
-    // cardSwiper
-    cardSwiper(e) {
-        this.setData({
-            cardCur: e.detail.current
-        })
-    },
-
     
 
 
@@ -113,9 +102,50 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // this.scrollSteps()
+        this.setData({ storeUUID: options.storeUUID})
+        this.onInit()
     },
 
+    /**
+     *  coverCollectScore: 0
+        coverLimitTime: 0
+        coverLiveTime: null
+        defaultCoverBgImgUrl: null
+        endTime: "2020-11-15 23:18:00"
+        latitude: 0
+        longitude: 0
+        noticImageList: []
+        startTime: "2019-11-16 23:18:00"
+        storeDes: ""
+        storeLoadImage: null
+        storeLogo: "http://img.12xiong.top/coffee_image/upload/hwkYm6fZ.jpg"
+        storeMaxScore: 0
+        storeMinScore: 10
+        storeName: "飞碟君"
+        storeShopUrl: null
+        storeSummary: "满10个飞碟，送1个13块钱内的"
+     */
+    async onInit(){
+        var store = await app.db.storeGetStore({ storeUUID: this.data.storeUUID})
+        store.startTime = store.startTime.split(" ")[0]
+        store.endTime = store.endTime.split(" ")[0]
+
+        store.storeMaxScore = 15
+        store.scoreNum = 10
+
+        this.setData({
+            store:store
+        })
+
+
+        var customer = await app.db.storeCustomerGetStoreScore({ storeUUID: this.data.storeUUID })
+        var ad = await app.db.adSysGetAdList({ storeUUID: this.data.storeUUID, type:1})
+        this.setData({
+            customer: customer,
+            ad:ad,
+        })
+
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -123,40 +153,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
 
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
 
     /**
      * 用户点击右上角分享
@@ -165,3 +162,15 @@ Page({
 
     }
 })
+
+
+
+// toAddress(){
+//     wx.openLocation({
+//         name: GP.data.store.title,
+//         address: GP.data.store.address,
+//         latitude: GP.data.store.latitude,
+//         longitude: GP.data.store.longitude,
+//         scale: 18
+//     })
+// },

@@ -15,11 +15,15 @@ page {
 	/* 标准色 */
 	--red: #e54d42;
 	--orange: #f37b1d;
-	--yellow: #fbbd08;
+	/* --yellow: #fbbd08; */
+    --yellow: #efaf30;
+    --lightyellow:#f4c76f;
 	--olive: #8dc63f;
 	--green: #39b54a;
 	--cyan: #1cbbb4;
-	--blue: #0081ff;
+	/* --blue: #0081ff; */
+	--blue: #1d2a6d;
+    
 	--purple: #6739b6;
 	--mauve: #9c26b0;
 	--pink: #e03997;

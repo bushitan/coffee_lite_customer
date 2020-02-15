@@ -1,5 +1,7 @@
 /* pages2/store/store.wxss */
-
+page{
+    /* background-color: var(--lightyellow) */
+}
 .steps-bottom.cu-steps .cu-item .num::before {
   content: "\e668";
   font-family: 'iconfont';

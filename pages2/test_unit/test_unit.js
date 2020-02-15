@@ -31,13 +31,23 @@ Page({
     },
 
     async sys() {
-        app.db.sysLogin()
-        app.db.sysMyGetInfo()
-        app.db.sysMyUpdateInfo({
-            name: "name",
-            logo: "logo",
-            city: "city",
-        })
+        // app.db.sysLogin()
+        // app.db.sysMyGetInfo()
+        // app.db.sysMyUpdateInfo({
+        //     name: "name",
+        //     logo: "logo",
+        //     city: "city",
+        // })
+
+        // app.db.storeMyGetStoreInfo({ page: 1, limit: 10 })
+        // app.db.storeGetStore({ storeUUID: "3e5075ee-f2e5-11e9-8fd0-e95aa2c51b5d" })
+        // // debugger
+        // app.db.storeCustomerGetStoreScore({ storeUUID: "3e5075ee-f2e5-11e9-8fd0-e95aa2c51b5d", page: 1, limit: 10 })
+        // app.db.storeCustomerGetStorePrize({ storeUUID: "3e5075ee-f2e5-11e9-8fd0-e95aa2c51b5d", page: 1, limit: 10 })
+        app.db.customerScanQrCode()
+        
+        console.log(a)
+        
     },
 
 

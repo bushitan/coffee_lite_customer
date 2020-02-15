@@ -1,0 +1,14 @@
+/* colorui/components/cu-custom.wxss */
+/* @import '../../static/css/main.wxss';
+@import '../../static/css/icon.wxss'; */
+/* @import '/app.wxss'; */
+
+
+.yellow{
+     background-color: #efaf30 !important;
+     color: #ffffff  !important;
+}
+.blue{
+     background-color: #1d2a6d !important;
+     color: #ffffff  !important;
+}

@@ -1,0 +1,42 @@
+
+<view class="zr">
+    <view class='user_box' hidden="{{isShowInfo}}">
+        <view class='userInfo'>
+            <!-- <open-data type="userAvatarUrl"></open-data> -->
+            
+            <image class='logo' src='{{logo}}'></image>
+        </view>
+        <view class='userInfo_name'>
+           {{sn}}<open-data type="userNickName"></open-data>，欢迎您
+            <view class='discount'>{{summary}}</view>
+            <view class='time'>[ 活动时间：{{start_time}}至{{end_time}} ]</view>
+        </view>
+    </view>
+    <view class="water">
+        <view class="water-c">
+            <view class="water-1"> </view>
+            <view class="water-2"> </view>
+        </view>
+    </view>
+
+    
+</view>
+
+<wxs module="MATH">
+  var height =  function(score,max){
+    var r = parseFloat(score/max)
+    return r*50 + 5
+  }; 
+  module.exports.height = height;
+</wxs>
+
+<!-- <view class='dian'>
+    <view class='score'>
+        <view class='water'>  
+            <view class='bg' style='height: {{MATH.height(score,exchange)}}px;'></view>  
+        </view>
+        <image class='icon' src='../../images/icon_score_1.png' 
+            ></image>
+    </view>
+    <view class='rate'> <label>{{score}}</label>/{{exchange}}</view>
+</view> -->

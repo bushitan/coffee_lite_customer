@@ -23,6 +23,14 @@
 .page-gb-yellow{ background-color: #efaf30 !important; }
 .page-gb-blue{ background-color: #1d2a6d !important; }
 
+.pg-radius{
+    overflow: hidden;
+    border-radius: 10rpx;
+}
+.pg-swiper{  
+    width: 750rpx;
+    height: 600rpx;
+}
 
 
 
