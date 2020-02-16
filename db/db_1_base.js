@@ -14,7 +14,7 @@ class dbBase {
     KEY_APP_ID= "app_id"
     KEY_UNION_ID="union_id"
 
-    HOST_URL = "http://jdkapi.qskjad.top/" // 主机地址
+    HOST_URL = "https://jdkapi.qskjad.top/" // 主机地址
 
     constructor() {
 

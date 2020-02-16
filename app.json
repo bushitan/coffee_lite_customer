@@ -36,10 +36,11 @@
     },
     "usingComponents": {
         "ad": "components2/ad/ad",
+        "cu-custom": "/components2/cu-custom/cu-custom",
         "header": "components2/header/header",
         "notice": "components2/notice/notice",
         "score": "components2/score/score",
-        "cu-custom": "/components2/cu-custom/cu-custom",
+        "qrcode": "components2/qrcode/qrcode",
         "wave": "/components2/wave/wave",
         "wm": "components2/wm/wm"
     },

@@ -26,6 +26,12 @@ App({
             }
         })
     },
+    // 获取上一页面
+    getPrePage() {
+        var pre = getCurrentPages()[getCurrentPages().length - 2]
+        return pre
+    },
+
     globalData: {
         userInfo: null,
         scene:1001
