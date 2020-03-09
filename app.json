@@ -11,12 +11,12 @@
         "pages/webview/webview",
         "pages/wePay/wePay",
         "pages/share/share",
+        "pages2/qrcode/qrcode",
 
         "pages2/self/self",
         "pages2/prize_detail/prize_detail",
         "pages2/prize/prize",
         "pages2/store/store",
-        "pages2/qrcode/qrcode",
         "pages2/loading/loading",
         "pages2/alert/alert",
         
@@ -44,5 +44,19 @@
         "wave": "/components2/wave/wave",
         "wm": "components2/wm/wm"
     },
+    "subpackages": [
+        {
+            "root": "packageA",
+            "pages": [
+                "pages/home/home"
+            ],
+            "plugins":{
+                "live-player-plugin": {
+                    "version": "1.0.0", 
+                    "provider": "wx2b03c6e691cd7370" 
+                }
+            }
+        }
+    ],
     "sitemapLocation": "sitemap.json"
 }
