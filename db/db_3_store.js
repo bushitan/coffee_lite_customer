@@ -31,7 +31,7 @@ class dbStore extends dbFather {
         return new Promise((resolve, reject) => {
             data = data || {}
             data.page = data.page || 1
-            data.limit = data.page || 100
+            data.limit = data.limit || 100
             wx.showLoading({})
             this.base({
                 url: this.HOST_URL + "api/lite/store/MyGetStoreInfo/",

@@ -206,10 +206,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 21,
 					"name": "pages2/store/store 店铺",
 					"pathName": "pages2/store/store",
-					"query": "storeUUID=6eab462e-0884-11ea-bda6-e95aa2c51b5d",
+					"query": "storeUUID=68e54718-7156-11e9-b456-e95aa2c51b5d",
 					"scene": null
 				},
 				{

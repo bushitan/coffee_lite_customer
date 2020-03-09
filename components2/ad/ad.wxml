@@ -11,10 +11,31 @@
                 style="width:100%;display:block"
                 src="{{item.url}}" 
                 mode="widthFix"
-                catchtap="toAd" 
-                data-type="{{item.url}}" 
-                data-web_url='{{item.web_url}}'
+                catchtap="clickAD" 
+                data-index="{{index}}"
             ></image>
         </swiper-item>
     </swiper>
 </view>
+
+
+<!-- 		
+	0		{9}
+		
+storeUUID	:	
+		
+coverImage	:	null
+		
+webUrl	:	null
+		
+liteAppID	:	null
+		
+litePath	:	null
+		
+liteExtraData	:	null
+		
+liteEnvVersion	:	null
+		
+type	:	1
+		
+isDialog	:	0 -->

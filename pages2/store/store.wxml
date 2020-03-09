@@ -26,8 +26,8 @@
         iconScore="{{customer.iconChecImage}}"  iconUnScore="{{customer.iconUnChecImage}}"
      ></score>
     <notice 
-        text="{{store.noticeText || 'dhysaidhsioahsao'}}"
-        list="{{store.noticImageList}}">
+        text="{{store.noticeText || '奥迪花火大会死uadhuiehruehfhiu发双方互利是方轰动佛兄弟'}}"
+        list="{{store.noticeImageList}}">
     </notice>
     <view class='ladder_btn'>        
         <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' 
@@ -53,7 +53,7 @@
 
   
 <view class="page-bg-white margin-top">
-    <ad list="{{swiperList}}"></ad>
+    <ad list="{{adList}}"></ad>
 
 
     <view class="page-space-10"></view>

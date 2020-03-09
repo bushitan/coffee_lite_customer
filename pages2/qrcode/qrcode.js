@@ -21,22 +21,30 @@ Page({
         var mode = options.mode || "score"
         var storeUUID = options.storeUUID || ""
         var storeName = options.storeName || ""
+        var storeID = options.storeID || ""
 
-        this.setMode(mode, storeUUID, storeName)
+        this.setMode(mode, storeUUID, storeName, storeID)
         this.startHeart()
 
     },
 
-    setMode(mode, storeUUID, storeName){
+    setMode(mode, storeUUID, storeName, storeID){
         var title, userQR
+        var baseQR = [
+            wx.getStorageSync(API.UUID),  // 用户UUID
+            storeID,  //店铺ID
+            Date.parse(new Date())  //时间戳
+        ].join(",")
         if (mode == "score") {
             title = "集点码,请向<" + storeName + ">出示此二维码集点"
-            userQR = `score,${wx.getStorageSync(API.UUID)},${storeUUID}`
+            // userQR = `score,${wx.getStorageSync(API.UUID)},${storeUUID}`
+            userQR = 'score,' + baseQR
             wx.setNavigationBarTitle({ title:"集点码"})
         }
         else{
             title = "兑换码,请向<" + storeName +">出示此二维码兑换"
-            userQR = `prize,${wx.getStorageSync(API.UUID)},${storeUUID}`
+            // userQR = `prize,${wx.getStorageSync(API.UUID)},${storeUUID}`
+            userQR = "prize," + baseQR
             wx.setNavigationBarTitle({ title: "兑换码" })
             wx.setNavigationBarColor({
                 frontColor: '#ffffff',
@@ -59,6 +67,8 @@ Page({
         interval = setInterval(function () {
             app.db.customerGetHeart().then(res=>{
                 // TODO 检测心跳
+                if(res.code == 0 )
+                    console.log(res.msg)
             })
         },6000)
     },

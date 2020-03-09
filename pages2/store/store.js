@@ -28,24 +28,7 @@ Page({
 
 
         cardCur: 0,
-        swiperList: [{
-            id: 0,
-            type: 'image',
-            url: 'https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydzb8eRMXLDW2dubxnRYVEy8hkaV67hboiaNtqgK862ecCtAXRQZuWRibQlYmtHnbx5r30O8cvibBuZNA/0?wx_fmt=jpeg'
-        }, {
-            id: 1,
-            type: 'image',
-                url: 'https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydyxfDRsLoEkXugwZ0SoSwVdRzDIwBmYA23eNLyA6YaFBvwcicTzDmkFqbhm0DsA6Asb553ThaPyU5A/0?wx_fmt=jpeg',
-        }, {
-            id: 2,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-        }, {
-            id: 3,
-            type: 'image',
-            url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-        }, 
-        ],
+        adList:[],
 
 
         basicsList: [{
@@ -83,11 +66,15 @@ Page({
     /**********路由**********/
     // 打开集点码
     toScoreQR() {
-        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=score&storeUUID=${this.data.storeUUID}&storeName=${this.data.store.storeName}`, })
+        wx.navigateTo({ 
+            url: `/pages2/qrcode/qrcode?mode=score&storeUUID=${this.data.storeUUID}&storeName=${this.data.store.storeName}&storeID=${this.data.store.storeID}`,
+        })
     },   
     // 到兑换二维码
     toExchangeQR() {
-        wx.navigateTo({ url: `/pages2/qrcode/qrcode?mode=prize&storeUUID=${this.data.storeUUID}&storeName=${this.data.store.storeName}`, })
+        wx.navigateTo({ 
+            url: `/pages2/qrcode/qrcode?mode=prize&storeUUID=${this.data.storeUUID}&storeName=${this.data.store.storeName}&storeID=${this.data.store.storeID}`,
+        })
     },
     // 返回我的
     toMy(){
@@ -95,7 +82,9 @@ Page({
             url: '/pages2/self/self',
         })
     },
-    
+    toMall() {
+        wx.navigateTo({ url: '/pages/article/article?url=https://sj.qskjad.top/Home/Index', })
+    },
 
 
     /**
@@ -126,23 +115,23 @@ Page({
         storeSummary: "满10个飞碟，送1个13块钱内的"
      */
     async onInit(){
+        // 设置店铺信息
         var store = await app.db.storeGetStore({ storeUUID: this.data.storeUUID})
         store.startTime = store.startTime.split(" ")[0]
         store.endTime = store.endTime.split(" ")[0]
-
         store.storeMaxScore = 15
         store.scoreNum = 10
-
         this.setData({
             store:store
         })
 
-
+        // 设置用户几点信息
         var customer = await app.db.storeCustomerGetStoreScore({ storeUUID: this.data.storeUUID })
+        // 设置广告信息
         var ad = await app.db.adSysGetAdList({ storeUUID: this.data.storeUUID, type:1})
         this.setData({
             customer: customer,
-            ad:ad,
+            adList:ad,
         })
 
     },

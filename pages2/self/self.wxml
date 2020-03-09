@@ -34,7 +34,7 @@
                     </view>
                     <view class="action">
                         <view class="text-grey text-xs">已集点</view>
-                        <view class="cu-tag round bg-yellow page-font-white sm">{{item.myScore}}</view>
+                        <view class="cu-tag round bg-blue page-font-white sm">{{item.myScore}}</view>
                     </view>
                 </navigator>
             </view>
