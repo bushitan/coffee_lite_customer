@@ -58,6 +58,19 @@ Page({
         })
     },
 
+    live(){
+        var list = ['2', '3', '4', '5', '6', '7']
+        wx.showActionSheet({
+            itemList: list,
+            success(e){
+                var roomID = list[e.tapIndex]
+                wx.navigateTo({
+                    url: 'plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=' + roomID,
+                })
+            }
+        })
+       
+    },
     /**
      * 用户点击右上角分享
      */
