@@ -93,6 +93,14 @@
 
 
 
+<view style="height:60px"></view>
+<navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+    <view class="flex align-center">
+        <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
+        <text class="text-gray text-sm">小杯子直播精选</text>
+    </view>
+    <button class="cu-btn bg-red round" >打开直播间</button>     
+</navigator>
 
 
 

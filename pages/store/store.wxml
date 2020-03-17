@@ -172,19 +172,24 @@
 
 
 
-
+<!-- 
 <view class="weui-panel weui-panel_access UGC" >
     <view  class=" weui-media-box weui-media-box_appmsg ">
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <!-- <view class="weui-media-box__title">图文投稿</view> -->
             <view class="weui-media-box__desc">咖啡周边，人气随行杯</view>
         </view>        
         <button  size="mini" type="primary" catchtap="toMall" style="background:#1d2a6d">小杯子精选商城</button>
-        <!-- <button  size="mini" type="primary" open-type="contact">小杯子精选商城</button> -->
     </view>    
-</view>
+</view> -->
 
 
+<navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+    <view class="flex align-center">
+        <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
+        <text class="text-gray text-sm">小杯子直播精选</text>
+    </view>
+    <button class="cu-btn bg-red round" >打开直播间</button>     
+</navigator>
 
 
 

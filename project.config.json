@@ -218,6 +218,12 @@
 					"pathName": "pages2/qrcode/qrcode",
 					"query": "storeUUID=6eab462e-0884-11ea-bda6-e95aa2c51b5d",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/live/live",
+					"pathName": "pages3/live/live",
+					"scene": null
 				}
 			]
 		}

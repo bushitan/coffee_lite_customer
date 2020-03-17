@@ -9,6 +9,13 @@ App({
         console.log("[onLaunch] 本次场景值:", options.scene)
         this.globalData.scene = options.scene
 
+        if (wx.cloud) {
+            wx.cloud.init({
+                env: "cup-customer-release",
+                traceUser: true
+            })
+        }
+
         //加载广告
         // this.adInit()
 

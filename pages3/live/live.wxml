@@ -1,0 +1,110 @@
+<!--pages3/live/live.wxml-->
+
+<!-- <scroll-view scroll-x class="bg-white nav ">
+    <view class='flex text-center  '>
+        <view class="cu-item flex-sub {{item.id==TabCur?'text-yellow text-bold cur':' text-gray'}} " 
+        wx:for="{{SortMenu}}" wx:key="index" data-tab_id="{{item.id}}" catchtap="tabSelect"     >
+                <view style="  position: relative" >
+                    {{item.name}}
+                </view>
+        </view>
+    </view>
+</scroll-view> -->
+
+
+<view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+        <text class='cuIcon-titles text-yellow '></text>小杯子直播
+    </view>
+</view>
+
+
+
+<view class="cu-card case ">
+    <view class="cu-item shadow" wx:for="{{list}}" catchtap="toRoom" data-room_id="{{item.roomID}}">
+        <view class="image">
+            <image src="{{item.coverUrl}}" mode="widthFix"></image>
+            <view class="cu-tag bg-yellow text-white" wx:if="{{item.status == STATUS_PREPARE}}">开播时间：{{item.startTime}}</view>
+            <view class="cu-tag bg-red text-white" wx:if="{{item.status == STATUS_PROCESSING}}">进行中</view>
+            <view class="cu-tag bg-grey text-white" wx:if="{{item.status == STATUS_COMPLETE}}">已结束</view>
+            <view class="cu-bar bg-shadeBottom">
+            <text class="text-cut">{{item.title}}</text>
+        </view>
+    </view>
+    <view class="cu-list menu-avatar">
+        <view class="cu-item">
+            <image class="cu-avatar round lg"  src="{{item.hostLogoUrl}}"> </image>
+            <view class="content flex-sub">
+                <view class="text-black text-bold">{{item.hostName}}</view>
+                <view class="text-gray text-sm flex justify-between">
+                    {{item.desc}}
+                    <view class="text-gray text-sm">
+                        <button class="cu-btn bg-yellow text-white round sm margin-right-sm"  wx:if="{{item.goodUrl}}"
+                            catchtap="toGood" data-good_url="{{item.goodUrl}}">精选推荐</button>
+                        <button class="cu-btn bg-blue text-white round sm  align-center" 
+                            catchtap="toRoom" data-room_id="{{item.roomID}}">
+                            观看直播
+                            <text class="cuIcon-playfill"></text>
+                        </button>
+                    </view>
+                </view>
+            </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="padding-tb-sm solid-top flex justify-center footer" >
+     <!-- <button class="cu-btn bg-yellow text-white round "  catchtap="addRoom" >添加</button> -->
+     <button class="cu-btn bg-yellow text-white round " catchtap="showModal" >直播报名入口</button>
+</view>
+
+
+<view class="cu-modal {{showForm?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">商家/主播报名入口</view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <form  bindsubmit="formSubmit">
+            <view class="cu-form-group  text-left">
+                <view class="title">申请主体：</view>
+                <input placeholder="请输入主播昵称or商户名" name="hostName"  ></input>
+            </view>
+            <view class="cu-form-group  text-left">
+                <view class="title">申请者：</view>
+                <input placeholder="请输入申请者名称" name="userName"  ></input>
+            </view>
+            <view class="cu-form-group  text-left">
+                <view class="title">微信号：</view>
+                <input placeholder="请输入微信号" name="wx"  ></input>
+            </view>
+            <view class="cu-form-group  text-left">
+                <view class="title">电话：</view>
+                <input placeholder="请输入电话" name="tel"  ></input>
+            </view>
+            <view class="bg-white padding text-sm " catchtap="copyWX">客服微信:[点击打开客服二维码]</view>
+            <view class="cu-bar bg-white justify-end">
+                <view class="action">
+                    <button class="cu-btn round line-blue " bindtap="hideModal">取消</button>
+                    <button class="cu-btn round bg-yellow text-white margin-left"  form-type="submit"  >确定</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>
+<view class=" padding-xs flex  align-center margin-top-sm justify-center">
+    <text class="text-center  text-gray text-sm">直播间加载完毕</text>		
+</view>
+
+<view class=" padding-xs flex align-center margin-top-sm">
+    <view class="flex-sub text-center">
+        <view class=" text-df ">
+            <text class="text-gray text-sm">Copyright © 2020 索骏科技提供技术支持</text>
+        </view>           
+    </view>
+</view>
+<view class="page-space-60"></view>
+

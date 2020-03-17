@@ -37,6 +37,23 @@ Page({
         ladderScore:0, //天梯集点的点数
 
         adList:[],
+
+
+
+        currentLive: 
+        {
+            _id:"",
+            roomID:29,
+            title:"咖啡机公开课",
+            coverUrl: "/images/live/cover.jpg",
+            status: 10, // 1、进行中  2、已结束                 
+            hostLogoUrl:"https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg",
+            hostName:"拉花谭老师",
+            desc:"拉花拿铁",
+            goodUrl:"https://sj.qskjad.top/product/detail/81d2e8fa-5a16-4db6-a389-e8493f500706", // 商品连接
+            startTime:"2020-03-17 15:12:23",    
+        },           
+        
     },
 
     /**
