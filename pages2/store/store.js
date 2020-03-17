@@ -128,7 +128,7 @@ Page({
         // 设置用户几点信息
         var customer = await app.db.storeCustomerGetStoreScore({ storeUUID: this.data.storeUUID })
         // 设置广告信息
-        var ad = await app.db.adSysGetAdList({ storeUUID: this.data.storeUUID, type:1})
+        var ad = await app.db.adSysGetAdList({ storeUUID: this.data.storeUUID, type: app.db.AD_STORE})
         this.setData({
             customer: customer,
             adList:ad,

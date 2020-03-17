@@ -21,7 +21,8 @@
     <view class="space"></view>
 
 <view>
-    <ad list="{{swiperList}}"></ad>
+    <!-- <ad list="{{swiperList}}"></ad> -->
+    <ad list="{{adList}}"></ad>
 
     <view class=" padding-xs flex align-center">
         <view class="flex-sub text-center">
