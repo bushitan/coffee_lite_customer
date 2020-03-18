@@ -35,7 +35,7 @@ Page({
         }) 
         // API
         db.login().then(userInfo =>{
-            console.log(userInfo)
+            // console.log(userInfo)
             wx.setStorageSync(API.USER_INFO, userInfo)
             wx.setStorageSync(API.UUID, userInfo.uuid)
             wx.setStorageSync(API.OPEN_ID, userInfo.wx_openid)

@@ -89,8 +89,9 @@ Page({
 
     toRoom(e){
         var roomID = e.currentTarget.dataset.room_id
+        let customParams = { pid: "12" }
         wx.navigateTo({
-                url: 'plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=' + roomID,
+            url: 'plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=' + roomID + "&custom_params=" + encodeURIComponent(JSON.stringify(customParams))
         })
     },
 
