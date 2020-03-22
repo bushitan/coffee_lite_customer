@@ -55,7 +55,7 @@
 </view>
 
 <view class="padding-tb-sm solid-top flex justify-center footer" >
-     <!-- <button class="cu-btn bg-yellow text-white round "  catchtap="addRoom" >添加</button> -->
+     <button class="cu-btn bg-yellow text-white round "  catchtap="addRoom" >添加</button>
      <button class="cu-btn bg-yellow text-white round " catchtap="showModal" >直播报名入口</button>
 </view>
 

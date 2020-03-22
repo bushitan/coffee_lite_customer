@@ -123,15 +123,15 @@ Page({
         var res = await app.db.roomAdd({
             isShow: true,
             sn: 0,
-            roomID: 11,
-            title: "小白给专业化妆师化妆是怎样的体验",
-            coverUrl: "http://mmbiz.qpic.cn/mmbiz_jpg/rysfsJMWkCRnVdkA9yicjWf8Co8v3pPlmxzCqIx7Kmfare2YvzE12OwlF7jI6icKdDKDGiaibibIJfria7KACmRyrAYg/0",
-            status: STATUS_COMPLETE, // 1、进行中  2、已结束                 
-            hostLogoUrl: "http://mmbiz.qpic.cn/mmbiz_jpg/rysfsJMWkCRnVdkA9yicjWf8Co8v3pPlmxzCqIx7Kmfare2YvzE12OwlF7jI6icKdDKDGiaibibIJfria7KACmRyrAYg/0",
-            hostName: "蒋蒋",
-            desc: "化妆师",
+            roomID: 33,
+            title: "花式写手帐 英文书法秀",
+            coverUrl: "cloud://cup-customer-release.6375-cup-customer-release-1301587562/cover/2020-3-19-3.jpg",
+            status: STATUS_PREPARE, // 1、进行中  2、已结束                 
+            hostLogoUrl: "cloud://cup-customer-release.6375-cup-customer-release-1301587562/logo/tan_jn.jpg",
+            hostName: "谭老师",
+            desc: "花体字",
             goodUrl: "", // 商品连接
-            startTime: "2020-03-11 21:01:43", 
+            startTime: "2020-03-20 21:00", 
         })
         console.log(res)
     },
