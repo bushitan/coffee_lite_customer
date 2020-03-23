@@ -2,5 +2,5 @@
 
 .map{
     width: 100%;
-    height: 500rpx;
+    height: 200rpx;
 }

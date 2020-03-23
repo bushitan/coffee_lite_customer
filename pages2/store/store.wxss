@@ -1,6 +1,6 @@
 /* pages2/store/store.wxss */
 page{
-    /* background-color: var(--lightyellow) */
+    background-color: var(--ghostWhite)
 }
 .steps-bottom.cu-steps .cu-item .num::before {
   content: "\e668";

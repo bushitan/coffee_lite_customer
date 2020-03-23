@@ -78,9 +78,15 @@ Page({
     },
     // 返回我的
     toMy(){
-        wx.redirectTo({
-            url: '/pages2/self/self',
-        })
+        var page =  getCurrentPages()
+        // debugger
+        if(page.length == 1)       
+            wx.redirectTo({
+                url: '/pages2/self/self',
+            })  
+        else
+            wx.navigateBack() 
+
     },
     toMall() {
         wx.navigateTo({ url: '/pages/article/article?url=https://sj.qskjad.top/Home/Index', })

@@ -26,8 +26,9 @@
         iconScore="{{customer.iconChecImage}}"  iconUnScore="{{customer.iconUnChecImage}}"
      ></score>
     <notice 
-        text="{{store.noticeText || '奥迪花火大会死uadhuiehruehfhiu发双方互利是方轰动佛兄弟'}}"
-        list="{{store.noticeImageList}}">
+        text="{{store.noticeText || '魏魏别着急'}}"
+        list="{{['/images/qr/logo.jpg']}}">
+        <!-- list="{{store.noticeImageList}}"> -->
     </notice>
     <view class='ladder_btn'>        
         <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' 
@@ -52,7 +53,7 @@
 
 
   
-<view class="page-bg-white margin-top">
+<view class="page-bg-white ">
     <ad list="{{adList}}"></ad>
 
 
@@ -71,14 +72,21 @@
 <view class='page-bg-white page-space-10'></view>
 <view class='page-bg-white page-space-60'></view>
 
-<view class="weui-panel weui-panel_access UGC" >
+<navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+    <view class="flex align-center">
+        <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
+        <text class="text-gray text-sm">小杯子直播精选</text>
+    </view>
+    <button class="cu-btn bg-red round" >打开直播间</button>     
+</navigator>
+<!-- <view class="weui-panel weui-panel_access UGC" >
     <view  class="  weui-media-box_appmsg ">
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__desc page-font-blue">咖啡周边，人气随行杯</view>
         </view>        
         <button class="cu-btn round page-gb-yellow page-font-white"  catchtap="toMall">小杯子精选商城</button>
     </view>    
-</view>
+</view> -->
 
 
 

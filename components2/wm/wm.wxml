@@ -12,10 +12,12 @@
                 <text class="text-black text-bold">门店地址</text>                
             </view>
             <view class="action">
-                <button size="mini" class="cu-btn bg-green round " catchtap="getSelfLocation"  wx:if="{{isAuthorLocaiton}}"
+                 <button  class="cu-btn line-yellow round " catchtap="getNav"  
+                style="font-size:28rpx;height:64rpx;line-height:64rpx" >导航</button>
+                <!-- <button size="mini" class="cu-btn bg-green round " catchtap="getSelfLocation"  wx:if="{{isAuthorLocaiton}}"
                 style="font-size:28rpx;height:64rpx;line-height:64rpx" >我的位置</button>
                 <button size="mini" class="cu-btn bg-green round " bindtap="openSetting" wx:else
-                 style="font-size:28rpx;height:64rpx;line-height:64rpx" >授权打开地址</button>
+                 style="font-size:28rpx;height:64rpx;line-height:64rpx" >授权打开地址</button> -->
 
             </view>
         </view>

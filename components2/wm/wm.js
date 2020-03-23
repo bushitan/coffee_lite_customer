@@ -149,6 +149,14 @@ Component({
             }
         },
 
+        getNav(){
+            wx.openLocation({
+                latitude: parseInt(this.data.latitude),
+                longitude: parseInt(this.data.longitude),
+                scale: 15
+            })
+        },
+
         // 授权位置
         async openSetting() {
             this.setData({
@@ -161,7 +169,7 @@ Component({
             var locaotion = await app.db.getLocation()
             if (locaotion) {
                 this.setData({
-                    longitude: locaotion.longitude,
+                    longitude:  locaotion.longitude,
                     latitude: locaotion.latitude,
                 })
 

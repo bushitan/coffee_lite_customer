@@ -9,11 +9,11 @@ Page({
 
         sn:"",
         userInfo: {
-            id: '202232',
-            name: 'fengef',
-            allScoreNum: 1,
-            allPrizeNum: 1,
-            allStoreNum: 1,
+            // id: '202232',
+            // name: 'fengef',
+            // allScoreNum: 1,
+            // allPrizeNum: 1,
+            // allStoreNum: 1,
         },
         storeList: [
             // {
@@ -86,7 +86,7 @@ Page({
     toStore(e) {
         var storeUUID = e.currentTarget.dataset.store_uuid
         console.log(storeUUID)
-        wx.redirectTo({
+        wx.navigateTo({
             url: '/pages2/store/store?storeUUID=' + storeUUID,
         })
     },
