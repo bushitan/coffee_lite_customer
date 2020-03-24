@@ -1,4 +1,5 @@
 <!--pages/qrcode/qrcode.wxml-->
+<button catchtap="getSuccess">测试 </button>
 <view class="box {{ mode=='score'? 'page-gb-yellow':'page-gb-blue'}} "
     bindtouchstart="touchstart"
     bindtouchmove="touchmove"

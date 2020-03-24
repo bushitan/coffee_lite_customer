@@ -23,8 +23,16 @@ Page({
         var storeName = options.storeName || ""
         var storeID = options.storeID || ""
 
+        this.setData({
+            mode: options.mode || "score",
+            storeUUID: options.storeUUID || "",
+            storeName: options.storeName || "",
+            storeID: options.storeID || "",
+        })
+
         this.setMode(mode, storeUUID, storeName, storeID)
         this.startHeart()
+
 
     },
 
@@ -67,11 +75,22 @@ Page({
         interval = setInterval(function () {
             app.db.customerGetHeart().then(res=>{
                 // TODO 检测心跳
-                if(res.code == 0 )
+                if (res.code == 0) {
                     console.log(res.msg)
+                    // 集点成功
+                    that.getSuccess(res.msg)
+                }
             })
         },6000)
     },
+    
+    getSuccess(msg){
+        msg = msg || ""
+        wx.reLaunch({
+            url: `/pages2/alert/alert?status=true&storeUUID=${this.data.storeUUID}&title=${msg}`
+        })
+    },
+
 
 
     /**
@@ -86,7 +105,7 @@ Page({
 
 
 
-
+    /*********印章触摸*********/
     touchstart(e) { 
         // console.log(e)
         touches = e.touches
@@ -95,7 +114,7 @@ Page({
     touchmove(e) { 
         // console.log(e)
         touches = e.touches
-        this.check(e.touches)
+        // this.check(e.touches)
     },
     touchend(e) { console.log(e)
 

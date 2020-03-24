@@ -9,12 +9,12 @@
         <view class="page-space-10"></view>
         <view class="page-space-10"></view>
         <view class="page-flex-center page-pd15 ">
-            <icon type="success" size="80" color='#efaf30' wx:if="{{status == STATUS_SUCCESS}}"></icon>
-            <icon type="warn" size="80"wx:else></icon>  
+            <icon type="success" size="80" color='#efaf30' wx:if="{{status}}"></icon>
+            <icon type="warn" size="80" wx:else></icon>  
         </view>
         <view class="text-black text-bold page-flex-center">{{title}}</view>
         <view class="page-pd15">        
-            <button class="round " type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
+            <button class="round " type="primary" catchtap='toStore' style='background-color:#efaf30;'>返回店铺</button>
             <!-- <button  class="round lg  line-grey" open-type="contact">小杯子客服</button> -->
         </view>
     </view>

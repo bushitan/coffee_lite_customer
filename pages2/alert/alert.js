@@ -17,7 +17,7 @@ Page({
 
 
         this.setData({
-            status: options.status || "",
+            status: options.status=="true"? true: false,
             storeUUID: options.storeUUID || "",
             title: options.title || "",
         })
@@ -38,7 +38,7 @@ Page({
     toStore(){
         var url = '/pages2/store/store?storeUUID=' + this.data.storeUUID
         if (this.data.storeUUID == "")
-            url = '/pages2/self/self',
+            url = '/pages2/self/self'
         wx.redirectTo({
                 url: url,
         })

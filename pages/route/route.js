@@ -43,7 +43,7 @@ Page({
     toStore(options){
         var store_uuid = options.store_uuid
         wx.redirectTo({
-            url: `/pages2/store/store?store_uuid=${store_uuid}`,
+            url: `/pages2/store/store?storeUUID=${store_uuid}`,
         })  
     },
 
@@ -55,7 +55,7 @@ Page({
         var r = await app.db.customerScanQrCode({
             qrcodeUUID: scene
         })
-        
+        console.log(r)
         // 扫码结果
         wx.redirectTo({
             url: `/pages2/alert/alert`,
