@@ -125,8 +125,8 @@ Page({
         var store = await app.db.storeGetStore({ storeUUID: this.data.storeUUID})
         store.startTime = store.startTime.split(" ")[0]
         store.endTime = store.endTime.split(" ")[0]
-        store.storeMaxScore = 15
-        store.scoreNum = 10
+        // store.storeMaxScore = 15
+        // store.scoreNum = 10
         this.setData({
             store:store
         })
