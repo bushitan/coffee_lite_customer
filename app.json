@@ -1,6 +1,5 @@
 {
     "pages": [
-        
         "pages/route/route",
         "pages/alert/alert",
         "pages/article/article",
@@ -11,24 +10,18 @@
         "pages/webview/webview",
         "pages/wePay/wePay",
         "pages/share/share",
-        "pages2/qrcode/qrcode",
 
+
+        "pages2/qrcode/qrcode",
         "pages2/self/self",
         "pages2/prize_detail/prize_detail",
         "pages2/prize/prize",
         "pages2/store/store",
         "pages2/loading/loading",
         "pages2/alert/alert",
-
         "pages3/live/live",
-
-
-
-        
-        "pages2/test_unit/test_unit"
-
-
-
+        "pages2/test_unit/test_unit",
+        "pages3/discount-card/discount-card"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -52,10 +45,14 @@
         "wave": "/components2/wave/wave",
         "wm": "components2/wm/wm"
     },
+    "navigateToMiniProgramAppIdList":[
+        "wxcc2e4fbc5887661e",
+        "wxd8f3793ea3b935b8"
+    ],
     "plugins": {
         "live-player-plugin": {
-            "version": "1.0.3", 
-            "provider": "wx2b03c6e691cd7370" 
+            "version": "1.0.5",
+            "provider": "wx2b03c6e691cd7370"
         }
     },
     "sitemapLocation": "sitemap.json"

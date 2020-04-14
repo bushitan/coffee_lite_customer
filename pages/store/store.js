@@ -272,7 +272,11 @@ Page({
 
     /***********辅助功能********** */
     toMall(){
-      wx.navigateTo({ url: '/pages/article/article?url=https://sj.qskjad.top/Home/Index', }) 
+
+        var openId = wx.getStorageSync(app.db.KEY_OPEN_ID)
+        var url = "https://sj.qskjad.top/Home/Index"
+        console.log(url)
+        wx.navigateTo({ url: '/pages/article/article?url=' + url, }) 
     },
 
 

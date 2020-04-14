@@ -225,6 +225,19 @@
 					"pathName": "pages3/live/live",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "pages3/discount-card/discount-card",
+					"pathName": "pages3/discount-card/discount-card",
+					"query": "store_uuid= b29c4dee-b35e-11e9-869d-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/article/article",
+					"pathName": "pages/article/article",
+					"scene": null
 				}
 			]
 		}

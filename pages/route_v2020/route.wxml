@@ -1,0 +1,15 @@
+<!--pages2/route/route.wxml-->
+
+
+<view  class='loading'>
+    <image src='../../images/icon_cup_right.png' mode='widthFix'></image>
+  
+    
+    <view  style="font-weight:bolder">小杯子集点卡，欢迎您...</view>
+    <button 
+        wx:if="{{isReload}}" 
+        size='mini' 
+        type='primary'         
+        catchtap='login'
+    >网络超时，重新加载</button>
+</view>

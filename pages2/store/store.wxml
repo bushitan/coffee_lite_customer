@@ -25,14 +25,17 @@
     <score num="{{customer.myScore }}" max="{{store.storeMaxScore}}"
         iconScore="{{customer.iconChecImage}}"  iconUnScore="{{customer.iconUnChecImage}}"
      ></score>
+
+     
+        <!-- text="{{store.noticeText || '魏魏别着急'}}" -->
+        <!-- list="{{['/images/qr/logo.jpg']}}"> -->
     <notice 
-        text="{{store.noticeText || '魏魏别着急'}}"
-        list="{{['/images/qr/logo.jpg']}}">
-        <!-- list="{{store.noticeImageList}}"> -->
+        list="{{store.noticeImageList}}">
     </notice>
     <view class='ladder_btn'>        
-        <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' 
-         wx:if="{{ customer.myScore < store.storeMaxScore }}">打开集点码</button>
+        <!-- <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' 
+         wx:if="{{ customer.myScore  store.storeMaxScore }}">打开集点码</button> -->
+        <button class="cu-btn round page-gb-yellow page-font-white" catchtap='toScoreQR' >打开集点码</button>
 
         <button class="cu-btn round page-gb-blue page-font-white" catchtap='toExchangeQR' 
         wx:if="{{customer}}"

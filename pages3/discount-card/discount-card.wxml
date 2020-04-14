@@ -1,0 +1,3 @@
+<!--pages3/discount-card/discount-card.wxml-->
+
+<button catchtap="toDiscountCard">跳转先享卡</button>
