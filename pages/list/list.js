@@ -71,6 +71,16 @@ Page({
         })
        
     },
+
+    /***********辅助功能********** */
+    toMall() {
+
+        var openId = wx.getStorageSync(app.db.KEY_OPEN_ID)
+        var url = "https://sj.qskjad.top/Home/Index"
+        console.log(url)
+        wx.navigateTo({ url: '/pages/article/article?url=' + url, })
+    },
+
     /**
      * 用户点击右上角分享
      */

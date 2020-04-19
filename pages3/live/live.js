@@ -39,6 +39,46 @@ Page({
      */
     onLoad: function (options) {
         this.onInit()
+
+        // this.testPay()
+    },
+
+    testPay(){
+        console.log(wx.getStorageSync(app.db.KEY_OPEN_ID))
+        wx.request({
+            url: "https://wm.51zfgx.com/api/order/testpay/",
+            method:   "POST",
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {
+                openID: wx.getStorageSync(app.db.KEY_OPEN_ID),
+                subappid: "wxd19bbe9cb3b293b6",
+                submchid: "1578701271",
+                subappsecret: "931ad8364ea6a1327ed65282af330415",
+                price: 1,
+            },
+            success(res) {
+                console.log(res)
+                var payData = res.data.data
+                wx.requestPayment({
+                    timeStamp: payData.timeStamp,
+                    nonceStr: payData.nonceStr,
+                    package: payData.package,
+                    signType: payData.signType,
+                    paySign: payData.subpaySign,
+                    success(res) {
+                        console.log("支付成功", res)  
+                    },
+                    fail(res) {
+                        console.log("支付失败", res)
+                    }
+                })
+            },
+            fail(res) {
+                console.log(res)
+            },
+        })
     },
 
     async onInit(){

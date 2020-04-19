@@ -1,3 +1,23 @@
 <!--pages3/discount-card/discount-card.wxml-->
 
-<button catchtap="toDiscountCard">跳转先享卡</button>
+<view >
+    <image src="/images/discount/nav.jpg" mode="widthFix" style="width:100%"></image>
+</view>
+
+<view wx:if="{{isHasDiscountCard==false}}" class="flex justify-center  align-center" style="position:fixed; left:0;right:0; bottom:10px">
+    <button class="cu-btn round bg-red lg text-white" catchtap="toDiscountCard" >领取先享卡</button>
+</view>
+
+
+<view wx:else class="flex justify-center  align-center" 
+    style="position:fixed; left:0;right:0; bottom:10px">
+    <view>
+        <view>
+            <button class="cu-btn round bg-blue lg text-white" catchtap="getCardDetai" >查看小杯子先享卡</button>
+        </view>
+        <view>
+            <!-- <button class="cu-btn round line-yellow lg  margin-top" catchtap="toDiscountCard" >结束当前优惠</button> -->
+        </view>
+    </view>
+    
+</view>

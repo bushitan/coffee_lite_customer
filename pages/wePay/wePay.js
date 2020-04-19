@@ -1,7 +1,7 @@
 Page({
   //h5传过来的参数
   onLoad: function(options) {
-    console.log("webview传过来的参数", options)
+    console.log("onload , webview传过来的参数", options)
     // //字符串转对象
     // let payData = JSON.parse(options.payDataStr)
     // // console.log("orderId", payData.orderId)
@@ -12,7 +12,7 @@ Page({
     let that = this;
 
     wx.showLoading({
-      title: '正在跳转支付',
+      title: '正在跳转支付,ok',
     })
     // jscode：“13”
     // tradeId：“交易订单”
@@ -25,12 +25,12 @@ Page({
               jscode:code,
             },
             success(res) {
-              console.log("success", res)
+              console.log("获取订单成功", res)
               that.goPay(res.data.data)
               wx.hideLoading()
             },
             fail(res){
-              console.log("fail", res)
+                console.log("获取订单失败", res)
               wx.hideLoading()
             },
 

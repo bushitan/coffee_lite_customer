@@ -22,7 +22,7 @@ class dbSon  extends dbFather {
     cardGet(data) {
         return new Promise((resolve, reject) => {
             this.base({
-                url:"http://sj.qskjad.top/PayScore/InitDiscountShareCard/",
+                url:"https://sj.qskjad.top/PayScore/InitDiscountShareCard/",
                 data: data,
                 method: "POST",
             }).then(res => {
@@ -34,23 +34,44 @@ class dbSon  extends dbFather {
 
 
 
+    // /**
+    //  * @method 1 获取先享卡
+    //  * @param
+    //  *      page :""
+    //  *      limit :""
+    //  * @return 
+    //  *      []
+    //  */
+    // cardRe(data) {
+    //     return new Promise((resolve, reject) => {
+    //         this.base({
+    //             url: "https://sj.qskjad.top/payscore/recivenotify/",
+    //             data: data,
+    //             method: "POST",
+    //             header:{
+    //                 "myheader": "234",
+    //             }
+    //         }).then(res => {
+    //             console.log(res)
+    //             resolve(res)
+    //         }).catch(res => reject(res))
+    //     })
+    // }
+
     /**
-     * @method 1 获取先享卡
+     * @method 3 绑定openid
      * @param
      *      page :""
      *      limit :""
      * @return 
      *      []
      */
-    cardRe(data) {
+    cardBind(data) {
         return new Promise((resolve, reject) => {
             this.base({
-                url: "http://sj.qskjad.top/payscore/recivenotify/",
+                url: "https://sj.qskjad.top/PayScore/BindDiscountCardUser/",
                 data: data,
                 method: "POST",
-                header:{
-                    "myheader": "234",
-                }
             }).then(res => {
                 console.log(res)
                 resolve(res)
@@ -58,6 +79,28 @@ class dbSon  extends dbFather {
         })
     }
 
+
+    /**
+     * @method 3 绑定openid
+     * @param
+     *      page :""
+     *      limit :""
+     * @return 
+     *      []
+     */
+    cardCheck(data) {
+        return new Promise((resolve, reject) => {
+            this.base({
+                url: "https://sj.qskjad.top/tenPayV3/CheckUserDiscountCard/",
+                data: data,
+                method: "POST",
+            }).then(res => {
+                console.log(res)
+                resolve(res)
+            }).catch(res => reject(res))
+        })
+    }
+    
 
 }
 

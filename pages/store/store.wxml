@@ -194,16 +194,17 @@
 
 
 <navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
-    <!-- <view class="flex align-center">
-        <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
-        <text class="text-gray text-sm">小杯子精选商城</text>
-    </view> -->
-    <view>    
-        <button class="cu-btn bg-blue round margin-right" catchtap="toMall" >精选商城</button> 
-        <button class="cu-btn bg-red round " catchtap="toMall" >直播间</button>  
+    <view class="flex align-center">
+        <!-- <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image> -->
+        <text class="text-gray text-sm">商城每单先享立减2元</text>
     </view>
+    <view class="">    
+        <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
+    </view>
+    
+        <!-- <button class="cu-btn bg-red round " catchtap="toMall" >直播间</button>   -->
     <!-- <view> -->
-        <image src="/images/qr/logo.jpg" style="position:absolute; bottom:10px;right:10px;  width:72px ;box-shadow: 2px 2px 5px #bbb;" mode="widthFix" ></image>
+        <!-- <image src="/images/qr/logo.jpg" style="position:absolute; bottom:10px;right:10px;  width:72px ;box-shadow: 2px 2px 5px #bbb;" mode="widthFix" ></image> -->
     <!-- </view>    -->
 </navigator>
 
