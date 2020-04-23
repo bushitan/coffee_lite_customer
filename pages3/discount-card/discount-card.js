@@ -30,10 +30,10 @@ Page({
     },
     async onInit(){
         // 用户绑定
-        // var res = await app.db.cardBind({
-        //     wxOpenId: this.data.liteCupOpenId ,
-        //     discountWxOpenId: wx.getStorageSync(app.db.KEY_OPEN_ID),
-        // })  
+        var res = await app.db.cardBind({
+            wxOpenId: this.data.liteCupOpenId ,
+            discountWxOpenId: wx.getStorageSync(app.db.KEY_OPEN_ID),
+        })  
         this.checkUserDiscountCard()
         // var isHasDiscountCard = this.checkUserDiscountCard()
         // console.log(isHasDiscountCard)
