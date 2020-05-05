@@ -56,6 +56,9 @@ Page({
         
     },
 
+
+    behaviors: [app.behaviorAd, ],
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -85,13 +88,13 @@ Page({
      * @method 获取最新的广告
      */
     getLastAd(store_uuid) {
-        db.storeGetAd(store_uuid).then(res => {
-            console.log(res.data.ad)
-            GP.setData({
-                // adList: res.data.ad
-                adList: res.data
-            })
-        })
+        // db.storeGetAd(store_uuid).then(res => {
+        //     console.log(res.data.ad)
+        //     GP.setData({
+        //         // adList: res.data.ad
+        //         adList: res.data
+        //     })
+        // })
     },
 
     // 获取门店数据 

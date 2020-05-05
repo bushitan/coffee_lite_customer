@@ -1,0 +1,36 @@
+<!--components2/ad/ad.wxml-->
+
+
+
+
+<navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+    <view class="flex align-center">
+        <text class="text-gray text-sm">商城每单先享立减2元</text>
+    </view>
+    <view class="">    
+        <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
+    </view>
+</navigator>
+
+
+
+<!-- 		
+	0		{9}
+		
+storeUUID	:	
+		
+coverImage	:	null
+		
+webUrl	:	null
+		
+liteAppID	:	null
+		
+litePath	:	null
+		
+liteExtraData	:	null
+		
+liteEnvVersion	:	null
+		
+type	:	1
+		
+isDialog	:	0 -->

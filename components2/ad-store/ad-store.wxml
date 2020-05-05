@@ -1,0 +1,41 @@
+<!--components2/ad/ad.wxml-->
+
+
+<official-account></official-account>
+<view wx:if="{{list.length > 0}}">
+    <swiper  class='pg-swiper' 
+        autoplay="true" interval="4000"
+        indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
+        <swiper-item wx:for="{{list}}" wx:key="index">
+            <image
+                style="width:100%;display:block"
+                src="{{item.url}}" 
+                mode="widthFix"
+                catchtap="clickAD" 
+                data-index="{{index}}"
+            ></image>
+        </swiper-item>
+    </swiper>
+</view>
+
+
+<!-- 		
+	0		{9}
+		
+storeUUID	:	
+		
+coverImage	:	null
+		
+webUrl	:	null
+		
+liteAppID	:	null
+		
+litePath	:	null
+		
+liteExtraData	:	null
+		
+liteEnvVersion	:	null
+		
+type	:	1
+		
+isDialog	:	0 -->

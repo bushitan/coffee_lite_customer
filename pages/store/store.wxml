@@ -113,10 +113,13 @@
     </view>
 </view>
 
-<!-- 旧版本广告 -->
 <view style="height:10px ;background-color:#ededed"></view>
 <official-account></official-account>
-<view wx:if="{{store.is_ad}}">
+
+<ad list="{{adList}}"></ad>
+
+<!-- 旧版本广告 -->
+<!-- <view wx:if="{{store.is_ad}}">
     <swiper  class='swiper' autoplay="true" interval="4000"
         indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
         <block wx:for="{{adList}}" wx:key="index">
@@ -131,7 +134,7 @@
             </swiper-item>
         </block>
     </swiper>
-</view>
+</view> -->
 <!--  新版本广告
 <view wx:if="{{store.is_ad}}">
     <swiper  class='swiper' autoplay="true" interval="4000"
@@ -171,6 +174,7 @@
 <view style="height:60px"></view>
 
 
+<ad-banner></ad-banner>
 
 
 <!-- <view class="weui-panel weui-panel_access UGC" >
@@ -193,14 +197,14 @@
 
 
 
-<navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+<!-- <navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">
         <text class="text-gray text-sm">商城每单先享立减2元</text>
     </view>
     <view class="">    
         <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
     </view>
-</navigator>
+</navigator> -->
 
 
 

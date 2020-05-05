@@ -2,10 +2,14 @@
 
 let livePlayer = requirePlugin('live-player-plugin')
 var db = require('db/db.js')
+
+var behaviorAd = require('utils/behavior-ad.js')
+
 // var db = new DB()
 
 App({
     db:db,
+    behaviorAd: behaviorAd,
     onLaunch: function (options) {
         console.log("[onLaunch] 本次场景值:", options.scene)
         this.globalData.scene = options.scene

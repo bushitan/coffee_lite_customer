@@ -91,5 +91,14 @@ Component({
             }
 
         },
+
+        // toMall() {
+
+        //     var openId = wx.getStorageSync(app.db.KEY_OPEN_ID)
+        //     var url = "https://sj.qskjad.top/Home/Index"
+        //     console.log(url)
+        //     wx.navigateTo({ url: '/pages/article/article?url=' + url, })
+        // },
+
     }
 })
