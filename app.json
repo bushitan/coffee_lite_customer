@@ -21,6 +21,7 @@
         "pages2/alert/alert",
         "pages3/live/live",
         "pages2/test_unit/test_unit",
+        "pages3/ad/ad",
         "pages3/discount-card/discount-card"
     ],
     "window": {
@@ -38,6 +39,9 @@
     "usingComponents": {
         "ad": "components2/ad/ad",
         "ad-banner": "components2/ad-banner/ad-banner",
+        "ad-store": "components2/ad-store/ad-store",
+        "ad-swiper": "components2/ad-swiper/ad-swiper",      
+        
         "cu-custom": "/components2/cu-custom/cu-custom",
         "header": "components2/header/header",
         "notice": "components2/notice/notice",
@@ -52,7 +56,7 @@
     ],
     "plugins": {
         "live-player-plugin": {
-            "version": "1.0.8",
+            "version": "1.0.9",
             "provider": "wx2b03c6e691cd7370"
         }
     },

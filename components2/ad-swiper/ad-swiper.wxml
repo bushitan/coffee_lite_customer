@@ -1,16 +1,8 @@
 <!--components2/ad-banner/ad-banner.wxml-->
 
 
-<view wx:for="{{list}}" wx:key="index" catchtap="clickAD" data-index="{{index}}">
-    <image
-        style="width:100%;display:block"
-        src="{{item.showImageUrl}}" 
-        mode="widthFix"
-        catchtap="clickAD" 
-        data-index="{{index}}"
-    ></image>
-    
-    <!-- <swiper  class='pg-swiper' 
+<view wx:if="{{list.length > 0}}">
+    <swiper  class='pg-swiper' 
         autoplay="true" interval="4000"
         indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
         <swiper-item wx:for="{{list}}" wx:key="index">
@@ -22,5 +14,5 @@
                 data-index="{{index}}"
             ></image>
         </swiper-item>
-    </swiper> -->
+    </swiper>
 </view>

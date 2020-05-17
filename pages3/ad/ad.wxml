@@ -1,0 +1,7 @@
+<!--pages3/ad/ad.wxml-->
+
+<view> 1、轮播图点击率：{{stats.all_swiper}}</view>
+<view> 2、Banner图点击率：{{stats.all_banner}}</view>
+<view> 3、store产品图点击率：{{stats.all_store}}</view>
+<view> 4、小程序跳转成功：{{stats.all_lite_success}}</view>
+<view> 5、小程序跳转失败：{{stats.all_lite_fail}}</view>

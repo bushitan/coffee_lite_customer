@@ -4,7 +4,7 @@ module.exports = Behavior({
     data: {
         sharedText: '',
         adList: [],
-
+        adBanner:{},
     },
     methods: {
         sharedMethod: function () {
@@ -38,12 +38,31 @@ module.exports = Behavior({
                 roomID: "",
             },
         ]
-        this.setData({
-            adList: adList
-        })
 
-        
+        var adBanner = {
+            url: "http://img.12xiong.top/coffee_image/upload/psSYv6fZ.jpg",
+            type: "1",
+
+            imageUrl: "http://img.12xiong.top/coffee_image/upload/psSYv6fZ.jpg",
+
+            contentUrl: "",
+
+            liteAppID: "",
+            litePath: "",
+            liteExtraData: "",
+            liteEnvVersion: "",
+
+            roomID: "",
+        }
+
+        this.setData({
+            adList: adList,
+            adBanner:adBanner,
+        })
     },
+
+
+
 
     // onLoad() {
     //     console.log("behavior onload")

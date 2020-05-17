@@ -1,36 +1,17 @@
-<!--components2/ad/ad.wxml-->
+<!--components2/ad-banner/ad-banner.wxml-->
 
 
 
-
-<navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+<view class="padding-tb-xs padding-lr solid-top flex justify-between align-center ad_box" style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)" catchtap="clickAD">
     <view class="flex align-center">
-        <text class="text-gray text-sm">商城每单先享立减2元</text>
+        <text class="text-yellow text-sm">{{node.showDes}}</text>
     </view>
-    <view class="">    
-        <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
+    <view class="" >   
+        <button class="cu-btn bg-red round " wx:if="{{ node.showType == SHOW_BUTTON}}" >{{node.showBtnText}}</button> 
+
+        <image src="{{node.showImageUrl}}" class="show_image shadow shadow-warp bg-white " mode="widthFix" wx:else></image>
+
     </view>
-</navigator>
+</view>
 
 
-
-<!-- 		
-	0		{9}
-		
-storeUUID	:	
-		
-coverImage	:	null
-		
-webUrl	:	null
-		
-liteAppID	:	null
-		
-litePath	:	null
-		
-liteExtraData	:	null
-		
-liteEnvVersion	:	null
-		
-type	:	1
-		
-isDialog	:	0 -->

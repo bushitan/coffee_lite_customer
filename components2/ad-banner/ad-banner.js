@@ -1,40 +1,45 @@
 // components2/ad/ad.js
 
 /**
- * 
- list = [
-     {
-        url:"",
-        type:"",
+ [
+    {
+        _id: "2132132",
+        sn:0,
 
-        imageUrl:"",
+        mode:1, // 1轮播图 、2banner、3门店内容
+        storeUUID: "68e54718-7156-11e9-b456-e95aa2c51b5d",
 
-        contentUrl:"",
+        isShow: true,
+        showType: 1,
+        showImageUrl: "http://img.12xiong.top/coffee_image/upload/psSYv6fZ.jpg",
+        showDes: "商城每单立享8元",
+        showBtnText: "点击查看",
 
-        liteAppID:"",
-        litePath:"",
-        liteExtraData:"",
-        liteEnvVersion:"",
+        clickType: 3,
 
-        roomID:"",
-     }
- ]
+        clickImageUrl: "http://img.12xiong.top/coffee_image/upload/psSYv6fZ.jpg",
 
+        clickContentUrl: "https://mp.weixin.qq.com/s/XJ2ir0X4PCLLcV890BzL_w",
+
+        clickLiteAppID: "wx97e90498901fb752",
+        clickLitePath: "pages/menu/menu",
+        clickLiteExtraData: "",
+        clickLiteEnvVersion: "",
+
+        clickRoomID: "",
+    }
+]
  */
 
-var AD_TYPE_IMAGE = 1//打开图片
-var AD_TYPE_WEB_VIEW = 2//打开webview
-var AD_TYPE_LITE = 3 //打开小程序
-var AD_TYPE_LIVE = 4 //打开打开直播
-
+var app = getApp()
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        list: {
-            type: Array,
-            value: []
+        storeUUID:{
+            type:String,
+            value:"",
         }
     },
     options: {
@@ -44,61 +49,55 @@ Component({
      * 组件的初始数据
      */
     data: {
+        node:{},
+        SHOW_IMAGE: app.dbAD.AD.SHOW_IMAGE,
+        SHOW_BUTTON: app.dbAD.AD.SHOW_BUTTON,
     },
 
+    ready(){
+        this.onInit()
+    },
     /**
      * 组件的方法列表
      */
     methods: {
-        /**
-         * @method  点击广告
-         *
-            AD_TYPE_IMAGE: 1,//打开图片
-            AD_TYPE_WEB_VIEW: 2,//打开webview
-            AD_TYPE_LITE: 3, //打开小程序
-            AD_TYPE_LIVE: 4, //打开打开直播
-         */
-        clickAD(e) {
-            console.log(e.currentTarget.dataset.index)
-            var index = e.currentTarget.dataset.index
-            var ad = this.data.list[index]
-            var type = ad.type
-            if (type == AD_TYPE_IMAGE) {
-                console.log(ad.imageUrl)
-                wx.previewImage({
-                    urls: [ad.imageUrl] // 需要切换为内容图片
-                })
-            }
-            if (type == AD_TYPE_WEB_VIEW) {
-                wx.navigateTo({ url: `/pages/article/article?url=${content_url}`, })
-            }
-            if (type == AD_TYPE_LITE) {
-                wx.navigateToMiniProgram({
-                    appId: ad.liteAppID,
-                    path: ad.litePath,
-                    extraData: ad.liteExtraData,
-                    envVersion: ad.liteEnvVersion,
-                    success(res) {
-                        // 打开成功
-                    }
-                })
-            }
-            if (type == AD_TYPE_LIVE) {
-                // TODO 缺少 直播的type和roomID
-                wx.navigateTo({
-                    url: 'plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=' + ad.roomID,
-                })
-            }
 
+        onInit(){
+            var data = {
+                mode: app.dbAD.AD.MODE_BANNER
+            }
+            app.dbAD.getList(data).then(res=>{
+
+                this.setData({
+                    node: res.data[0],
+                })
+            })
+           
         },
 
-        // toMall() {
 
-        //     var openId = wx.getStorageSync(app.db.KEY_OPEN_ID)
-        //     var url = "https://sj.qskjad.top/Home/Index"
-        //     console.log(url)
-        //     wx.navigateTo({ url: '/pages/article/article?url=' + url, })
+        clickAD(e) {
+            // console.log(e.currentTarget.dataset.index)
+            // var index = e.currentTarget.dataset.index
+            // var ad = this.data.list[index]
+
+            var ad = this.data.node
+            // 点击广告的动作
+            app.dbAD.clickAction(ad, this.data.storeUUID)
+            // 添加记录
+            app.dbAD.addRecord({
+                "mode": app.dbAD.AD.RECORD_BANNER,
+                "adID": ad._id,
+                "storeUUID" : this.data.storeUUID,
+            }) 
+        },
+
+
+        // clickAction(ad){
+
+          
         // },
+
 
     }
 })

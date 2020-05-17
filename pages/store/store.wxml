@@ -39,6 +39,7 @@
     ></icon-ladder>
 </block>
 
+<ad-store storeUUID="{{store.uuid}}"></ad-store>
         
 <view style='height:10px'></view>
 
@@ -116,50 +117,8 @@
 <view style="height:10px ;background-color:#ededed"></view>
 <official-account></official-account>
 
-<ad list="{{adList}}"></ad>
-
-<!-- 旧版本广告 -->
-<!-- <view wx:if="{{store.is_ad}}">
-    <swiper  class='swiper' autoplay="true" interval="4000"
-        indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
-        <block wx:for="{{adList}}" wx:key="index">
-            <swiper-item>
-                <view class="ad" catchtap="toAd" 
-                data-type="{{item.type}}" data-web_url='{{item.web_url}}'>
-                <image class="ad_image" 
-                    src="{{item.cover}}" 
-                    mode="widthFix"
-                ></image>
-                </view>
-            </swiper-item>
-        </block>
-    </swiper>
-</view> -->
-<!--  新版本广告
-<view wx:if="{{store.is_ad}}">
-    <swiper  class='swiper' autoplay="true" interval="4000"
-        indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
-        <block wx:for="{{adList}}" wx:key="index">
-            <swiper-item>
-                <view class="ad" catchtap="toAd" 
-                    data-type="{{item.type}}" 
-                    data-content_image_url='{{item.content_image_url}}'
-                    data-content_url='{{item.content_url}}'
-                    data-content_lite_app_id='{{item.content_lite_app_id}}'
-                    data-content_lite_path='{{item.content_lite_path}}'
-                    data-content_lite_extra_data='{{item.content_lite_extra_data}}'
-                    data-content_lite_env_version='{{item.content_lite_env_version}}'
-                >
-                    <image class="ad_image" 
-                        src="{{item.cover_image_url}}" 
-                        mode="widthFix"
-                    ></image>
-                </view>
-            </swiper-item>
-        </block>
-    </swiper>
-</view> -->
-
+<!-- <ad storeUUID="{{store.uuid}}"></ad> -->
+<ad-swiper storeUUID="{{store.uuid}}"></ad-swiper>
 
 
 <view class="weui-loadmore weui-loadmore_line" >
@@ -167,44 +126,43 @@
         活动详情请与"{{store.title}}"沟通
     </view> -->
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
-        Copyright © 2019 索骏科技提供技术支持
+        Copyright © 2020 索骏科技提供技术支持
     </view>
-    <button  size="mini" type="" open-type="contact">小杯子客服</button>
+    <!-- <button  size="mini" type="" open-type="contact">小杯子客服</button> -->
+    
+    <view class=" page-flex-center page-pd15">
+        <button class=" cu-btn round   "  size="mini" type="" open-type="contact">小杯子客服</button>
+    </view>
 </view>
 <view style="height:60px"></view>
 
-
-<ad-banner></ad-banner>
-
-
-<!-- <view class="weui-panel weui-panel_access UGC" >
-    <view  class=" weui-media-box weui-media-box_appmsg ">
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__desc">咖啡周边，人气随行杯</view>
-        </view>        
-        <button  size="mini" type="primary" catchtap="toMall" style="background:#1d2a6d">小杯子精选商城</button>
-    </view>    
-</view> -->
-
-<!-- 
-<navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
-    <view class="flex align-center">
-        <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
-        <text class="text-gray text-sm">小杯子直播精选</text>
-    </view>
-    <button class="cu-btn bg-red round" catchtap="toMall" >打开直播间</button>     
-</navigator> -->
+<ad-banner storeUUID="{{store.uuid}}"></ad-banner>
 
 
 
-<!-- <navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
-    <view class="flex align-center">
-        <text class="text-gray text-sm">商城每单先享立减2元</text>
-    </view>
-    <view class="">    
-        <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
-    </view>
-</navigator> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

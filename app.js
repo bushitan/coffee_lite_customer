@@ -2,13 +2,15 @@
 
 let livePlayer = requirePlugin('live-player-plugin')
 var db = require('db/db.js')
+var dbAD = require('db/db_ad.js')
 
 var behaviorAd = require('utils/behavior-ad.js')
 
 // var db = new DB()
 
 App({
-    db:db,
+    db: db,
+    dbAD: dbAD,
     behaviorAd: behaviorAd,
     onLaunch: function (options) {
         console.log("[onLaunch] 本次场景值:", options.scene)
@@ -41,48 +43,48 @@ App({
 
 
     onShow(options) {
-        // livePlayer.getLiveParams({ room_id:31, scene: options.scene })
+        // // livePlayer.getLiveParams({ room_id:31, scene: options.scene })
+        // //     .then(res => {
+        // //         console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
+        // //         console.log('get openid', res.openid) // 用户openid
+        // //         console.log('get room id', res.room_id) // 房间号
+        // //         console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
+        // //     }).catch(err => {
+        // //         console.log('get live params', err)
+        // //     })
+
+        // console.log("app on show ")
+        // livePlayer.getOpenid({ room_id: 31, scene: options.scene })
         //     .then(res => {
-        //         console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
-        //         console.log('get openid', res.openid) // 用户openid
-        //         console.log('get room id', res.room_id) // 房间号
-        //         console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
+        //         console.log('getOpenid' , res)
+        //         // console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
+        //         // console.log('get openid', res.openid) // 用户openid
+        //         // console.log('get room id', res.room_id) // 房间号
+        //         // console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
+        //     }).catch(err => {
+        //         console.log('get live params', err)
+        //     })
+        // livePlayer.getShareParams({ room_id: 31, scene: options.scene })
+        //     .then(res => {
+        //         console.log('getShareParams', res)
+        //         // console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
+        //         // console.log('get openid', res.openid) // 用户openid
+        //         // console.log('get room id', res.room_id) // 房间号
+        //         // console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
         //     }).catch(err => {
         //         console.log('get live params', err)
         //     })
 
-        console.log("app on show ")
-        livePlayer.getOpenid({ room_id: 31, scene: options.scene })
-            .then(res => {
-                console.log('getOpenid' , res)
-                // console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
-                // console.log('get openid', res.openid) // 用户openid
-                // console.log('get room id', res.room_id) // 房间号
-                // console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
-            }).catch(err => {
-                console.log('get live params', err)
-            })
-        livePlayer.getShareParams({ room_id: 31, scene: options.scene })
-            .then(res => {
-                console.log('getShareParams', res)
-                // console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
-                // console.log('get openid', res.openid) // 用户openid
-                // console.log('get room id', res.room_id) // 房间号
-                // console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
-            }).catch(err => {
-                console.log('get live params', err)
-            })
-
-        console.log("app on show out ")
-        // livePlayer.getLiveStatus({ room_id: 31, scene: options.scene })
-        //     .then(res => {
-        //         console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
-        //         console.log('get openid', res.openid) // 用户openid
-        //         console.log('get room id', res.room_id) // 房间号
-        //         console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
-        //     }).catch(err => {
-        //         console.log('get live params', err)
-        //     })
+        // console.log("app on show out ")
+        // // livePlayer.getLiveStatus({ room_id: 31, scene: options.scene })
+        // //     .then(res => {
+        // //         console.log('get share openid', res.share_openid) // 分享者openid，分享卡片进入场景才有
+        // //         console.log('get openid', res.openid) // 用户openid
+        // //         console.log('get room id', res.room_id) // 房间号
+        // //         console.log('get custom params', res.customParams) // 开发者在跳转进入直播间页面时，页面路径上携带的自定义参数，这里传回给开发者
+        // //     }).catch(err => {
+        // //         console.log('get live params', err)
+        // //     })
     },
 
     // 获取上一页面

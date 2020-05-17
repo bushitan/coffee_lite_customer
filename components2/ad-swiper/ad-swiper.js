@@ -40,10 +40,6 @@ Component({
         storeUUID:{
             type:String,
             value:"",
-            observer:'changeStoreUUID',
-            // observer: function (newVal, oldVal) {
-            //     this.setData({ checkImage: newVal || IMAGE_CHECK })
-            // }
         }
     },
     options: {
@@ -59,28 +55,23 @@ Component({
     },
 
     ready(){
-        // this.onInit()
+        this.onInit()
     },
     /**
      * 组件的方法列表
      */
     methods: {
 
-        changeStoreUUID(newVal, oldVal){
-            console.log(newVal, oldVal)
-            if (newVal != ""){
-                var data = {
-                    mode: app.dbAD.AD.MODE_STORE,
-                    storeUUID: this.data.storeUUID
-                }
-                app.dbAD.getList(data).then(res => {
-
-                    this.setData({
-                        list: res.data
-                    })
-                })
+        onInit(){
+            var data = {
+                mode: app.dbAD.AD.MODE_SWIPER
             }
-           
+            app.dbAD.getList(data).then(res=>{
+
+                this.setData({
+                    list: res.data
+                })
+            })
            
         },
 
@@ -94,8 +85,10 @@ Component({
             // 点击广告的动作
             app.dbAD.clickAction(ad, this.data.storeUUID)
             // 添加记录
-            app.dbAD.getRecord({
-                // "storeUUID" : this.data.storeUUID,
+            app.dbAD.addRecord({
+                "mode": app.dbAD.AD.RECORD_SWIPER,
+                "adID": ad._id,
+                "storeUUID" : this.data.storeUUID,
             }) 
         },
 

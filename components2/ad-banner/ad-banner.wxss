@@ -1,2 +1,15 @@
 /* components2/ad/ad.wxss */
 
+.ad_box{
+    min-height: 42px;
+}
+
+.show_image{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 120px;
+    height:0 ;
+    z-index: 99999;
+    border-radius: 5px;
+}

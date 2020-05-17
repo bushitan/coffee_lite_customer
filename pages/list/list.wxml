@@ -43,6 +43,10 @@
     </view>
 </view>
 
+<view class=" page-flex-center ">
+    <button class=" cu-btn round   "  size="mini" type="" open-type="contact">小杯子客服</button>
+</view>
+
 <!-- <view catchlongtap='live' style="height:30px;background-color:#ffffff" >live</view> -->
 
 <view wx:for="{{res}}" wx:key="index">
@@ -61,6 +65,9 @@
 
 
 <view style="height:60px"></view>
+
+<ad-banner storeUUID="{{store.uuid}}"></ad-banner>
+
 <!-- <navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">
         <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
@@ -70,14 +77,14 @@
 </navigator> -->
 
 
-<navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+<!-- <navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">
         <text class="text-gray text-sm">商城每单先享立减2元</text>
     </view>
     <view class="">    
         <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
     </view>
-</navigator>
+</navigator> -->
 
 
 

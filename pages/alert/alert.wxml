@@ -36,16 +36,17 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" type="primary" catchtap='back' style='background-color:#efaf30;'>返回店铺</button>
+                <button class="weui-btn" type="primary" catchtap='back' style='background-color:#efaf30;'>查看我的集点</button>
                 <!-- <button class="weui-btn" type="default"  catchtap='more'>查看更多美食资讯</button> -->
             </view>
         </view>
         
-        <view class="weui-msg__opr-area">
+        <!-- <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
                 <button  open-type="contact">小杯子客服</button>
             </view>
-        </view>
+        </view> -->
+        
         <view style="height:10px"></view>
     </view>
     <!-- <view>
@@ -64,8 +65,8 @@
     <official-account></official-account> -->
         
     <!-- 旧版本广告 -->
-    <view style="height:10px ;background-color:#ededed"></view>
-    <official-account></official-account>
+    <!-- <view style="height:10px ;background-color:#ededed"></view> -->
+    <!-- <official-account></official-account>
     <swiper  class='swiper' autoplay="true" interval="4000"
         indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="rgba(0, 0, 0, .7)">
         <block wx:for="{{adList}}" wx:key="index">
@@ -79,14 +80,19 @@
                 </view>
             </swiper-item>
         </block>
-    </swiper>
+    </swiper> -->
 
+
+    <ad-swiper storeUUID="{{store.uuid}}"></ad-swiper>
     <view class="weui-loadmore weui-loadmore_line" >
         <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
-        Copyright © 2016-2019 索骏科技提供服务
+        Copyright © 2020 索骏科技提供服务
         </view>
     </view>
 
+    <view class=" page-flex-center ">
+        <button class=" cu-btn round   "  size="mini" type="" open-type="contact">小杯子客服</button>
+    </view>
     <!-- <ad unit-id="adunit-54a73f76bd11001c" class='ad'></ad> -->
 </view>
 
@@ -94,6 +100,10 @@
 
 
 <view style="height:60px"></view>
+<ad-banner storeUUID="{{store.uuid}}"></ad-banner>
+
+
+
 <!-- <navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">
         <image src="/images/live/logo.png" style="width:50px;height:50px;" mode="aspectFit"></image>
@@ -105,14 +115,14 @@
 
 
 
-<navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
+<!-- <navigator url="" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">
         <text class="text-gray text-sm">商城每单先享立减2元</text>
     </view>
     <view class="">    
         <button class="cu-btn bg-red round " catchtap="toMall" >小杯子精选商城</button> 
     </view>
-</navigator>
+</navigator> -->
 
 
 

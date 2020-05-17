@@ -1,7 +1,7 @@
 // components/xx_cover_news/xx_cover_news.js
 
-var IMAGE_CHECK = "../../images/stamp_check.png"  //已集点图片
-var IMAGE_UN_CHECK = "../../images/stamp_un_check.png" //未集点图片
+var IMAGE_CHECK = "../../images/icon/score_lite.png"  //已集点图片
+var IMAGE_UN_CHECK = "../../images/icon/score_un.png" //未集点图片
 var IMAGE_FULL = "../../images/stamp_full.png" //满点图片
 var IMAGE_UN_FULL = "../../images/stamp_un_full.png" //满点图片
 Component({
