@@ -20,7 +20,7 @@
 </view>
 
 
-<navigator url="/pages3/discount-card/discount-card">跳转</navigator>
+<!-- <navigator url="/pages3/discount-card/discount-card">跳转</navigator> -->
 
 <view class="cu-card case ">
     <view class="cu-item shadow" wx:for="{{list}}" catchtap="toRoom" data-room_id="{{item.roomID}}">
@@ -57,7 +57,7 @@
 </view>
 
 <view class="padding-tb-sm solid-top flex justify-center footer" >
-     <button class="cu-btn bg-yellow text-white round "  catchtap="addRoom" >添加</button>
+     <!-- <button class="cu-btn bg-yellow text-white round "  catchtap="addRoom" >添加</button> -->
      <button class="cu-btn bg-yellow text-white round " catchtap="showModal" >直播报名入口</button>
 </view>
 
