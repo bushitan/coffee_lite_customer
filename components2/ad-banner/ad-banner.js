@@ -99,5 +99,37 @@ Component({
         // },
 
 
+
+        addAD(){
+            var data = {
+
+
+                "sn": 0,
+                "mode": 3,  // 1轮播图 、2banner、3门店内容
+                "storeUUID": "3554b450-748e-11e9-98e6-e95aa2c51b5d",
+
+                "isShow": true,
+                "showType": 1,// 1图片 2按钮 3纯文字
+                "showImageUrl": "cloud://cup-customer-release.6375-cup-customer-release-1301587562/ad/202005241000.jpg",
+                "showDes": "",
+                "showBtnText": "",
+
+                "clickType": 2,   ////1图片 2链接  3小程序 4直播间
+
+                "clickImageUrl": "",
+
+                "clickContentUrl": "https://mp.weixin.qq.com/s/WvFyc9X54Fks1jtHQfDHnw",
+
+                "clickLiteAppID": "",
+                "clickLitePath": "",
+                "clickLiteExtraData": "",
+                "clickLiteEnvVersion": "",
+
+                "clickRoomID": "",
+            }
+
+            app.dbAD.addNode( data )
+            
+        }
     }
 })
