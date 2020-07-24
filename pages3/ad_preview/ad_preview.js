@@ -35,6 +35,10 @@ Page({
                 id: app.dbAD.AD.MODE_STORE,
                 name: '门店广告',
             },
+            {
+                id: 4,
+                name: '已关闭',
+            },
         ],
         list:[],
     },
@@ -58,13 +62,28 @@ Page({
         this.setData({
             tabIndex: tabID
         })
-        this.getList(tabID)
+        if (tabID == 3)
+            this.getUnShowList(tabID)
+        else
+            this.getList(tabID)
     },
 
     async getList(mode){
 
         var res = await app.dbAD.getList({
-            mode: mode
+            // mode: mode
+        })
+        console.log(res.data)
+        this.setData({
+            list: res.data
+        })
+    },
+
+    async getUnShowList(mode) {
+
+        var res = await app.dbAD.getList({
+            mode: mode,
+            isShow:false
         })
         console.log(res.data)
         this.setData({
