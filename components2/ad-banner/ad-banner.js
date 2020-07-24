@@ -72,7 +72,7 @@ Component({
                     node: res.data[0],
                 })
             })
-           
+            // this.addAD()
         },
 
 
@@ -93,6 +93,34 @@ Component({
         },
 
 
+        addAD(){
+            var data = {
+                sn: 10,
+
+                mode: 2, // 1轮播图 、2banner、3门店内容
+                storeUUID: "",
+
+                isShow: true,
+                showType: 1,    //
+                showImageUrl: "cloud://cup-customer-release.6375-cup-customer-release-1301587562/ad/202006301.jpg",
+                showDes: "一份咖啡饮品优惠攻略，承包今夏全部的快乐",
+                showBtnText: "",
+
+                clickType: 2, // 1打开图片  2跳文字  3打开小程序 4打开直播
+
+                clickImageUrl: "",
+
+                clickContentUrl: "https://mp.weixin.qq.com/s/MXy9NfnbWvcoEJO-iY8n2A",
+
+                clickLiteAppID: "",
+                clickLitePath: "",
+                clickLiteExtraData: "",
+                clickLiteEnvVersion: "",
+
+                clickRoomID: "",
+            }
+            app.dbAD.addNode(data) 
+        },
         // clickAction(ad){
 
           

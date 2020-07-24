@@ -1,0 +1,158 @@
+<!--pages/editor/editor.wxml-->
+
+<!-- XX店外卖食品安全可追踪；装餐安全可追踪；送餐安全可追踪。请放心食用！
+
+外卖预定：（微信号） -->
+
+<form bindsubmit="save">
+
+	<view class="cu-form-group margin-top">
+		<view class="title">1、ID</view>
+		<input placeholder="id自动生成" value="{{store._id}}" ></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">2、广告模式</view>
+        <picker disabled="{{true}}" catchtap="choiceMode">
+            <view class="picker" wx:if="{{store.mode==MODE_SWIPER}}">轮播图</view>
+            <view class="picker" wx:if="{{store.mode==MODE_BANNER}}">Banner</view>
+            <view class="picker" wx:if="{{store.mode==MODE_STORE}}">店铺广告</view>
+        </picker>
+	</view>
+	<view class="cu-form-group " wx:if="{{store.mode==MODE_STORE}}">
+		<view class="title">2.1、门店UUID</view>
+		<input placeholder="id自动生成" name="storeUUID" value="{{store.storeUUID}}" ></input>
+	</view>
+    <view class="cu-form-group ">
+		<view class="title">3、是否显示</view>
+		<switch checked="{{store.isShow}}" name="isShow"></switch>
+	</view>
+    <view class="cu-bar bg-white  cu-form-group ">
+        <view class="action" style="margin-left: 0rpx;">
+           4.1、展示图片
+        </view>
+        <view class="action">
+            {{logoList.length}}/{{logoMax}}
+        </view>
+    </view>
+    <view></view>
+    <view class="cu-form-group">
+        <view class="grid col-5 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{logoList}}" wx:key="index" bindtap="ViewLogo" data-url="{{logoList[index]}}">
+                <image src='{{logoList[index]}}' mode='aspectFit'></image>
+                <view class="cu-tag bg-red" catchtap="DelLogo" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view class="solids" bindtap="ChooseLogo" wx:if="{{logoList.length<logoMax}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>    
+	<view class="cu-form-group">
+		<view class="title">4.2、展示描述</view>
+		<input placeholder="展示描述"  name="showDes" value="{{store.showDes}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">4.3、展示按钮文字</view>
+		<input placeholder="展示按钮文字"  name="showBtnText" value="{{store.showBtnText}}"></input>
+	</view>
+    
+
+    <view class="cu-form-group">
+        <view class="title">5、点击模式</view>
+        <picker disabled="{{true}}" catchtap="choiceClickType">
+            <view class="picker" wx:if="{{store.clickType==CLICK_IMAGE}}">打开图片</view>
+            <view class="picker" wx:if="{{store.clickType==CLICK_WEB_VIEW}}">跳转网页</view>
+            <view class="picker" wx:if="{{store.clickType==CLICK_LITE}}">跳转小程序</view>
+            <view class="picker" wx:if="{{store.clickType==CLICK_LIVE}}">打开直播间</view>
+        </picker>
+	</view>
+    
+    <!-- <view class="cu-form-group ">
+		<view class="title">4、公告</view>
+		<textarea placeholder="请输入公告（限制200字）" maxlength="200"  name="notice" value="{{store.notice}}"></textarea>
+	</view>-->
+
+    <view class="cu-bar bg-white  cu-form-group " wx:if="{{store.clickType==CLICK_IMAGE}}">
+        <view class="action"  style="margin-left: 0rpx;">
+            5.1、点击打开图片
+        </view>
+        <view class="action">
+            {{imgList.length}}/{{imageMax}}
+        </view>
+    </view> 
+    <view></view>
+    <view class="cu-form-group"  wx:if="{{store.clickType==CLICK_IMAGE}}">
+        <view class="grid col-5 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <image src='{{imgList[index]}}' mode='aspectFit'></image>
+                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<imageMax}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>
+
+	<view class="cu-form-group" wx:if="{{store.clickType==CLICK_WEB_VIEW}}">
+		<view class="title">5.2、点网页地址</view>
+		<input placeholder="展示描述"  name="clickContentUrl" value="{{store.clickContentUrl}}"></input>
+	</view>
+
+    <view  wx:if="{{store.clickType==CLICK_LITE}}">
+        <view class="cu-form-group">
+            <view class="title">5.3.1、AppID</view>
+            <input placeholder="AppID"  name="clickLiteAppID" value="{{store.clickLiteAppID}}"></input>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">5.3.2、Path</view>
+            <input placeholder="Path"  name="clickLitePath" value="{{store.clickLitePath}}"></input>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">5.3.3、ExtraData</view>
+            <input placeholder="ExtraData"  name="clickLiteExtraData" value="{{store.clickLiteExtraData}}"></input>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">5.3.4、EnvVersion</view>
+            <input placeholder="EnvVersion"  name="clickLiteEnvVersion" value="{{store.clickLiteEnvVersion}}"></input>
+        </view>
+    </view>
+
+	<view class="cu-form-group"  wx:if="{{store.clickType==CLICK_LIVE}}">
+		<view class="title">5.4、直播间ID</view>
+		<input placeholder="直播间ID"  name="clickRoomID" value="{{store.clickRoomID}}"></input>
+	</view>
+
+  <!-- clickImageUrl: "http://img.12xiong.top/coffee_image/upload/psSYv6fZ.jpg",
+
+        clickContentUrl: "https://mp.weixin.qq.com/s/XJ2ir0X4PCLLcV890BzL_w",
+
+        clickLiteAppID: "wx97e90498901fb752",
+        clickLitePath: "pages/menu/menu",
+        clickLiteExtraData: "",
+        clickLiteEnvVersion: "",
+
+        clickRoomID: "", -->
+
+	<!-- <view class="cu-form-group ">
+		<view class="title">4、公告</view>
+		<textarea placeholder="请输入公告（限制200字）" maxlength="200"  name="notice" value="{{store.notice}}"></textarea>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">7、外卖门店地址选择</view>
+        <picker disabled="{{true}}" catchtap="toAddress">
+            <view class="picker">
+                {{store.addressList.length}}个门店
+            </view>
+        </picker>
+	</view> -->
+    
+    <view class="flex justify-center  margin-top padding">
+        <button class="cu-btn round bg-red block text-white lg" form-type="submit">保存</button>
+    </view>
+
+    <view class="page-space-60"></view>
+</form>

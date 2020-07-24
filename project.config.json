@@ -246,6 +246,27 @@
 					"pathName": "pages3/ad/ad",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "pages3/ad_editor/ad_editor 编辑广告",
+					"pathName": "pages3/ad_editor/ad_editor",
+					"query": "adID=9b61b9ba5f0ead54005070067a3aecdb",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "pages3/ad_preview/ad_preview预览广告",
+					"pathName": "pages3/ad_preview/ad_preview",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "pages3/ad_editor/ad_editor 编辑广告图片",
+					"pathName": "pages3/ad_editor/ad_editor",
+					"query": "adID=463448e05ecb51990027a035020acb06",
+					"scene": null
 				}
 			]
 		}

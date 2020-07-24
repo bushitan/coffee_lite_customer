@@ -94,8 +94,13 @@ Component({
             // 点击广告的动作
             app.dbAD.clickAction(ad, this.data.storeUUID)
             // 添加记录
-            app.dbAD.getRecord({
-                // "storeUUID" : this.data.storeUUID,
+            // app.dbAD.getRecord({
+            //     // "storeUUID" : this.data.storeUUID,
+            // }) 
+            app.dbAD.addRecord({
+                "mode": app.dbAD.AD.RECORD_STORE,
+                "adID": ad._id,
+                "storeUUID": this.data.storeUUID,
             }) 
         },
 

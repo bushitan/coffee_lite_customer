@@ -86,9 +86,29 @@ class dbAD {
                 },
             })
         })
+        // return adList
+    }
+    
+    // 查询广告节点
+    getNode(data) {
+        return new Promise((reslove, reject) => {
+            data = data || {}
+            data['action'] = "get_node"
+            wx.cloud.callFunction({
+                name: 'ad',
+                data: data,
+                success: res => {
+                    if (res.result.code == 0)
+                        reslove(res.result)
+                },
+                fail: res => {
+                    console.log(res.result)
+                    wx.hideLoading()
+                },
+            })
+        })
         return adList
     }
-
     // 增加广告节点
     addNode(data) {
         return new Promise((reslove, reject) => {
@@ -110,7 +130,7 @@ class dbAD {
         return adList
     }
 
-    // 删除广告节点
+    // 更新广告节点
     updateNode(data) {
         return new Promise((reslove, reject) => {
             data = data || {}
@@ -248,6 +268,39 @@ class dbAD {
         }
     }
 
+    // 上传图片
+    uploadImage(obj) {
+        return new Promise((reslove, reject) => {
+            // var data = {}
+            // reslove(data)
+            wx.showLoading({ title: "图片上传中" })
+            wx.cloud.uploadFile({
+                cloudPath: obj.cloudPath,
+                filePath: obj.filePath,
+                success: res => {
+                    wx.hideLoading()
+                    // console.log('[上传文件] 成功：', res)
+
+                    // app.globalData.fileID = res.fileID
+                    // app.globalData.cloudPath = cloudPath
+                    // app.globalData.imagePath = filePath
+                    // debugger
+                    reslove(res.fileID)
+                },
+                fail: e => {
+                    console.error('[上传文件] 失败：', e)
+                    wx.showToast({
+                        icon: 'none',
+                        title: '上传失败请重试',
+                    })
+                    // reject()
+                },
+                complete: () => {
+                    wx.hideLoading()
+                }
+            })
+        })
+    }
 }
 
 
