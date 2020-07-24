@@ -62,7 +62,7 @@ Page({
         this.setData({
             tabIndex: tabID
         })
-        if (tabID == 3)
+        if (tabID == 4)
             this.getUnShowList(tabID)
         else
             this.getList(tabID)
@@ -71,7 +71,7 @@ Page({
     async getList(mode){
 
         var res = await app.dbAD.getList({
-            // mode: mode
+            mode: mode
         })
         console.log(res.data)
         this.setData({
@@ -82,7 +82,7 @@ Page({
     async getUnShowList(mode) {
 
         var res = await app.dbAD.getList({
-            mode: mode,
+            // mode: mode,
             isShow:false
         })
         console.log(res.data)
