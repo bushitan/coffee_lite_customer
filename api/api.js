@@ -12,7 +12,11 @@ var APP_ID = "wxeb9623bdc85a64f4"
 // var HOST = "https://www.51zfgx.com/"  // 第2正式版本
 // var HOST = "https://www.51zfgx.com/coffee_server_2019_6_15_v1_3_10/" //第2正式版本
 // var HOST = "https://www.51zfgx.com/coffee_server_2019_7_12_v1_5_2/" //第3正式版本
+
 var HOST = "https://www.51zfgx.com/coffee_server_2019_8_29_v1_6_1/" //第4正式版本
+// var HOST = "http://123.207.38.251/dev/"
+
+
 // var HOST = "https://www.51zfgx.com/coffee_server_2019_10_2_v2_1_1/" // 当前测试版本
 // var HOST = "https://www.51zfgx.com/dev/"  // 测试版本
 

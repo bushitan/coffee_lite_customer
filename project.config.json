@@ -122,10 +122,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "route外卖领券点",
 					"pathName": "pages/route/route",
-					"query": "scene=wm_3smX46fZ",
+					"query": "scene=wm_Tj7XU6fZ",
 					"scene": null
 				},
 				{
