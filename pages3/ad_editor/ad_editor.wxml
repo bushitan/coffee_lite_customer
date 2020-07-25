@@ -5,6 +5,10 @@
 外卖预定：（微信号） -->
 
 <form bindsubmit="save">
+	<view class="cu-form-group margin-top">
+		<view class="title">SN</view>
+		<input placeholder="排序" name="sn" value="{{store.sn}}" class="text-right" ></input>
+	</view>
 
 	<view class="cu-form-group margin-top">
 		<view class="title">1、ID</view>

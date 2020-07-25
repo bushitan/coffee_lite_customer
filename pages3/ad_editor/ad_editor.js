@@ -107,6 +107,7 @@ Page({
         var formData = e.detail.value
         var store = this.data.store
 
+        formData.sn = parseInt( formData.sn )
         formData._id = this.data.adID
         formData.mode = store.mode
         formData.clickType = store.clickType
