@@ -67,15 +67,38 @@ const cosSimilarity = async (x, y) => {
     return score
 };
 
+var g_points 
 // 主程序
 const run = () => {
-    const points = false ? [[126, 77], [79, 133], [61, 43]] : RPIRInCount(20, 180, 4)
-    window.points = points;
-    const code = distanceMultiple(points);
-    console.log(code);
-    window.onload = () => draw(points);
+    // const points1 = false ? [[126, 77], [79, 133], [61, 43]] : RPIRInCount(20, 180, 4)
+    var points1 = [[0, 0], [50, 0], [50, 50], [0, 50]]
+    // var points1 = RPIRInCount(20, 180, 4)
+    var code1 = distanceMultiple(points1);
+
+    var points2 = [[0, 0], [100, 0], [100, 100], [0, 95]]
+    var code2 = distanceMultiple(points2);
+
+    // var points2 = RPIRInCount(20, 180, 4)
+    // var  code2 = distanceMultiple(points2);
+
+    // console.log(code1, code2);
+    var scope = approximateMatchArray(code1, code2)
+    // var scope = approximateMatchArray(code1, code1)
+    console.log(code1, code1, scope);
+    // window.onload = () => draw(points);
 };
 
 // 运行
 run();
 
+
+const getResult = (points1, points2) =>{
+    var code1 = distanceMultiple(points1);
+    var code2 = distanceMultiple(points2);
+    var scope = approximateMatchArray(code1, code2)
+    return scope
+}
+
+module.exports = {
+    getResult: getResult
+}

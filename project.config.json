@@ -267,6 +267,13 @@
 					"pathName": "pages3/ad_editor/ad_editor",
 					"query": "adID=463448e05ecb51990027a035020acb06",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/stamp/stamp",
+					"pathName": "pages3/stamp/stamp",
+					"query": "scene=wm_Tj7XU6fZ",
+					"scene": null
 				}
 			]
 		}

@@ -23,7 +23,8 @@
         "pages2/test_unit/test_unit",
         "pages3/ad/ad",
         "pages3/ad_preview/ad_preview",
-        "pages3/ad_editor/ad_editor",        
+        "pages3/ad_editor/ad_editor",     
+        "pages3/stamp/stamp",        
         "pages3/discount-card/discount-card"
     ],
     "window": {
