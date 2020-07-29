@@ -54,8 +54,23 @@ Page({
             startTime:"2020-03-17 15:12:23",    
         },           
         
+        danmuList:
+            [{
+                text: '好想去哦！！',
+                color: '#ff0000',
+                time: 1
+            }, {
+                text: '在哪里呀',
+                color: '#ff00ff',
+                time: 3
+            }],
+        videoControls:false,
     },
 
+    clickVideo(e){
+        console.log("clickVideo", e)
+        this.setData({ videoControls: true})
+    },
 
     // behaviors: [app.behaviorAd, ],
 

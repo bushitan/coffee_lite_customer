@@ -1,16 +1,44 @@
 <!--pages/user/user.wxml-->
+    <video 
+        id="myVideo" 
+        src="cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1_bairimeng.mp4" 
+        autoplay="{{true}}"
+        object-fit="cover"
+        class="storeVideo"
+        show-fullscreen-btn="{{true}}"
+        poster="cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1234.jpg"
+        enable-progress-gesture="{{false}}"
+        bindtap="clickVideo"
+
+        binderror="videoErrorCallback" 
+
+        show-center-play-btn='{{false}}' 
+        show-play-btn="{{true}}" 
+        controls="{{videoControls}}"
+
+        picture-in-picture-mode="{{['push', 'pop']}}"
+        bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+        bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+
+    >
+        <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
+        src='../../images/back.png'></cover-image>
+        <cover-image class='stroeBottom'  
+        src='../../images/video/12345.png' mode="widthFix"></cover-image>
+
+    </video>
 
 <view  class='back' wx:if="{{showBack}}" catchtap='back'>
     <image src='../../images/back.png'></image>
 </view>
-
-<wave
-    logo="{{store.logo}}"
-    summary="{{store.summary}}"
-    start_time="{{store.start_time}}"
-    end_time="{{store.end_time}}"
-></wave>  
-
+<view class="bg-black">
+    <wave
+        logo="{{store.logo}}"
+        summary="{{store.summary}}"
+        start_time="{{store.start_time}}"
+        end_time="{{store.end_time}}"
+    ></wave>  
+</view>
 
         <!-- score="{{data.score_num}}"
         exchange="{{store.exchange_value}}" -->
