@@ -67,6 +67,13 @@ Page({
         videoControls:false,
     },
 
+
+    load1(e) {
+        console.log(e)
+    },
+    load2(e) {
+        console.log(e)
+    },
     clickVideo(e){
         console.log("clickVideo", e)
         this.setData({ videoControls: true})

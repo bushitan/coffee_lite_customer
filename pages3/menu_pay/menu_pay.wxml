@@ -1,0 +1,121 @@
+<!--pages3/menu_pay/menu_pay.wxml-->
+
+<view class="cu-card padding-lr margin-top">
+    <view class=" bg-white pg-radius  shadow shadow-warp">
+        <view class="cu-bar  solid-bottom ">
+            <view class="action">
+                <text class="cuIcon-title text-yellow "></text>                
+                <text class="text-black text-sm">商品明细</text>      
+            </view>
+            <view class="action">
+                <!-- <text class="text-gray  text-sm">全部</text>
+                <view class="pg-arrow-sm"></view> -->
+            </view>
+        </view>
+        <view class="cu-list menu ">
+            <view class="cu-item margin-tb-sm" wx:for="{{order}}" wx:for-item="item"  wx:for-index="key">
+                <view class="action"> 
+                    <image src='{{item.cover}}' 
+                        class="cu-avatar radius lg  bg-gray margin-right-sm " 
+                        style="width:60px;height:60px"
+                        mode="aspectFill"
+                        ></image>
+                </view>
+                <view class="content">
+                    <view class="text-black   text">{{item.name}}</view>
+                    <view class="text-gray   text-sm">{{item.attDes}}</view>
+                    
+                    <view class=" flex justify-between">
+                        <view class="">
+                            <view class=" text-sm">数量：{{item.Quantity}}</view>		
+                            <!-- <view class=" text-sm">包装费：{{item.wm_cost}}</view>									 -->
+                        </view>
+                        <view class="action">
+                            <text class="text-price text-red"></text>
+                            <text class="text-red">{{item.total}}</text>									
+                        </view>
+                    </view>
+                </view>
+            <!-- 	<view class="action">
+                    <text class="text-price"></text>4
+                </view> -->
+            </view>
+        </view>
+        
+        <view class="cu-list menu ">
+            
+            <view class="cu-item " >
+                <view class="action">商品费用</view>
+                <view class="action text-red ">							
+                    <template v-if="preOrder.order_discount > 0">
+                        <text class="text-gray  text-sm ">已优惠</text>						
+                        <text class="text-price text-sm text-red "></text>
+                        <text class="  text-sm text-red margin-right">{{preOrder.order_discount}}</text>
+                    </template>
+                    <text class="text-price"></text>
+                    <text class="text-red">{{preOrder.order_with_discount || ""}}</text>	
+                </view>
+            </view>
+            <view class="cu-item " wx:if="{{ShopTakeValue != SHOP_TAKE_TS}}">
+                <view class="action">包装费</view>
+                <view class="action text-red ">
+                    <text class="text-price"></text>
+                    <text class="text-red">{{preOrder.wm_cost}}</text>			
+                </view>
+            </view>
+            <!-- <view class="cu-item " v-if="ShopTakeValue == SHOP_TAKE_WM">
+                <view class="action">顺丰配送费</view>
+                <view class="action text-red ">
+                    <text class="text-price"></text>
+                    <text class="text-red">{{preOrder.customer_take_ship_fee}}</text>	
+                </view>
+            </view>
+            <view class="text-xs  padding-left text-red" v-if="ShopTakeValue == SHOP_TAKE_WM">
+                消费满40元减免顺丰配送费（减免范围3KM，超出部分2元/公里）
+            </view> -->
+        </view>
+        <view class="cu-bar   ">
+            <view class="action"></view>
+            <view class="action">				
+                <!-- <template v-if="preOrder.order_discount_total > 0">
+                    <text class="text-gray  text-sm ">已优惠</text>
+                    <text class="text-price text-sm text-red "></text>
+                    <text class="  text-sm text-red margin-right">{{preOrder.order_discount_total  || ""}}</text>
+                </template> -->
+                
+                
+                <text class="text-gray  text-sm margin-right-xs">合计</text>						
+                <text class=" text-xl text-red text-bold text-price"></text>
+                <text class=" text-xl text-red text-bold">{{preOrder.order_total || ""}}</text>
+            </view>
+        </view>					
+    </view>
+</view>
+
+
+<view class="bg-white cu-list menu padding-tb-sm solid-top" style="position: fixed; bottom:0; left: 0; right: 0;">
+    <view class="cu-item" >
+        <view class="content">
+            <view class="text-grey">
+                <view class="text-red text-bold text-xl">
+                    <text class="text-price text-red"></text>{{preOrder.order_total || ""}}
+                </view>
+            </view>
+            <!-- <view class="text-gray text-sm flex align-center" wx:if="ShopTakeValue == SHOP_TAKE_WM">
+                <image src='/static/images/icon/sf_logo.png'
+                    class="cu-avatar radius lg  bg-white margin-right-sm" 
+                    style="width: 100px;" 
+                    mode="widthFix"
+                    ></image>
+            </view> -->
+        </view>
+        <form class="action" report-submit="true"  bindsubmit="toSuccess">
+                <!-- <button class='cu-btn round bg-yellow text-white shadow margin-right-sm'  form-type="submit"
+                    disabled="{{noPowerPay}}">微信支付</button>	 -->
+                <button class='cu-btn round bg-yellow text-white shadow margin-right-sm' catchtap="clickPay">微信支付</button>	
+        </form>
+    </view>
+</view>
+
+<view class="pg-space-xxl"></view>
+<view class="pg-space-xxl"></view>

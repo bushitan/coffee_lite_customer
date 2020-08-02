@@ -1,4 +1,7 @@
 <!--pages/user/user.wxml-->
+
+<!-- 
+   "navigationStyle":"custom",
     <video 
         id="myVideo" 
         src="cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1_bairimeng.mp4" 
@@ -26,11 +29,11 @@
         <cover-image class='stroeBottom'  
         src='../../images/video/12345.png' mode="widthFix"></cover-image>
 
-    </video>
+    </video> -->
 
-<view  class='back' wx:if="{{showBack}}" catchtap='back'>
+<!-- <view  class='back' wx:if="{{showBack}}" catchtap='back'>
     <image src='../../images/back.png'></image>
-</view>
+</view> -->
 <view class="bg-black">
     <wave
         logo="{{store.logo}}"
@@ -143,6 +146,8 @@
 </view>
 
 <view style="height:10px ;background-color:#ededed"></view>
+
+<ad unit-id="adunit-dcd8dba169c9d31c" ad-type="video" ad-theme="white"></ad>
 <official-account></official-account>
 
 <!-- <ad storeUUID="{{store.uuid}}"></ad> -->

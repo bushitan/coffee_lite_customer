@@ -274,6 +274,13 @@
 					"pathName": "pages3/stamp/stamp",
 					"query": "scene=wm_Tj7XU6fZ",
 					"scene": null
+				},
+				{
+					"id": 31,
+					"name": "pages3/menu_pay/menu_pay",
+					"pathName": "pages3/menu_pay/menu_pay",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
