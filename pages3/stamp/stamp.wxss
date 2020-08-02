@@ -1,1 +1,13 @@
 /* pages3/stamp/stamp.wxss */
+
+page{
+    background-color: var(--yellow)
+}
+
+.stamp_box , .stamp_image{
+    width:200px;
+    height:200px;
+}
+.stamp_image{
+    display: block;
+}

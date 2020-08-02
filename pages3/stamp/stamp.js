@@ -11,7 +11,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        isSuccess:false,
     },
 
     /**
@@ -85,6 +85,9 @@ Page({
         if (isCheck)
             return
         if (touches.length > 2) {
+            this.setData({
+                isSuccess:true,
+            })
             wx.showModal({
                 title: '集点成功',
                 content: '',
