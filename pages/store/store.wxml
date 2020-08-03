@@ -147,12 +147,17 @@
 
 <view style="height:10px ;background-color:#ededed"></view>
 
-<ad unit-id="adunit-dcd8dba169c9d31c" ad-type="video" ad-theme="white"></ad>
+<view>
+    <ad unit-id="adunit-dcd8dba169c9d31c" ad-type="video" ad-theme="white"></ad>
+</view>
 <official-account></official-account>
 
 <!-- <ad storeUUID="{{store.uuid}}"></ad> -->
 <ad-swiper storeUUID="{{store.uuid}}"></ad-swiper>
 
+<view>
+    <ad unit-id="adunit-1d99d4eb943378b8"></ad>
+</view>
 
 <view class="weui-loadmore weui-loadmore_line" >
     <!-- <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
