@@ -26,6 +26,31 @@ Page({
         options = _options
         // debugger
 
+        // //查看集点结果
+        // wx.cloud.callFunction({
+        //     name: 'geo',
+        //     data: {
+        //         "action":"get_geo_list",
+        //     },
+        //     success(res){
+        //         console.log(res)
+        //         var temp = res.result.data
+        //         var list = []
+        //         for (var i = 0; i < temp.length;i++)
+        //             list.push({
+        //                 "count": 100,
+        //                 "lng": temp[i].geo.coordinates[0],
+        //                 // "lng": temp[i].geo.coordinates[0],
+        //                 "lat": temp[i].geo.coordinates[1]
+        //             })
+        //         console.log(JSON.stringify( list))
+        //         GP.setData({
+        //             list:list
+        //         })
+        //         wx.setStorageSync("list", list)
+        //     },
+        // })
+
     },    
 
     // 登陆获取用户信息

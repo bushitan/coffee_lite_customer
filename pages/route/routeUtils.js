@@ -32,7 +32,7 @@ var db = new DB()
     //     result:"",
     //     scanType:"WX_CODE",
     // }
-
+var store_uuid = ""
 class routeUtils {
     constructor() {
     }
@@ -130,13 +130,24 @@ class routeUtils {
      * @method 5、外卖扫码自动领取集点和券
      */
     modeWm(wm_short_uuid){
+
+        wx.getLocation({
+            type: "wgs84",
+            success: function (res) { },
+        })
+
+
         db.scanWMCustomer(wm_short_uuid).then(res=>{
             console.log(res)
-            var store_uuid = res.data.store_uuid
+            store_uuid = res.data.store_uuid
             var code = res.message.code
             var title = res.message.title
             var content = res.message.content
             
+
+            // 增加扫码的记录
+            this.getUserLocation()
+
             switch (code) {
                 case app.code.CODE_WM_SCORE: //集点模式
                     app.alert.redirect({
@@ -204,6 +215,9 @@ class routeUtils {
         })
     }
 
+
+    
+
     // 检测是否用户授权
     checkHasAuth() {
         return new Promise((resolve, reject) => {
@@ -216,6 +230,128 @@ class routeUtils {
         })
     }
 
+
+    /*************增加位置记录************/
+
+    // 获取经纬度统计
+    getUserLocation() {
+        let vm = this
+        wx.getSetting({
+            success: (res) => {
+                if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+                    // console.log('authSetting:status:拒绝授权后再次进入重新授权', res.authSetting['scope.userLocation'])
+                    wx.showModal({
+                        title: '',
+                        content: '需要获取你的地理位置，请确认授权',
+                        success: function (res) {
+                            if (res.cancel) {
+                                wx.showToast({
+                                    title: '拒绝授权',
+                                    icon: 'none'
+                                })
+                                setTimeout(() => {
+                                    wx.navigateBack()
+                                }, 1500)
+                            } else if (res.confirm) {
+                                wx.openSetting({
+                                    success: function (dataAu) {
+                                        // console.log('dataAu:success', dataAu)
+                                        if (dataAu.authSetting["scope.userLocation"] == true) {
+                                            //再次授权，调用wx.getLocation的API
+                                            vm.getLocation(dataAu)
+                                        } else {
+                                            wx.showToast({
+                                                title: '授权失败',
+                                                icon: 'none'
+                                            })
+                                            setTimeout(() => {
+                                                wx.navigateBack()
+                                            }, 1500)
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    })
+                }
+                // 初始化进入，未授权
+                else if (res.authSetting['scope.userLocation'] == undefined) {
+                    // console.log('authSetting:status:初始化进入，未授权', res.authSetting['scope.userLocation'])
+                    //调用wx.getLocation的API
+                    vm.getLocation(res)
+                }
+                // 已授权
+                else if (res.authSetting['scope.userLocation']) {
+                    // console.log('authSetting:status:已授权', res.authSetting['scope.userLocation'])
+                    //调用wx.getLocation的API
+
+                    vm.getLocation(res)  //不主动授权
+                }
+            }
+        })
+    }
+    // 微信获得经纬度
+    getLocation(userLocation) {
+        let vm = this
+        wx.getLocation({
+            type: "wgs84",
+            success: function (res) {
+                // console.log('getLocation:success', res)
+                var latitude = res.latitude
+                var longitude = res.longitude
+                vm.addGeoNode(latitude, longitude)
+            },
+            fail: function (res) {
+                // console.log('getLocation:fail', res)
+                if (res.errMsg === 'getLocation:fail:auth denied') {
+                    wx.showToast({
+                        title: '拒绝授权',
+                        icon: 'none'
+                    })
+                    setTimeout(() => {
+                        wx.navigateBack()
+                    }, 1500)
+                    return
+                }
+                if (!userLocation || !userLocation.authSetting['scope.userLocation']) {
+                    vm.getUserLocation()
+                } else if (userLocation.authSetting['scope.userLocation']) {
+                    wx.showModal({
+                        title: '',
+                        content: '请在系统设置中打开定位服务',
+                        showCancel: false,
+                        success: result => {
+                            if (result.confirm) {
+                                wx.navigateBack()
+                            }
+                        }
+                    })
+                } else {
+                    wx.showToast({
+                        title: '授权失败',
+                        icon: 'none'
+                    })
+                    setTimeout(() => {
+                        wx.navigateBack()
+                    }, 1500)
+                }
+            }
+        })
+    }
+
+    addGeoNode(  latitude, longitude){
+        var data = data || {}
+        data['action'] = "add_geo"
+        data['type'] = 1
+        data['store_uuid'] = store_uuid
+        data['latitude'] = latitude
+        data['longitude'] = longitude
+
+        wx.cloud.callFunction({
+            name: 'geo',
+            data: data,
+        })
+    }
 
 }
 module.exports = routeUtils
