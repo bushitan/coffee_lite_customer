@@ -281,6 +281,13 @@
 					"pathName": "pages3/menu_pay/menu_pay",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 32,
+					"name": "pages3/geo/geo",
+					"pathName": "pages3/geo/geo",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

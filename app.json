@@ -27,6 +27,7 @@
         "pages3/ad_editor/ad_editor",
         "pages3/menu_pay/menu_pay",
         "pages3/stamp/stamp",
+        "pages3/geo/geo",
         "pages3/discount-card/discount-card"
     ],
     "window": {
