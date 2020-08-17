@@ -7,6 +7,7 @@
     class="flex justify-center align-center "
     style="width:100vw;height:100vh;"
 >
+    <view>{{num}}</view>
     <view class="bg-white stamp_box " style="border-radius:50%">
         <image src="/images/icon/prize.png" class="stamp_image"  wx:if="{{isSuccess}}"></image>
         <image src="/images/icon/prize_un.png" class="stamp_image"  wx:else></image>

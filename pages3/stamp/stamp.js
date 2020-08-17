@@ -5,6 +5,7 @@ var touches = []
 var isCheck = false
 var interval 
 
+
 Page({
 
     /**
@@ -56,27 +57,34 @@ Page({
         // this.check(e.touches)
     },
     touchend(e) {
-        console.log(e)
+        // console.log(e)
 
     },
 
     loop(touches){
-        if (touches.length == 4) {
-            var points1 = [[0, 0], [50, 0], [50, 50], [0, 50]]
-            // var points2 = [[0, 0], [100, 0], [100, 100], [0, 95]]
-            var points2 = []
-            for (var i = 0; i < touches.length; i++)
-                points2.push([touches[i].clientX, touches[i].clientY])
 
-            var scrop = stampUtils.getResult(points1, points2)
-            console.log("scrop:", scrop)
-            if(scrop>92){
-                this.check(touches)
-            }
-
-        } else {
-            console.log("不是4个点")
+        // this.setData({ num: touches.length})
+        console.log( touches.length)
+        if (touches.length == 3) {
+            this.check(touches)
         }
+
+        // if (touches.length == 4) {
+        //     var points1 = [[0, 0], [50, 0], [50, 50], [0, 50]]
+        //     // var points2 = [[0, 0], [100, 0], [100, 100], [0, 95]]
+        //     var points2 = []
+        //     for (var i = 0; i < touches.length; i++)
+        //         points2.push([touches[i].clientX, touches[i].clientY])
+
+        //     var scrop = stampUtils.getResult(points1, points2)
+        //     console.log("scrop:", scrop)
+        //     if(scrop>92){
+        //         this.check(touches)
+        //     }
+
+        // } else {
+        //     console.log("不是4个点", touches.length)
+        // }
     },
 
 
@@ -107,3 +115,8 @@ Page({
 
     }
 })
+
+
+
+
+    
