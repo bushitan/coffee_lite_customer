@@ -3,6 +3,7 @@
 let livePlayer = requirePlugin('live-player-plugin')
 var db = require('db/db.js')
 var dbAD = require('db/db_ad.js')
+var dbStamp = require('db/db_stamp.js')
 
 var behaviorAd = require('utils/behavior-ad.js')
 
@@ -11,7 +12,25 @@ var behaviorAd = require('utils/behavior-ad.js')
 App({
     db: db,
     dbAD: dbAD,
+    dbStamp: dbStamp,
     behaviorAd: behaviorAd,
+
+    // 调用 return的距离单位为km
+    getDistance(lat1, lng1, lat2, lng2){
+        var radLat1 = lat1 * Math.PI / 180.0;
+        var radLat2 = lat2 * Math.PI / 180.0;
+        var a = radLat1 - radLat2;
+        var  b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0;
+        var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) +
+            Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+        s = s * 6378.137 ;// EARTH_RADIUS;
+        s = Math.round(s * 10000) / 10000;
+        s = s * 1000
+        return s;
+    },
+
+// 调用 return的距离单位为km
+
     onLaunch: function (options) {
         console.log("[onLaunch] 本次场景值:", options.scene)
         this.globalData.scene = options.scene
