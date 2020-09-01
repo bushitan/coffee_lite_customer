@@ -15,7 +15,7 @@ Page({
         stampInfo:{}, //印章信息
         stampIndex: -1,//验证成功点印章位置点
     },
-
+    
     /**
      * 生命周期函数--监听页面加载
      */
@@ -120,8 +120,9 @@ Page({
     },
 
     loop(touches){
-        if (touches.length == 4) {
-            var points1 = [[0, 0], [50, 0], [50, 50], [0, 50]]
+        if (touches.length == 3) {
+            // var points1 = [[0, 0], [50, 0], [50, 50], [0, 50]]
+            var points1 = [[0, 0], [50, 0], [50, 50]]
             // var points2 = [[0, 0], [100, 0], [100, 100], [0, 95]]
             var points2 = []
             for (var i = 0; i < touches.length; i++)
@@ -134,7 +135,7 @@ Page({
             }
 
         } else {
-            console.log("不是4个点", touches.length )
+            console.log("不是3个点", touches.length )
         }
     },
 
