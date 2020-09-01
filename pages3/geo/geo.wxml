@@ -1,8 +1,19 @@
 <!--pages3/geo/geo.wxml-->
+<scroll-view scroll-x class="bg-white nav ">
+    <view class='flex  text-center  '>
+        <view class="cu-item flex-sub {{item.id==TabCur?'text-blue text-bold cur':' text-gray'}} " 
+        wx:for="{{SortMenu}}" wx:key="index" data-tab_id="{{item.id}}" catchtap="tabSelect">
+            <view style="  position: relative" >
+                <text class="">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+
 <map 
     id="map" 
-    longitude="108.40997314453125" 
-    latitude="22.844457626342773" 
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}" 
     scale="14" 
     controls="{{controls}}" 
     bindcontroltap="controltap" 

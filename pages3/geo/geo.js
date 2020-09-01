@@ -9,14 +9,44 @@ Page({
      * 页面的初始数据
      */
     data: {
+        storeUUID:"",
+        longitude:"108.40997314453125",
+        latitude:"22.844457626342773",
+
+
         list:[],
         markers:[],
+
+        TabCur: 0,
+        SortMenu: [
+            { id: 0, name: "今天数据", range: 1, },
+            { id: 1, name: "3天数据", range: 3, },
+            { id: 2, name: "7天数据", range: 7,},
+        ],
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        
+        var storeUUID = options.store_uuid
+        this.setData({
+            storeUUID: storeUUID,
+
+            longitude: options.longitude,
+            latitude: options.latitude,
+        })
+
+        if (!storeUUID){
+            wx.showModal({
+                title: '暂无权限查阅数据',
+            })
+            return 
+        }
+            
+
+
         this.onInit()
     },
 
@@ -25,7 +55,10 @@ Page({
         wx.cloud.callFunction({
             name: 'geo',
             data: {
-                "action":"get_geo_list",
+                "action":"get_geo_store_list",
+                store_uuid: this.data.storeUUID,
+                // isToday: this.data.TabCur == 0?true :false,
+                range: this.data.SortMenu[this.data.TabCur].range
             },
             success : res => {
                 console.log(res)
@@ -55,7 +88,7 @@ Page({
 
             var m = this.wgs84togcj02(marker.lng, marker.lat)
             tempList.push({
-                iconPath: "/images/location.png",
+                iconPath: "/images/menu_address.png",
                 id: i,
                 latitude: m[1],
                 longitude: m[0],
@@ -125,6 +158,30 @@ Page({
         ret += (150.0 * Math.sin(lng / 12.0 * PI) + 300.0 * Math.sin(lng / 30.0 * PI)) * 2.0 / 3.0;
         return ret
     },
+
+    /**
+    * @method 点击选项卡
+    */
+    async tabSelect(e) {
+        console.log(e)
+        var id = e ? e.currentTarget.dataset.tab_id : this.data.TabCur
+        this.setData({
+            TabCur: id,
+            list: [],
+        })
+        this.onInit()
+        // switch (id) {
+        //     case 0: var res = await app.db.orderGetList({
+        //         Page: 1, Limit: 100, FilterStatus: app.db.SELLER_PENDING, CreatedAtMin: today
+        //     }); break;
+        //     case 1: this.onInit() ; break;
+        // }
+        // this.setData({
+        //     list: res.data
+        // })
+    },
+
+
     /**
      * 用户点击右上角分享
      */
@@ -132,6 +189,7 @@ Page({
 
     }
 })
+
 
 
 

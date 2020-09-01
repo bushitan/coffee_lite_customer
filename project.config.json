@@ -286,7 +286,7 @@
 					"id": 32,
 					"name": "pages3/geo/geo",
 					"pathName": "pages3/geo/geo",
-					"query": "",
+					"query": "store_uuid=e8eeb038-a2d0-11ea-97f8-e95aa2c51b5d&longitude=108.333693&latitude=22.805182",
 					"scene": null
 				}
 			]
