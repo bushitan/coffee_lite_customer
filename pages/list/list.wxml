@@ -1,6 +1,87 @@
 <!--pages/list/list.wxml-->
-<official-account></official-account>
 
+<official-account></official-account>
+<view class="pg-radius padding-lr margin-top" >
+    <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
+        <view class=" padding-lr ">
+            <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
+                <text class="cuIcon-title text-yellow "></text>
+                <text class="">小杯子探店地图 | 尽享优惠</text>
+            </view>
+        </view>
+        <view class="" hidden="{{!poiDialogShow}}">
+            <view class="flex justify-center margin-top-sm padding-lr">
+                <image class="block" src="https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydxnxAZz0P1sR3Fiao0icnQ8JiajmniaLuhT16XibY1zXNc2ibBjdZCVFhKjtf50W8cuNvAmpZQ5pyrbia34g/0?wx_fmt=jpeg" mode="widthFix" style="width:100%" ></image>            
+            </view>
+            <view class="padding-lr margin-top-sm">
+                <view class="text-grey">岂止咖啡</view>
+                <view class="text-gray text-sm flex justify-between">
+                    <view></view>
+                    <view class="text-gray text-sm">
+                        <button class="cu-btn round bg-yellow text-white margin-left">集满6杯赠1杯 <text class="cuIcon-rigth"></text></button>
+                        <button class="cu-btn round bg-green text-white margin-left">先享8折 <text class="cuIcon-rigth"></text></button>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+        <view class="padding flex justify-center">
+            <map 
+                id="map" 
+                longitude="{{poiLongitude}}" 
+                latitude="{{poiLatitude}}" 
+                scale="14" 
+                controls="{{controls}}" 
+                bindcontroltap="controltap" 
+                markers="{{poiMarkers}}"
+                bindmarkertap="markertap" 
+                polyline="{{polyline}}" 
+                bindregionchange="regionchange" 
+                show-location style="width: 100%; height: 30vh;"
+                show-scale="{{true}}"
+            ></map>
+        </view>
+    </view>
+</view>
+
+<view class="pg-radius padding-lr margin-top" >
+    <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
+        <view class=" padding-lr ">
+            <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
+                <text class="cuIcon-title text-yellow "></text>
+                <text class="" wx:if="{{list.length > 0}}">我的足迹</text>
+                <text class="" wx:else>我的足迹（暂时还没有足迹，需要去地图多走走）</text>
+            </view>
+        </view>
+         <view class="cu-list menu ">
+            <navigator url="" class="cu-item bg-white arrow "  style=" min-height: 140rpx;" 
+            wx:for="{{list}}" catchtap='toStore' data-store_uuid="{{item.store_uuid}}">
+                <image class="cu-avatar radius lg margin-right-sm bg-white" src="{{item.logo}}"></image>
+                <view class="content">
+                    <view class="text-grey">{{item.title}}</view>
+                    <view class="text-gray text-sm flex">
+                        <text class="text-cut">
+                        <text class="cuIcon-infofill text-red  margin-right-xs"></text>{{item.summary || ""}}
+                    </text>
+                </view>
+                </view>
+                <view class="action">
+                    <!-- <view class="text-grey text-xs">已集点</view>
+                    <view class="cu-tag round bg-blue page-font-white sm">{{item.myScore}}</view> -->
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="margin-top text-sm text-center text-gray" catchtap="live" catchlongtap='scan'> 
+    Copyright © 2020 索骏科技提供服务
+</view>
+<view class=" page-flex-center  margin-top">
+    <button class=" cu-btn round line-gray   "  open-type="contact">小杯子客服</button>
+</view>
+
+
+<!-- 
 <view class="page" wx:if='{{list.length == 0}}'>
     <view class="page__hd">
         <view class="page__title">您还未到店集点哦！</view>
@@ -29,9 +110,7 @@
             </view>
         </block>
     </view>
-</view>
-<!-- <button catchtap="scan">扫一扫</button> -->
-
+</view> 
 
 
 <view class="weui-loadmore weui-loadmore_line" >
@@ -46,6 +125,7 @@
 <view class=" page-flex-center ">
     <button class=" cu-btn round   "  size="mini" type="" open-type="contact">小杯子客服</button>
 </view>
+-->
 
 <!-- <view catchlongtap='live' style="height:30px;background-color:#ffffff" >live</view> -->
 
@@ -66,7 +146,7 @@
 
 <view style="height:60px"></view>
 
-<ad-banner storeUUID="{{store.uuid}}"></ad-banner>
+<!-- <ad-banner storeUUID="{{store.uuid}}"></ad-banner> -->
 
 <!-- <navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">

@@ -3,15 +3,18 @@
 var GP
 var API = require('../../api/api.js')
 var DB = require('../../api/db.js')
+var POI_Behavior = require('js/poi.js')
 var db = new DB()
 var app =getApp()
 Page({
 
+    behaviors: [POI_Behavior],
     /**
      * 页面的初始数据
      */
     data: {
-        list:[],
+        list: [],
+        
     },
 
     /**
