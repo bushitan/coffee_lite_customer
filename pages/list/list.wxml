@@ -25,18 +25,17 @@
             </view>
             
         </view>
-        <view class="padding flex justify-center">
+        <view class="padding flex justify-center" hidden="{{poiShow}}">
             <map 
                 id="map" 
                 longitude="{{poiLongitude}}" 
                 latitude="{{poiLatitude}}" 
-                scale="14" 
-                controls="{{controls}}" 
-                bindcontroltap="controltap" 
+                scale="14"                         
+                show-compass="{{true}}"
+                show-scale="{{true}}"
                 markers="{{poiMarkers}}"
-                bindmarkertap="markertap" 
+                bindmarkertap="poiMarkerTap" 
                 polyline="{{polyline}}" 
-                bindregionchange="regionchange" 
                 show-location style="width: 100%; height: 30vh;"
                 show-scale="{{true}}"
             ></map>
@@ -78,6 +77,65 @@
 </view>
 <view class=" page-flex-center  margin-top">
     <button class=" cu-btn round line-gray   "  open-type="contact">小杯子客服</button>
+</view>
+
+
+<view class="cu-modal {{poiShow?'show':''}}">
+    <view class="cu-dialog">
+            
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">{{poiDetail.name}}</view>
+            <view class="action" bindtap="poiSwitchDialog">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <image  wx:if="{{poiDetail.style == 1}}"
+            class="bg-img" 
+            style="width:100%;" 
+            src="https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg" 
+            mode="widthFix"></image>
+        <video  wx:if="{{poiDetail.style == 2}}"
+            id="myVideo" 
+            class="storeVideo block"
+            style="width:100%;" 
+            src="{{poiDetail.video_url}}" 
+            autoplay="{{true}}"
+            object-fit="cover"
+            show-fullscreen-btn="{{true}}"
+            poster="cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1234.jpg"
+            enable-progress-gesture="{{false}}"
+            bindtap="clickVideo"
+
+            binderror="videoErrorCallback" 
+
+            show-center-play-btn='{{false}}' 
+            show-play-btn="{{true}}" 
+            controls="{{true}}"
+
+            picture-in-picture-mode="{{['push', 'pop']}}"
+            bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+            bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+
+        >
+            <!-- <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
+            src='../../images/back.png'></cover-image>
+            <cover-image class='stroeBottom'  
+            src='../../images/video/12345.png' mode="widthFix"></cover-image> -->
+
+        </video> 
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub " catchtap="toScore" wx:if="{{poiDetail.footer_style==1}}" >
+                <image class="cu-avatar bg-white margin-right-xs" src="/images/icon_cup_right.png"></image>
+                <text class="text-yellow margin-right">{{poiDetail.footer_discount}}</text>               
+                <button class="cu-btn sm line-yellow round" >{{poiDetail.footer_btn || "去集点"}}</button>
+            </view>
+            <view class="action margin-0 flex-sub " catchtap="toLite"  wx:if="{{poiDetail.footer_style==2}}">
+                <image class="cu-avatar bg-white margin-right-xs" src="{{poiDetail.footer_logo}}"></image>
+                <text class="text-yellow margin-right">{{poiDetail.footer_discount}}</text>               
+                <button class="cu-btn sm line-yellow round" >{{poiDetail.footer_btn }}</button>
+            </view>
+        </view>
+    </view>
 </view>
 
 

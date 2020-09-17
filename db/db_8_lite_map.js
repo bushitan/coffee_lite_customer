@@ -24,7 +24,19 @@ class dbSon  extends dbFather {
             var data = {
                 data:[
                     {
-                        1:1
+                        //展示
+                        name:"白日梦相机",
+                        desc:"金湖小店",
+                        geo:{
+                            coordinates: [108.34024047851562, 22.816320419311523]
+                        }, 
+                        
+                        style:1, //1 image 2video
+                        image_url:"https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg",        
+                video_url:"cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1_bairimeng.mp4",
+
+                        
+                      
                     },
                 ]
             }
