@@ -22,7 +22,7 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        // GP.getStoreList()  //查询门店列表
+        GP.getStoreList()  //查询门店列表
     },
 
     getStoreList(){

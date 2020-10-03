@@ -63,6 +63,10 @@
         "live-player-plugin": {
             "version": "1.0.9",
             "provider": "wx2b03c6e691cd7370"
+        },
+        "mini-shop-plugin": {
+            "version": "1.0.71", 
+            "provider": "wx34345ae5855f892d" 
         }
     },
     "sitemapLocation": "sitemap.json"

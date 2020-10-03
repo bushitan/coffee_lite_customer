@@ -1,5 +1,7 @@
 <!--pages/list/list.wxml-->
 
+<navigator url="plugin-private://wx34345ae5855f892d/pages/productDetail/productDetail?productId=975716">xiaxio shangdian</navigator>
+
 <official-account></official-account>
 <view class="pg-radius padding-lr margin-top" >
     <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
