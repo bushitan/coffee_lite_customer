@@ -55,18 +55,14 @@
         "wave": "/components2/wave/wave",
         "wm": "components2/wm/wm"
     },
-    "navigateToMiniProgramAppIdList":[
-        "wxcc2e4fbc5887661e",
-        "wxd8f3793ea3b935b8"
-    ],
     "plugins": {
         "live-player-plugin": {
             "version": "1.0.9",
-            "provider": "wx2b03c6e691cd7370"
+                "provider": "wx2b03c6e691cd7370"
         },
         "mini-shop-plugin": {
-            "version": "1.0.71", 
-            "provider": "wx34345ae5855f892d" 
+            "version": "1.0.71",
+                "provider": "wx34345ae5855f892d"
         }
     },
     "sitemapLocation": "sitemap.json"

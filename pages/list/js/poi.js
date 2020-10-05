@@ -11,7 +11,7 @@ module.exports = Behavior({
         poiCurrent:{},
         poiDialogShow:false,
 
-        poiShow:!false,
+        poiShow:false,
         poiDetail: {
             //展示
             name: "白日梦相机",
@@ -112,14 +112,21 @@ module.exports = Behavior({
          * @method 点击坐标点
          */
         poiMarkerTap(e){
-            console.log(e.detail.markerId)
-            var i = e.detail.markerId
-            console.log(this.data.poiList[i])
 
-            this.setData({
-                poiDetail: this.data.poiList[i]
+            wx.navigateTo({
+                url: `/pages/store/store?store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d`,
             })
-            this.poiSwitchDialog()
+            // console.log(e.detail.markerId)
+            // var i = e.detail.markerId
+            // console.log(this.data.poiList[i])
+
+            // this.setData({
+            //     poiDetail: this.data.poiList[i]
+            // })
+            // this.poiSwitchDialog()
+
+
+
         },
         /**
          * @method 地图的开关

@@ -1,306 +1,306 @@
 {
-    "description": "项目配置文件",
-    "packOptions": {
-        "ignore": []
-    },
-    "setting": {
-        "urlCheck": false,
-        "es6": true,
-        "enhance": true,
-        "postcss": true,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "newFeature": true,
-        "coverView": true,
-        "nodeModules": false,
-        "autoAudits": true,
-        "showShadowRootInWxmlPanel": false,
-        "scopeDataCheck": false,
-        "uglifyFileName": true,
-        "checkInvalidKey": true,
-        "checkSiteMap": true,
-        "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
-        "useMultiFrameRuntime": false,
-        "useApiHook": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
-        "bundle": true,
-        "useIsolateContext": true,
-        "useCompilerModule": true,
-        "userConfirmedUseCompilerModuleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": []
-    },
-    "compileType": "miniprogram",
-    "libVersion": "2.11.0",
-    "appid": "wxd19bbe9cb3b293b6",
-    "projectname": "%E9%9B%86%E7%82%B9%E5%8D%A1%E5%AE%A2%E6%88%B7%E7%AB%AF",
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "isGameTourist": false,
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
-        "plugin": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "currentL": -1,
-            "list": []
-        },
-        "gamePlugin": {
-            "current": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": 17,
-            "list": [
-                {
-                    "id": 0,
-                    "name": "store",
-                    "pathName": "pages/store/store",
-                    "query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
-                    "scene": 1047
-                },
-                {
-                    "id": 1,
-                    "name": "接收好友share",
-                    "pathName": "pages/route/route",
-                    "query": "mode=share&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&share_uuid=c024b862-72c4-11e9-be1f-e95aa2c51b5d",
-                    "scene": null
-                },
-                {
-                    "id": 2,
-                    "name": "route2store",
-                    "pathName": "pages/route/route",
-                    "query": "mode=store&&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
-                    "scene": 1047
-                },
-                {
-                    "id": 3,
-                    "name": "qrcode_prize",
-                    "pathName": "pages/qrcode/qrcode",
-                    "query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&mode=prize",
-                    "scene": null
-                },
-                {
-                    "id": 4,
-                    "name": "share",
-                    "pathName": "pages/share/share",
-                    "query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&nav=nav_redirect",
-                    "scene": null
-                },
-                {
-                    "id": 5,
-                    "name": "route自助扫码",
-                    "pathName": "pages/route/route",
-                    "query": "scene=sh_1_1_1559939515",
-                    "scene": null
-                },
-                {
-                    "id": 6,
-                    "name": "alert提示",
-                    "pathName": "pages/alert/alert",
-                    "query": "scene=sh_1_1_1559939515",
-                    "scene": 1047
-                },
-                {
-                    "id": 7,
-                    "name": "list列表",
-                    "pathName": "pages/list/list",
-                    "query": "scene=sh_1_1_1559939515",
-                    "scene": 1047
-                },
-                {
-                    "id": -1,
-                    "name": "store",
-                    "pathName": "pages/store/store",
-                    "query": "mode=store&&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
-                    "scene": null
-                },
-                {
-                    "id": 9,
-                    "name": "route外卖领券点",
-                    "pathName": "pages/route/route",
-                    "query": "scene=wm_Tj7XU6fZ",
-                    "scene": null
-                },
-                {
-                    "id": 10,
-                    "name": "alert测试广告",
-                    "pathName": "pages/alert/alert",
-                    "query": "status=status_fail&mode=mode_score&nav=nav_redirect&store_uuid=54931e42-7c67-11e9-b94e-e95aa2c51b5d&title=温馨提示&content=二维码已使用",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "新版-main用户首页",
-                    "pathName": "pages2/main/main",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "新版-store店铺",
-                    "pathName": "pages2/store/store",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "新版-alert扫码结果",
-                    "pathName": "pages2/alert/alert",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "test_unit",
-                    "pathName": "pages2/test_unit/test_unit",
-                    "query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "新版-prize",
-                    "pathName": "pages2/prize/prize",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "新版prize_详情",
-                    "pathName": "pages2/prize_detail/prize_detail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 17,
-                    "name": "新增-alert",
-                    "pathName": "pages2/alert/alert",
-                    "query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&mode=prize",
-                    "scene": 1047
-                },
-                {
-                    "id": 18,
-                    "name": "pages2/test_unit/test_unit",
-                    "pathName": "pages2/test_unit/test_unit",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "pages2/route/route",
-                    "pathName": "pages2/route/route",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "pages2/self/self",
-                    "pathName": "pages2/self/self",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 21,
-                    "name": "pages2/store/store 店铺",
-                    "pathName": "pages2/store/store",
-                    "query": "storeUUID=68e54718-7156-11e9-b456-e95aa2c51b5d",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "pages2/qrcode/qrcode",
-                    "pathName": "pages2/qrcode/qrcode",
-                    "query": "storeUUID=6eab462e-0884-11ea-bda6-e95aa2c51b5d",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "pages3/live/live",
-                    "pathName": "pages3/live/live",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 24,
-                    "name": "pages3/discount-card/discount-card",
-                    "pathName": "pages3/discount-card/discount-card",
-                    "query": "store_uuid= b29c4dee-b35e-11e9-869d-e95aa2c51b5d",
-                    "scene": null
-                },
-                {
-                    "id": 25,
-                    "name": "pages/article/article",
-                    "pathName": "pages/article/article",
-                    "query": "url=https://sj.qskjad.top/Home/Index",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "pages3/ad/ad",
-                    "pathName": "pages3/ad/ad",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 27,
-                    "name": "pages3/ad_editor/ad_editor 编辑广告",
-                    "pathName": "pages3/ad_editor/ad_editor",
-                    "query": "adID=9b61b9ba5f0ead54005070067a3aecdb",
-                    "scene": null
-                },
-                {
-                    "id": 28,
-                    "name": "pages3/ad_preview/ad_preview预览广告",
-                    "pathName": "pages3/ad_preview/ad_preview",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 29,
-                    "name": "pages3/ad_editor/ad_editor 编辑广告图片",
-                    "pathName": "pages3/ad_editor/ad_editor",
-                    "query": "adID=463448e05ecb51990027a035020acb06",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "pages3/stamp/stamp",
-                    "pathName": "pages3/stamp/stamp",
-                    "query": "scene=wm_Tj7XU6fZ",
-                    "scene": null
-                },
-                {
-                    "id": 31,
-                    "name": "pages3/menu_pay/menu_pay",
-                    "pathName": "pages3/menu_pay/menu_pay",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 32,
-                    "name": "pages3/geo/geo",
-                    "pathName": "pages3/geo/geo",
-                    "query": "store_uuid=e8eeb038-a2d0-11ea-97f8-e95aa2c51b5d&longitude=108.333693&latitude=22.805182",
-                    "scene": null
-                }
-            ]
-        }
-    }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": false,
+		"scopeDataCheck": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": true,
+		"preloadBackgroundData": false,
+		"compileHotReLoad": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": []
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.13.1",
+	"appid": "wxd19bbe9cb3b293b6",
+	"projectname": "%E9%9B%86%E7%82%B9%E5%8D%A1%E5%AE%A2%E6%88%B7%E7%AB%AF",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 17,
+			"list": [
+				{
+					"id": 0,
+					"name": "store",
+					"pathName": "pages/store/store",
+					"query": "store_uuid=54931e42-7c67-11e9-b94e-e95aa2c51b5d",
+					"scene": 1047
+				},
+				{
+					"id": 1,
+					"name": "接收好友share",
+					"pathName": "pages/route/route",
+					"query": "mode=share&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&share_uuid=c024b862-72c4-11e9-be1f-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "route2store",
+					"pathName": "pages/route/route",
+					"query": "mode=store&&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"scene": 1047
+				},
+				{
+					"id": 3,
+					"name": "qrcode_prize",
+					"pathName": "pages/qrcode/qrcode",
+					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&mode=prize",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "share",
+					"pathName": "pages/share/share",
+					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&nav=nav_redirect",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "route自助扫码",
+					"pathName": "pages/route/route",
+					"query": "scene=sh_1_1_1559939515",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "alert提示",
+					"pathName": "pages/alert/alert",
+					"query": "scene=sh_1_1_1559939515",
+					"scene": 1047
+				},
+				{
+					"id": 7,
+					"name": "list列表",
+					"pathName": "pages/list/list",
+					"query": "scene=sh_1_1_1559939515",
+					"scene": 1047
+				},
+				{
+					"id": -1,
+					"name": "store",
+					"pathName": "pages/store/store",
+					"query": "mode=store&&store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "route外卖领券点",
+					"pathName": "pages/route/route",
+					"query": "scene=wm_Tj7XU6fZ",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "alert测试广告",
+					"pathName": "pages/alert/alert",
+					"query": "status=status_fail&mode=mode_score&nav=nav_redirect&store_uuid=54931e42-7c67-11e9-b94e-e95aa2c51b5d&title=温馨提示&content=二维码已使用",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版-main用户首页",
+					"pathName": "pages2/main/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版-store店铺",
+					"pathName": "pages2/store/store",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版-alert扫码结果",
+					"pathName": "pages2/alert/alert",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "test_unit",
+					"pathName": "pages2/test_unit/test_unit",
+					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版-prize",
+					"pathName": "pages2/prize/prize",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新版prize_详情",
+					"pathName": "pages2/prize_detail/prize_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "新增-alert",
+					"pathName": "pages2/alert/alert",
+					"query": "store_uuid=68e54718-7156-11e9-b456-e95aa2c51b5d&mode=prize",
+					"scene": 1047
+				},
+				{
+					"id": 18,
+					"name": "pages2/test_unit/test_unit",
+					"pathName": "pages2/test_unit/test_unit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/route/route",
+					"pathName": "pages2/route/route",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/self/self",
+					"pathName": "pages2/self/self",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "pages2/store/store 店铺",
+					"pathName": "pages2/store/store",
+					"query": "storeUUID=68e54718-7156-11e9-b456-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages2/qrcode/qrcode",
+					"pathName": "pages2/qrcode/qrcode",
+					"query": "storeUUID=6eab462e-0884-11ea-bda6-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/live/live",
+					"pathName": "pages3/live/live",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "pages3/discount-card/discount-card",
+					"pathName": "pages3/discount-card/discount-card",
+					"query": "store_uuid= b29c4dee-b35e-11e9-869d-e95aa2c51b5d",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "pages/article/article",
+					"pathName": "pages/article/article",
+					"query": "url=https://sj.qskjad.top/Home/Index",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/ad/ad",
+					"pathName": "pages3/ad/ad",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "pages3/ad_editor/ad_editor 编辑广告",
+					"pathName": "pages3/ad_editor/ad_editor",
+					"query": "adID=9b61b9ba5f0ead54005070067a3aecdb",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "pages3/ad_preview/ad_preview预览广告",
+					"pathName": "pages3/ad_preview/ad_preview",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "pages3/ad_editor/ad_editor 编辑广告图片",
+					"pathName": "pages3/ad_editor/ad_editor",
+					"query": "adID=463448e05ecb51990027a035020acb06",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/stamp/stamp",
+					"pathName": "pages3/stamp/stamp",
+					"query": "scene=wm_Tj7XU6fZ",
+					"scene": null
+				},
+				{
+					"id": 31,
+					"name": "pages3/menu_pay/menu_pay",
+					"pathName": "pages3/menu_pay/menu_pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 32,
+					"name": "pages3/geo/geo",
+					"pathName": "pages3/geo/geo",
+					"query": "store_uuid=e8eeb038-a2d0-11ea-97f8-e95aa2c51b5d&longitude=108.333693&latitude=22.805182",
+					"scene": null
+				}
+			]
+		}
+	}
 }

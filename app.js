@@ -1,6 +1,6 @@
 //app.js
 
-let livePlayer = requirePlugin('live-player-plugin')
+// let livePlayer = requirePlugin('live-player-plugin')
 var db = require('db/db.js')
 var dbAD = require('db/db_ad.js')
 var dbStamp = require('db/db_stamp.js')
@@ -243,19 +243,13 @@ App({
 })
 
 
-
-
-// "subpackages": [
-//     {
-//         "root": "packageA",
-//         "pages": [
-//             "pages/home/home"
-//         ],
-//         "plugins": {
-//             "live-player-plugin": {
-//                 "version": "1.0.3",
-//                 "provider": "wx2b03c6e691cd7370"
-//             }
-//         }
+// "plugins": {
+//     "live-player-plugin": {
+//         "version": "1.0.9",
+//             "provider": "wx2b03c6e691cd7370"
+//     },
+//     "mini-shop-plugin": {
+//         "version": "1.0.71",
+//             "provider": "wx34345ae5855f892d"
 //     }
-// ],
+// },

@@ -20,6 +20,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        sn:"", // 用户名称
+
+
         STORE_ICON_MODE_CUP: 1,//杯子图案
         STORE_ICON_MODE_STAMP: 2,//印章图案
         STORE_ICON_MODE_LADDER: 3,//天梯图案
@@ -87,6 +90,9 @@ Page({
     onLoad: function (options) {
         GP = this
 
+        this.setData({
+            sn: "SN10" + wx.getStorageSync(API.USER_INFO).id //+ "："
+        })
 
         GP.getStoreData(options)
         GP.startInterval()
@@ -250,9 +256,16 @@ Page({
     },
 
     /***********路由********** */
-    toExchange(){
-        wx.navigateTo({url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`})
+
+    toShop(){
+        wx.navigateTo({
+            url:  "plugin-private://wx34345ae5855f892d/pages/productDetail/productDetail?productId=975716",
+        })
     },
+
+    // toExchange(){
+    //     wx.navigateTo({url: `/pages/exchange/exchange?store_uuid=${GP.data.store.uuid}`})
+    // },
     toShare() {
         wx.navigateTo({ url: `/pages/share/share?nav=nav_back&store_uuid=${GP.data.store.uuid}`})
     },
@@ -313,9 +326,15 @@ Page({
     },
     // 定向返回list页面
     back() {
-        wx.redirectTo({
-            url: '/pages/list/list',
-        })
+        var page = getCurrentPages()
+        if(page.length == 1){
+            wx.redirectTo({
+                url: '/pages/list/list',
+            })
+        } else {
+            wx.navigateBack()
+        }
+        
     },
     // 去到定位页面
     toAddress() {

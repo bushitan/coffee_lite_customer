@@ -1,7 +1,7 @@
 
 /******集点数*******/
 .dian{
-    margin:45px 0 0;
+    margin:15px 0 0;
 }
 .score_title{
     color: #efaf30;

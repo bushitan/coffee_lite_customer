@@ -1,4 +1,5 @@
 {
+    "navigationStyle": "custom",
     "usingComponents": {
         "wave": "../../components/wave/wave",
         "icon-ladder": "../../components/icon_ladder/icon_ladder",

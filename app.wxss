@@ -29,7 +29,8 @@
 }
 .pg-swiper{  
     width: 750rpx;
-    height: 600rpx;
+    /* height: 600rpx; */
+    height: 320rpx;
 }
 
 

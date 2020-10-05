@@ -1,7 +1,6 @@
 <!--pages/user/user.wxml-->
 
-<!-- 
-   "navigationStyle":"custom",
+
     <video 
         id="myVideo" 
         src="cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1_bairimeng.mp4" 
@@ -24,19 +23,28 @@
         bindleavepictureinpicture='bindVideoLeavePictureInPicture'
 
     >
-        <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
-        src='../../images/back.png'></cover-image>
+        <!-- <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
+        src='../../images/back.png'></cover-image> -->
         <cover-image class='stroeBottom'  
         src='../../images/video/12345.png' mode="widthFix"></cover-image>
 
-    </video> -->
+    </video>    
+<!-- <view class="bg-yellow padding-top-xl"></view> -->
 
-<!-- <view  class='back' wx:if="{{showBack}}" catchtap='back'>
-    <image src='../../images/back.png'></image>
-</view> -->
+<view  class='back '  catchtap='back'>
+    <view class=" flex align-center  ">
+        <image class=" " src='/images/icon/back.png'></image>
+  
+        <image class=" " src='/images/icon/my.png'></image>
+        <open-data type="userNickName"></open-data>
+        （<text>{{sn}}</text>）
+    </view>
+</view>
 <view class="bg-black">
     <wave
+        store="{{store}}"
         logo="{{store.logo}}"
+        title="{{store.title}}"
         summary="{{store.summary}}"
         start_time="{{store.start_time}}"
         end_time="{{store.end_time}}"
@@ -104,7 +112,7 @@
 
 
 <view style='height:10px;'></view>
-<view class="weui-panel weui-panel_access" >
+<!-- <view class="weui-panel weui-panel_access" >
     <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
@@ -133,27 +141,43 @@
                 <image class="weui-media-box__thumb" src="../../images/menu_address.png" />
             </view>
         </view>
-        <!-- <button open-type="contact" class=" weui-media-box weui-media-box_appmsg contact_item">
-                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                    <view class="weui-media-box__title">小杯子客服</view>
-                    <view class="weui-media-box__desc">集点有问题？问问小杯子客服吧</view>
-                </view>
-                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                    <image class="weui-media-box__thumb" src="../../images/menu_contact.png" />
-                </view>
-        </button> -->
     </view>
-</view>
+</view> -->
 
 <view style="height:10px ;background-color:#ededed"></view>
 
+<!-- 
 <view>
     <ad unit-id="adunit-dcd8dba169c9d31c" ad-type="video" ad-theme="white"></ad>
+</view> -->
+
+
+
+
+
+<!-- 门店周边 -->
+<view class="padding">
+    <view class="cuIcon-titles text-yellow ">小周边</view>
+        
+    <view class="margin flex" catchtap="toShop">
+        <view class="bg-black flex-sub margin-right radius shadow-lg">
+            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/14KPI2WYWCpj2OzKse3HC5vEolzwA0LkWAKAqivbCBqvB-oQBORJ3AGDWca_h-PO?media-id=14KPI2WYWCpj2OzKse3HC5vEolzwA0LkWAKAqivbCBqvB-oQBORJ3AGDWca_h-PO&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
+        </view>
+        <view class="bg-gradual-blue flex-sub margin-right radius shadow-lg">
+            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur?media-id=8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
+        </view>
+    </view>
 </view>
-<official-account></official-account>
+
+
+
+<view style="height:10px ;background-color:#ededed"></view>
+
+
 
 <!-- <ad storeUUID="{{store.uuid}}"></ad> -->
 <ad-swiper storeUUID="{{store.uuid}}"></ad-swiper>
+<official-account></official-account>
 
 <view>
     <ad unit-id="adunit-1d99d4eb943378b8"></ad>
@@ -169,7 +193,7 @@
     <!-- <button  size="mini" type="" open-type="contact">小杯子客服</button> -->
     
     <view class=" page-flex-center page-pd15">
-        <button class=" cu-btn round   "  size="mini" type="" open-type="contact">小杯子客服</button>
+        <button class=" cu-btn round line-gray   "  size="mini" type="" open-type="contact">小杯子客服</button>
     </view>
 </view>
 <view style="height:60px"></view>

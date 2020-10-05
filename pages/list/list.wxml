@@ -1,8 +1,12 @@
 <!--pages/list/list.wxml-->
 
-<navigator url="plugin-private://wx34345ae5855f892d/pages/productDetail/productDetail?productId=975716">xiaxio shangdian</navigator>
+<!-- <navigator url="plugin-private://wx34345ae5855f892d/pages/productDetail/productDetail?productId=975716">xiaxio shangdian</navigator> -->
 
-<official-account></official-account>
+<view style="position:absolute:width:750rpx;top0;right:0;left:0; ">
+    <ad-swiper></ad-swiper>
+</view>
+
+
 <view class="pg-radius padding-lr margin-top" >
     <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
         <view class=" padding-lr ">
@@ -80,6 +84,9 @@
 <view class=" page-flex-center  margin-top">
     <button class=" cu-btn round line-gray   "  open-type="contact">小杯子客服</button>
 </view>
+<view class="fixed" style="position:fixed; width:750rpx; bottom:0;left:0,right:0">    
+    <official-account ></official-account>
+</view>
 
 
 <view class="cu-modal {{poiShow?'show':''}}">
@@ -96,7 +103,7 @@
             style="width:100%;" 
             src="https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg" 
             mode="widthFix"></image>
-        <video  wx:if="{{poiDetail.style == 2}}"
+        <!-- <video  wx:if="{{poiDetail.style == 2}}"
             id="myVideo" 
             class="storeVideo block"
             style="width:100%;" 
@@ -119,22 +126,25 @@
             bindleavepictureinpicture='bindVideoLeavePictureInPicture'
 
         >
+
+        </video>  -->
+        
             <!-- <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
             src='../../images/back.png'></cover-image>
             <cover-image class='stroeBottom'  
             src='../../images/video/12345.png' mode="widthFix"></cover-image> -->
-
-        </video> 
         <view class="cu-bar bg-white">
             <view class="action margin-0 flex-sub " catchtap="toScore" wx:if="{{poiDetail.footer_style==1}}" >
                 <image class="cu-avatar bg-white margin-right-xs" src="/images/icon_cup_right.png"></image>
                 <text class="text-yellow margin-right">{{poiDetail.footer_discount}}</text>               
-                <button class="cu-btn sm line-yellow round" >{{poiDetail.footer_btn || "去集点"}}</button>
+                <!-- <button class="cu-btn sm line-yellow round" >{{poiDetail.footer_btn || "去集点"}}</button> -->
+                <navigator url="plugin-private://wx34345ae5855f892d/pages/productDetail/productDetail?productId=975716">去商城</navigator>
             </view>
             <view class="action margin-0 flex-sub " catchtap="toLite"  wx:if="{{poiDetail.footer_style==2}}">
-                <image class="cu-avatar bg-white margin-right-xs" src="{{poiDetail.footer_logo}}"></image>
+                <!-- <image class="cu-avatar bg-white margin-right-xs" src="{{poiDetail.footer_logo}}"></image>
                 <text class="text-yellow margin-right">{{poiDetail.footer_discount}}</text>               
-                <button class="cu-btn sm line-yellow round" >{{poiDetail.footer_btn }}</button>
+                <button class="cu-btn sm line-yellow round" >{{poiDetail.footer_btn }}</button> -->
+                <navigator url="plugin-private://wx34345ae5855f892d/pages/productDetail/productDetail?productId=975716" class="cu-btn line-yellow">去商城</navigator>
             </view>
         </view>
     </view>
@@ -204,7 +214,7 @@
 </view>
 
 
-<view style="height:60px"></view>
+<view style="height:120px"></view>
 
 <!-- <ad-banner storeUUID="{{store.uuid}}"></ad-banner> -->
 

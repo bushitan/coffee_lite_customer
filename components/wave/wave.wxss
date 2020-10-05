@@ -4,6 +4,21 @@ background: #efaf30;
 width: 100%;
 height:100px; position: relative;
 }
+
+.title_box{
+    display: flex;
+    align-items: center;
+}
+.title{
+    font-size: 14pt;
+    font-weight: bold
+}
+.icon{
+        
+    height: 32px;
+    width:32px;
+    margin-left: 5px
+}
  
 .water {
 position: absolute;
@@ -37,7 +52,7 @@ animation: wave-animation-2 6s infinite linear
 .water-2 {
 position: absolute;
 width: 100%;
-height: 60px
+height: 30px
 }
  
 .back-white {
