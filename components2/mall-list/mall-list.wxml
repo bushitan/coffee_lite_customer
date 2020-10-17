@@ -1,0 +1,39 @@
+<!--components2/mall-list/mall-list.wxml-->
+
+
+<view class="padding">
+    <view class="cuIcon-titles text-yellow ">小周边</view>
+        
+    <view class="margin-top flex" wx:for="{{list}}" wx:key wx:for-index="i">
+    <!-- {{i}}{{list}} -->
+        <view class=" flex-sub margin-lr-sm radius shadow-lg" wx:for="{{list[i]}}" wx:for-item="product" catchtap="click" data-nav="{{product.navPath}}">
+            <image src="{{product.image}}" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
+            <view>{{product.title}}</view>
+            <view>{{product.des}}</view>
+            <view>
+                <text>{{product.price}}</text>
+                <text>{{product.priceOrg}}</text>
+                <text>{{product.priceDiscount}}</text>
+            </view>
+            <view>
+                <text wx:for="{{product.markerList}}" wx:for-item="marker">{{marker}}</text>
+            </view>
+        </view>
+        <view wx:if="{{list[i].length == 1}}"  class=" flex-sub margin-lr-sm radius shadow-lg" ></view>
+        <!-- <view class="bg-gradual-blue flex-sub  margin-lr-sm radius shadow-lg">
+            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur?media-id=8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
+        </view> -->
+    </view>
+
+<!--     
+    <view class="margin-top flex" catchtap="toShop">
+        <view class="bg-black flex-sub margin-lr-sm radius shadow-lg">
+            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/14KPI2WYWCpj2OzKse3HC5vEolzwA0LkWAKAqivbCBqvB-oQBORJ3AGDWca_h-PO?media-id=14KPI2WYWCpj2OzKse3HC5vEolzwA0LkWAKAqivbCBqvB-oQBORJ3AGDWca_h-PO&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
+        </view>
+        <view class="bg-gradual-blue flex-sub  margin-lr-sm radius shadow-lg">
+            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur?media-id=8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
+        </view>
+    </view> -->
+
+</view>
+

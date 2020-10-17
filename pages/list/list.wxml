@@ -7,7 +7,7 @@
 </view>
 
 
-<view class="pg-radius padding-lr margin-top" >
+<view class="pg-radius padding-lr margin-top" wx:if="{{false}}">
     <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
         <view class=" padding-lr ">
             <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
@@ -216,7 +216,7 @@
 
 <view style="height:120px"></view>
 
-<!-- <ad-banner storeUUID="{{store.uuid}}"></ad-banner> -->
+<ad-banner storeUUID="{{store.uuid}}"></ad-banner>
 
 <!-- <navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">

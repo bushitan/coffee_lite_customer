@@ -45,7 +45,11 @@
         "ad": "components2/ad/ad",
         "ad-banner": "components2/ad-banner/ad-banner",
         "ad-store": "components2/ad-store/ad-store",
-        "ad-swiper": "components2/ad-swiper/ad-swiper",      
+        "ad-swiper": "components2/ad-swiper/ad-swiper",  
+
+        "mall-list": "components2/mall-list/mall-list",
+        "mall-map": "components2/mall-map/mall-map",
+                
         
         "cu-custom": "/components2/cu-custom/cu-custom",
         "header": "components2/header/header",

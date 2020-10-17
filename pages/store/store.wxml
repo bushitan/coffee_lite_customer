@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 
 
-    <video 
+    <!-- <video 
         id="myVideo" 
         src="cloud://cup-customer-release.6375-cup-customer-release-1301587562/video/1_bairimeng.mp4" 
         autoplay="{{true}}"
@@ -23,16 +23,16 @@
         bindleavepictureinpicture='bindVideoLeavePictureInPicture'
 
     >
-        <!-- <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
-        src='../../images/back.png'></cover-image> -->
+        <cover-image class='storeBack' wx:if="{{showBack}}" catchtap='back'
+        src='../../images/back.png'></cover-image>
         <cover-image class='stroeBottom'  
         src='../../images/video/12345.png' mode="widthFix"></cover-image>
 
-    </video>    
-<!-- <view class="bg-yellow padding-top-xl"></view> -->
+    </video>     -->
+<view class="bg-yellow padding-top-xl"></view>
 
 <view  class='back '  catchtap='back'>
-    <view class=" flex align-center  ">
+    <view class=" flex align-center  text-sm">
         <image class=" " src='/images/icon/back.png'></image>
   
         <image class=" " src='/images/icon/my.png'></image>
@@ -155,20 +155,7 @@
 
 
 
-<!-- 门店周边 -->
-<view class="padding">
-    <view class="cuIcon-titles text-yellow ">小周边</view>
-        
-    <view class="margin flex" catchtap="toShop">
-        <view class="bg-black flex-sub margin-right radius shadow-lg">
-            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/14KPI2WYWCpj2OzKse3HC5vEolzwA0LkWAKAqivbCBqvB-oQBORJ3AGDWca_h-PO?media-id=14KPI2WYWCpj2OzKse3HC5vEolzwA0LkWAKAqivbCBqvB-oQBORJ3AGDWca_h-PO&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
-        </view>
-        <view class="bg-gradual-blue flex-sub margin-right radius shadow-lg">
-            <image src="https://wxamusic.wx.qq.com/wxasr/getminipic/8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur?media-id=8w7Iv6sKtadjTMA_Hzq3lBIYKuk0oQtgxiolABlUFkLAbVzPCiIZdhFnyeqJJZur&appid=wx678687fa5226e237" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
-        </view>
-    </view>
-</view>
-
+<mall-list store="{{store}}"></mall-list>
 
 
 <view style="height:10px ;background-color:#ededed"></view>

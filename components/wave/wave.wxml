@@ -11,7 +11,7 @@
            <view class="title_box">
                <text class="title">{{title}}</text>
                <image src="/images/icon/exchange.png" class="icon" catchtap="toExchange"></image>
-               <image src="/images/icon/nav.png" class="icon" catchtap='toAddress'></image>
+               <image src="/images/icon/nav.png" class="icon " catchtap='toAddress'></image>
 
            </view>
             <view class='discount'>{{summary}}</view>

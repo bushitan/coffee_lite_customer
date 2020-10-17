@@ -10,14 +10,16 @@ height:100px; position: relative;
     align-items: center;
 }
 .title{
-    font-size: 14pt;
-    font-weight: bold
+    flex-basis: 60%;
+    font-size: 11pt;
+    font-weight: bold;
+    /* margin-right: 5px; */
 }
 .icon{
         
     height: 32px;
     width:32px;
-    margin-left: 5px
+    margin-right: 5px
 }
  
 .water {
