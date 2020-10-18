@@ -1,2 +1,42 @@
 <!--components2/mall-map/mall-map.wxml-->
-<text>components2/mall-map/mall-map.wxml</text>
+
+
+
+<view class="pg-radius padding-lr margin-top" >
+    <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
+        <view class=" padding-lr ">
+            <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
+                <text class="cuIcon-title text-yellow "></text>
+                <text class="">小杯子探店地图 | {{brandList[brandIndex].des}}</text>
+            </view>
+        </view>
+        
+        <view class="cu-bar justify-start bg-white text-center margin-top-sm">
+            <view class="action sub-title margin-right" wx:for="{{brandList}}" catchtap="clickBrand" data-index="{{index}}">
+                <view class="flex flex-direction justify-center align-center">
+                    <image class="avatar  radius  block " src="{{item.icon}}" style="position:relat"></image>
+                    <text class="text-sm">{{item.name}}</text>
+                    <text class="text-sm"></text>
+                </view>   
+                <text class="bg-yellow" style="width:100%" wx:if="{{brandIndex == index}}"></text>
+            </view>
+        </view>
+       
+       
+        <view class="padding-lr flex justify-center margin-top-sm margin-bottom" hidden="{{poiShow}}">
+            <map 
+                id="map" 
+                longitude="{{poiLongitude}}" 
+                latitude="{{poiLatitude}}" 
+                scale="14"                         
+                show-compass="{{true}}"
+                show-scale="{{true}}"
+                markers="{{poiMarkers}}"
+                bindmarkertap="poiMarkerTap" 
+                polyline="{{polyline}}" 
+                show-location style="width: 100%; height: 30vh;"
+                show-scale="{{true}}"
+            ></map>
+        </view>
+    </view>
+</view>

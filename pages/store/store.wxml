@@ -31,6 +31,7 @@
     </video>     -->
 <view class="bg-yellow padding-top-xl"></view>
 
+
 <view  class='back '  catchtap='back'>
     <view class=" flex align-center  text-sm">
         <image class=" " src='/images/icon/back.png'></image>
@@ -50,6 +51,7 @@
         end_time="{{store.end_time}}"
     ></wave>  
 </view>
+
 
         <!-- score="{{data.score_num}}"
         exchange="{{store.exchange_value}}" -->
@@ -143,7 +145,10 @@
         </view>
     </view>
 </view> -->
-
+<!-- 便利店列表 -->
+<view class="page-bg-white-gray">
+    <mall-list store="{{store}}"></mall-list>
+</view>
 <view style="height:10px ;" class="page-bg-white-gray"></view>
 
 <!-- 
@@ -154,10 +159,6 @@
 
 
 
-<!-- 便利店列表 -->
-<view class="page-bg-white-gray">
-    <mall-list store="{{store}}"></mall-list>
-</view>
 
 <view style="height:10px ;" class="page-bg-white-gray"></view>
 

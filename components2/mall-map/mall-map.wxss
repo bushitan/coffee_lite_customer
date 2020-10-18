@@ -1,1 +1,29 @@
 /* components2/mall-map/mall-map.wxss */
+
+
+.bg-default{
+    background-color: #f2f1ed;
+
+}
+
+
+.avatar{
+    font-variant: small-caps;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ccc; */
+    color: var(--white);
+    white-space: nowrap;
+    position: relative;
+    width: 64rpx;
+    height: 64rpx;
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+    font-size: 1.5em;
+
+}
