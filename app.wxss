@@ -34,7 +34,8 @@
 }
 
 
-
+.page-bg-white-gray{ background-color: #f8f8f8 }
+.page-font-white-gray{color: #f8f8f8 }
 
 
 

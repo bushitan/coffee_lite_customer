@@ -2,11 +2,23 @@
 
 
 <view class="padding">
-    <view class="cuIcon-titles text-yellow ">小周边</view>
+    <!-- <view class="cuIcon-titles text-yellow ">小周边</view> -->
+
+    <view class=" text-bold text-xl text-yellow text-center ">小杯子便利店</view>
+    <view class="flex justify-between">
+        <view class="flex align-center">
+            
+            <text class="cuIcon-titles text-yellow "></text>
+            <text class="round bg-yellow text-white padding-lr padding-tb-xs text-sm " >到店自提</text>
+        </view>
+        <view class="text-gray sm">
+            我的购物车 >
+        </view>
+    </view>
         
     <view class="margin-top flex" wx:for="{{list}}" wx:key wx:for-index="i">
     <!-- {{i}}{{list}} -->
-        <view class=" flex-sub margin-lr-sm radius shadow-lg" wx:for="{{list[i]}}" wx:for-item="product" catchtap="click" data-nav="{{product.navPath}}">
+        <view class="bg-white flex-sub margin-lr-sm radius round" wx:for="{{list[i]}}" wx:for-item="product" catchtap="click" data-nav="{{product.navPath}}">
             <image src="{{product.image}}" mode="aspectFill" class="gif-black response block" style="height:240rpx"></image>
             <view>{{product.title}}</view>
             <view>{{product.des}}</view>

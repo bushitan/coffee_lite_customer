@@ -3,7 +3,7 @@
 /* 返回按钮 */
 .back{
     background-color: #efaf30;
-    color:#fff;
+    color:#ffffff;
     padding: 0 15px;
     /* paddaing:15px 0 0  15px; */
 }

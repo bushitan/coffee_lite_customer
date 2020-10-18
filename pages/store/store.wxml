@@ -144,7 +144,7 @@
     </view>
 </view> -->
 
-<view style="height:10px ;background-color:#ededed"></view>
+<view style="height:10px ;" class="page-bg-white-gray"></view>
 
 <!-- 
 <view>
@@ -154,11 +154,12 @@
 
 
 
+<!-- 便利店列表 -->
+<view class="page-bg-white-gray">
+    <mall-list store="{{store}}"></mall-list>
+</view>
 
-<mall-list store="{{store}}"></mall-list>
-
-
-<view style="height:10px ;background-color:#ededed"></view>
+<view style="height:10px ;" class="page-bg-white-gray"></view>
 
 
 
