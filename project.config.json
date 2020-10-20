@@ -304,6 +304,14 @@
 					"id": -1,
 					"name": "pages3/mall/preview/preview",
 					"pathName": "pages3/mall/preview/preview",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 34,
+					"name": "pages3/mall/brand/brand",
+					"pathName": "pages3/mall/brand/brand",
+					"query": "",
 					"scene": null
 				}
 			]

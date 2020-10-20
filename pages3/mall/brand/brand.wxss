@@ -1,0 +1,5 @@
+/* pages3/mall/brand.wxss */
+page{
+   
+	background-color: var(--ghostWhite);
+}

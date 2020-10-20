@@ -43,7 +43,10 @@ Component({
          */
         async onInit() {
             var res = await this.getBrandList({
-                type : BRAND_TYPE_ALL  
+                detail:{
+                    type : BRAND_TYPE_ALL,
+                    isShow:true,
+                }
             }) //获取品牌列表
             var brandList = res.data
             this.setData({

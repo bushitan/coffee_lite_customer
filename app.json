@@ -10,9 +10,9 @@
         "pages/webview/webview",
         "pages/wePay/wePay",
         "pages/share/share",
-
         "pages3/stamp/stamp",
-
+        "pages3/mall/preview/preview",
+        "pages3/mall/brand/brand",
         "pages2/qrcode/qrcode",
         "pages2/self/self",
         "pages2/prize_detail/prize_detail",
@@ -45,12 +45,9 @@
         "ad": "components2/ad/ad",
         "ad-banner": "components2/ad-banner/ad-banner",
         "ad-store": "components2/ad-store/ad-store",
-        "ad-swiper": "components2/ad-swiper/ad-swiper",  
-
+        "ad-swiper": "components2/ad-swiper/ad-swiper",
         "mall-list": "components2/mall-list/mall-list",
         "mall-map": "components2/mall-map/mall-map",
-                
-        
         "cu-custom": "/components2/cu-custom/cu-custom",
         "header": "components2/header/header",
         "notice": "components2/notice/notice",
@@ -62,11 +59,11 @@
     "plugins": {
         "live-player-plugin": {
             "version": "1.0.9",
-                "provider": "wx2b03c6e691cd7370"
+            "provider": "wx2b03c6e691cd7370"
         },
         "mini-shop-plugin": {
             "version": "1.0.71",
-                "provider": "wx34345ae5855f892d"
+            "provider": "wx34345ae5855f892d"
         }
     },
     "sitemapLocation": "sitemap.json"

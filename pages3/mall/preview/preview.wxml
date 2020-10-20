@@ -1,0 +1,61 @@
+<!--pages3/live/live.wxml-->
+
+<scroll-view scroll-x class="bg-white nav ">
+    <view class='flex text-center  '>
+        <view class="cu-item flex-sub {{item.id==tabIndex?'text-yellow text-bold cur':' text-gray'}} " 
+        wx:for="{{tabList}}" wx:key="index" data-tab_id="{{item.id}}" catchtap="tabSelect"     >
+                <view style="  position: relative" >
+                    {{item.name}}
+                </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="cu-card case ">
+    <view class="cu-item shadow" wx:for="{{list}}" >
+        <view class="image">
+            <image src="{{item.showImageUrl}}" mode="widthFix"></image>
+            <view class="cu-bar bg-shadeBottom">
+                <text class="text-cut">{{item.showDes}}</text>
+            </view>
+        </view>
+        <view class="padding flex justify-between align-center">    
+            <view wx:if="{{item.clickType == CLICK_IMAGE}}">
+                点击方式：打开图片
+                <image src="{{item.clickImageUrl}}" style="width:40px;height:40px" ></image>
+            </view>
+            <view wx:if="{{item.clickType == CLICK_WEB_VIEW}}">
+                点击方式：打开网页
+            </view>
+            <view wx:if="{{item.clickType == CLICK_LITE}}">点击方式：打开小程序</view>
+            <view wx:if="{{item.clickType == CLICK_LIVE}}">点击方式：打开直播间</view>
+            <view>
+                <!-- <button class="cu-btn bg-blue round sm"
+                    catchtap="toPreview" data-index="{{index}}"
+                >点击预览</button> -->
+                <button class="cu-btn bg-yellow text-white round sm margin-left"
+                    catchtap="toADEditor" data-ad_id="{{item._id}}"
+                >编辑</button>
+            </view>           
+        </view>   
+    </view>
+</view>
+
+<view class="padding-tb-sm solid-top flex justify-center footer" >
+     <button class="cu-btn bg-yellow text-white round "
+        catchtap="toADEditor" data-ad_id="" >新增广告位</button>
+</view>
+
+
+<view class=" padding-xs flex  align-center margin-top-sm justify-center">
+    <text class="text-center  text-gray text-sm">加载完毕</text>		
+</view>
+
+<view class=" padding-xs flex align-center margin-top-sm">
+    <view class="flex-sub text-center">
+        <view class=" text-df ">
+            <text class="text-gray text-sm">Copyright © 2020 索骏科技提供技术支持</text>
+        </view>           
+    </view>
+</view>
+<view class="page-space-60"></view>
+

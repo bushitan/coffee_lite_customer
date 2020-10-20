@@ -1,0 +1,129 @@
+<!--pages3/mall/brand.wxml-->
+<view class="bg-white padding   text-gray " wx:if="{{!isEditor}}">
+    <text class="cuIcon-title text-yellow "></text>
+    <text class="" wx:if="{{isSelect}}">绑定品牌</text>
+    <text class="" wx:else>品牌编辑</text>
+</view>
+<view class="bg-white padding   text-gray " wx:else>
+    <text class="cuIcon-title text-yellow "></text>
+    <text class="" wx:if="{{list.length > 0}}">新增 </text>
+    <text class="" wx:else>编辑</text>
+</view>
+<view wx:if="{{!isEditor}}">   
+    <checkbox-group bindchange="checkboxChange">
+        <view class="cu-list menu ">
+            <view url="" class="cu-item bg-white arrow justify-start"  style=" min-height: 140rpx;" 
+            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}">
+                <view  class="action flex justify-start">
+                    <view class="">
+                        <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.logo}}"></image>
+                    </view>                    
+                    <view class="text-left">
+                        <view class="text-grey">{{item.name}}</view>
+                        <view class="text-gray text-sm flex">
+                            <text class="text-cut">
+                                <text class="cuIcon-infofill text-red  margin-right-xs"></text>
+                                <text>{{item.des}}</text>
+                            </text>
+                        </view>
+                    </view>            
+                </view>
+                <view class="action">
+                    <checkbox value="{{item._id}}" checked="{{false}}" wx:if="{{isSelect}}"/>
+                    <button class="cu-btn round bg-yellow text-white" catchtap="editor" data-_id="{{item._id}}" wx:else> 编辑</button>
+                    <!-- <button class="cu-btn round bg-yellow text-white" catchtap="select" data-_id="{{item._id}}"> 选择</button> -->
+                </view>
+            </view>
+        </view>        
+    </checkbox-group>
+        
+    <!-- 底部按钮 -->
+    <view class="padding-tb-sm solid-top flex justify-center page-footer" >
+        <button class="cu-btn round bg-yellow text-white" catchtap="select"  wx:if="{{isSelect}}"> 选择</button> 
+        <button class="cu-btn bg-blue text-white round margin-right" catchtap="add" data-ad_id="" wx:else>新增</button>
+    </view>
+</view>
+<view wx:else> 
+
+    <form bindsubmit="save">
+        <view class="cu-form-group margin-top">
+            <view class="title">_id</view>
+            <input placeholder="id自动生成" value="{{detail._id}}" class="text-right" disabled="true"></input>
+        </view>        
+        <view class="cu-form-group  ">
+            <view class="title">SN</view>
+            <input placeholder="排序" name="sn" value="{{detail.sn}}" type ="digit" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">name</view>
+            <input placeholder="排序" name="name" value="{{detail.name}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">描述</view>
+            <input placeholder="描述" name="des" value="{{detail.des}}" class="text-right" ></input>
+        </view>
+        
+        <view class="cu-form-group  ">
+            <view class="title">logo</view>
+            <view>
+                <button class="cu-btn margin-right" catchtap="ViewLogo" data-url="{{detail.logo}}">查看</button>
+                <button class="cu-btn" catchtap="ChooseLogo" data-key="logo">更换</button>
+            </view>
+            <image src='{{detail.logo}}' class="cu-avatar  radius lg " mode='aspectFit'></image>
+        </view>
+        <!-- <view class="cu-form-group">
+            <view class="grid col-5 grid-square flex-sub">
+                <view class="bg-img" wx:for="{{logoList}}" wx:key="index" bindtap="ViewLogo" data-url="{{logoList[index]}}">
+                    <image src='{{logoList[index]}}' mode='aspectFit'></image>
+                    <view class="cu-tag bg-red" catchtap="DelLogo" data-index="{{index}}">
+                        <text class="cuIcon-close"></text>
+                    </view>
+                </view>
+                <view class="solids" bindtap="ChooseLogo" wx:if="{{logoList.length<logoMax}}">
+                    <text class="cuIcon-cameraadd"></text>
+                </view>
+            </view>
+        </view>    -->
+            
+        <view class="cu-form-group  ">
+            <view class="title">类型</view>
+            <input placeholder="1集点卡 2先享卡 3其他" name="type" 
+            value="{{detail.type}}" type ="digit"  class="text-right" ></input>
+        </view>
+
+        <view class="cu-form-group ">
+            <view class="title">是否显示</view>
+            <switch checked="{{detail.isShow}}" name="isShow"></switch>
+        </view>
+        
+        <view class="cu-form-group margin-top ">
+            <view class="title">地图图标</view>
+            <view>
+                <button class="cu-btn margin-right" catchtap="ViewLogo" data-url="{{detail.icon}}">查看</button>
+                <button class="cu-btn" catchtap="ChooseLogo" data-key="icon">更换</button>
+            </view>
+            <image src='{{detail.icon}}' class="cu-avatar  radius lg " mode='aspectFit'></image>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">冒泡文字</view>
+            <input placeholder="冒泡文字" name="callout" value="{{detail.callout}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">冒泡背景颜色</view>
+            <input placeholder="冒泡背景颜色" name="calloutBgColor" value="{{detail.calloutBgColor}}" class="text-right" ></input>
+        </view>
+
+        <!-- 底部按钮 -->
+        <view class="padding-tb-sm solid-top flex justify-center page-footer" >
+            <button class="cu-btn bg-blue text-white round margin-right-xl"
+                form-type="submit" >确定</button>
+            <button class="cu-btn bg-yellow text-white round "
+                catchtap="switchEditor" data-ad_id="" >返回</button>
+        </view>
+
+    </form>
+    
+    
+</view>
+
+<view class="page-space-60"></view>
