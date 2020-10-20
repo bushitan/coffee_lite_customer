@@ -8,50 +8,6 @@
 
 
 
-<!-- <view class="pg-radius padding-lr margin-top" >
-    <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
-        <view class=" padding-lr ">
-            <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
-                <text class="cuIcon-title text-yellow "></text>
-                <text class="">小杯子探店地图 | 尽享优惠</text>
-            </view>
-        </view>
-        <view class="" hidden="{{!poiDialogShow}}">
-            <view class="flex justify-center margin-top-sm padding-lr">
-                <image class="block" src="https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydxnxAZz0P1sR3Fiao0icnQ8JiajmniaLuhT16XibY1zXNc2ibBjdZCVFhKjtf50W8cuNvAmpZQ5pyrbia34g/0?wx_fmt=jpeg" mode="widthFix" style="width:100%" ></image>            
-            </view>
-            <view class="padding-lr margin-top-sm">
-                <view class="text-grey">岂止咖啡</view>
-                <view class="text-gray text-sm flex justify-between">
-                    <view></view>
-                    <view class="text-gray text-sm">
-                        <button class="cu-btn round bg-yellow text-white margin-left">集满6杯赠1杯 <text class="cuIcon-rigth"></text></button>
-                        <button class="cu-btn round bg-green text-white margin-left">先享8折 <text class="cuIcon-rigth"></text></button>
-                    </view>
-                </view>
-            </view>
-            
-        </view>
-
-        <view class="padding-lr flex justify-center" hidden="{{poiShow}}">
-            <map 
-                id="map" 
-                longitude="{{poiLongitude}}" 
-                latitude="{{poiLatitude}}" 
-                scale="14"                         
-                show-compass="{{true}}"
-                show-scale="{{true}}"
-                markers="{{poiMarkers}}"
-                bindmarkertap="poiMarkerTap" 
-                polyline="{{polyline}}" 
-                show-location style="width: 100%; height: 30vh;"
-                show-scale="{{true}}"
-            ></map>
-        </view>
-    </view>
-</view> -->
-
-
 <mall-map></mall-map>
 <view class="pg-radius padding-lr margin-top" >
     <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
@@ -63,16 +19,22 @@
             </view>
         </view>
          <view class="cu-list menu ">
-            <navigator url="" class="cu-item bg-white arrow "  style=" min-height: 140rpx;" 
+            <navigator url="" class="cu-item bg-white arrow justify-start"  style=" min-height: 140rpx;" 
             wx:for="{{list}}" catchtap='toStore' data-store_uuid="{{item.store_uuid}}">
-                <image class="cu-avatar radius lg margin-right-sm bg-white" src="{{item.logo}}"></image>
-                <view class="content">
-                    <view class="text-grey">{{item.title}}</view>
-                    <view class="text-gray text-sm flex">
-                        <text class="text-cut">
-                        <text class="cuIcon-infofill text-red  margin-right-xs"></text>{{item.summary || ""}}
-                    </text>
-                </view>
+                <view  class="action flex justify-start">
+                    <view class="">
+                        <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.logo}}"></image>
+                    </view>                    
+                    <view class="text-left">
+                        <view class="text-grey">{{item.title}}</view>
+                        <view class="text-gray text-sm flex">
+                            <text class="text-cut">
+                                <text class="cuIcon-infofill text-red  margin-right-xs"></text>
+                                <text>{{item.summary || ""}}</text>
+                            </text>
+                        </view>
+                    </view>
+                
                 </view>
                 <view class="action">
                     <!-- <view class="text-grey text-xs">已集点</view>
@@ -220,7 +182,8 @@
 
 <view style="height:120px"></view>
 
-<ad-banner storeUUID="{{store.uuid}}"></ad-banner>
+<!-- 广告banner -->
+<!-- <ad-banner storeUUID="{{store.uuid}}"></ad-banner> -->
 
 <!-- <navigator url="/pages3/live/live" class="padding-tb-xs padding-lr solid-top flex justify-between align-center " style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)">
     <view class="flex align-center">
@@ -245,3 +208,47 @@
 
 
 
+
+
+<!-- <view class="pg-radius padding-lr margin-top" >
+    <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
+        <view class=" padding-lr ">
+            <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
+                <text class="cuIcon-title text-yellow "></text>
+                <text class="">小杯子探店地图 | 尽享优惠</text>
+            </view>
+        </view>
+        <view class="" hidden="{{!poiDialogShow}}">
+            <view class="flex justify-center margin-top-sm padding-lr">
+                <image class="block" src="https://mmbiz.qpic.cn/mmbiz_jpg/49qhzgz5ydxnxAZz0P1sR3Fiao0icnQ8JiajmniaLuhT16XibY1zXNc2ibBjdZCVFhKjtf50W8cuNvAmpZQ5pyrbia34g/0?wx_fmt=jpeg" mode="widthFix" style="width:100%" ></image>            
+            </view>
+            <view class="padding-lr margin-top-sm">
+                <view class="text-grey">岂止咖啡</view>
+                <view class="text-gray text-sm flex justify-between">
+                    <view></view>
+                    <view class="text-gray text-sm">
+                        <button class="cu-btn round bg-yellow text-white margin-left">集满6杯赠1杯 <text class="cuIcon-rigth"></text></button>
+                        <button class="cu-btn round bg-green text-white margin-left">先享8折 <text class="cuIcon-rigth"></text></button>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+
+        <view class="padding-lr flex justify-center" hidden="{{poiShow}}">
+            <map 
+                id="map" 
+                longitude="{{poiLongitude}}" 
+                latitude="{{poiLatitude}}" 
+                scale="14"                         
+                show-compass="{{true}}"
+                show-scale="{{true}}"
+                markers="{{poiMarkers}}"
+                bindmarkertap="poiMarkerTap" 
+                polyline="{{polyline}}" 
+                show-location style="width: 100%; height: 30vh;"
+                show-scale="{{true}}"
+            ></map>
+        </view>
+    </view>
+</view> -->

@@ -18,8 +18,10 @@
         
     <view class="margin-top flex" wx:for="{{list}}" wx:key wx:for-index="i">
 
-        <view class="bg-white flex-sub margin-lr-sm radius " style="overflow: hidden;"
-         wx:for="{{list[i]}}" wx:for-item="product" catchtap="click" data-nav="{{product.navPath}}">
+        <view class="bg-white flex-sub margin-lr-sm radius product" style="overflow: hidden;"
+         wx:for="{{list[i]}}" wx:for-item="product"  catchtap="click" data-nav="{{product.navPath}}" 
+         data-store_id="{{store.id}}" data-user_sn="{{sn}}" 
+         data-product_id="{{product._id}}" data-product_name="{{product.name}}" data-product_title="{{product.title}}">
             <image src="{{product.image}}" mode="aspectFill" class="gif-black response block" style="height:325rpx"></image>            
             <view class="padding-sm">            
                 <view class="text-df">{{product.title}}</view>

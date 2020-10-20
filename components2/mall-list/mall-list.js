@@ -44,12 +44,13 @@ Component({
         },
 
         async setList(store){
+            // debugger
             // var store = newVal
             // todo 查询列表
             var res = await this.getProjectList({
-                relateUUID: store.uuid
+                storeUUID: store.uuid,
+                isUUID:true,
             })
-            console.log()
             var data = res.data
             var tempList = []
             for (var i = 0; i < data.length; i = i + 2) {
@@ -69,7 +70,7 @@ Component({
         getProjectList(data) {
             return new Promise((reslove, reject) => {
                 data = data || {}
-                data['action'] = "store_get_product_list_by_uuid"
+                data['action'] = "product_get_list_by_store"
                 wx.cloud.callFunction({
                     name: 'mall',
                     data: data,
