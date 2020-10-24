@@ -29,11 +29,22 @@ Page({
     },
 
     async onInit(){
-        var res = await this.brandGetList({
-            detail:{
-                type: 1
-            }
-        })   
+        var res
+        if (this.data.isSelect) { //选择
+            var page = getCurrentPages()            
+            var pre = page[page.length - 2]
+            res = await this.brandUnSelect({
+                brandList: pre.data.detail.brandList
+            })  
+        }
+        else { // 全部列表
+            res = await this.brandGetList({
+                detail: {
+                    type: 1
+                }
+            })  
+        }
+        
         this.setData({
             list : res.data
         })
@@ -51,26 +62,11 @@ Page({
     
     // 选择，绑定关系使用
     select(e){
-        // var old = [1] 
-        // old = old.concat(this.data.selectList) //(e.currentTarget.dataset._id)
-        // console.log(old)
         var page = getCurrentPages()
         var pre = page[page.length-2]
-        var detail = pre.data.detail
-        detail.data.brandList = detail.data.brandList.contact(this.data.selectList) //(e.currentTarget.dataset._id)
-        pre.setData({
-            detail: detail
-        })
-        pre.callback() //更新成功的回掉
+        pre.callback(this.data.selectList) //更新成功的回掉
         wx.navigateBack()  //返回
 
-        // // 更新信息
-        // var res = await pre.brandUpdate({
-        //     _id: pre.data.detail._id,
-        //     detail: {
-                
-        //     }
-        // })
     },
 
     // 保存

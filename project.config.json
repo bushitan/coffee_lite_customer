@@ -313,6 +313,26 @@
 					"pathName": "pages3/mall/brand/brand",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/mall/index/index",
+					"pathName": "pages3/mall/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/mall/store/store",
+					"pathName": "pages3/mall/store/store",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages3/mall/product/product",
+					"pathName": "pages3/mall/product/product",
+					"scene": null
 				}
 			]
 		}

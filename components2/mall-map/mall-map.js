@@ -61,9 +61,11 @@ Component({
          * @method 点击品牌 刷新地图
          */
         async clickBrand(e){
+            // debugger
             this.changeBrandIndex(e)
-            var res = await this.getStoreList({ brandID: this.data.brandList[ this.data.brandIndex ]._id }) // 获取当前门店的列表
-
+            var res = await this.getStoreList({ 
+                brandID: this.data.brandList[ this.data.brandIndex ]._id 
+            }) // 获取当前门店的列表ole.log
             this.setStoreListToMap(res.data)
         },
 

@@ -11,7 +11,21 @@ module.exports = Behavior({
     },
     methods: {
       
-
+        // 添加品牌
+        brandAdd(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "brand_add"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
         // 获取品牌列表
         brandGetList(data) {
             return new Promise((reslove, reject) => {
@@ -58,8 +72,148 @@ module.exports = Behavior({
                 })
             })
         },
+        // 获取品牌更新
+        brandUnSelect(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "brand_get_list_unselect"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
 
-        
+
+        // 获取品牌列表
+        storeGetList(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "store_get_list"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+
+        // 获取品牌详情
+        storeGetByID(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "store_get_by_id"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+        // 获取品牌更新
+        storeUpdate(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "store_update"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+
+
+        // 获取品牌更新
+        storeUnSelect(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "store_get_list_unselect"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+        //////////////
+        // 添加产品
+        productAdd(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "product_add"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+        // 获取产品列表
+        productGetList(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "product_get_list"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+
+        // 获取产品详情
+        productGetByID(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "product_get_by_id"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
+        // 获取产品更新
+        productUpdate(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "product_update"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
 
         /**基础功能****/
         // 新增
@@ -96,10 +250,33 @@ module.exports = Behavior({
             });
         },
 
+
+        //选择
+        // 选择，绑定关系使用
+        select(e) {
+            // var old = [1] 
+            // old = old.concat(this.data.selectList) //(e.currentTarget.dataset._id)
+            // console.log(old)
+            var page = getCurrentPages()
+            var pre = page[page.length - 2]
+            pre.callback(this.data.selectList) //更新成功的回掉
+            wx.navigateBack()  //返回
+            
+        },
+        // 多选器
+        checkboxChange(e) {
+            this.setData({ selectList: e.detail.value })
+        },
+
+
+
         /**上传****/
 
         // 获取https链接的图片
         async getHttpsImage(filePath,marker){
+            if (filePath == "")
+                return ""
+
             var filePath = filePath
             var isWeb = /^https:\/\//.test(filePath)
             if (isWeb) {
@@ -183,3 +360,31 @@ module.exports = Behavior({
     // },
 })
 
+
+
+
+    // // 选择，绑定关系使用
+    // select(e){
+    //     // var old = [1] 
+    //     // old = old.concat(this.data.selectList) //(e.currentTarget.dataset._id)
+    //     // console.log(old)
+
+
+    //     var page = getCurrentPages()
+    //     var pre = page[page.length-2]
+    //     var detail = pre.data.detail
+    //     detail.data.brandList = detail.data.brandList.contact(this.data.selectList) //(e.currentTarget.dataset._id)
+    //     pre.setData({
+    //         detail: detail
+    //     })
+    //     pre.callback() //更新成功的回掉
+    //     wx.navigateBack()  //返回
+
+    //     // // 更新信息
+    //     // var res = await pre.brandUpdate({
+    //     //     _id: pre.data.detail._id,
+    //     //     detail: {
+
+    //     //     }
+    //     // })
+    // },

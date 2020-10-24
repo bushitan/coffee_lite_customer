@@ -1,18 +1,16 @@
 <!--components2/mall-list/mall-list.wxml-->
 
 
-<view class="padding-xs" wx:if="{{list.length==0?false:true}}">
+<view class="padding-xs " wx:if="{{list.length==0?false:true}}">
     <!-- <view class="cuIcon-titles text-yellow ">小周边</view> -->
 
-    <view class=" text-bold text-xl text-yellow text-center ">{{store.title}}【自提点】</view>
-    <view class="flex justify-between align-center padding-lr-sm margin-top-xs">
+    <!-- <view class=" text-bold text-xl text-yellow text-center ">{{store.title}}【自提点】</view> -->
+    <view class="flex justify-between align-center padding-lr-sm margin-top-xl">
         <view class="flex align-center" catchtap="refresh">           
-            <text class="cu-tag bg-yellow text-white "  >小杯子便利店</text>
-        </view>
-        <view class="text-gray sm">
-            <text  catchtap="toShoppingCart">购物车</text>
-            <text class="margin-lr">|</text>
-            <text  catchtap="toShoppingOrder">我的订单</text>
+            <text class="cuIcon-title  text-yellow  "  ></text>
+            <text class="text-yellow text-df">小杯子便利店</text>
+            <text class="text-yellow text-df margin-lr">|</text>
+            <text class="text-yellow text-df">{{store.title}}【到店自取】</text>
         </view>
     </view>
         
@@ -40,6 +38,11 @@
      
     </view>
 
+        <view class="text-gray text-df text-center margin-top">
+            <text  catchtap="toShoppingCart">购物车</text>
+            <text class="margin-lr">|</text>
+            <text  catchtap="toShoppingOrder">我的订单</text>
+        </view>
 </view>
 
                 <!-- <view>{{product.des}}</view> -->

@@ -1,0 +1,35 @@
+<!--pages3/mall/brand.wxml-->
+
+<view class="bg-white padding   text-gray ">
+    <text class="cuIcon-title text-yellow "></text>
+    <text class="" >小杯子便利店管理后台</text>
+</view>
+<view>   
+    <checkbox-group bindchange="checkboxChange">
+        <view class="cu-list menu ">
+            <view url="" class="cu-item bg-white arrow justify-start"  style=" min-height: 140rpx;" 
+            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}">
+                <view  class="action flex justify-start">
+                    <view class="">
+                        <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.logo}}"></image>
+                    </view>                    
+                    <view class="text-left">
+                        <view class="text-grey">{{item.name}}</view>
+                        <view class="text-gray text-sm flex">
+                            <text class="text-cut">
+                                <text class="cuIcon-infofill text-red  margin-right-xs"></text>
+                                <text>{{item.des}}</text>
+                            </text>
+                        </view>
+                    </view>            
+                </view>
+                <view class="action">
+                    <button class="cu-btn round bg-yellow text-white" catchtap="nav" data-nav="{{item.nav}}" > 编辑</button>
+                </view>
+            </view>
+        </view>        
+    </checkbox-group>
+        
+</view>
+
+<view class="page-space-60"></view>
