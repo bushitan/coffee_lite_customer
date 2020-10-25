@@ -46,9 +46,23 @@ Page({
         }
         
         this.setData({
-            list : res.data
+            list : res.data,
+            orgList:res.data,
         })
     },
+
+    async add() {
+        var res = await this.brandAdd({
+            isShow: false,
+            sn: -2
+        })
+        wx.showToast({
+            title: res.msg,
+        })
+        this.onInit()
+    },
+
+
     // 编辑
     async editor(e) {
         var res = await this.brandGetByID({
@@ -81,7 +95,7 @@ Page({
             _id:this.data.detail._id,
             detail: detail
         })
-        wx.showModal({
+        wx.showToast({
             title: res.msg,
         })
 

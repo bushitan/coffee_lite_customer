@@ -33,8 +33,9 @@ Component({
             })
         },
 
-        async setStore(newVal, oldVal){
+        async setStore(newVal, oldVal) {
             if (newVal.hasOwnProperty("uuid")) {
+                
                 this.setList(newVal)
             }
         },
@@ -44,7 +45,6 @@ Component({
         },
 
         async setList(store){
-            // debugger
             // var store = newVal
             // todo 查询列表
             var res = await this.getProjectList({

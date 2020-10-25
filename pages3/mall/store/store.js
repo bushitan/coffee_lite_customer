@@ -46,6 +46,16 @@ Page({
         })
     },
 
+    async add() {
+        var res = await this.storeAdd({
+            isShow: false,
+            sn: -2
+        })
+        wx.showToast({
+            title: res.msg,
+        })
+        this.onInit()
+    },
     // 获取详情
     async getDetal(_id){
         var res = await this.storeGetByID({
@@ -67,8 +77,8 @@ Page({
     async save(e) {
         var formData = e.detail.value
         formData.sn = parseInt(formData.sn)
-        formData.longitude = parseInt(formData.longitude)
-        formData.latitude = parseInt(formData.latitude)
+        formData.longitude = parseFloat(formData.longitude)
+        formData.latitude = parseFloat(formData.latitude)
         // formData.logo = await this.getHttpsImage(this.data.detail.logo,"logo")
         // formData.icon = await this.getHttpsImage(this.data.detail.icon,"icon")        
         var detail = formData
@@ -76,7 +86,7 @@ Page({
             _id:this.data.detail._id,
             detail: detail
         })
-        wx.showModal({
+        wx.showToast({
             title: res.msg,
         })
 

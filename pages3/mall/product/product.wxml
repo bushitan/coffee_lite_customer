@@ -1,23 +1,33 @@
 <!--pages3/mall/brand.wxml-->
+<wxs src="../wxs/check.wxs" module="check" />
 <view class="bg-white padding   text-gray " wx:if="{{!isEditor}}">
     <text class="cuIcon-title text-yellow "></text>
     <text class=""  >编辑产品</text>
 </view>
 <view wx:if="{{!isEditor}}">   
+
+    <form bindsubmit="search"> 
+        <view class="cu-form-group  " >
+            <view class="title">搜索</view>
+            <input placeholder="请输入name" name="input" class="text-right" ></input>
+            <button class="cu-btn " form-type="submit">搜索</button>
+        </view>
+    </form>
     <checkbox-group bindchange="checkboxChange">
         <view class="cu-list menu ">
             <view url="" class="cu-item bg-white arrow justify-start"  style=" min-height: 140rpx;" 
-            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}">
+            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}" wx:if="{{check.name(item.name,inputValue)}}">
                 <view  class="action flex justify-start">
+                    <view>{{index+1}}</view>
                     <view class="">
-                        <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.logo}}"></image>
+                        <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.image}}"></image>
                     </view>                    
                     <view class="text-left">
                         <view class="text-grey">{{item.name}}</view>
                         <view class="text-gray text-sm flex">
                             <text class="text-cut">
                                 <text class="cuIcon-infofill text-red  margin-right-xs"></text>
-                                <text>{{item.isShow?"显示":"不显示"}}</text>
+                                <text>{{item.isShow?"显示":"隐藏"}}  | {{item.sn}}</text>
                             </text>
                         </view>
                     </view>            
@@ -84,6 +94,23 @@
             <view class="title">是否显示</view>
             <switch checked="{{detail.isShow}}" name="isShow"></switch>
         </view>
+
+
+        <view class="cu-form-group  margin-top">
+            <view class="title">跳转路径</view>
+            <input placeholder="跳转路径" name="navPath" value="{{detail.navPath}}" class="text-right" ></input>
+        </view>
+
+
+        <view class="cu-form-group  ">
+            <view class="title">小程序APPID</view>
+            <input placeholder="APPID" name="liteAppID" value="{{detail.liteAppID}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">小程序路径</view>
+            <input placeholder="path" name="litePath" value="{{detail.litePath}}" class="text-right" ></input>
+        </view>
+
         <view class="cu-form-group  margin-top">
             <view class="title">logo</view>
             <view>
@@ -91,10 +118,6 @@
                 <button class="cu-btn" catchtap="ChooseLogo" data-key="image">更换</button>
             </view>
             <image src='{{detail.image}}' class="cu-avatar  radius lg " mode='aspectFit'></image>
-        </view>
-        <view class="cu-form-group  ">
-            <view class="title">跳转路径</view>
-            <input placeholder="跳转路径" name="navPath" value="{{detail.navPath}}" class="text-right" ></input>
         </view>
         <view class="cu-form-group  ">
             <view class="title">价格</view>
@@ -122,6 +145,32 @@
             </view>
         </view>
 
+        
+        <view class="cu-form-group  margin-top" >
+            <view class="title">标签1--颜色</view>
+            <input  placeholder="颜色" name="marker0_color" value="{{detail.markerList[0].color}}"  class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  " >
+            <view class="title">标签1--内容</view>
+            <input  placeholder="内容" name="marker0_text"  value="{{detail.markerList[0].text}}"  class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  " >
+            <view class="title">标签2--颜色</view>
+            <input  placeholder="颜色" name="marker1_color" value="{{detail.markerList[1].color}}"  class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  " >
+            <view class="title">标签2--内容</view>
+            <input  placeholder="内容" name="marker1_text"  value="{{detail.markerList[1].text}}"  class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  " >
+            <view class="title">标签3--颜色</view>
+            <input  placeholder="颜色" name="marker2_color" value="{{detail.markerList[2].color}}"  class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  " >
+            <view class="title">标签3--内容</view>
+            <input  placeholder="内容" name="marker2_text"  value="{{detail.markerList[2].text}}"  class="text-right" ></input>
+        </view>
+
         <!-- 底部按钮 -->
         <view class="padding-tb-sm solid-top flex justify-center page-footer" >
             <button class="cu-btn bg-blue text-white round margin-right-xl"
@@ -136,3 +185,4 @@
 </view>
 
 <view class="page-space-60"></view>
+

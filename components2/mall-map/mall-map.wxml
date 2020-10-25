@@ -4,14 +4,14 @@
 
 <view class="pg-radius padding-lr margin-top" >
     <view class=" pg-radius  shadow shadow-warp bg-white text-black ">
-        <view class=" padding-lr ">
+        <view class=" padding-lr " catchtap="toEditor">
             <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
                 <text class="cuIcon-title text-yellow "></text>
                 <text class="">小杯子集点卡 | {{brandList[brandIndex].des}}</text>
             </view>
         </view>
         
-        <view class="cu-bar justify-between bg-white text-center margin-top-sm">
+        <view class="cu-bar justify-start bg-white text-center margin-top-sm">
             <view class="action sub-title margin-right" wx:for="{{brandList}}" catchtap="clickBrand" data-index="{{index}}">
                 <view class="flex flex-direction justify-center align-center">
                     <image class="avatar  radius  block " src="{{item.logo}}" style="position:relat"></image>

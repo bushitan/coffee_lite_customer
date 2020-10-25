@@ -7,10 +7,10 @@
     <!-- <view class=" text-bold text-xl text-yellow text-center ">{{store.title}}【自提点】</view> -->
     <view class="flex justify-between align-center padding-lr-sm margin-top-xl">
         <view class="flex align-center" catchtap="refresh">           
-            <text class="cuIcon-title  text-yellow  "  ></text>
+            <text class="cuIcon-titles  text-yellow  "  ></text>
             <text class="text-yellow text-df">小杯子便利店</text>
-            <text class="text-yellow text-df margin-lr">|</text>
-            <text class="text-yellow text-df">{{store.title}}【到店自取】</text>
+            <!-- <text class="text-yellow text-df margin-lr">——</text> -->
+            <text class="text-yellow text-df">【{{store.title}}】</text>
         </view>
     </view>
         
@@ -30,7 +30,7 @@
                 </view>
                 <view>
                     <text wx:for="{{product.markerList}}" wx:for-item="marker" 
-                    class="cu-tag line-{{marker.color}} sm radius">{{marker.text}}</text>
+                    class="cu-tag line-{{marker.color}} sm radius" wx:if="{{marker.text==''?false:true}}">{{marker.text}}</text>
                 </view>
             </view>
         </view>

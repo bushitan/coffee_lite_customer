@@ -1,4 +1,6 @@
 <!--pages3/mall/brand.wxml-->
+<wxs src="../wxs/check.wxs" module="check" />
+
 <view class="bg-white padding   text-gray " wx:if="{{!isEditor}}">
     <text class="cuIcon-title text-yellow "></text>
     <text class="" wx:if="{{isSelect}}">绑定门店</text>
@@ -10,20 +12,36 @@
     <text class="" wx:else>编辑</text>
 </view>
 <view wx:if="{{!isEditor}}">   
+
+    <form bindsubmit="search"> 
+        <view class="cu-form-group  " >
+            <view class="title">搜索</view>
+            <input placeholder="请输入name" name="input" class="text-right" ></input>
+            <button class="cu-btn " form-type="submit">搜索</button>
+        </view>
+    </form>
     <checkbox-group bindchange="checkboxChange">
         <view class="cu-list menu ">
             <view url="" class="cu-item bg-white arrow justify-start"  style=" min-height: 140rpx;" 
-            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}">
+            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}" wx:if="{{check.name(item.name,inputValue)}}">
                 <view  class="action flex justify-start">
+                    <view>{{index+1}}</view>
                     <view class="">
                         <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.logo}}"></image>
                     </view>                    
                     <view class="text-left">
-                        <view class="text-grey">{{item.name}}</view>
+                        <view class="text-grey">
+                            {{item.name}}
+                        </view>
                         <view class="text-gray text-sm flex">
                             <text class="text-cut">
                                 <text class="cuIcon-infofill text-red  margin-right-xs"></text>
-                                <text>{{item.isHead?"集点卡显示门店":""}}</text>
+                                <text>{{item.isShow?"显示":"隐藏"}} | {{item.sn}} | </text>              
+
+                                <text class="cu-tag line-yellow sm" wx:if="{{item.relateType==1}}">集点卡</text>                 
+                                <text class="cu-tag line-green sm" wx:else>优惠GO</text>
+                                                     
+                                <text class="cu-tag line-red sm" wx:if="{{item.isHead}}">主要</text>
                             </text>
                         </view>
                     </view>            
@@ -56,7 +74,7 @@
         </view>
         <view class="cu-form-group  ">
             <view class="title">name</view>
-            <input placeholder="排序" name="name" value="{{detail.name}}" class="text-right" ></input>
+            <input placeholder="名称" name="name" value="{{detail.name}}" class="text-right" ></input>
         </view>
         <!-- <view class="cu-form-group  ">
             <view class="title">描述</view>
@@ -102,7 +120,29 @@
             </view>
         </view>
 
+        <view class="cu-form-group margin-top ">
+            <view class="title">关联方式</view>
+            <input placeholder="1 uuid / 2 id" name="relateType" value="{{detail.relateType}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group ">
+            <view class="title">uuid</view>
+            <input placeholder="uuid" name="relateUUID" value="{{detail.relateUUID}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group ">
+            <view class="title">id</view>
+            <input placeholder="id" name="relateID" value="{{detail.relateID}}" class="text-right" ></input>
+        </view>
 
+        <view class="cu-form-group  ">
+            <view class="title">小程序APPID</view>
+            <input placeholder="APPID" name="liteAppID" value="{{detail.liteAppID}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">小程序路径</view>
+            <input placeholder="path" name="litePath" value="{{detail.litePath}}" class="text-right" ></input>
+        </view>
+
+        
         <view class="cu-form-group margin-top ">
             <view class="title">经度</view>
             <input placeholder="经度" name="longitude" value="{{detail.location.coordinates[0]}}" class="text-right" ></input>

@@ -1,4 +1,7 @@
 <!--pages3/mall/brand.wxml-->
+
+<wxs src="../wxs/check.wxs" module="check" />
+
 <view class="bg-white padding   text-gray " wx:if="{{!isEditor}}">
     <text class="cuIcon-title text-yellow "></text>
     <text class="" wx:if="{{isSelect}}">绑定品牌</text>
@@ -10,11 +13,21 @@
     <text class="" wx:else>编辑</text>
 </view>
 <view wx:if="{{!isEditor}}">   
+
+    <form bindsubmit="search"> 
+        <view class="cu-form-group  " >
+            <view class="title">搜索</view>
+            <input placeholder="请输入name" name="input" class="text-right" ></input>
+            <button class="cu-btn " form-type="submit">搜索</button>
+        </view>
+    </form>
     <checkbox-group bindchange="checkboxChange">
         <view class="cu-list menu ">
             <view url="" class="cu-item bg-white arrow justify-start"  style=" min-height: 140rpx;" 
-            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}">
+            wx:for="{{list}}" data-store_uuid="{{item.store_uuid}}" wx:if="{{check.name(item.name,inputValue)}}">
+         
                 <view  class="action flex justify-start">
+                    <view>{{index+1}}</view>
                     <view class="">
                         <image class="cu-avatar radius lg margin-right-sm bg-white block" src="{{item.logo}}"></image>
                     </view>                    
@@ -23,7 +36,7 @@
                         <view class="text-gray text-sm flex">
                             <text class="text-cut">
                                 <text class="cuIcon-infofill text-red  margin-right-xs"></text>
-                                <text>{{item.des}}</text>
+                                <text>{{item.des}} | {{item.isShow?"显示":"隐藏"}} | {{item.sn}}</text>
                             </text>
                         </view>
                     </view>            
@@ -59,7 +72,11 @@
             <input placeholder="排序" name="name" value="{{detail.name}}" class="text-right" ></input>
         </view>
         <view class="cu-form-group  ">
-            <view class="title">描述</view>
+            <view class="title">title</view>
+            <input placeholder="描述" name="title" value="{{detail.title}}" class="text-right" ></input>
+        </view>
+        <view class="cu-form-group  ">
+            <view class="title">des</view>
             <input placeholder="描述" name="des" value="{{detail.des}}" class="text-right" ></input>
         </view>
         

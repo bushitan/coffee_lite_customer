@@ -1,0 +1,15 @@
+
+var checkName = function (value, input) {
+
+    console.log(value, input, value.indexOf(input))
+    if (input == "")
+        return true
+
+    if (value.indexOf(input) >= 0)
+        return true
+    else
+        return false
+}
+module.exports = {
+    name: checkName,
+}

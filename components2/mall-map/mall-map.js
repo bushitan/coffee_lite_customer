@@ -65,6 +65,7 @@ Component({
             this.changeBrandIndex(e)
             var res = await this.getStoreList({ 
                 brandID: this.data.brandList[ this.data.brandIndex ]._id 
+                
             }) // 获取当前门店的列表ole.log
             this.setStoreListToMap(res.data)
         },
@@ -212,13 +213,24 @@ Component({
                     url: `/pages/store/store?store_uuid=` + store.relateUUID,                
                 })
             else
-                wx.openLocation({
-                    name: store.name,
-                    address: store.address,
-                    longitude: store.location.coordinates[0],
-                    latitude: store.location.coordinates[1],                    
-                    scale: 14,
+                wx.navigateToMiniProgram({
+                    appId: store.liteAppID,
+                    path: store.litePath,
+                    // envVersion: 'trial',
                 })
+                // wx.openLocation({
+                //     name: store.name,
+                //     address: store.address,
+                //     longitude: store.location.coordinates[0],
+                //     latitude: store.location.coordinates[1],                    
+                //     scale: 14,
+                // })
+        },
+
+        toEditor(){
+            wx.navigateTo({
+                url: '/pages3/mall/index/index',
+            })
         },
     }
 })

@@ -65,10 +65,24 @@ Page({
     async save(e) {
         var formData = e.detail.value
         formData.sn = parseInt(formData.sn)
-        formData.longitude = parseInt(formData.longitude)
-        formData.latitude = parseInt(formData.latitude)
+        // formData.longitude = parseInt(formData.longitude)
+        // formData.latitude = parseInt(formData.latitude)
         formData.image = await this.getHttpsImage(this.data.detail.image, "image")
-        // formData.icon = await this.getHttpsImage(this.data.detail.icon,"icon")        
+        // formData.icon = await this.getHttpsImage(this.data.detail.icon,"icon")    
+        formData.markerList = [
+            { "color": formData.marker0_color, "text": formData.marker0_text },
+            { "color": formData.marker1_color, "text": formData.marker1_text },
+            { "color": formData.marker2_color, "text": formData.marker2_text },
+        ]
+        //删除属性
+        delete formData.marker0_color
+        delete formData.marker0_text
+        delete formData.marker1_color
+        delete formData.marker1_text
+        delete formData.marker2_color
+        delete formData.marker2_text
+
+
         var detail = formData
         var res = await this.productUpdate({
             _id:this.data.detail._id,

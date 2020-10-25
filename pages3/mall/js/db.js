@@ -2,7 +2,8 @@
 var app = getApp()
 module.exports = Behavior({
     data: {
-        
+
+        inputValue: "",
     },
     ready() {
         // console.log("poi ready")
@@ -10,7 +11,7 @@ module.exports = Behavior({
         //  this.poiOnInit()
     },
     methods: {
-      
+
         // 添加品牌
         brandAdd(data) {
             return new Promise((reslove, reject) => {
@@ -88,7 +89,21 @@ module.exports = Behavior({
             })
         },
 
-
+        // 添加品牌
+        storeAdd(data) {
+            return new Promise((reslove, reject) => {
+                data = data || {}
+                data['action'] = "store_add"
+                wx.cloud.callFunction({
+                    name: 'mall',
+                    data: data,
+                    success: res => {
+                        if (res.result.code == 0)
+                            reslove(res.result)
+                    },
+                })
+            })
+        },
         // 获取品牌列表
         storeGetList(data) {
             return new Promise((reslove, reject) => {
@@ -110,6 +125,7 @@ module.exports = Behavior({
             return new Promise((reslove, reject) => {
                 data = data || {}
                 data['action'] = "store_get_by_id"
+                wx.showLoading({mask:true})
                 wx.cloud.callFunction({
                     name: 'mall',
                     data: data,
@@ -117,6 +133,7 @@ module.exports = Behavior({
                         if (res.result.code == 0)
                             reslove(res.result)
                     },
+                    complete: res => { wx.hideLoading() }
                 })
             })
         },
@@ -214,6 +231,7 @@ module.exports = Behavior({
                 })
             })
         },
+        
 
         /**基础功能****/
         // 新增
@@ -268,7 +286,14 @@ module.exports = Behavior({
             this.setData({ selectList: e.detail.value })
         },
 
-
+        // 搜索
+        search(e){
+            // debugger
+            console.log(e.detail.value.input)
+            this.setData({
+                inputValue:e.detail.value.input
+            }) 
+        },
 
         /**上传****/
 
