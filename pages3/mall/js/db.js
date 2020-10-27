@@ -295,6 +295,22 @@ module.exports = Behavior({
             }) 
         },
 
+        getAddress(){
+            wx.chooseLocation({
+                success:res=>{
+                    console.log(res)
+                    var detail = this.data.detail
+
+                    detail.latitude = res.latitude
+                    detail.longitude = res.longitude
+                    detail.address = res.address
+                    this.setData({
+                        detail: detail
+                    })
+                }
+            })
+        },
+
         /**上传****/
 
         // 获取https链接的图片

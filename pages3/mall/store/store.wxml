@@ -143,14 +143,20 @@
         </view>
 
         
+        <view class="cu-form-group margin-top">
+            <view class="title">地理位置i</view>
+            <view>
+                <button class="cu-btn" catchtap="getAddress" data-key="logo">获取</button>
+            </view>
+        </view>
         <view class="cu-form-group margin-top ">
             <view class="title">经度</view>
-            <input placeholder="经度" name="longitude" value="{{detail.location.coordinates[0]}}" class="text-right" ></input>
+            <input placeholder="经度" name="longitude" value="{{detail.longitude}}" class="text-right" ></input>
         </view>
         
         <view class="cu-form-group  ">
             <view class="title">纬度</view>
-            <input placeholder="纬度" name="latitude" value="{{detail.location.coordinates[1]}}" class="text-right" ></input>
+            <input placeholder="纬度" name="latitude" value="{{detail.latitude}}" class="text-right" ></input>
         </view>
         <view class="cu-form-group  ">
             <view class="title">地址</view>
