@@ -24,6 +24,7 @@ Page({
         status: app.alert.STATUS_SUCCESS, // true成功，fail失败
         mode: app.alert.MODE_SCORE, //
         nav: app.alert.NAV_BACK,
+        store:{},
         store_uuid: "",
         title: "",
         content: "",
@@ -39,6 +40,7 @@ Page({
         duration: 1000,
 
         adList: [],
+        
     },
 
     /**
@@ -52,6 +54,7 @@ Page({
             status: options.status || GP.data.status, 
             mode: options.mode || GP.data.mode,
             nav: options.nav || GP.data.nav,
+            store: { uuid: options.store_uuid || GP.data.store_uuid },
             store_uuid: options.store_uuid || GP.data.store_uuid,
             title: options.title || GP.data.title,
             content: options.content || GP.data.content,
@@ -64,6 +67,9 @@ Page({
     // 点击关注更多按钮
     more() {
         // TODO 打开探店小地图
+        wx.redirectTo({
+            url: `/pages/route/route`,
+        }) 
     },
 
     // 点击返回按钮

@@ -37,7 +37,7 @@
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
                 <button class="weui-btn" type="primary" catchtap='back' style='background-color:#efaf30;'>查看我的集点</button>
-                <!-- <button class="weui-btn" type="default"  catchtap='more'>查看更多美食资讯</button> -->
+                <button class="weui-btn" type="default"  catchtap='more'>回到首页</button>
             </view>
         </view>
         
@@ -47,8 +47,14 @@
             </view>
         </view> -->
         
-        <view style="height:10px"></view>
+        <!-- <view style="height:10px"></view> -->
     </view>
+
+
+    <view class="page-bg-white-gray margin-bottom">
+        <mall-list store="{{store}}"></mall-list>
+    </view>
+
     <!-- <view>
         <swiper indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"

@@ -36,7 +36,7 @@
 		"packNpmRelationList": []
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.13.1",
+	"libVersion": "2.13.2",
 	"appid": "wxd19bbe9cb3b293b6",
 	"projectname": "%E9%9B%86%E7%82%B9%E5%8D%A1%E5%AE%A2%E6%88%B7%E7%AB%AF",
 	"debugOptions": {
@@ -108,14 +108,14 @@
 					"id": 5,
 					"name": "route自助扫码",
 					"pathName": "pages/route/route",
-					"query": "scene=sh_1_1_1559939515",
+					"query": "scene=28-54603-1578810613.102712",
 					"scene": null
 				},
 				{
 					"id": 6,
 					"name": "alert提示",
 					"pathName": "pages/alert/alert",
-					"query": "scene=sh_1_1_1559939515",
+					"query": "scene=28-54603-1578810613.102712",
 					"scene": 1047
 				},
 				{
@@ -332,6 +332,7 @@
 					"id": -1,
 					"name": "pages3/mall/product/product",
 					"pathName": "pages3/mall/product/product",
+					"query": "",
 					"scene": null
 				}
 			]

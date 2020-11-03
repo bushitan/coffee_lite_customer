@@ -7,7 +7,7 @@
         <view class=" padding-lr " catchtap="toEditor">
             <view class="  text-sm  text-gray margin-top-sm solid-bottom padding-bottom-xs " >
                 <text class="cuIcon-title text-yellow "></text>
-                <text class="">小杯子集点卡 | {{brandList[brandIndex].des}}</text>
+                <text class="">小杯子地图 | {{brandList[brandIndex].des}}</text>
             </view>
         </view>
         

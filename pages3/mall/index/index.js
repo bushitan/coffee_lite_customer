@@ -56,6 +56,12 @@ Page({
     onReachBottom: function () {
 
     },
+    
+    toList(){
+        wx.navigateTo({
+            url: '/pages/list/list',
+        })
+    },
 
     /**
      * 用户点击右上角分享

@@ -2,7 +2,7 @@
 
 
 
-<view class="padding-tb-xs padding-lr solid-top flex justify-between align-center ad_box" style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)" catchtap="clickAD">
+<view class="padding-tb-xs padding-lr solid-top flex justify-between align-center ad_box" style="   position: fixed;bottom:0;left: 0;right: 0;background-color: rgba(255, 255, 255, 0.9)" catchtap="clickAD" wx:if="{{node.length>0}}">
     <view class="flex align-center">
         <text class="text-yellow text-sm">{{node.showDes}}</text>
     </view>

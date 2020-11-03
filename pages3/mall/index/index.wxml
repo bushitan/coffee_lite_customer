@@ -28,8 +28,10 @@
                 </view>
             </view>
         </view>        
-    </checkbox-group>
-        
+    </checkbox-group>        
+</view>
+<view class="padding">
+    <button class="cu-btn block bg-gray" catchtap="toList">去首页</button>
 </view>
 
 <view class="page-space-60"></view>

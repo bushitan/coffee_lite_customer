@@ -34,9 +34,9 @@
 
 <view  class='back '  catchtap='back'>
     <view class=" flex align-center  text-sm">
-        <image class=" " src='/images/icon/back.png'></image>
+        <image class="block " src='/images/icon/back.png'></image>
   
-        <image class=" " src='/images/icon/my.png'></image>
+        <image class=" " src='/images/icon/main_notice.png'></image>
         <open-data type="userNickName"></open-data>
         （<text>{{sn}}</text>）
     </view>

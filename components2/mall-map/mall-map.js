@@ -55,6 +55,8 @@ Component({
 
             var res = await this.getStoreList({ brandID: brandList[0]._id  }) // 获取当前门店的列表
             this.setStoreListToMap(res.data)
+
+            this.toSelfLocation() // 定位到自己
         },
 
         /**
@@ -140,24 +142,29 @@ Component({
             // debugger
             for (var i = 0; i < list.length; i++) {
                 var marker = list[i]
-                tempList.push({
+                var obj = {
                     iconPath: this.data.brandList[this.data.brandIndex].icon ,
                     id: i,
                     longitude: marker.location.coordinates[0],
                     latitude: marker.location.coordinates[1],
                     width: 40,
-                    height: 40,
-                    callout:{
-                        content: this.data.brandList[this.data.brandIndex].callout || "自提点",
+                    height: 40,                    
+                    label:{
+                        content: marker.name,
+                        color: "#666666",
+
+                    },
+                }
+                if (this.data.brandList[this.data.brandIndex].callout.length > 0){
+                    obj.callout = {
+                        content: this.data.brandList[this.data.brandIndex].callout ,
                         color:"#ffffff",
                         bgColor: this.data.brandList[this.data.brandIndex].calloutBgColor || "#efaf30",
                         display:"ALWAYS",
                         padding:5,
-                    },
-                    label:{
-                        content: marker.name
-                    },
-                })
+                    }
+                }
+                tempList.push(obj)
             }
             console.log(tempList)
             this.setData({
@@ -165,17 +172,75 @@ Component({
                 storeList: list,
             })
 
+            // this.getMapRange(tempList)
+
+        },
+
+        toSelfLocation(){
+            
+            wx.getLocation({
+                type: "wgs84",
+                success: res => {
+                    this.setData({
+
+                        poiLongitude: res.longitude,
+                        poiLatitude: res.latitude,
+                    })
+                    console.log('getLocation:success', res)
+                    // var latitude = res.latitude
+                    // var longitude = res.longitude
+                    // mapContext.includePoints({
+                    //     padding: [100, 80, 100, 80],
+                    //     // padding: [40, 40, 40, 40],
+                    //     points: [
+                    //         {
+                    //             latitude: latitude,
+                    //             longitude: longitude
+                    //         }
+                    //     ], //放入所有坐标轴的数组   并引用此方法
+                    //     success: (res) => {
+                    //         console.log(res)
+                    //     },
+                    //     fail: (res) => {
+                    //         console.log(res)
+                    //     },
+                    // }, this)
+                },
+            })
+           
+        },
+
+        getMapRange(tempList){
+            // var arr = [];
+
+            // for (var i = 1; i <= 100; i++) {
+            //     arr.push(i);
+            // }
+
+            tempList.sort(
+                function () {
+                    return 0.5 - Math.random();
+                }
+            );
+
+            // arr.lenth = 10;
+            var points = [tempList[0], tempList[1], ]
+
+            console.log(
+                points
+            );
+
             mapContext.includePoints({
                 padding: [100, 80, 100, 80],
-                points: tempList, //放入所有坐标轴的数组   并引用此方法
+                // padding: [40, 40, 40, 40],
+                points: points, //放入所有坐标轴的数组   并引用此方法
                 success: (res) => {
                     console.log(res)
-                }, 
+                },
                 fail: (res) => {
                     console.log(res)
                 },
-            },this)
-
+            }, this)
         },
 
         // 获取品牌列表
@@ -228,9 +293,9 @@ Component({
         },
 
         toEditor(){
-            wx.navigateTo({
-                url: '/pages3/mall/index/index',
-            })
+            // wx.navigateTo({
+            //     url: '/pages3/mall/index/index',
+            // })
         },
     }
 })
