@@ -89,11 +89,11 @@
     </swiper> -->
 
 
+<ad-swiper storeUUID="{{store.uuid}}"></ad-swiper>
 <view>
     <ad unit-id="adunit-1c3ce836d27c9393" ad-type="video" ad-theme="white"></ad>
 </view>
 <official-account></official-account>
-<ad-swiper storeUUID="{{store.uuid}}"></ad-swiper>
 <view>
     <ad unit-id="adunit-54a73f76bd11001c"></ad>
 </view>

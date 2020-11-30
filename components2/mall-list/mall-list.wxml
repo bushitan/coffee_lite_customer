@@ -19,7 +19,8 @@
         <view class="bg-white flex-sub margin-lr-sm radius product" style="overflow: hidden;"
          wx:for="{{list[i]}}" wx:for-item="product"  catchtap="click" data-nav="{{product.navPath}}" 
          data-store_id="{{store.id}}" data-user_sn="{{sn}}" 
-         data-product_id="{{product._id}}" data-product_name="{{product.name}}" data-product_title="{{product.title}}">
+         data-product_id="{{product._id}}" data-product_name="{{product.name}}" 
+         data-appid="{{product.liteAppID}}" data-path="{{product.litePath}}" data-product_title="{{product.title}}">
             <image src="{{product.image}}" mode="aspectFill" class="gif-black response block" style="height:325rpx"></image>            
             <view class="padding-sm">            
                 <view class="text-df">{{product.title}}</view>
@@ -38,11 +39,11 @@
      
     </view>
 
-        <view class="text-gray text-df text-center margin-top">
+        <!-- <view class="text-gray text-df text-center margin-top">
             <text  catchtap="toShoppingCart">购物车</text>
             <text class="margin-lr">|</text>
             <text  catchtap="toShoppingOrder">我的订单</text>
-        </view>
+        </view> -->
 </view>
 
                 <!-- <view>{{product.des}}</view> -->

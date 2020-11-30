@@ -67,10 +67,12 @@ Component({
                 mode: app.dbAD.AD.MODE_BANNER
             }
             app.dbAD.getList(data).then(res=>{
-
+                
                 this.setData({
+                    list:res.data,
                     node: res.data[0],
                 })
+                console.log(this.data.node)
             })
             // this.addAD()
         },

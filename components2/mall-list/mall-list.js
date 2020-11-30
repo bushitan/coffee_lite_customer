@@ -28,9 +28,16 @@ Component({
     methods: {
 
         click(e){
-            wx.navigateTo({
-                url: e.currentTarget.dataset.nav,
-            })
+            if (e.currentTarget.dataset.appid )
+                wx.navigateToMiniProgram({
+                    appId: e.currentTarget.dataset.appid,
+                    path: e.currentTarget.dataset.path,
+                })
+            else
+
+                wx.navigateTo({
+                    url: e.currentTarget.dataset.nav,
+                })
         },
 
         async setStore(newVal, oldVal) {
